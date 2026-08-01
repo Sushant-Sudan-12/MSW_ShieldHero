@@ -1,0 +1,78 @@
+@Component
+script TrapDamage extends Component
+
+	@MinValue(0)
+	property number Damage = 20
+
+	@MinValue(0)
+	property number Cooldown = 0.5
+
+	@HideFromInspector
+	property number LastTriggerTime = 0
+
+	@ExecSpace("ServerOnly")
+	method void OnBeginPlay()
+		self.LastTriggerTime = -9999
+	end
+
+	method boolean CanTrigger()
+		local currentTime = _UtilLogic.ElapsedSeconds
+		if currentTime - self.LastTriggerTime < self.Cooldown then
+			return false
+		end
+
+		self.LastTriggerTime = currentTime
+		return true
+	end
+
+	method void ApplyDamageToTarget(Entity target)
+		if target == nil then
+			return
+		end
+
+		if self:CanTrigger() == false then
+			return
+		end
+
+		local playerHit = target:GetComponent("PlayerHit")
+		if isvalid(playerHit) then
+			local immuneLogic = playerHit:GetComponent("PlayerImmuneLogic")
+			if isvalid(immuneLogic) and immuneLogic:IsImmune() then
+				return
+			end
+		end
+
+		local playerComponent = target:GetComponent("PlayerComponent")
+		if isvalid(playerComponent) then
+			local newHp = playerComponent.Hp - math.floor(self.Damage)
+			if newHp < 0 then
+				newHp = 0
+			end
+			playerComponent.Hp = newHp
+			log("TrapDamage: player hp -> " .. tostring(playerComponent.Hp))
+			return
+		end
+
+		local hitComponent = target:GetComponent("HitComponent")
+		if isvalid(hitComponent) then
+			hitComponent:OnHit(self.Entity, math.floor(self.Damage), false, "Trap", 1)
+			log("TrapDamage: sent hit event")
+			return
+		end
+
+		log("TrapDamage: target had no damageable component")
+	end
+
+	@ExecSpace("ServerOnly")
+	@EventSender("Self")
+	handler HandleInteractionEvent(InteractionEvent event)
+		self:ApplyDamageToTarget(event.InteractionEntity)
+	end
+
+	@ExecSpace("ServerOnly")
+	@EventSender("Self")
+	handler HandleInteractionEnterEvent(InteractionEnterEvent event)
+		self:ApplyDamageToTarget(event.InteractionEntity)
+	end
+
+end

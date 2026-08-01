@@ -1,0 +1,123 @@
+@Component
+script DialogueUIController extends Component
+
+property TextGUIRendererComponent dialogueComponent = "fd2aa18e-a624-4515-908d-b74bd78e454a"
+
+property TextGUIRendererComponent nameComponent = "a25c1d68-5449-4a15-9e5c-44d6827eba50"
+
+property number currentDialgoueIndex = 0
+
+property table currentDialogueData = {}
+
+property string currentDialogueID = ""
+
+@ExecSpace("ClientOnly")
+method void Show()
+-- Converts DialogueUI's Enable to true.
+self.Entity.Enable = true
+end
+
+@ExecSpace("ClientOnly")
+method void Hide()
+-- Converts DialogueUI's Enable to false.
+self.Entity.Enable = false
+end
+
+@ExecSpace("ClientOnly")
+method void InitDialogueData(table DialogueData)
+-- Activates DialogueUI to output the dialogue.
+self:Show()
+-- Changes the current dialogue progression to 1.
+self.currentDialgoueIndex = 1
+-- Registers the received DialogueData to its own Property.
+self.currentDialogueData = DialogueData
+-- Loads the name value from CharacterNameStringData from the received Data.
+local nameText = _LocalizationService:GetText(DialogueData[self.currentDialgoueIndex].NameID)
+-- Loads the text from DialogueLocalizeData from the received data. 
+local dialogueText = _LocalizationService:GetText(DialogueData[self.currentDialgoueIndex].TextID)
+-- Leaves text blank if the loaded name value is nil or "".
+if _UtilLogic:IsNilorEmptyString(nameText) then
+	self.nameComponent.Text = ""
+else
+	if nameText == "Player" then
+		-- Outputs the player's nickname if the name that needs to be output is Player.
+		self.nameComponent.Text = _UserService.LocalPlayer.PlayerComponent.Nickname
+	else
+		-- If not, applies the localized name value that was loaded to the text component.
+		self.nameComponent.Text = nameText
+	end
+end
+-- Leaves the text output window blank if the loaded dialogue text value is nil or "".
+if _UtilLogic:IsNilorEmptyString(dialogueText) then
+	self.dialogueComponent.Text = ""
+else
+	-- If not, applies the localized dialogue text that was loaded to the text component.
+	self.dialogueComponent.Text = dialogueText
+end
+end
+
+@ExecSpace("ClientOnly")
+method void UpdateNextDialogue()
+-- Increases the current text progression stage by 1.
+self.currentDialgoueIndex = self.currentDialgoueIndex + 1
+-- Executes the following code if the next dialogue data exists.
+if isvalid(self.currentDialogueData[self.currentDialgoueIndex]) then
+	-- Loads the character name for the next dialogue.
+	local nameText = _LocalizationService:GetText(self.currentDialogueData[self.currentDialgoueIndex].NameID) 
+	-- Loads the script for the next dialogue.
+	local dialogueText = _LocalizationService:GetText(self.currentDialogueData[self.currentDialgoueIndex].TextID)
+	-- Leaves the name blank if the loaded name value is nil or "".
+	if not isvalid(nameText) or nameText == "" then
+		self.nameComponent.Text = ""
+	else
+		if nameText == "Player" then
+			-- Outputs the player's nickname if the name that needs to be output is Player.
+			self.nameComponent.Text = _UserService.LocalPlayer.PlayerComponent.Nickname
+		else
+			-- If not, applies the localized name value that was loaded to the text component.
+			self.nameComponent.Text = nameText
+		end
+	end
+	-- Outputs the dialogue as blank if the loaded dialogue value is nil or "".
+	if not isvalid(dialogueText) or dialogueText =="" then
+		self.dialogueComponent.Text = ""
+	else
+		-- If not, outputs the loaded value.
+		self.dialogueComponent.Text = dialogueText
+	end
+else
+	-- If there is no next dialogue data, determines that the dialogue is over and closes the dialogue window.
+	self:Hide()
+	-- Activates the Component that was blocked to prevent character controls while the dialogue is taking place.
+	_LocalPlayerControlLogic:EnablePlayerControl()
+	-- Determines whether the quest has been cleared.
+	local checkClearQuest = CheckQuestClearEvent()
+	checkClearQuest.ConditionType = "Talk"
+	checkClearQuest.TargetID = self.currentDialogueID
+	_UserService.LocalPlayer:SendEvent(checkClearQuest)
+end
+end
+
+@ExecSpace("ClientOnly")
+@EventSender("Entity", "a68947ee-8f88-43b5-b8a1-91aec780b578")
+handler HandleButtonClickEvent(ButtonClickEvent event)
+-- Calls the method to output the next line, since the player touched the screen.
+self:UpdateNextDialogue()
+end
+
+@ExecSpace("ClientOnly")
+@EventSender("Self")
+handler HandleShowDialogueUIEvent(ShowDialogueUIEvent event)
+-- Determines whether the received DialogueID value in the event is nil.
+if not _UtilLogic:IsNilorEmptyString(event.DialogueID) then
+	-- Searches for text that will be output in the dialogue window.
+	local findData = _DialogueLogic:GetDialogueDataByDialogueID(event.DialogueID)
+	-- Registers the relevant data when it's successfully found.
+	self:InitDialogueData(findData)
+	self.currentDialogueID = event.DialogueID
+	-- Executes the Show Method that shows itself since the dialogue window must be output.
+	self:Show()
+end
+end
+
+end

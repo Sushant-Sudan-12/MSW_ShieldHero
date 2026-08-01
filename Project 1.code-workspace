@@ -1,0 +1,43 @@
+{
+  "folders": [
+    {
+      "path": "./"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/*.meta": true,
+      "**/*.config": true,
+      "**/*.gamelogic": true,
+      "**/*.logic": true,
+      "**/*.directory": true,
+      "**/*.codeblock": true,
+      "**/*.material": true,
+      "**/*.sprite": true,
+      "**/*.sound": true,
+      "**/*.userdataset": true,
+      "**/*.localedataset": true,
+      "**/*.tileset": true,
+      "**/*.blueprintatlas": true,
+      "**/*.packedatlas": true,
+      "**/*.customaction": true,
+      "**/*.scriptfile": true,
+      "**/*Mislocated": true
+    },
+    "files.readonlyInclude": {
+      "**/*.d.mlua": true
+    },
+    "mcp":{
+      "servers":{
+        "MSW-MCP":{
+          "url":"https://msw-mcp.nexon.com/mcp",
+          "type": "http",
+          "headers" : {
+            "Authorization": "104a2480-0bcf-4f25-a5d6-ba1548542b26"
+          }
+        }
+      }    
+    },
+    "inputs": []
+  }
+}

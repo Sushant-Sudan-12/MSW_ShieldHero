@@ -1,0 +1,31 @@
+@Component
+script PlayerImmuneLogic extends Component
+
+	@MinValue(0)
+	property number ImmuneCooldown = 1
+
+	@HideFromInspector
+	property number LastHitTime = 0
+
+	method boolean IsImmune()
+		local currentTime = _UtilLogic.ElapsedSeconds
+		return self.LastHitTime + self.ImmuneCooldown > currentTime
+	end
+
+	method boolean CanTakeHit()
+		if self:IsImmune() then
+			return false
+		end
+
+		self.LastHitTime = _UtilLogic.ElapsedSeconds
+		return true
+	end
+
+	@EventSender("Self")
+	handler HandleHitEvent(HitEvent event)
+		if self:CanTakeHit() == false then
+			return
+		end
+	end
+
+end

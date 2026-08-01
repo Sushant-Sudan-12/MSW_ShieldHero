@@ -1,0 +1,11 @@
+@Component
+script PlayerHit extends Component
+
+	method void OnBeginPlay()
+		local immuneLogic = self.Entity:GetComponent("PlayerImmuneLogic")
+		if isvalid(immuneLogic) == false then
+			self.Entity:AddComponent("PlayerImmuneLogic")
+		end
+	end
+
+end

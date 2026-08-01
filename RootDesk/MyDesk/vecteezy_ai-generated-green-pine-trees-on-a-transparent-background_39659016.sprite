@@ -1,0 +1,26 @@
+{
+  "Id": "",
+  "GameId": "",
+  "EntryKey": "sprite://8465c74dfb1545d8a363cbe9e583cd15",
+  "ContentType": "x-mod/sprite",
+  "Content": "",
+  "Usage": 0,
+  "UsePublish": 1,
+  "UseService": 0,
+  "CoreVersion": "26.5.0.0",
+  "StudioVersion": "0.1.0.0",
+  "DynamicLoading": 0,
+  "ContentProto": {
+    "Use": "Json",
+    "Json": {
+      "upload_keyname": "70/31/703139b1c474463b8ddfffd1ec8b5e65/sprite/8465c74dfb1545d8a363cbe9e583cd15/639198849181574170",
+      "upload_hash": "BF11A7641A7BF00195B19CB7D2E380FC7AE5D6A0D2EBDCE59DEAE2B47DE55885",
+      "name": "vecteezy_ai-generated-green-pine-trees-on-a-transparent-background_39659016",
+      "resource_guid": "8465c74dfb1545d8a363cbe9e583cd15",
+      "resource_version": "6a5a13765816423efd1c6d95",
+      "worldCoreVersion": "26.5.0.0",
+      "worldStudioVersion": "0.1.0.0",
+      "useService": 0
+    }
+  }
+}

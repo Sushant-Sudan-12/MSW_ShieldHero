@@ -1,0 +1,50 @@
+@Component
+script PlayerMovement extends Component
+
+	@MinValue(0)
+	property number DashCooldown = 0.6
+
+	@MinValue(0)
+	property number DashSpeed = 12
+
+	@HideFromInspector
+	property number LastDashTime = 0
+
+	@ExecSpace("ClientOnly")
+	method void OnBeginPlay()
+		local playerController = self.Entity.PlayerControllerComponent
+		if isvalid(playerController) then
+			playerController:SetActionKey(KeyboardKey.LeftShift, "Dash")
+			playerController:SetActionKey(KeyboardKey.RightShift, "Dash")
+		end
+	end
+
+	method boolean CanDash()
+		local currentTime = _UtilLogic.ElapsedSeconds
+		return currentTime - self.LastDashTime >= self.DashCooldown
+	end
+
+	method void TryDash()
+		if self:CanDash() == false then
+			return
+		end
+
+		self.LastDashTime = _UtilLogic.ElapsedSeconds
+		log("PlayerMovement dash triggered")
+
+		local rigidbody = self.Entity.RigidbodyComponent
+		if isvalid(rigidbody) then
+			local directionX = self.Entity.PlayerControllerComponent.LookDirectionX
+			rigidbody:JustJump(Vector2(directionX * self.DashSpeed, 0))
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	@EventSender("Self")
+	handler HandlePlayerActionEvent(PlayerActionEvent event)
+		if event.ActionName == "Dash" then
+			self:TryDash()
+		end
+	end
+
+end

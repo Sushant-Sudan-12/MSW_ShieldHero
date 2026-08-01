@@ -1,0 +1,4 @@
+@Logic
+script DialogueLogic extends Logic
+
+end
