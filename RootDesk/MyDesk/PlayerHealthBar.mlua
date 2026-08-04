@@ -1,0 +1,40 @@
+@ExecSpace("Client")
+@Component
+script PlayerHealthBar extends Component
+
+	method void OnBeginPlay()
+		self:UpdateHealthBar()
+	end
+
+	method void OnUpdate(number delta)
+		self:UpdateHealthBar()
+	end
+
+	method void UpdateHealthBar()
+		local player = _UserService.LocalPlayer
+		if isvalid(player) == false then
+			return
+		end
+
+		local playerComponent = player:GetComponent("PlayerComponent")
+		if isvalid(playerComponent) == false then
+			return
+		end
+
+		local maxHp = playerComponent.MaxHp
+		if maxHp <= 0 then
+			maxHp = 1
+		end
+
+		local hpRatio = playerComponent.Hp / maxHp
+		hpRatio = math.max(0, math.min(1, hpRatio))
+
+		local spriteRenderer = self.Entity.SpriteGUIRendererComponent
+		if isvalid(spriteRenderer) == false then
+			return
+		end
+
+		spriteRenderer.FillAmount = hpRatio
+	end
+
+end

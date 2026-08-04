@@ -1,0 +1,33 @@
+{
+  "Id": "",
+  "GameId": "",
+  "EntryKey": "codeblock://00e3d8fa-a77b-4d1d-8d93-14e33ff4c64b",
+  "ContentType": "x-mod/codeblock",
+  "Content": "",
+  "Usage": 0,
+  "UsePublish": 1,
+  "UseService": 0,
+  "CoreVersion": "26.7.0.0",
+  "StudioVersion": "",
+  "DynamicLoading": 0,
+  "ContentProto": {
+    "Use": "Json",
+    "Json": {
+      "CoreVersion": {
+        "Major": 0,
+        "Minor": 2
+      },
+      "ScriptVersion": {
+        "Major": 1,
+        "Minor": 1
+      },
+      "Description": "",
+      "Id": "00e3d8fa-a77b-4d1d-8d93-14e33ff4c64b",
+      "Language": 1,
+      "Name": "PressToShowDialog",
+      "Type": 5,
+      "Source": 0,
+      "Target": null
+    }
+  }
+}

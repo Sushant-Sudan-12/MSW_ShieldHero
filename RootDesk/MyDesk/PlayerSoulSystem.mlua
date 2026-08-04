@@ -1,0 +1,33 @@
+@Component
+script PlayerSoulSystem extends Component
+
+	@Sync
+	property number TotalSouls = 0
+
+	method void AddSouls(number amount)
+		if amount == nil or amount <= 0 then
+			return
+		end
+
+		self.TotalSouls = self.TotalSouls + amount
+		log("PlayerSoulSystem AddSouls -> " .. tostring(self.TotalSouls))
+	end
+
+	method number GetTotalSouls()
+		return self.TotalSouls
+	end
+
+	method string GetSoulText()
+		return "x" .. tostring(self.TotalSouls)
+	end
+
+	@ExecSpace("ClientOnly")
+	@EventSender("Service", "InputService")
+	handler HandleKeyDownEvent(KeyDownEvent event)
+		local key = event.key
+		if key == KeyboardKey.P then
+			log("PlayerSoulSystem key P -> current total souls: " .. tostring(self.TotalSouls))
+		end
+	end
+
+end

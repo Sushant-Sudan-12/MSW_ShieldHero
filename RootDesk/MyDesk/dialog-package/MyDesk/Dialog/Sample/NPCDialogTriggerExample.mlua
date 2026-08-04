@@ -1,0 +1,20 @@
+@Component
+script NPCDialogTriggerExample extends Component
+
+	@Sync
+	property string DialogId = "Tutorial"
+
+	@ExecSpace("ClientOnly")
+	method void OnBeginPlay()
+		_DialogDataLogic:LoadData("SampleDialogDataSet")
+	end
+
+	@ExecSpace("ClientOnly")
+	@EventSender("Self")
+	handler HandleInteractionEvent(InteractionEvent event)
+		if self.DialogId ~= nil and self.DialogId ~= "" then
+			_DialogLogic:StartDialog(self.DialogId)
+		end
+	end
+
+end

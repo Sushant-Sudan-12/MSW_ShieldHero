@@ -7,7 +7,7 @@
   "Usage": 0,
   "UsePublish": 1,
   "UseService": 0,
-  "CoreVersion": "26.5.0.0",
+  "CoreVersion": "26.7.0.0",
   "StudioVersion": "0.1.0.0",
   "DynamicLoading": 0,
   "ContentProto": {
@@ -1157,6 +1157,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -0.225,
                 "y": -0.15,
@@ -1168,6 +1173,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -2759,6 +2765,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -0.225,
                 "y": -0.15,
@@ -2770,6 +2781,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -2812,6 +2824,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -10.178546,
                 "y": -3.92647886,
@@ -2828,6 +2845,7 @@
                 "y": 1.0,
                 "z": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -2869,6 +2887,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -5.509857,
                 "y": -3.92647552,
@@ -2880,6 +2903,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -2921,6 +2945,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -0.841177,
                 "y": -3.91244984,
@@ -2932,6 +2961,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -2973,6 +3003,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": 3.83328342,
                 "y": -3.90915871,
@@ -2984,6 +3019,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -3061,6 +3097,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -0.225,
                 "y": -0.15,
@@ -3072,6 +3113,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -3114,6 +3156,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -0.429848671,
                 "y": -2.01,
@@ -3125,6 +3172,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -3166,6 +3214,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": 4.127145,
                 "y": -2.014667,
@@ -3182,6 +3235,7 @@
                 "y": 0.495756924,
                 "z": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -3223,6 +3277,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -12.37092,
                 "y": -0.617899656,
@@ -3239,6 +3298,7 @@
                 "y": 1.25906229,
                 "z": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -3280,6 +3340,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -6.29375839,
                 "y": -2.20401955,
@@ -3291,6 +3356,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -3332,6 +3398,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -12.3077965,
                 "y": -1.44929266,
@@ -3343,6 +3414,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -3384,6 +3456,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": 8.414614,
                 "y": -3.90884042,
@@ -3395,6 +3472,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -3436,6 +3514,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": 13.0707455,
                 "y": -3.9174552,
@@ -3447,6 +3530,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -3488,6 +3572,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -13.4615917,
                 "y": -2.27615428,
@@ -3504,6 +3593,7 @@
                 "y": 1.51080811,
                 "z": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -3545,6 +3635,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -12.1956215,
                 "y": -2.122879,
@@ -3561,6 +3656,7 @@
                 "y": 0.8406245,
                 "z": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -3602,6 +3698,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -14.6175823,
                 "y": -1.13029635,
@@ -3613,6 +3714,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -3690,6 +3792,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -0.225,
                 "y": -0.15,
@@ -3701,6 +3808,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -3743,6 +3851,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -11.0974436,
                 "y": -2.03544188,
@@ -3759,6 +3872,7 @@
                 "y": 1.14800239,
                 "z": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -3800,6 +3914,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -8.697462,
                 "y": -2.36028,
@@ -3811,6 +3930,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -3852,6 +3972,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -15.2357559,
                 "y": -2.03050113,
@@ -3868,6 +3993,7 @@
                 "y": 2.54427576,
                 "z": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -3909,6 +4035,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -10.62766,
                 "y": -0.9300002,
@@ -3920,6 +4051,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -3961,6 +4093,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -14.81986,
                 "y": -3.923995,
@@ -3977,6 +4114,7 @@
                 "y": 1.0,
                 "z": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -4018,6 +4156,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": 1.103653,
                 "y": -2.46323776,
@@ -4029,6 +4172,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -4070,6 +4214,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -7.49344349,
                 "y": -1.296427,
@@ -4086,6 +4235,7 @@
                 "y": 1.74108171,
                 "z": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -4127,6 +4277,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -7.520131,
                 "y": -0.3385846,
@@ -4143,6 +4298,7 @@
                 "y": 1.65680635,
                 "z": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -4220,6 +4376,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -0.225,
                 "y": -0.15,
@@ -4231,6 +4392,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -4273,6 +4435,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -6.31404972,
                 "y": -1.90059543,
@@ -4289,6 +4456,7 @@
                 "y": 1.0,
                 "z": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -4335,6 +4503,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -14.350893,
                 "y": -1.64248407,
@@ -4351,6 +4524,7 @@
                 "y": 1.6761663,
                 "z": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -4400,6 +4574,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": 14.1623878,
                 "y": -2.37837577,
@@ -4416,6 +4595,7 @@
                 "y": 3.453129,
                 "z": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -4457,6 +4637,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": 11.64439,
                 "y": -2.03038287,
@@ -4473,6 +4658,7 @@
                 "y": 1.41917241,
                 "z": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -4550,6 +4736,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -0.225,
                 "y": -0.15,
@@ -4561,6 +4752,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -4603,6 +4795,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": 9.447487,
                 "y": -2.5617907,
@@ -4614,6 +4811,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -4699,6 +4897,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": 2.518153,
                 "y": -2.48500013,
@@ -4710,6 +4913,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -4772,7 +4976,7 @@
       {
         "id": "21a981a7-dd46-476d-ae9b-c0f0319bffa4",
         "path": "/maps/StartingArea/npc-1",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.StateComponent,MOD.Core.ChatBalloonComponent,MOD.Core.StateAnimationComponent,MOD.Core.NameTagComponent,MOD.Core.InteractionComponent",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.StateComponent,MOD.Core.ChatBalloonComponent,MOD.Core.StateAnimationComponent,MOD.Core.NameTagComponent,MOD.Core.InteractionComponent,script.DialogInteractionTrigger",
         "jsonString": {
           "name": "npc-1",
           "path": "/maps/StartingArea/npc-1",
@@ -4794,6 +4998,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -1.33283591,
                 "y": -2.54213047,
@@ -4805,6 +5014,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -4860,6 +5070,7 @@
             },
             {
               "@type": "MOD.Core.InteractionComponent",
+              "ActionName": "Talk",
               "BoxSize": {
                 "x": 0.67,
                 "y": 0.87
@@ -4869,7 +5080,13 @@
                 "y": 0.435
               },
               "IsLegacy": false,
+              "ShowActionInfo": true,
               "Enable": true
+            },
+            {
+              "@type": "script.DialogInteractionTrigger",
+              "Enable": true,
+              "DialogId": "Tutorial1"
             }
           ],
           "@version": 1
@@ -4900,6 +5117,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": 11.56605,
                 "y": -2.485597,
@@ -4911,6 +5133,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -4978,6 +5201,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -7.480139,
                 "y": -2.08230662,
@@ -4994,6 +5222,7 @@
                 "y": 1.0,
                 "z": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -5039,6 +5268,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": 7.696565,
                 "y": -2.491272,
@@ -5050,6 +5284,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {

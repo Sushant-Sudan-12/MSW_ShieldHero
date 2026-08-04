@@ -1,13 +1,13 @@
 {
   "Id": "",
   "GameId": "",
-  "EntryKey": "codeblock://cc35ed71-a376-4c73-8ff5-a678b5f59ea5",
+  "EntryKey": "codeblock://9c10c8f0-614f-4234-8e25-ff076276bc06",
   "ContentType": "x-mod/codeblock",
   "Content": "",
   "Usage": 0,
   "UsePublish": 1,
   "UseService": 0,
-  "CoreVersion": "26.5.0.0",
+  "CoreVersion": "26.7.0.0",
   "StudioVersion": "",
   "DynamicLoading": 0,
   "ContentProto": {
@@ -22,10 +22,10 @@
         "Minor": 1
       },
       "Description": "",
-      "Id": "cc35ed71-a376-4c73-8ff5-a678b5f59ea5",
+      "Id": "9c10c8f0-614f-4234-8e25-ff076276bc06",
       "Language": 1,
-      "Name": "DialogueLogic",
-      "Type": 5,
+      "Name": "PlayerSoulSystem",
+      "Type": 1,
       "Source": 0,
       "Target": null
     }

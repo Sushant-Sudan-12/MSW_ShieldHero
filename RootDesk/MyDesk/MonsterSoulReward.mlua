@@ -1,0 +1,45 @@
+@Component
+script MonsterSoulReward extends Component
+
+	@Sync
+	property number SoulsToGive = 1
+
+	@ExecSpace("ServerOnly")
+	method void GrantSoulsToPlayer(Entity attacker)
+		if attacker == nil then
+			return
+		end
+
+		local playerSoulSystem = attacker:GetComponent("PlayerSoulSystem")
+		if isvalid(playerSoulSystem) then
+			playerSoulSystem:AddSouls(self.SoulsToGive)
+			return
+		end
+
+		local playerComponent = attacker:GetComponent("PlayerComponent")
+		if isvalid(playerComponent) then
+			log("PlayerSoulSystem not found on attacker entity")
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	@EventSender("Self")
+	handler HandleHitEvent(HitEvent event)
+		local attackerEntity = event.AttackerEntity
+		if attackerEntity == nil then
+			return
+		end
+
+		local monsterComponent = self.Entity:GetComponent("Monster")
+		if not isvalid(monsterComponent) then
+			return
+		end
+
+		if monsterComponent.Hp > 0 then
+			return
+		end
+
+		self:GrantSoulsToPlayer(attackerEntity)
+	end
+
+end

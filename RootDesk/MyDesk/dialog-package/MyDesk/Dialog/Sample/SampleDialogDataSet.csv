@@ -1,0 +1,5 @@
+﻿DialogId,ScriptId,PortraitRUID,CharacterName,CharacterScript,SelectionScripts,SelectionScriptIds
+Tutorial1,T_1,8ecaaccb025144daa5cbf645929af03b,Mage,Who are you?,Tell your name,T_2
+Tutorial1,T_2,,@Nick,"I'm *@Nick*, the shield warrior",Where is the Tower? | I will be on my way.,T_3|T_4
+Tutorial1,T_3,8ecaaccb025144daa5cbf645929af03b,Mage,It's right ahead,,
+Tutorial1,T_4,8ecaaccb025144daa5cbf645929af03b,Mage,Nice to meet you *@Nick*,,

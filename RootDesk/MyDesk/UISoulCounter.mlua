@@ -1,0 +1,60 @@
+@ExecSpace("Client")
+@Component
+script UISoulCounter extends Component
+
+	property Entity TextTarget = nil
+
+	property string Prefix = "x"
+
+	property number LastShownSouls = -1
+
+	method void OnBeginPlay()
+		self:ForceSetInitialValue()
+		self:Refresh()
+	end
+
+	method void OnUpdate(number delta)
+		self:Refresh()
+	end
+
+	method void ForceSetInitialValue()
+		self:WriteText(self.Prefix .. "0")
+	end
+
+	method void Refresh()
+		local player = _UserService.LocalPlayer
+		if isvalid(player) == false then
+			return
+		end
+
+		local soulSystem = player:GetComponent("PlayerSoulSystem")
+		if isvalid(soulSystem) == false then
+			return
+		end
+
+		if soulSystem.TotalSouls == self.LastShownSouls then
+			return
+		end
+
+		local textValue = self.Prefix .. tostring(soulSystem.TotalSouls)
+		self.LastShownSouls = soulSystem.TotalSouls
+		self:WriteText(textValue)
+	end
+
+	method void WriteText(string value)
+		local target = self.TextTarget
+		if isvalid(target) == false then
+			target = self.Entity
+		end
+
+		if isvalid(target.TextComponent) then
+			target.TextComponent.Text = value
+			return
+		end
+
+		if isvalid(target.TextInputComponent) then
+			target.TextInputComponent.Text = value
+		end
+	end
+
+end
