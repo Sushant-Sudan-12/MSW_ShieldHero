@@ -7,16 +7,76 @@
   "Usage": 0,
   "UsePublish": 1,
   "UseService": 0,
-  "CoreVersion": "26.5.0.0",
+  "CoreVersion": "26.7.0.0",
   "StudioVersion": "0.1.0.0",
   "DynamicLoading": 0,
   "ContentProto": {
     "Use": "Json",
     "Json": {
-      "Data": {},
-      "worldCoreVersion": "26.5.0.0",
-      "worldStudioVersion": "0.1.0.0",
-      "useService": 0
+      "Data": {
+        "parry": {
+          "Frames": [
+            {
+              "defined_actionname": "stabT2",
+              "frameindex": 0,
+              "framedelay": 0.3,
+              "move_x": 0,
+              "move_y": 0,
+              "rotation": 0,
+              "flip": false
+            },
+            {
+              "defined_actionname": "stabT2",
+              "frameindex": 1,
+              "framedelay": 0.1,
+              "move_x": 0,
+              "move_y": 0,
+              "rotation": 0,
+              "flip": false
+            },
+            {
+              "defined_actionname": "stabT2",
+              "frameindex": 2,
+              "framedelay": 0.35,
+              "move_x": 0,
+              "move_y": 0,
+              "rotation": 0,
+              "flip": false
+            }
+          ]
+        },
+        "shield out": {
+          "Frames": [
+            {
+              "defined_actionname": "swingO3",
+              "frameindex": 0,
+              "framedelay": 0.3,
+              "move_x": 0,
+              "move_y": 0,
+              "rotation": 0,
+              "flip": false
+            },
+            {
+              "defined_actionname": "swingO3",
+              "frameindex": 1,
+              "framedelay": 0.15,
+              "move_x": 0,
+              "move_y": 0,
+              "rotation": 0,
+              "flip": false
+            },
+            {
+              "defined_actionname": "swingO3",
+              "frameindex": 2,
+              "framedelay": 0.35,
+              "move_x": 0,
+              "move_y": 0,
+              "rotation": 0,
+              "flip": false
+            }
+          ]
+        }
+      }
     }
   }
 }
