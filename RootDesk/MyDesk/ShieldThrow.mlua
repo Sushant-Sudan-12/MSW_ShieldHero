@@ -13,6 +13,31 @@ script ShieldThrow extends Component
 	@HideFromInspector
 	property Entity ActiveProjectile = nil
 
+	property number SpawnDelay = 0.0
+
+	property Vector3 SpawnOffset = Vector3(0.8, 0.6, 0)
+
+	@HideFromInspector
+	property number SpawnTimerId = 0
+
+	@MinValue(0)
+	property number BoomerangDuration = 1.0
+
+	@MinValue(0)
+	property number BoomerangRange = 6.0
+
+	@HideFromInspector
+	property number BoomerangTimerId = 0
+
+	@HideFromInspector
+	property number BoomerangStartTime = 0
+
+	@HideFromInspector
+	property Vector3 BoomerangDirection = Vector3(0, 0, 0)
+
+	@HideFromInspector
+	property Vector3 BoomerangSourcePosition = Vector3(0, 0, 0)
+
 	@ExecSpace("ClientOnly")
 	method void OnBeginPlay()
 		local playerController = self.Entity.PlayerControllerComponent
@@ -43,17 +68,79 @@ script ShieldThrow extends Component
 			return
 		end
 
-		local spawnPosition = transform.WorldPosition + Vector3(self.Entity.PlayerControllerComponent.LookDirectionX * 0.8, 0.6, 0)
-		local projectile = _SpawnService:SpawnByModelId(_EntryService:GetModelIdByName("Model_Projectile"), "ShieldProjectile", spawnPosition, self.Entity.Parent)
+		local spawnDirection = Vector3(self.Entity.PlayerControllerComponent.LookDirectionX, 0, 0)
+		local startPosition = transform.WorldPosition + Vector3(self.Entity.PlayerControllerComponent.LookDirectionX * self.SpawnOffset.x, self.SpawnOffset.y, self.SpawnOffset.z)
+
+		if self.SpawnTimerId ~= 0 then
+			_TimerService:ClearTimer(self.SpawnTimerId)
+			self.SpawnTimerId = 0
+		end
+
+		if self.SpawnDelay > 0 then
+			self.SpawnTimerId = _TimerService:SetTimerOnce(function()
+				self:SpawnProjectile(startPosition, spawnDirection)
+				self.SpawnTimerId = 0
+			end, self.SpawnDelay)
+		else
+			self:SpawnProjectile(startPosition, spawnDirection)
+		end
+	end
+
+	method void SpawnProjectile(Vector3 startPosition, Vector3 spawnDirection)
+		local modelId = _EntryService:GetModelIdByName("Model_Projectile")
+		log("Model_Projectile id = " .. tostring(modelId))
+
+		local projectile = _SpawnService:SpawnByModelId(modelId, "ShieldProjectile", startPosition, self.Entity.Parent)
 		if isvalid(projectile) == false then
 			return
 		end
 
 		self.ActiveProjectile = projectile
 		projectile.Enable = true
-		projectile.TransformComponent.WorldPosition = spawnPosition
+		projectile.TransformComponent.WorldPosition = startPosition
 		projectile.TransformComponent.Scale = Vector3(0.8, 0.8, 1)
-		projectile.RigidbodyComponent:JustJump(Vector2(self.Entity.PlayerControllerComponent.LookDirectionX * self.Speed, 0))
+
+		self.BoomerangSourcePosition = startPosition
+		self.BoomerangDirection = spawnDirection
+		self.BoomerangStartTime = _UtilLogic.ElapsedSeconds
+		log("ShieldThrow boomerang start: direction=" .. self.BoomerangDirection.x)
+
+		if self.BoomerangTimerId ~= 0 then
+			_TimerService:ClearTimer(self.BoomerangTimerId)
+		end
+
+		local timerId = _TimerService:SetTimerRepeat(function()
+			if isvalid(self.ActiveProjectile) == false or isvalid(self.Entity) == false then
+				if self.BoomerangTimerId ~= 0 then
+					_TimerService:ClearTimer(self.BoomerangTimerId)
+					self.BoomerangTimerId = 0
+				end
+				return
+			end
+
+			local elapsed = _UtilLogic.ElapsedSeconds - self.BoomerangStartTime
+			local progress = elapsed / self.BoomerangDuration
+			if progress >= 1.0 then
+				self.ActiveProjectile.TransformComponent.WorldPosition = self.BoomerangSourcePosition
+				self.ActiveProjectile.Enable = false
+				self.ActiveProjectile = nil
+				_TimerService:ClearTimer(self.BoomerangTimerId)
+				self.BoomerangTimerId = 0
+				log("ShieldThrow boomerang finished")
+				return
+			end
+
+			local angle = math.pi * progress
+			local distance = self.BoomerangRange * math.sin(angle)
+			local targetPosition = Vector3(
+				self.BoomerangSourcePosition.x + self.BoomerangDirection.x * distance,
+				self.BoomerangSourcePosition.y,
+				self.BoomerangSourcePosition.z
+			)
+			self.ActiveProjectile.TransformComponent.WorldPosition = targetPosition
+		end, 1.0 / 60.0)
+
+		self.BoomerangTimerId = timerId
 	end
 
 	@ExecSpace("ServerOnly")

@@ -23,7 +23,9 @@
         "script.PlayerHit",
         "script.PlayerImmuneLogic",
         "script.PlayerMovement",
-        "script.PlayerSoulSystem"
+        "script.PlayerSoulSystem",
+        "script.ShieldParry",
+        "script.ShieldThrow"
       ],
       "Properties": [],
       "Values": [
@@ -213,7 +215,7 @@
             "$type": "MODNativeType",
             "type": "System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
           },
-          "Value": 15
+          "Value": 120
         },
         {
           "TargetType": "MOD.Core.CostumeManagerComponent",
@@ -333,7 +335,7 @@
             },
             "THROW": {
               "AvatarBodyActionStateName": "attack",
-              "PlayRate": 1.0
+              "PlayRate": 0.0
             }
           }
         },
@@ -888,7 +890,7 @@
             "$type": "MODNativeType",
             "type": "System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
           },
-          "Value": 15
+          "Value": 120
         },
         {
           "TargetType": "MOD.Core.PlayerComponent",
@@ -978,6 +980,51 @@
             "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
           },
           "Value": true
+        },
+        {
+          "TargetType": "MOD.Core.PlayerControllerComponent",
+          "Name": "AlwaysMovingState",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": false
+        },
+        {
+          "TargetType": "MOD.Core.PlayerControllerComponent",
+          "Name": "UseCustomScript",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": false
+        },
+        {
+          "TargetType": "script.ShieldThrow",
+          "Name": "BoomerangRange",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 3.69
+        },
+        {
+          "TargetType": "script.ShieldThrow",
+          "Name": "SpawnDelay",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 0.5
+        },
+        {
+          "TargetType": "script.ShieldThrow",
+          "Name": "BoomerangDuration",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 2.0
         }
       ],
       "EventLinks": [],

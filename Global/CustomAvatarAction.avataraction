@@ -14,7 +14,7 @@
     "Use": "Json",
     "Json": {
       "Data": {
-        "parry": {
+        "PARRY": {
           "Frames": [
             {
               "defined_actionname": "stabT2",
@@ -45,7 +45,7 @@
             }
           ]
         },
-        "shield out": {
+        "SHIELD_THROW": {
           "Frames": [
             {
               "defined_actionname": "swingO3",
