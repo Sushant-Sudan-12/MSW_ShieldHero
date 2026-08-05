@@ -1,0 +1,60 @@
+@Component
+script ProjectileAttack extends AttackComponent
+
+    @MinValue(0)
+    property number Damage = 25
+
+    @MinValue(0)
+    property number HitInterval = 0.08
+
+    @HideFromInspector
+    property any Shape = nil
+
+    @HideFromInspector
+    property number LastHitTime = -9999
+
+    @ExecSpace("ServerOnly")
+    method void OnBeginPlay()
+        self.Shape = BoxShape(Vector2.zero, Vector2(0.6, 0.6), 0)
+    end
+
+    @ExecSpace("ServerOnly")
+    method void OnUpdate(number delta)
+        if self.Shape == nil then
+            return
+        end
+
+        local transform = self.Entity.TransformComponent
+        if isvalid(transform) == false then
+            return
+        end
+
+        local currentTime = _UtilLogic.ElapsedSeconds
+        if currentTime - self.LastHitTime < self.HitInterval then
+            return
+        end
+
+        self.LastHitTime = currentTime
+        self.Shape.Position = Vector2(transform.WorldPosition.x, transform.WorldPosition.y)
+        self.Shape.Size = Vector2(0.6, 0.6)
+
+        self:AttackFast(self.Shape, "Projectile", CollisionGroups.Monster)
+    end
+
+    method boolean IsAttackTarget(Entity defender, string attackInfo)
+        if defender == nil or defender == self.Entity then
+            return false
+        end
+
+        if isvalid(defender.PlayerComponent) then
+            return false
+        end
+
+        return __base:IsAttackTarget(defender, attackInfo)
+    end
+
+    method integer CalcDamage(Entity attacker, Entity defender, string attackInfo)
+        return self.Damage
+    end
+
+end

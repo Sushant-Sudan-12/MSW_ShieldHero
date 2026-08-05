@@ -69734,7 +69734,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "SoulsToGive": 10.0
             }
           ],
           "@version": 1
@@ -70007,12 +70008,12 @@
         }
       },
       {
-        "id": "d4d2820d-9cec-4310-9e8a-ed1837b0baaa",
-        "path": "/maps/TrialofMountain/Projectile",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent",
+        "id": "8a93ebd0-3897-4d91-ba20-b1e5bcd0efb3",
+        "path": "/maps/TrialofMountain/monster-426_41",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
-          "name": "Projectile",
-          "path": "/maps/TrialofMountain/Projectile",
+          "name": "monster-426_41",
+          "path": "/maps/TrialofMountain/monster-426_41",
           "nameEditable": true,
           "enable": true,
           "visible": true,
@@ -70022,18 +70023,23 @@
           "revision": 1,
           "origin": {
             "type": "Model",
-            "entry_id": "75acc050-7b13-4fd0-bec9-2f69e5b7f1c1",
+            "entry_id": "MoveMonster",
             "sub_entity_id": null,
-            "root_entity_id": null,
+            "root_entity_id": "a7d9aa71-d16a-430f-a1a4-5f3b9b80a8db",
             "replaced_model_id": null
           },
-          "modelId": "75acc050-7b13-4fd0-bec9-2f69e5b7f1c1",
+          "modelId": "movemonster",
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
-                "x": -8.7386055,
-                "y": -50.26371,
+                "x": -3.73064327,
+                "y": -52.045002,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -70042,17 +70048,234 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
               "@type": "MOD.Core.StateAnimationComponent",
+              "ActionSheet": {
+                "move": "02b2b82e138d4e1e9d1a12f6501784ab",
+                "stand": "a488ae7e0333452286a2b802b784946f",
+                "hit": "d8a8165fd5204c1baae47f21a36cfa82",
+                "die": "9bfe87ab00954fb4b7d3670e05fa0ff4"
+              },
               "Enable": true
             },
             {
               "@type": "MOD.Core.SpriteRendererComponent",
               "ActionSheet": {},
-              "RenderSetting": 0,
+              "EndFrameIndex": 0,
+              "RenderSetting": 1,
+              "SortingLayer": "MapLayer3",
+              "SpriteRUID": "a488ae7e0333452286a2b802b784946f",
+              "StartFrameIndex": 0,
               "Enable": true
+            },
+            {
+              "@type": "MOD.Core.RigidbodyComponent",
+              "MoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "RealMoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.MovementComponent",
+              "InputSpeed": 1.0,
+              "JumpForce": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.AIWanderComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.HitComponent",
+              "BoxSize": {
+                "x": 0.63,
+                "y": 0.92
+              },
+              "ColliderOffset": {
+                "x": 0.065,
+                "y": 0.46
+              },
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.DamageSkinSpawnerComponent",
+              "Enable": true
+            },
+            {
+              "@type": "script.Monster",
+              "Enable": true,
+              "RespawnOn": false,
+              "IsDead": false
+            },
+            {
+              "@type": "script.MonsterAttack",
+              "Enable": false,
+              "LastAttackTime": 0.0,
+              "SpriteSize": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "PositionOffset": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true,
+              "SoulsToGive": 10.0
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "8a3a02fa-0a36-4ae6-9e31-c86f1631be33",
+        "path": "/maps/TrialofMountain/monster-426_42",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
+        "jsonString": {
+          "name": "monster-426_42",
+          "path": "/maps/TrialofMountain/monster-426_42",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 98,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "MoveMonster",
+            "sub_entity_id": null,
+            "root_entity_id": "a7d9aa71-d16a-430f-a1a4-5f3b9b80a8db",
+            "replaced_model_id": null
+          },
+          "modelId": "movemonster",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -2.18634987,
+                "y": -52.045002,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateAnimationComponent",
+              "ActionSheet": {
+                "move": "02b2b82e138d4e1e9d1a12f6501784ab",
+                "stand": "a488ae7e0333452286a2b802b784946f",
+                "hit": "d8a8165fd5204c1baae47f21a36cfa82",
+                "die": "9bfe87ab00954fb4b7d3670e05fa0ff4"
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "EndFrameIndex": 0,
+              "RenderSetting": 1,
+              "SortingLayer": "MapLayer3",
+              "SpriteRUID": "a488ae7e0333452286a2b802b784946f",
+              "StartFrameIndex": 0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.RigidbodyComponent",
+              "MoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "RealMoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.MovementComponent",
+              "InputSpeed": 1.0,
+              "JumpForce": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.AIWanderComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.HitComponent",
+              "BoxSize": {
+                "x": 0.63,
+                "y": 0.92
+              },
+              "ColliderOffset": {
+                "x": 0.065,
+                "y": 0.46
+              },
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.DamageSkinSpawnerComponent",
+              "Enable": true
+            },
+            {
+              "@type": "script.Monster",
+              "Enable": true,
+              "RespawnOn": false,
+              "IsDead": false
+            },
+            {
+              "@type": "script.MonsterAttack",
+              "Enable": false,
+              "LastAttackTime": 0.0,
+              "SpriteSize": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "PositionOffset": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true,
+              "SoulsToGive": 10.0
             }
           ],
           "@version": 1

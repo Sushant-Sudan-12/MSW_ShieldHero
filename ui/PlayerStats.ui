@@ -322,6 +322,11 @@
                 "x": -77.0374,
                 "y": 6.3197
               },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -77.0374,
                 "y": 6.3197,
@@ -333,6 +338,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -917,20 +923,20 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": 22.1044922,
-                "y": 25.4688988
+                "x": -11.6406326,
+                "y": -79.68202
               },
               "OffsetMin": {
-                "x": 42.1044922,
-                "y": 63.4689
+                "x": -71.84577,
+                "y": -46.30298
               },
               "Pivot": {
                 "x": 0.5,
                 "y": 0.5
               },
               "RectSize": {
-                "x": 364.302979,
-                "y": 42.0
+                "x": 444.508118,
+                "y": 46.6209526
               },
               "UIMode": 1,
               "UIScale": {
@@ -940,8 +946,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": 32.1044922,
-                "y": 44.4689
+                "x": -41.7432022,
+                "y": -62.9925
               },
               "Rotation": {
                 "x": 0.0,
@@ -949,8 +955,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 32.1044922,
-                "y": 44.4689,
+                "x": -41.7431946,
+                "y": -62.9925,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -1043,8 +1049,8 @@
                 "b": 0.072265625,
                 "a": 1.0
               },
-              "FontSize": 27,
-              "MaxSize": 40,
+              "FontSize": 30,
+              "MaxSize": 340,
               "MinSize": 10,
               "OutlineColor": {
                 "r": 0.0,
@@ -1905,11 +1911,11 @@
       },
       {
         "id": "f252a9da-bf6a-4e6e-a854-7ea07eebb13d",
-        "path": "/ui/PlayerStats/Text",
+        "path": "/ui/PlayerStats/Soul_Counter",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.TextGUIRendererComponent,script.UISoulCounter",
         "jsonString": {
-          "name": "Text",
-          "path": "/ui/PlayerStats/Text",
+          "name": "Soul_Counter",
+          "path": "/ui/PlayerStats/Soul_Counter",
           "nameEditable": true,
           "enable": true,
           "visible": true,
@@ -1939,20 +1945,20 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": 81.8516,
-                "y": 539.4923
+                "x": -459.4993,
+                "y": -329.2398
               },
               "OffsetMin": {
-                "x": -18.1484,
-                "y": 439.4923
+                "x": -707.956543,
+                "y": -395.0498
               },
               "Pivot": {
                 "x": 0.5,
                 "y": 0.5
               },
               "RectSize": {
-                "x": 100.0,
-                "y": 100.0
+                "x": 248.45723,
+                "y": 65.81
               },
               "UIMode": 1,
               "UIScale": {
@@ -1962,8 +1968,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": 31.8516,
-                "y": 489.4923
+                "x": -583.7279,
+                "y": -362.1448
               },
               "Rotation": {
                 "x": 0.0,
@@ -1971,8 +1977,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 31.8516,
-                "y": 489.4923,
+                "x": -583.7279,
+                "y": -362.1448,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -1999,16 +2005,23 @@
                 "b": 0.0,
                 "a": 1.0
               },
-              "FontSize": 50.0,
+              "FontSize": 40.0,
+              "HorizontalAlignment": 1,
               "MaxSize": 50.0,
               "MinSize": 10.0,
               "OverrideSorting": false,
-              "Text": "x ",
+              "Text": "x 1000000",
               "Enable": true
             },
             {
               "@type": "script.UISoulCounter",
-              "Enable": true
+              "Enable": true,
+              "TextTarget": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "f252a9da-bf6a-4e6e-a854-7ea07eebb13d",
+                "Version2": false
+              }
             }
           ],
           "@version": 1

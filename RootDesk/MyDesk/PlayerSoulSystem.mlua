@@ -6,11 +6,12 @@ script PlayerSoulSystem extends Component
 
 	method void AddSouls(number amount)
 		if amount == nil or amount <= 0 then
+			log("PlayerSoulSystem AddSouls: invalid amount=" .. tostring(amount))
 			return
 		end
 
 		self.TotalSouls = self.TotalSouls + amount
-		log("PlayerSoulSystem AddSouls -> " .. tostring(self.TotalSouls))
+		log("PlayerSoulSystem AddSouls: amount=" .. tostring(amount) .. " totalSouls=" .. tostring(self.TotalSouls))
 	end
 
 	method number GetTotalSouls()
@@ -24,10 +25,7 @@ script PlayerSoulSystem extends Component
 	@ExecSpace("ClientOnly")
 	@EventSender("Service", "InputService")
 	handler HandleKeyDownEvent(KeyDownEvent event)
-		local key = event.key
-		if key == KeyboardKey.P then
-			log("PlayerSoulSystem key P -> current total souls: " .. tostring(self.TotalSouls))
-		end
+		-- debug key removed to avoid spam
 	end
 
 end

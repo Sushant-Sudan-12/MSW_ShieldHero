@@ -2,7 +2,7 @@
 script ShieldThrow extends Component
 
 	@MinValue(0)
-	property number Cooldown = 1.2
+	property number Cooldown = 2.5
 
 	@MinValue(0)
 	property number Speed = 12
@@ -21,10 +21,22 @@ script ShieldThrow extends Component
 	property number SpawnTimerId = 0
 
 	@MinValue(0)
-	property number BoomerangDuration = 1.0
+	property number BoomerangRange = 6.0
 
 	@MinValue(0)
-	property number BoomerangRange = 6.0
+	property number BoomerangDistanceTravelled = 0
+
+	@HideFromInspector
+	property boolean IsReturning = false
+
+	@HideFromInspector
+	property number ReturnThreshold = 0.5
+
+	@MinValue(0)
+	property number MinOutDistance = 10.0
+
+	@HideFromInspector
+	property string PreviousShieldEquip = ""
 
 	@HideFromInspector
 	property number BoomerangTimerId = 0
@@ -43,15 +55,46 @@ script ShieldThrow extends Component
 		local playerController = self.Entity.PlayerControllerComponent
 		if isvalid(playerController) then
 			playerController:SetActionKey(KeyboardKey.Mouse0, "ShieldThrow")
-			log("ShieldThrow OnBeginPlay: Mouse0 bound to ShieldThrow")
-		else
-			log("ShieldThrow OnBeginPlay: PlayerControllerComponent missing")
 		end
 	end
 
 	method boolean CanUse()
+		if isvalid(self.ActiveProjectile) then
+			return false
+		end
+		if self.SpawnTimerId ~= 0 then
+			return false
+		end
+
 		local currentTime = _UtilLogic.ElapsedSeconds
 		return currentTime - self.LastUseTime >= self.Cooldown
+	end
+
+	method void HideShield()
+		local costumeManager = self.Entity:GetComponent("CostumeManagerComponent")
+		if isvalid(costumeManager) == false then
+			return
+		end
+
+		local shieldRUID = costumeManager:GetEquip(MapleAvatarItemCategory.OneHandedWeapon)
+		if shieldRUID ~= nil and shieldRUID ~= "" then
+			self.PreviousShieldEquip = shieldRUID
+			costumeManager:SetEquip(MapleAvatarItemCategory.OneHandedWeapon, "")
+		end
+	end
+
+	method void RestoreShield()
+		if self.PreviousShieldEquip == "" then
+			return
+		end
+
+		local costumeManager = self.Entity:GetComponent("CostumeManagerComponent")
+		if isvalid(costumeManager) == false then
+			return
+		end
+
+		costumeManager:SetEquip(MapleAvatarItemCategory.OneHandedWeapon, self.PreviousShieldEquip)
+		self.PreviousShieldEquip = ""
 	end
 
 	method void TryThrow()
@@ -60,7 +103,7 @@ script ShieldThrow extends Component
 		end
 
 		self.LastUseTime = _UtilLogic.ElapsedSeconds
-		self.Entity.StateComponent:ChangeState("SHIELD_THROW")
+		self.Entity.StateComponent:ChangeState("THROW")
 		log("ShieldThrow triggered")
 
 		local transform = self.Entity.TransformComponent
@@ -87,10 +130,17 @@ script ShieldThrow extends Component
 	end
 
 	method void SpawnProjectile(Vector3 startPosition, Vector3 spawnDirection)
-		local modelId = _EntryService:GetModelIdByName("Model_Projectile")
-		log("Model_Projectile id = " .. tostring(modelId))
+		self:HideShield()
 
-		local projectile = _SpawnService:SpawnByModelId(modelId, "ShieldProjectile", startPosition, self.Entity.Parent)
+		local modelId = _EntryService:GetModelIdByName("Model_Projectile")
+
+local ownerId = nil
+	local playerComponent = self.Entity:GetComponent("PlayerComponent")
+	if isvalid(playerComponent) then
+		ownerId = playerComponent.UserId
+	end
+
+	local projectile = _SpawnService:SpawnByModelId(modelId, "ShieldProjectile", startPosition, self.Entity.Parent, ownerId)
 		if isvalid(projectile) == false then
 			return
 		end
@@ -102,8 +152,8 @@ script ShieldThrow extends Component
 
 		self.BoomerangSourcePosition = startPosition
 		self.BoomerangDirection = spawnDirection
-		self.BoomerangStartTime = _UtilLogic.ElapsedSeconds
-		log("ShieldThrow boomerang start: direction=" .. self.BoomerangDirection.x)
+		self.BoomerangDistanceTravelled = 0
+		self.IsReturning = false
 
 		if self.BoomerangTimerId ~= 0 then
 			_TimerService:ClearTimer(self.BoomerangTimerId)
@@ -111,6 +161,7 @@ script ShieldThrow extends Component
 
 		local timerId = _TimerService:SetTimerRepeat(function()
 			if isvalid(self.ActiveProjectile) == false or isvalid(self.Entity) == false then
+				self:RestoreShield()
 				if self.BoomerangTimerId ~= 0 then
 					_TimerService:ClearTimer(self.BoomerangTimerId)
 					self.BoomerangTimerId = 0
@@ -118,26 +169,40 @@ script ShieldThrow extends Component
 				return
 			end
 
-			local elapsed = _UtilLogic.ElapsedSeconds - self.BoomerangStartTime
-			local progress = elapsed / self.BoomerangDuration
-			if progress >= 1.0 then
-				self.ActiveProjectile.TransformComponent.WorldPosition = self.BoomerangSourcePosition
-				self.ActiveProjectile.Enable = false
-				self.ActiveProjectile = nil
-				_TimerService:ClearTimer(self.BoomerangTimerId)
-				self.BoomerangTimerId = 0
-				log("ShieldThrow boomerang finished")
-				return
-			end
+			local projectile = self.ActiveProjectile
+			local currentPos = projectile.TransformComponent.WorldPosition
+			local deltaTime = 1.0 / 60.0
+			local moveDistance = self.Speed * deltaTime
 
-			local angle = math.pi * progress
-			local distance = self.BoomerangRange * math.sin(angle)
-			local targetPosition = Vector3(
-				self.BoomerangSourcePosition.x + self.BoomerangDirection.x * distance,
-				self.BoomerangSourcePosition.y,
-				self.BoomerangSourcePosition.z
-			)
-			self.ActiveProjectile.TransformComponent.WorldPosition = targetPosition
+			if self.IsReturning then
+				local playerPos = self.Entity.TransformComponent.WorldPosition + Vector3(0, self.SpawnOffset.y, 0)
+				local toPlayer = playerPos - currentPos
+				local distanceToPlayer = math.sqrt(toPlayer.x * toPlayer.x + toPlayer.y * toPlayer.y + toPlayer.z * toPlayer.z)
+				if distanceToPlayer <= 0.35 then
+					projectile.TransformComponent.WorldPosition = playerPos
+					projectile.Enable = false
+					self.ActiveProjectile = nil
+					_TimerService:ClearTimer(self.BoomerangTimerId)
+					self.BoomerangTimerId = 0
+					self:RestoreShield()
+					return
+				end
+
+				local dir = Vector3(toPlayer.x / distanceToPlayer, toPlayer.y / distanceToPlayer, toPlayer.z / distanceToPlayer)
+				projectile.TransformComponent.WorldPosition = currentPos + dir * moveDistance
+			else
+				local nextPos = currentPos + self.BoomerangDirection * moveDistance
+				self.BoomerangDistanceTravelled = self.BoomerangDistanceTravelled + moveDistance
+				projectile.TransformComponent.WorldPosition = nextPos
+
+				local playerX = self.Entity.TransformComponent.WorldPosition.x
+				local alignment = math.abs(nextPos.x - playerX)
+				if self.BoomerangDistanceTravelled >= self.MinOutDistance and alignment <= self.ReturnThreshold then
+					self.IsReturning = true
+				elseif self.BoomerangDistanceTravelled >= self.BoomerangRange then
+					self.IsReturning = true
+				end
+			end
 		end, 1.0 / 60.0)
 
 		self.BoomerangTimerId = timerId
@@ -146,7 +211,6 @@ script ShieldThrow extends Component
 	@ExecSpace("ServerOnly")
 	@EventSender("Self")
 	handler HandlePlayerActionEvent(PlayerActionEvent event)
-		log("ShieldThrow HandlePlayerActionEvent: received action " .. event.ActionName)
 		if event.ActionName == "ShieldThrow" then
 			self:TryThrow()
 		end

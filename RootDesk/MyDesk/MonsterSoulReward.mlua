@@ -4,22 +4,41 @@ script MonsterSoulReward extends Component
 	@Sync
 	property number SoulsToGive = 1
 
+	method Entity FindSoulOwner(Entity attacker)
+		local current = attacker
+		while isvalid(current) do
+			if isvalid(current:GetComponent("PlayerSoulSystem")) then
+				return current
+			end
+			current = current.Parent
+		end
+
+		if attacker.OwnerId ~= nil and attacker.OwnerId ~= "" then
+			local ownerEntity = _UserService:GetUserEntityByUserId(attacker.OwnerId)
+			if isvalid(ownerEntity) and isvalid(ownerEntity:GetComponent("PlayerSoulSystem")) then
+				return ownerEntity
+			end
+		end
+
+		return nil
+	end
+
 	@ExecSpace("ServerOnly")
 	method void GrantSoulsToPlayer(Entity attacker)
 		if attacker == nil then
+			log("MonsterSoulReward GrantSoulsToPlayer: attacker is nil")
 			return
 		end
 
-		local playerSoulSystem = attacker:GetComponent("PlayerSoulSystem")
-		if isvalid(playerSoulSystem) then
+		local soulOwner = self:FindSoulOwner(attacker)
+		if isvalid(soulOwner) then
+			local playerSoulSystem = soulOwner:GetComponent("PlayerSoulSystem")
 			playerSoulSystem:AddSouls(self.SoulsToGive)
+			log("MonsterSoulReward GrantSoulsToPlayer: granted " .. tostring(self.SoulsToGive) .. " to " .. tostring(soulOwner))
 			return
 		end
 
-		local playerComponent = attacker:GetComponent("PlayerComponent")
-		if isvalid(playerComponent) then
-			log("PlayerSoulSystem not found on attacker entity")
-		end
+		log("MonsterSoulReward GrantSoulsToPlayer: PlayerSoulSystem not found for attacker " .. tostring(attacker) .. " parent=" .. tostring(attacker.Parent))
 	end
 
 	@ExecSpace("ServerOnly")
@@ -27,6 +46,7 @@ script MonsterSoulReward extends Component
 	handler HandleHitEvent(HitEvent event)
 		local attackerEntity = event.AttackerEntity
 		if attackerEntity == nil then
+			log("MonsterSoulReward HandleHitEvent: attackerEntity is nil")
 			return
 		end
 

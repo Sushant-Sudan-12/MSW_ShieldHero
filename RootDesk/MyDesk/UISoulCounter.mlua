@@ -6,9 +6,10 @@ script UISoulCounter extends Component
 
 	property string Prefix = "x"
 
-	property number LastShownSouls = -1
+	property number LastShownSouls = 0
 
 	method void OnBeginPlay()
+		log("UISoulCounter OnBeginPlay target=" .. tostring(self.TextTarget))
 		self:ForceSetInitialValue()
 		self:Refresh()
 	end
@@ -18,17 +19,20 @@ script UISoulCounter extends Component
 	end
 
 	method void ForceSetInitialValue()
+		self.LastShownSouls = -1
 		self:WriteText(self.Prefix .. "0")
 	end
 
 	method void Refresh()
 		local player = _UserService.LocalPlayer
 		if isvalid(player) == false then
+			log("UISoulCounter Refresh: no valid local player")
 			return
 		end
 
 		local soulSystem = player:GetComponent("PlayerSoulSystem")
 		if isvalid(soulSystem) == false then
+			log("UISoulCounter Refresh: no PlayerSoulSystem on player")
 			return
 		end
 
@@ -38,6 +42,7 @@ script UISoulCounter extends Component
 
 		local textValue = self.Prefix .. tostring(soulSystem.TotalSouls)
 		self.LastShownSouls = soulSystem.TotalSouls
+		log("UISoulCounter Refresh: totalSouls changed, updating text to " .. textValue)
 		self:WriteText(textValue)
 	end
 
@@ -49,12 +54,23 @@ script UISoulCounter extends Component
 
 		if isvalid(target.TextComponent) then
 			target.TextComponent.Text = value
+			log("UISoulCounter WriteText: wrote text via TextComponent -> " .. value)
+			return
+		end
+
+		if isvalid(target.TextGUIRendererComponent) then
+			target.TextGUIRendererComponent.Text = value
+			log("UISoulCounter WriteText: wrote text via TextGUIRendererComponent -> " .. value)
 			return
 		end
 
 		if isvalid(target.TextInputComponent) then
 			target.TextInputComponent.Text = value
+			log("UISoulCounter WriteText: wrote text via TextInputComponent -> " .. value)
+			return
 		end
+
+		log("UISoulCounter WriteText: no valid text target found")
 	end
 
 end

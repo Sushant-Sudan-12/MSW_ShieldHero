@@ -14,9 +14,6 @@ script ShieldParry extends Component
 		local playerController = self.Entity.PlayerControllerComponent
 		if isvalid(playerController) then
 			playerController:SetActionKey(KeyboardKey.Mouse1, "ShieldParry")
-			log("ShieldParry OnBeginPlay: Mouse1 bound to ShieldParry")
-		else
-			log("ShieldParry OnBeginPlay: PlayerControllerComponent missing")
 		end
 	end
 
@@ -33,7 +30,6 @@ script ShieldParry extends Component
 		self.LastUseTime = _UtilLogic.ElapsedSeconds
 		self.IsParrying = true
 		self.Entity.StateComponent:ChangeState("PARRY")
-		log("ShieldParry triggered")
 
 		local playerHit = self.Entity:GetComponent("PlayerHit")
 		if isvalid(playerHit) then
@@ -44,7 +40,6 @@ script ShieldParry extends Component
 	@ExecSpace("ServerOnly")
 	@EventSender("Self")
 	handler HandlePlayerActionEvent(PlayerActionEvent event)
-		log("ShieldParry HandlePlayerActionEvent: received action " .. event.ActionName)
 		if event.ActionName == "ShieldParry" then
 			self:TryParry()
 		end
