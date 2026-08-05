@@ -1,0 +1,68 @@
+@Component
+script ShieldThrow extends Component
+
+	@MinValue(0)
+	property number Cooldown = 1.2
+
+	@MinValue(0)
+	property number Speed = 12
+
+	@HideFromInspector
+	property number LastUseTime = 0
+
+	@HideFromInspector
+	property Entity ActiveProjectile = nil
+
+	@ExecSpace("ClientOnly")
+	method void OnBeginPlay()
+		local playerController = self.Entity.PlayerControllerComponent
+		if isvalid(playerController) then
+			playerController:SetActionKey(KeyboardKey.Mouse0, "ShieldThrow")
+			log("ShieldThrow OnBeginPlay: Mouse0 bound to ShieldThrow")
+		else
+			log("ShieldThrow OnBeginPlay: PlayerControllerComponent missing")
+		end
+	end
+
+	method boolean CanUse()
+		local currentTime = _UtilLogic.ElapsedSeconds
+		return currentTime - self.LastUseTime >= self.Cooldown
+	end
+
+	method void TryThrow()
+		if self:CanUse() == false then
+			return
+		end
+
+		self.LastUseTime = _UtilLogic.ElapsedSeconds
+		self.Entity.StateComponent:ChangeState("SHIELD_THROW")
+		log("ShieldThrow triggered")
+
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) == false then
+			return
+		end
+
+		local spawnPosition = transform.WorldPosition + Vector3(self.Entity.PlayerControllerComponent.LookDirectionX * 0.8, 0.6, 0)
+		local projectile = _SpawnService:SpawnByModelId(_EntryService:GetModelIdByName("Model_Projectile"), "ShieldProjectile", spawnPosition, self.Entity.Parent)
+		if isvalid(projectile) == false then
+			return
+		end
+
+		self.ActiveProjectile = projectile
+		projectile.Enable = true
+		projectile.TransformComponent.WorldPosition = spawnPosition
+		projectile.TransformComponent.Scale = Vector3(0.8, 0.8, 1)
+		projectile.RigidbodyComponent:JustJump(Vector2(self.Entity.PlayerControllerComponent.LookDirectionX * self.Speed, 0))
+	end
+
+	@ExecSpace("ServerOnly")
+	@EventSender("Self")
+	handler HandlePlayerActionEvent(PlayerActionEvent event)
+		log("ShieldThrow HandlePlayerActionEvent: received action " .. event.ActionName)
+		if event.ActionName == "ShieldThrow" then
+			self:TryThrow()
+		end
+	end
+
+end

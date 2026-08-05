@@ -1,0 +1,53 @@
+@Component
+script ShieldParry extends Component
+
+	@MinValue(0)
+	property number Cooldown = 0.8
+
+	@HideFromInspector
+	property number LastUseTime = 0
+
+	property boolean IsParrying = false
+
+	@ExecSpace("ClientOnly")
+	method void OnBeginPlay()
+		local playerController = self.Entity.PlayerControllerComponent
+		if isvalid(playerController) then
+			playerController:SetActionKey(KeyboardKey.Mouse1, "ShieldParry")
+			log("ShieldParry OnBeginPlay: Mouse1 bound to ShieldParry")
+		else
+			log("ShieldParry OnBeginPlay: PlayerControllerComponent missing")
+		end
+	end
+
+	method boolean CanUse()
+		local currentTime = _UtilLogic.ElapsedSeconds
+		return currentTime - self.LastUseTime >= self.Cooldown
+	end
+
+	method void TryParry()
+		if self:CanUse() == false then
+			return
+		end
+
+		self.LastUseTime = _UtilLogic.ElapsedSeconds
+		self.IsParrying = true
+		self.Entity.StateComponent:ChangeState("PARRY")
+		log("ShieldParry triggered")
+
+		local playerHit = self.Entity:GetComponent("PlayerHit")
+		if isvalid(playerHit) then
+			playerHit:CanBeHit()
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	@EventSender("Self")
+	handler HandlePlayerActionEvent(PlayerActionEvent event)
+		log("ShieldParry HandlePlayerActionEvent: received action " .. event.ActionName)
+		if event.ActionName == "ShieldParry" then
+			self:TryParry()
+		end
+	end
+
+end

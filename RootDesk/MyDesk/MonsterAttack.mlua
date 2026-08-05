@@ -70,6 +70,10 @@ script MonsterAttack extends AttackComponent
 		self:AttackFast(self.Shape, nil, CollisionGroups.Player)
 	end
 
+	method integer CalcDamage(Entity attacker, Entity defender, string attackInfo)
+		return 20
+	end
+
 	method boolean IsAttackTarget(Entity defender, string attackInfo)
 		if isvalid(defender.PlayerComponent) == false then
 			return false
