@@ -276,10 +276,8 @@
                 "EntityId": "50fc24a4-8110-4716-bc68-f48bf87f7d2a",
                 "Version2": false
               },
-              "LastHealthTextValue": "",
-              "LastStaminaTextValue": "",
-              "LoggedMissingHealthTarget": false,
-              "LoggedMissingStaminaTarget": false
+              "LastLoggedHealthText": "",
+              "LastLoggedStaminaText": ""
             }
           ],
           "@version": 1
@@ -2732,9 +2730,17 @@
                 "ComponentId": ":UpgradableObject",
                 "UseNested": false
               },
-              "LastHealthLevelText": "",
-              "LastStaminaLevelText": "",
-              "LastAttackLevelText": ""
+              "LastLoggedHealthLevel": -1.0,
+              "LastLoggedStaminaLevel": -1.0,
+              "LastLoggedAttackLevel": -1.0,
+              "PendingUpgradeType": "",
+              "PendingHealthBefore": 0.0,
+              "PendingStaminaBefore": 0.0,
+              "PendingAttackBefore": 0.0,
+              "PendingUpgradeStartTime": 0.0,
+              "PendingUpgradeTimeoutSeconds": 2.5,
+              "ClickDebounceSeconds": 0.2,
+              "LastClickTime": -999.0
             }
           ],
           "@version": 1

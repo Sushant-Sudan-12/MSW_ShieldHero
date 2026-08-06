@@ -71,10 +71,13 @@ script PlayerSoulSystem extends Component
 
 	method void AddSouls(number amount)
 		if amount == nil or amount <= 0 then
+			log("PlayerSoulSystem AddSouls ignored amount=" .. tostring(amount))
 			return
 		end
 
+		local before = self.TotalSouls
 		self.TotalSouls = self.TotalSouls + amount
+		log("PlayerSoulSystem AddSouls: before=" .. tostring(before) .. " amount=" .. tostring(amount) .. " after=" .. tostring(self.TotalSouls))
 	end
 
 	method number GetTotalSouls()
@@ -152,8 +155,17 @@ script PlayerSoulSystem extends Component
 		self.CurrentStamina = math.min(maxStamina, self.CurrentStamina + (self.StaminaRegenPerSecond * delta))
 	end
 
-	@ExecSpace("ServerOnly")
 	method void IncreaseHealth()
+		local beforeLevel = self.HealthLevel
+		local beforeMaxHp = 0
+		local beforeHp = 0
+
+		local beforePlayerComponent = self.Entity:GetComponent("PlayerComponent")
+		if isvalid(beforePlayerComponent) then
+			beforeMaxHp = beforePlayerComponent.MaxHp
+			beforeHp = beforePlayerComponent.Hp
+		end
+
 		self.HealthLevel = self.HealthLevel + 1
 
 		local playerComponent = self.Entity:GetComponent("PlayerComponent")
@@ -171,38 +183,57 @@ script PlayerSoulSystem extends Component
 		end
 		playerComponent.MaxHp = newMaxHp
 		playerComponent.Hp = newMaxHp
+
+		log("PlayerSoulSystem IncreaseHealth: level " .. tostring(beforeLevel) .. " -> " .. tostring(self.HealthLevel)
+			.. " maxHp " .. tostring(beforeMaxHp) .. " -> " .. tostring(playerComponent.MaxHp)
+			.. " hp " .. tostring(beforeHp) .. " -> " .. tostring(playerComponent.Hp))
 	end
 
-	@ExecSpace("ServerOnly")
 	method void IncreaseStamina()
+		local beforeLevel = self.StaminaLevel
+		local beforeCurrent = self.CurrentStamina
+		local beforeMax = self:GetMaxStamina()
 		self.StaminaLevel = self.StaminaLevel + 1
 		self.CurrentStamina = self:GetMaxStamina()
+		log("PlayerSoulSystem IncreaseStamina: level " .. tostring(beforeLevel) .. " -> " .. tostring(self.StaminaLevel)
+			.. " max " .. tostring(beforeMax) .. " -> " .. tostring(self:GetMaxStamina())
+			.. " current " .. tostring(beforeCurrent) .. " -> " .. tostring(self.CurrentStamina))
 	end
 
-	@ExecSpace("ServerOnly")
 	method void IncreaseAttack()
+		local beforeLevel = self.AttackLevel
 		self.AttackLevel = self.AttackLevel + 1
+		log("PlayerSoulSystem IncreaseAttack: level " .. tostring(beforeLevel) .. " -> " .. tostring(self.AttackLevel))
 	end
 
-	@ExecSpace("ServerOnly")
 	@EventSender("Self")
 	handler HandleUpgradeRequestEvent(UpgradeRequestEvent event)
 		local upgradeType = event.UpgradeType
+		log("PlayerSoulSystem HandleUpgradeRequestEvent: received type=" .. tostring(upgradeType)
+			.. " current H=" .. tostring(self.HealthLevel)
+			.. " S=" .. tostring(self.StaminaLevel)
+			.. " A=" .. tostring(self.AttackLevel)
+			.. " Souls=" .. tostring(self.TotalSouls))
 
 		if upgradeType == "Health" then
 			self:IncreaseHealth()
+			log("PlayerSoulSystem HandleUpgradeRequestEvent: applied Health -> H=" .. tostring(self.HealthLevel))
 			return
 		end
 
 		if upgradeType == "Stamina" then
 			self:IncreaseStamina()
+			log("PlayerSoulSystem HandleUpgradeRequestEvent: applied Stamina -> S=" .. tostring(self.StaminaLevel) .. " CurrentStamina=" .. tostring(self.CurrentStamina) .. " MaxStamina=" .. tostring(self:GetMaxStamina()))
 			return
 		end
 
 		if upgradeType == "Attack Power" then
 			self:IncreaseAttack()
+			log("PlayerSoulSystem HandleUpgradeRequestEvent: applied Attack Power -> A=" .. tostring(self.AttackLevel))
 			return
 		end
+
+		log("PlayerSoulSystem HandleUpgradeRequestEvent: unknown upgradeType=" .. tostring(upgradeType))
 	end
 
 	method void SetInputLocked(boolean locked)

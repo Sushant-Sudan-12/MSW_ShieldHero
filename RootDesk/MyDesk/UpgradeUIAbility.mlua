@@ -16,6 +16,39 @@ script UpgradeUIAbility extends Component
     @HideFromInspector
     property UpgradableObject ActiveObject = nil
 
+    @HideFromInspector
+    property number LastLoggedHealthLevel = -1
+
+    @HideFromInspector
+    property number LastLoggedStaminaLevel = -1
+
+    @HideFromInspector
+    property number LastLoggedAttackLevel = -1
+
+    @HideFromInspector
+    property string PendingUpgradeType = ""
+
+    @HideFromInspector
+    property number PendingHealthBefore = 0
+
+    @HideFromInspector
+    property number PendingStaminaBefore = 0
+
+    @HideFromInspector
+    property number PendingAttackBefore = 0
+
+    @HideFromInspector
+    property number PendingUpgradeStartTime = 0
+
+    @HideFromInspector
+    property number PendingUpgradeTimeoutSeconds = 2.5
+
+    @HideFromInspector
+    property number ClickDebounceSeconds = 0.2
+
+    @HideFromInspector
+    property number LastClickTime = -999
+
     @ExecSpace("ClientOnly")
     method void OnBeginPlay()
         self:BindDefaultLevelTextTargets()
@@ -36,19 +69,89 @@ script UpgradeUIAbility extends Component
             self:UpdateUpgradeTexts()
         end
     end
+    
+    method Entity ResolveEntityByPaths(string p1, string p2, string p3)
+        local e = nil
+
+        if p1 ~= nil and p1 ~= "" then
+            e = _EntityService:GetEntityByPath(p1)
+            if isvalid(e) then
+                return e
+            end
+        end
+
+        if p2 ~= nil and p2 ~= "" then
+            e = _EntityService:GetEntityByPath(p2)
+            if isvalid(e) then
+                return e
+            end
+        end
+
+        if p3 ~= nil and p3 ~= "" then
+            e = _EntityService:GetEntityByPath(p3)
+            if isvalid(e) then
+                return e
+            end
+        end
+
+        return nil
+    end
+
+    method boolean IsEntityOnPath(Entity e, string requiredPathPrefix)
+        if isvalid(e) == false then
+            return false
+        end
+
+        if requiredPathPrefix == nil or requiredPathPrefix == "" then
+            return true
+        end
+
+        if e.Path == nil or e.Path == "" then
+            return false
+        end
+
+        local startIndex, _ = string.find(e.Path, requiredPathPrefix, 1, true)
+        return startIndex ~= nil
+    end
+
+    method Entity EnsureTextTarget(Entity current, string requiredPathPrefix, string p1, string p2, string p3)
+        if self:IsEntityOnPath(current, requiredPathPrefix) then
+            return current
+        end
+
+        return self:ResolveEntityByPaths(p1, p2, p3)
+    end
 
     method void BindDefaultLevelTextTargets()
-        if isvalid(self.healthLevelTextTarget) == false then
-            self.healthLevelTextTarget = _EntityService:GetEntityByPath("/ui/PlayerStats/UpgradePanel/UIButton/slot_01")
-        end
+        self.healthLevelTextTarget = self:EnsureTextTarget(
+            self.healthLevelTextTarget,
+            "/ui/PlayerStats/SkillQuickSlot/slot_01",
+            "/ui/PlayerStats/SkillQuickSlot/slot_01/UIText",
+            "/ui/PlayerStats/SkillQuickSlot/slot_01",
+            "/ui/PlayerStats/SkillQuickSlot"
+        )
 
-        if isvalid(self.staminaLevelTextTarget) == false then
-            self.staminaLevelTextTarget = _EntityService:GetEntityByPath("/ui/PlayerStats/UpgradePanel/UIButton_2/slot_2")
-        end
+        self.staminaLevelTextTarget = self:EnsureTextTarget(
+            self.staminaLevelTextTarget,
+            "/ui/PlayerStats/SkillQuickSlot/slot_3",
+            "/ui/PlayerStats/SkillQuickSlot/slot_3/UIText_2",
+            "/ui/PlayerStats/SkillQuickSlot/slot_3",
+            "/ui/PlayerStats/SkillQuickSlot"
+        )
 
-        if isvalid(self.attackLevelTextTarget) == false then
-            self.attackLevelTextTarget = _EntityService:GetEntityByPath("/ui/PlayerStats/UpgradePanel/UIButton_1/slot_3")
-        end
+        self.attackLevelTextTarget = self:EnsureTextTarget(
+            self.attackLevelTextTarget,
+            "/ui/PlayerStats/SkillQuickSlot/slot_2",
+            "/ui/PlayerStats/SkillQuickSlot/slot_2/UIText_1",
+            "/ui/PlayerStats/SkillQuickSlot/slot_2",
+            "/ui/PlayerStats/SkillQuickSlot"
+        )
+    end
+
+    method boolean HasMissingTextTargets()
+        return isvalid(self.healthLevelTextTarget) == false
+            or isvalid(self.staminaLevelTextTarget) == false
+            or isvalid(self.attackLevelTextTarget) == false
     end
 
     method void ConnectButton(ButtonComponent button, any callback)
@@ -70,15 +173,18 @@ script UpgradeUIAbility extends Component
 
     method void Open()
         if isvalid(self.panelRoot) then
+            self:ClearPendingUpgrade()
             self.panelRoot.Enable = true
             self.IsOpen = true
             self:SetPlayerInputLocked(true)
+            self:BindDefaultLevelTextTargets()
             self:UpdateUpgradeTexts()
         end
     end
 
     method void Close()
         if isvalid(self.panelRoot) then
+            self:ClearPendingUpgrade()
             self.panelRoot.Enable = false
             self.IsOpen = false
             self:SetPlayerInputLocked(false)
@@ -98,39 +204,179 @@ script UpgradeUIAbility extends Component
     end
 
     method void OnHealthClicked()
+        if self:CanAcceptClick() == false then
+            log("UpgradeUIAbility OnHealthClicked ignored: debounce")
+            return
+        end
+
+        local soulSystem = self:GetPlayerSoulSystem()
+        if isvalid(soulSystem) then
+            log("UpgradeUIAbility OnHealthClicked before: H=" .. tostring(soulSystem.HealthLevel) .. " S=" .. tostring(soulSystem.StaminaLevel) .. " A=" .. tostring(soulSystem.AttackLevel))
+        else
+            log("UpgradeUIAbility OnHealthClicked before: soulSystem invalid")
+        end
+
         self:RequestUpgrade("Health")
-        self:UpdateUpgradeTexts()
         self:ApplyUpgrade("Health")
     end
 
     method void OnStaminaClicked()
+        if self:CanAcceptClick() == false then
+            log("UpgradeUIAbility OnStaminaClicked ignored: debounce")
+            return
+        end
+
+        local soulSystem = self:GetPlayerSoulSystem()
+        if isvalid(soulSystem) then
+            log("UpgradeUIAbility OnStaminaClicked before: H=" .. tostring(soulSystem.HealthLevel) .. " S=" .. tostring(soulSystem.StaminaLevel) .. " A=" .. tostring(soulSystem.AttackLevel))
+        else
+            log("UpgradeUIAbility OnStaminaClicked before: soulSystem invalid")
+        end
+
         self:RequestUpgrade("Stamina")
-        self:UpdateUpgradeTexts()
         self:ApplyUpgrade("Stamina")
     end
 
     method void OnAttackPowerClicked()
+        if self:CanAcceptClick() == false then
+            log("UpgradeUIAbility OnAttackPowerClicked ignored: debounce")
+            return
+        end
+
+        local soulSystem = self:GetPlayerSoulSystem()
+        if isvalid(soulSystem) then
+            log("UpgradeUIAbility OnAttackPowerClicked before: H=" .. tostring(soulSystem.HealthLevel) .. " S=" .. tostring(soulSystem.StaminaLevel) .. " A=" .. tostring(soulSystem.AttackLevel))
+        else
+            log("UpgradeUIAbility OnAttackPowerClicked before: soulSystem invalid")
+        end
+
         self:RequestUpgrade("Attack Power")
-        self:UpdateUpgradeTexts()
         self:ApplyUpgrade("Attack Power")
+    end
+
+    method boolean CanAcceptClick()
+        local now = _UtilLogic.ElapsedSeconds
+        if now - self.LastClickTime < self.ClickDebounceSeconds then
+            return false
+        end
+
+        self.LastClickTime = now
+        return true
+    end
+
+    method void StartOrReplacePendingUpgrade(string upgradeType)
+        self:BeginPendingUpgrade(upgradeType)
+        self:RequestUpgrade(upgradeType)
+    end
+
+    method boolean HasPendingUpgrade()
+        return self.PendingUpgradeType ~= nil and self.PendingUpgradeType ~= ""
+    end
+
+    method void BeginPendingUpgrade(string upgradeType)
+        local soulSystem = self:GetPlayerSoulSystem()
+        if isvalid(soulSystem) == false then
+            self.PendingUpgradeType = ""
+            log("UpgradeUIAbility BeginPendingUpgrade: soulSystem invalid for type=" .. tostring(upgradeType))
+            return
+        end
+
+        self.PendingUpgradeType = upgradeType
+        self.PendingHealthBefore = soulSystem.HealthLevel
+        self.PendingStaminaBefore = soulSystem.StaminaLevel
+        self.PendingAttackBefore = soulSystem.AttackLevel
+        self.PendingUpgradeStartTime = _UtilLogic.ElapsedSeconds
+
+        log("UpgradeUIAbility BeginPendingUpgrade: type=" .. tostring(upgradeType)
+            .. " before H=" .. tostring(self.PendingHealthBefore)
+            .. " S=" .. tostring(self.PendingStaminaBefore)
+            .. " A=" .. tostring(self.PendingAttackBefore))
+    end
+
+    method void ClearPendingUpgrade()
+        self.PendingUpgradeType = ""
+        self.PendingHealthBefore = 0
+        self.PendingStaminaBefore = 0
+        self.PendingAttackBefore = 0
+        self.PendingUpgradeStartTime = 0
+    end
+
+    method void TryCompletePendingUpgrade()
+        if self:HasPendingUpgrade() == false then
+            return
+        end
+
+        local soulSystem = self:GetPlayerSoulSystem()
+        if isvalid(soulSystem) == false then
+            return
+        end
+
+        local completed = false
+        local upgradeType = self.PendingUpgradeType
+
+        if upgradeType == "Health" then
+            completed = soulSystem.HealthLevel > self.PendingHealthBefore
+        elseif upgradeType == "Stamina" then
+            completed = soulSystem.StaminaLevel > self.PendingStaminaBefore
+        elseif upgradeType == "Attack Power" then
+            completed = soulSystem.AttackLevel > self.PendingAttackBefore
+        end
+
+        if completed then
+            log("UpgradeUIAbility TryCompletePendingUpgrade: completed type=" .. tostring(upgradeType)
+                .. " now H=" .. tostring(soulSystem.HealthLevel)
+                .. " S=" .. tostring(soulSystem.StaminaLevel)
+                .. " A=" .. tostring(soulSystem.AttackLevel))
+            self:ClearPendingUpgrade()
+            self:ApplyUpgrade(upgradeType)
+            return
+        end
+
+        local elapsed = _UtilLogic.ElapsedSeconds - self.PendingUpgradeStartTime
+        if elapsed >= self.PendingUpgradeTimeoutSeconds then
+            log("UpgradeUIAbility TryCompletePendingUpgrade timeout: type=" .. tostring(upgradeType)
+                .. " waited=" .. tostring(elapsed)
+                .. " before H=" .. tostring(self.PendingHealthBefore)
+                .. " S=" .. tostring(self.PendingStaminaBefore)
+                .. " A=" .. tostring(self.PendingAttackBefore)
+                .. " now H=" .. tostring(soulSystem.HealthLevel)
+                .. " S=" .. tostring(soulSystem.StaminaLevel)
+                .. " A=" .. tostring(soulSystem.AttackLevel))
+            self:ClearPendingUpgrade()
+        end
     end
 
     method void RequestUpgrade(string upgradeType)
         local player = _UserService.LocalPlayer
         if isvalid(player) == false then
+            log("UpgradeUIAbility RequestUpgrade: invalid local player for type=" .. tostring(upgradeType))
+            self:ClearPendingUpgrade()
             return
         end
 
         local evt = UpgradeRequestEvent()
         evt.UpgradeType = upgradeType
+        log("UpgradeUIAbility RequestUpgrade: sending UpgradeRequestEvent type=" .. tostring(upgradeType) .. " player=" .. tostring(player))
         player:SendEvent(evt)
     end
 
     method void ApplyUpgrade(string upgradeType)
+        local soulSystem = self:GetPlayerSoulSystem()
+        if isvalid(soulSystem) then
+            log("UpgradeUIAbility ApplyUpgrade before UI refresh type=" .. tostring(upgradeType) .. " H=" .. tostring(soulSystem.HealthLevel) .. " S=" .. tostring(soulSystem.StaminaLevel) .. " A=" .. tostring(soulSystem.AttackLevel))
+        end
+
         self:UpdateUpgradeTexts()
+
+        if isvalid(soulSystem) then
+            log("UpgradeUIAbility ApplyUpgrade after UI refresh type=" .. tostring(upgradeType) .. " H=" .. tostring(soulSystem.HealthLevel) .. " S=" .. tostring(soulSystem.StaminaLevel) .. " A=" .. tostring(soulSystem.AttackLevel))
+        end
+
         if isvalid(self.ActiveObject) then
             self.ActiveObject:MarkUpgraded()
         end
+
+        log("UpgradeUIAbility ApplyUpgrade: closing panel for type=" .. tostring(upgradeType))
         self:Close()
         self:ClearActiveObject()
     end
@@ -145,9 +391,24 @@ script UpgradeUIAbility extends Component
     end
 
     method void UpdateUpgradeTexts()
+        if self:HasMissingTextTargets() then
+            self:BindDefaultLevelTextTargets()
+        end
+
         local soulSystem = self:GetPlayerSoulSystem()
         if isvalid(soulSystem) == false then
+            log("UpgradeUIAbility UpdateUpgradeTexts: soulSystem invalid")
             return
+        end
+
+        local h = math.floor(soulSystem.HealthLevel)
+        local s = math.floor(soulSystem.StaminaLevel)
+        local a = math.floor(soulSystem.AttackLevel)
+        if h ~= self.LastLoggedHealthLevel or s ~= self.LastLoggedStaminaLevel or a ~= self.LastLoggedAttackLevel then
+            log("UpgradeUIAbility UpdateUpgradeTexts: H=" .. tostring(h) .. " S=" .. tostring(s) .. " A=" .. tostring(a))
+            self.LastLoggedHealthLevel = h
+            self.LastLoggedStaminaLevel = s
+            self.LastLoggedAttackLevel = a
         end
 
         self:WriteLevelText(self.healthLevelTextTarget, soulSystem.HealthLevel)

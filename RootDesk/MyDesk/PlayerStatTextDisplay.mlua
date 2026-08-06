@@ -5,7 +5,67 @@ script PlayerStatTextDisplay extends Component
     property Entity healthTextTarget = nil
     property Entity staminaTextTarget = nil
 
+    @HideFromInspector
+    property string LastLoggedHealthText = ""
+
+    @HideFromInspector
+    property string LastLoggedStaminaText = ""
+
+    method Entity ResolveEntityByPaths(string p1, string p2)
+        local e = nil
+
+        if p1 ~= nil and p1 ~= "" then
+            e = _EntityService:GetEntityByPath(p1)
+            if isvalid(e) then
+                return e
+            end
+        end
+
+        if p2 ~= nil and p2 ~= "" then
+            e = _EntityService:GetEntityByPath(p2)
+            if isvalid(e) then
+                return e
+            end
+        end
+
+        return nil
+    end
+
+    method boolean IsEntityOnPath(Entity e, string requiredPathPrefix)
+        if isvalid(e) == false then
+            return false
+        end
+
+        if requiredPathPrefix == nil or requiredPathPrefix == "" then
+            return true
+        end
+
+        if e.Path == nil or e.Path == "" then
+            return false
+        end
+
+        local startIndex, _ = string.find(e.Path, requiredPathPrefix, 1, true)
+        return startIndex ~= nil
+    end
+
+    method void EnsureDefaultTextTargets()
+        if self:IsEntityOnPath(self.healthTextTarget, "/ui/PlayerStats/UIMyInfo/HP_bar") == false then
+            self.healthTextTarget = self:ResolveEntityByPaths(
+                "/ui/PlayerStats/UIMyInfo/HP_bar/HP",
+                "/ui/PlayerStats/UIMyInfo/HP_bar"
+            )
+        end
+
+        if self:IsEntityOnPath(self.staminaTextTarget, "/ui/PlayerStats/UIMyInfo/Stamina_Bar") == false then
+            self.staminaTextTarget = self:ResolveEntityByPaths(
+                "/ui/PlayerStats/UIMyInfo/Stamina_Bar/Stamina",
+                "/ui/PlayerStats/UIMyInfo/Stamina_Bar"
+            )
+        end
+    end
+
     method void OnBeginPlay()
+        self:EnsureDefaultTextTargets()
         self:UpdateTexts()
     end
 
@@ -14,6 +74,8 @@ script PlayerStatTextDisplay extends Component
     end
 
     method void UpdateTexts()
+        self:EnsureDefaultTextTargets()
+
         local player = _UserService.LocalPlayer
         if isvalid(player) == false then
             return
@@ -26,6 +88,10 @@ script PlayerStatTextDisplay extends Component
             local hp = math.floor(playerComponent.Hp)
             local maxHp = math.max(1, math.floor(playerComponent.MaxHp))
             local healthText = tostring(hp) .. "/" .. tostring(maxHp)
+            if healthText ~= self.LastLoggedHealthText then
+                log("PlayerStatTextDisplay Health text update: " .. healthText)
+                self.LastLoggedHealthText = healthText
+            end
             self:WriteText(self.healthTextTarget, healthText, "Health")
         end
 
@@ -33,6 +99,10 @@ script PlayerStatTextDisplay extends Component
             local stamina = math.floor(soulSystem.CurrentStamina)
             local maxStamina = math.max(1, math.floor(soulSystem:GetMaxStamina()))
             local staminaText = tostring(stamina) .. "/" .. tostring(maxStamina)
+            if staminaText ~= self.LastLoggedStaminaText then
+                log("PlayerStatTextDisplay Stamina text update: " .. staminaText)
+                self.LastLoggedStaminaText = staminaText
+            end
             self:WriteText(self.staminaTextTarget, staminaText, "Stamina")
         end
     end
@@ -54,6 +124,24 @@ script PlayerStatTextDisplay extends Component
 
         if isvalid(target.TextInputComponent) then
             target.TextInputComponent.Text = value
+            return
+        end
+
+        local textChild = target:GetFirstChildComponentByTypeName("TextComponent", true)
+        if isvalid(textChild) then
+            textChild.Text = value
+            return
+        end
+
+        local textGuiChild = target:GetFirstChildComponentByTypeName("TextGUIRendererComponent", true)
+        if isvalid(textGuiChild) then
+            textGuiChild.Text = value
+            return
+        end
+
+        local textInputChild = target:GetFirstChildComponentByTypeName("TextInputComponent", true)
+        if isvalid(textInputChild) then
+            textInputChild.Text = value
             return
         end
     end
