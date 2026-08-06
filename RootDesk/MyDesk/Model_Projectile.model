@@ -23,7 +23,8 @@
         "MOD.Core.SpriteRendererComponent",
         "MOD.Core.TriggerComponent",
         "MOD.Core.PhysicsColliderComponent",
-        "script.ProjectileAttack"
+        "script.ProjectileAttack",
+        "MOD.Core.BasicParticleComponent"
       ],
       "Properties": [],
       "Values": [
@@ -289,6 +290,60 @@
             "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
           },
           "Value": true
+        },
+        {
+          "TargetType": "MOD.Core.BasicParticleComponent",
+          "Name": "ParticleType",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "MOD.Core.Common.Enums.BasicParticleType, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+          },
+          "Value": 16
+        },
+        {
+          "TargetType": "MOD.Core.BasicParticleComponent",
+          "Name": "SortingLayer",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": "Background"
+        },
+        {
+          "TargetType": "MOD.Core.BasicParticleComponent",
+          "Name": "OrderInLayer",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 1
+        },
+        {
+          "TargetType": "MOD.Core.BasicParticleComponent",
+          "Name": "ParticleLifeTime",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 0.01
+        },
+        {
+          "TargetType": "MOD.Core.BasicParticleComponent",
+          "Name": "ParticleSize",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 0.25
+        },
+        {
+          "TargetType": "MOD.Core.BasicParticleComponent",
+          "Name": "PlaySpeed",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 2.69
         }
       ],
       "EventLinks": [],
