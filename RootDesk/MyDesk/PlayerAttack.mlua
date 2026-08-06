@@ -4,6 +4,9 @@ script PlayerAttack extends AttackComponent
 	@HideFromInspector
 	property any Shape = nil
 
+	@MinValue(1)
+	property integer BaseDamage = 50
+
 	@ExecSpace("ServerOnly")
 	method void OnBeginPlay()
 		self.Shape = BoxShape(Vector2.zero, Vector2.one, 0)
@@ -45,7 +48,16 @@ script PlayerAttack extends AttackComponent
 	end
 
 	method integer CalcDamage(Entity attacker, Entity defender, string attackInfo)
-		return 50
+		local soulSystem = self.Entity:GetComponent("PlayerSoulSystem")
+		if isvalid(soulSystem) == false then
+			return self.BaseDamage
+		end
+
+		local damage = math.floor(self.BaseDamage * soulSystem:GetAttackMultiplier())
+		if damage < 1 then
+			damage = 1
+		end
+		return damage
 	end
 
 	method boolean CalcCritical(Entity attacker, Entity defender, string attackInfo)
@@ -63,6 +75,11 @@ script PlayerAttack extends AttackComponent
 		local ActionName = event.ActionName
 		-- local PlayerEntity = event.PlayerEntity
 		--------------------------------------------------------
+
+		local soulSystem = self.Entity:GetComponent("PlayerSoulSystem")
+		if isvalid(soulSystem) and soulSystem:IsInputLocked() then
+			return
+		end
 		
 		if ActionName == "Attack" then
 			self:AttackNormal()

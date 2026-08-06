@@ -1,0 +1,61 @@
+@ExecSpace("ClientOnly")
+@Component
+script PlayerStatTextDisplay extends Component
+
+    property Entity healthTextTarget = nil
+    property Entity staminaTextTarget = nil
+
+    method void OnBeginPlay()
+        self:UpdateTexts()
+    end
+
+    method void OnUpdate(number delta)
+        self:UpdateTexts()
+    end
+
+    method void UpdateTexts()
+        local player = _UserService.LocalPlayer
+        if isvalid(player) == false then
+            return
+        end
+
+        local playerComponent = player:GetComponent("PlayerComponent")
+        local soulSystem = player:GetComponent("PlayerSoulSystem")
+
+        if isvalid(playerComponent) then
+            local hp = math.floor(playerComponent.Hp)
+            local maxHp = math.max(1, math.floor(playerComponent.MaxHp))
+            local healthText = tostring(hp) .. "/" .. tostring(maxHp)
+            self:WriteText(self.healthTextTarget, healthText, "Health")
+        end
+
+        if isvalid(soulSystem) then
+            local stamina = math.floor(soulSystem.CurrentStamina)
+            local maxStamina = math.max(1, math.floor(soulSystem:GetMaxStamina()))
+            local staminaText = tostring(stamina) .. "/" .. tostring(maxStamina)
+            self:WriteText(self.staminaTextTarget, staminaText, "Stamina")
+        end
+    end
+
+    method void WriteText(Entity target, string value, string label)
+        if isvalid(target) == false then
+            return
+        end
+
+        if isvalid(target.TextComponent) then
+            target.TextComponent.Text = value
+            return
+        end
+
+        if isvalid(target.TextGUIRendererComponent) then
+            target.TextGUIRendererComponent.Text = value
+            return
+        end
+
+        if isvalid(target.TextInputComponent) then
+            target.TextInputComponent.Text = value
+            return
+        end
+    end
+
+end

@@ -7,6 +7,12 @@ script ShieldThrow extends Component
 	@MinValue(0)
 	property number Speed = 12
 
+	@MinValue(0)
+	property number ProjectileRotationSpeed = 720
+
+	@MinValue(0.01)
+	property number ProjectileSpawnScale = 0.8
+
 	@HideFromInspector
 	property number LastUseTime = 0
 
@@ -59,6 +65,14 @@ script ShieldThrow extends Component
 	end
 
 	method boolean CanUse()
+		local soulSystem = self.Entity:GetComponent("PlayerSoulSystem")
+		if isvalid(soulSystem) and soulSystem:IsInputLocked() then
+			return false
+		end
+		if isvalid(soulSystem) and soulSystem:HasEnoughStamina(soulSystem.ShieldThrowStaminaCost) == false then
+			return false
+		end
+
 		if isvalid(self.ActiveProjectile) then
 			return false
 		end
@@ -102,9 +116,16 @@ script ShieldThrow extends Component
 			return
 		end
 
+		local soulSystem = self.Entity:GetComponent("PlayerSoulSystem")
+		if isvalid(soulSystem) then
+			local consumed = soulSystem:TryConsumeStamina(soulSystem.ShieldThrowStaminaCost)
+			if consumed == false then
+				return
+			end
+		end
+
 		self.LastUseTime = _UtilLogic.ElapsedSeconds
 		self.Entity.StateComponent:ChangeState("THROW")
-		log("ShieldThrow triggered")
 
 		local transform = self.Entity.TransformComponent
 		if isvalid(transform) == false then
@@ -148,7 +169,8 @@ local ownerId = nil
 		self.ActiveProjectile = projectile
 		projectile.Enable = true
 		projectile.TransformComponent.WorldPosition = startPosition
-		projectile.TransformComponent.Scale = Vector3(0.8, 0.8, 1)
+		projectile.TransformComponent.Scale = Vector3(self.ProjectileSpawnScale, self.ProjectileSpawnScale, 1)
+		projectile.TransformComponent.ZRotation = 0
 
 		self.BoomerangSourcePosition = startPosition
 		self.BoomerangDirection = spawnDirection
@@ -170,8 +192,9 @@ local ownerId = nil
 			end
 
 			local projectile = self.ActiveProjectile
-			local currentPos = projectile.TransformComponent.WorldPosition
 			local deltaTime = 1.0 / 60.0
+			projectile.TransformComponent:Rotate(self.ProjectileRotationSpeed * deltaTime)
+			local currentPos = projectile.TransformComponent.WorldPosition
 			local moveDistance = self.Speed * deltaTime
 
 			if self.IsReturning then

@@ -1,0 +1,6 @@
+@Event
+script UpgradeRequestEvent extends EventType
+
+    property string UpgradeType = ""
+
+end

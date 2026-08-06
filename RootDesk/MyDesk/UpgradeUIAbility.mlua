@@ -4,17 +4,11 @@ script UpgradeUIAbility extends Component
     property ButtonComponent btnHealth = nil
     property ButtonComponent btnStamina = nil
     property ButtonComponent btnAttackPower = nil
-    property Entity statusTarget = nil
     property Entity panelRoot = nil
 
-    @HideFromInspector
-    property number HealthLevel = 1
-
-    @HideFromInspector
-    property number StaminaLevel = 1
-
-    @HideFromInspector
-    property number AttackPowerLevel = 1
+    property Entity healthLevelTextTarget = nil
+    property Entity staminaLevelTextTarget = nil
+    property Entity attackLevelTextTarget = nil
 
     @HideFromInspector
     property boolean IsOpen = false
@@ -24,6 +18,7 @@ script UpgradeUIAbility extends Component
 
     @ExecSpace("ClientOnly")
     method void OnBeginPlay()
+        self:BindDefaultLevelTextTargets()
         self:ConnectButton(self.btnHealth, function() self:OnHealthClicked() end)
         self:ConnectButton(self.btnStamina, function() self:OnStaminaClicked() end)
         self:ConnectButton(self.btnAttackPower, function() self:OnAttackPowerClicked() end)
@@ -32,7 +27,28 @@ script UpgradeUIAbility extends Component
             self.panelRoot.Enable = false
         end
 
-        self:UpdateStatusText()
+        self:UpdateUpgradeTexts()
+    end
+
+    @ExecSpace("ClientOnly")
+    method void OnUpdate(number delta)
+        if self.IsOpen then
+            self:UpdateUpgradeTexts()
+        end
+    end
+
+    method void BindDefaultLevelTextTargets()
+        if isvalid(self.healthLevelTextTarget) == false then
+            self.healthLevelTextTarget = _EntityService:GetEntityByPath("/ui/PlayerStats/UpgradePanel/UIButton/slot_01")
+        end
+
+        if isvalid(self.staminaLevelTextTarget) == false then
+            self.staminaLevelTextTarget = _EntityService:GetEntityByPath("/ui/PlayerStats/UpgradePanel/UIButton_2/slot_2")
+        end
+
+        if isvalid(self.attackLevelTextTarget) == false then
+            self.attackLevelTextTarget = _EntityService:GetEntityByPath("/ui/PlayerStats/UpgradePanel/UIButton_1/slot_3")
+        end
     end
 
     method void ConnectButton(ButtonComponent button, any callback)
@@ -56,9 +72,8 @@ script UpgradeUIAbility extends Component
         if isvalid(self.panelRoot) then
             self.panelRoot.Enable = true
             self.IsOpen = true
-            log("UpgradeUIAbility: opened upgrade panel")
-        else
-            log("UpgradeUIAbility Open: panelRoot missing")
+            self:SetPlayerInputLocked(true)
+            self:UpdateUpgradeTexts()
         end
     end
 
@@ -66,65 +81,121 @@ script UpgradeUIAbility extends Component
         if isvalid(self.panelRoot) then
             self.panelRoot.Enable = false
             self.IsOpen = false
-            log("UpgradeUIAbility: closed upgrade panel")
+            self:SetPlayerInputLocked(false)
+        end
+    end
+
+    method void SetPlayerInputLocked(boolean locked)
+        local player = _UserService.LocalPlayer
+        if isvalid(player) == false then
+            return
+        end
+
+        local soulSystem = player:GetComponent("PlayerSoulSystem")
+        if isvalid(soulSystem) then
+            soulSystem:SetInputLocked(locked)
         end
     end
 
     method void OnHealthClicked()
-        self.HealthLevel = self.HealthLevel + 1
-        log("UpgradeUIAbility: Health increased to " .. tostring(self.HealthLevel))
+        self:RequestUpgrade("Health")
+        self:UpdateUpgradeTexts()
         self:ApplyUpgrade("Health")
     end
 
     method void OnStaminaClicked()
-        self.StaminaLevel = self.StaminaLevel + 1
-        log("UpgradeUIAbility: Stamina increased to " .. tostring(self.StaminaLevel))
+        self:RequestUpgrade("Stamina")
+        self:UpdateUpgradeTexts()
         self:ApplyUpgrade("Stamina")
     end
 
     method void OnAttackPowerClicked()
-        self.AttackPowerLevel = self.AttackPowerLevel + 1
-        log("UpgradeUIAbility: Attack Power increased to " .. tostring(self.AttackPowerLevel))
+        self:RequestUpgrade("Attack Power")
+        self:UpdateUpgradeTexts()
         self:ApplyUpgrade("Attack Power")
     end
 
+    method void RequestUpgrade(string upgradeType)
+        local player = _UserService.LocalPlayer
+        if isvalid(player) == false then
+            return
+        end
+
+        local evt = UpgradeRequestEvent()
+        evt.UpgradeType = upgradeType
+        player:SendEvent(evt)
+    end
+
     method void ApplyUpgrade(string upgradeType)
-        self:UpdateStatusText()
+        self:UpdateUpgradeTexts()
         if isvalid(self.ActiveObject) then
             self.ActiveObject:MarkUpgraded()
-            log("UpgradeUIAbility: applied " .. upgradeType .. " upgrade to " .. tostring(self.ActiveObject.ObjectName))
         end
         self:Close()
         self:ClearActiveObject()
     end
 
-    method void UpdateStatusText()
-        local status = "Health: " .. tostring(self.HealthLevel) .. " | Stamina: " .. tostring(self.StaminaLevel) .. " | Attack: " .. tostring(self.AttackPowerLevel)
-        self:WriteText(status)
+    method any GetPlayerSoulSystem()
+        local player = _UserService.LocalPlayer
+        if isvalid(player) == false then
+            return nil
+        end
+
+        return player:GetComponent("PlayerSoulSystem")
     end
 
-    method void WriteText(string value)
-        if isvalid(self.statusTarget) == false then
-            log("UpgradeUIAbility WriteText: statusTarget missing")
+    method void UpdateUpgradeTexts()
+        local soulSystem = self:GetPlayerSoulSystem()
+        if isvalid(soulSystem) == false then
             return
         end
 
-        if isvalid(self.statusTarget.TextComponent) then
-            self.statusTarget.TextComponent.Text = value
+        self:WriteLevelText(self.healthLevelTextTarget, soulSystem.HealthLevel)
+        self:WriteLevelText(self.staminaLevelTextTarget, soulSystem.StaminaLevel)
+        self:WriteLevelText(self.attackLevelTextTarget, soulSystem.AttackLevel)
+    end
+
+    method void WriteLevelText(Entity textTarget, number value)
+        if isvalid(textTarget) == false then
             return
         end
 
-        if isvalid(self.statusTarget.TextGUIRendererComponent) then
-            self.statusTarget.TextGUIRendererComponent.Text = value
+        local textValue = tostring(math.floor(value))
+
+        if isvalid(textTarget.TextComponent) then
+            textTarget.TextComponent.Text = textValue
+            local color = textTarget.TextComponent.FontColor
+            if color.a <= 0 then
+                textTarget.TextComponent.FontColor = Color(color.r, color.g, color.b, 1)
+            end
             return
         end
 
-        if isvalid(self.statusTarget.TextInputComponent) then
-            self.statusTarget.TextInputComponent.Text = value
+        if isvalid(textTarget.TextGUIRendererComponent) then
+            textTarget.TextGUIRendererComponent.Text = textValue
             return
         end
 
-        log("UpgradeUIAbility WriteText: no valid text component on statusTarget")
+        if isvalid(textTarget.TextInputComponent) then
+            textTarget.TextInputComponent.Text = textValue
+            return
+        end
+
+        local textChild = textTarget:GetFirstChildComponentByTypeName("TextComponent", true)
+        if isvalid(textChild) then
+            textChild.Text = textValue
+            local color = textChild.FontColor
+            if color.a <= 0 then
+                textChild.FontColor = Color(color.r, color.g, color.b, 1)
+            end
+            return
+        end
+
+        local textGuiChild = textTarget:GetFirstChildComponentByTypeName("TextGUIRendererComponent", true)
+        if isvalid(textGuiChild) then
+            textGuiChild.Text = textValue
+            return
+        end
     end
 
 end

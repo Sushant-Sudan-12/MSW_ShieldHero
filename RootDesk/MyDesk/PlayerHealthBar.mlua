@@ -2,6 +2,8 @@
 @Component
 script PlayerHealthBar extends Component
 
+	property string BarType = "Auto"
+
 	method void OnBeginPlay()
 		self:UpdateHealthBar()
 	end
@@ -16,9 +18,40 @@ script PlayerHealthBar extends Component
 			return
 		end
 
+		local ratio = self:GetRatio(player)
+
+		local spriteRenderer = self.Entity.SpriteGUIRendererComponent
+		if isvalid(spriteRenderer) then
+			spriteRenderer.FillAmount = ratio
+		end
+
+		local slider = self.Entity.SliderComponent
+		if isvalid(slider) then
+			slider.Value = ratio
+		end
+	end
+
+	method number GetRatio(Entity player)
+		local barType = self.BarType
+		if barType == "Auto" then
+			if string.find(self.Entity.Path, "Stamina", 1, true) ~= nil then
+				barType = "Stamina"
+			else
+				barType = "HP"
+			end
+		end
+
+		if barType == "Stamina" then
+			local soulSystem = player:GetComponent("PlayerSoulSystem")
+			if isvalid(soulSystem) then
+				return soulSystem:GetStaminaRatio()
+			end
+			return 0
+		end
+
 		local playerComponent = player:GetComponent("PlayerComponent")
 		if isvalid(playerComponent) == false then
-			return
+			return 0
 		end
 
 		local maxHp = playerComponent.MaxHp
@@ -27,14 +60,7 @@ script PlayerHealthBar extends Component
 		end
 
 		local hpRatio = playerComponent.Hp / maxHp
-		hpRatio = math.max(0, math.min(1, hpRatio))
-
-		local spriteRenderer = self.Entity.SpriteGUIRendererComponent
-		if isvalid(spriteRenderer) == false then
-			return
-		end
-
-		spriteRenderer.FillAmount = hpRatio
+		return math.max(0, math.min(1, hpRatio))
 	end
 
 end

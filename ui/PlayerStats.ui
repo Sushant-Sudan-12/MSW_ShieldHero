@@ -108,7 +108,7 @@
       {
         "id": "ec4f85b0-7359-4543-a3dc-dae3bd1c8afa",
         "path": "/ui/PlayerStats/UIMyInfo",
-        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,script.UIMyInfoSimple",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,script.UIMyInfoSimple,script.PlayerStatTextDisplay",
         "jsonString": {
           "name": "UIMyInfo",
           "path": "/ui/PlayerStats/UIMyInfo",
@@ -260,6 +260,26 @@
                 "ComponentId": ":TextComponent",
                 "UseNested": false
               }
+            },
+            {
+              "@type": "script.PlayerStatTextDisplay",
+              "Enable": true,
+              "healthTextTarget": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "d49afe7a-079a-4d4d-91e3-503cddcd429c",
+                "Version2": false
+              },
+              "staminaTextTarget": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "50fc24a4-8110-4716-bc68-f48bf87f7d2a",
+                "Version2": false
+              },
+              "LastHealthTextValue": "",
+              "LastStaminaTextValue": "",
+              "LoggedMissingHealthTarget": false,
+              "LoggedMissingStaminaTarget": false
             }
           ],
           "@version": 1
@@ -549,6 +569,102 @@
         }
       },
       {
+        "id": "d49afe7a-079a-4d4d-91e3-503cddcd429c",
+        "path": "/ui/PlayerStats/UIMyInfo/HP_bar/HP",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.TextGUIRendererComponent",
+        "jsonString": {
+          "name": "HP",
+          "path": "/ui/PlayerStats/UIMyInfo/HP_bar/HP",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 0,
+          "pathConstraints": "/////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uitextguirenderer",
+            "sub_entity_id": null,
+            "root_entity_id": "d49afe7a-079a-4d4d-91e3-503cddcd429c",
+            "replaced_model_id": null
+          },
+          "modelId": "uitextguirenderer",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 37.71,
+                "y": 50.67
+              },
+              "OffsetMin": {
+                "x": -62.29,
+                "y": -49.33
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 100.0,
+                "y": 100.0
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": -12.29,
+                "y": 0.67
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -12.29,
+                "y": 0.67,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.TextGUIRendererComponent",
+              "OverrideSorting": false,
+              "Text": "100 / 100",
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
         "id": "a80c3ea9-bc4e-4dce-b0f0-bf6be271d794",
         "path": "/ui/PlayerStats/UIMyInfo/Stamina_Bar",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.SliderComponent,script.PlayerHealthBar",
@@ -735,6 +851,106 @@
             },
             {
               "@type": "script.PlayerHealthBar",
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "50fc24a4-8110-4716-bc68-f48bf87f7d2a",
+        "path": "/ui/PlayerStats/UIMyInfo/Stamina_Bar/Stamina",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.TextGUIRendererComponent",
+        "jsonString": {
+          "name": "Stamina",
+          "path": "/ui/PlayerStats/UIMyInfo/Stamina_Bar/Stamina",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 0,
+          "pathConstraints": "/////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uitextguirenderer",
+            "sub_entity_id": null,
+            "root_entity_id": "d49afe7a-079a-4d4d-91e3-503cddcd429c",
+            "replaced_model_id": null
+          },
+          "modelId": "uitextguirenderer",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 45.66,
+                "y": 48.93
+              },
+              "OffsetMin": {
+                "x": -54.34,
+                "y": -51.07
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 100.0,
+                "y": 100.0
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": -4.34,
+                "y": -1.07
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -4.34,
+                "y": -1.07,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.TextGUIRendererComponent",
+              "FontSize": 15.0,
+              "MaxSize": 40.0,
+              "MinSize": 10.0,
+              "OverrideSorting": false,
+              "SortingLayer": "MapLayer0",
+              "Text": "100 / 100",
               "Enable": true
             }
           ],
@@ -2110,17 +2326,17 @@
       },
       {
         "id": "8da93d66-b6dd-4e20-acf4-545ddfb306b1",
-        "path": "/ui/PlayerStats/SkillQuickSlot/UIText_2",
+        "path": "/ui/PlayerStats/SkillQuickSlot/slot_3/UIText_2",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.TextGUIRendererComponent",
         "jsonString": {
           "name": "UIText_2",
-          "path": "/ui/PlayerStats/SkillQuickSlot/UIText_2",
+          "path": "/ui/PlayerStats/SkillQuickSlot/slot_3/UIText_2",
           "nameEditable": true,
           "enable": true,
           "visible": true,
           "localize": true,
-          "displayOrder": 3,
-          "pathConstraints": "////",
+          "displayOrder": 0,
+          "pathConstraints": "/////",
           "revision": 1,
           "origin": {
             "type": "Model",
@@ -2144,12 +2360,12 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": 93.1565,
-                "y": -36.8535
+                "x": -27.9561,
+                "y": 51.7563
               },
               "OffsetMin": {
-                "x": -6.843498,
-                "y": -136.8535
+                "x": -127.9561,
+                "y": -48.2437
               },
               "Pivot": {
                 "x": 0.5,
@@ -2167,8 +2383,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": 43.1565,
-                "y": -86.8535
+                "x": -77.9561,
+                "y": 1.7563
               },
               "Rotation": {
                 "x": 0.0,
@@ -2176,15 +2392,15 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 43.1565,
-                "y": -86.8535,
+                "x": -77.9561,
+                "y": 1.7563,
                 "z": 0.0
               },
               "QuaternionRotation": {
                 "x": 0.0,
                 "y": 0.0,
                 "z": 0.0,
-                "w": -1.0
+                "w": 1.0
               },
               "Scale": {
                 "x": 1.0,
@@ -2334,7 +2550,7 @@
           "name": "UpgradePanel",
           "path": "/ui/PlayerStats/UpgradePanel",
           "nameEditable": true,
-          "enable": false,
+          "enable": true,
           "visible": true,
           "localize": true,
           "displayOrder": 3,
@@ -2492,15 +2708,33 @@
                 "EntityId": "a17a2a27-1a96-4d34-beca-8421f74c3d9a",
                 "Version2": false
               },
-              "HealthLevel": 1.0,
-              "StaminaLevel": 1.0,
-              "AttackPowerLevel": 1.0,
+              "healthLevelTextTarget": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "582509d2-9f38-489f-8579-0afaabd7d638",
+                "Version2": false
+              },
+              "staminaLevelTextTarget": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "8da93d66-b6dd-4e20-acf4-545ddfb306b1",
+                "Version2": false
+              },
+              "attackLevelTextTarget": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "685f51f0-0e18-42d0-8aa6-c741efa07d71",
+                "Version2": false
+              },
               "IsOpen": false,
               "ActiveObject": {
                 "IsRelative": false,
                 "ComponentId": ":UpgradableObject",
                 "UseNested": false
-              }
+              },
+              "LastHealthLevelText": "",
+              "LastStaminaLevelText": "",
+              "LastAttackLevelText": ""
             }
           ],
           "@version": 1

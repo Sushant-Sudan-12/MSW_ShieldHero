@@ -18,6 +18,11 @@ script ShieldParry extends Component
 	end
 
 	method boolean CanUse()
+		local soulSystem = self.Entity:GetComponent("PlayerSoulSystem")
+		if isvalid(soulSystem) and soulSystem:IsInputLocked() then
+			return false
+		end
+
 		local currentTime = _UtilLogic.ElapsedSeconds
 		return currentTime - self.LastUseTime >= self.Cooldown
 	end

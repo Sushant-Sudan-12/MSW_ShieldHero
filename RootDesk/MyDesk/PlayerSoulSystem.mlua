@@ -4,14 +4,77 @@ script PlayerSoulSystem extends Component
 	@Sync
 	property number TotalSouls = 0
 
+	@Sync
+	property number HealthLevel = 1
+
+	@Sync
+	property number StaminaLevel = 1
+
+	@Sync
+	property number AttackLevel = 1
+
+	@Sync
+	property number HealthUpgradePercent = 20
+
+	@Sync
+	property number StaminaUpgradePercent = 20
+
+	@Sync
+	property number AttackUpgradePercent = 20
+
+	@Sync
+	property number BaseMaxStamina = 100
+
+	@Sync
+	property number CurrentStamina = 100
+
+	@Sync
+	property number ShieldThrowStaminaCost = 25
+
+	@Sync
+	property number StaminaRegenPerSecond = 2
+
+	@Sync
+	property boolean InputLocked = false
+
+	@HideFromInspector
+	property number CachedWalkSpeed = -1
+
+	@HideFromInspector
+	property number CachedWalkJump = -1
+
+	@HideFromInspector
+	property number BaseMaxHp = 0
+
+	@HideFromInspector
+	property number LastRegenTime = 0
+
+	@ExecSpace("ServerOnly")
+	method void OnBeginPlay()
+		local playerComponent = self.Entity:GetComponent("PlayerComponent")
+		if isvalid(playerComponent) then
+			if playerComponent.MaxHp <= 0 then
+				playerComponent.MaxHp = 1000
+			end
+			self.BaseMaxHp = playerComponent.MaxHp
+			playerComponent.Hp = playerComponent.MaxHp
+		end
+
+		self.CurrentStamina = self:GetMaxStamina()
+		self.LastRegenTime = _UtilLogic.ElapsedSeconds
+	end
+
+	@ExecSpace("ServerOnly")
+	method void OnUpdate(number delta)
+		self:RegenerateStamina()
+	end
+
 	method void AddSouls(number amount)
 		if amount == nil or amount <= 0 then
-			log("PlayerSoulSystem AddSouls: invalid amount=" .. tostring(amount))
 			return
 		end
 
 		self.TotalSouls = self.TotalSouls + amount
-		log("PlayerSoulSystem AddSouls: amount=" .. tostring(amount) .. " totalSouls=" .. tostring(self.TotalSouls))
 	end
 
 	method number GetTotalSouls()
@@ -20,6 +83,165 @@ script PlayerSoulSystem extends Component
 
 	method string GetSoulText()
 		return "x" .. tostring(self.TotalSouls)
+	end
+
+	method number GetHealthMultiplier()
+		return 1 + ((self.HealthLevel - 1) * (self.HealthUpgradePercent / 100))
+	end
+
+	method number GetStaminaMultiplier()
+		return 1 + ((self.StaminaLevel - 1) * (self.StaminaUpgradePercent / 100))
+	end
+
+	method number GetAttackMultiplier()
+		return 1 + ((self.AttackLevel - 1) * (self.AttackUpgradePercent / 100))
+	end
+
+	method number GetMaxStamina()
+		return self.BaseMaxStamina * self:GetStaminaMultiplier()
+	end
+
+	method number GetStaminaRatio()
+		local maxStamina = self:GetMaxStamina()
+		if maxStamina <= 0 then
+			return 0
+		end
+
+		local ratio = self.CurrentStamina / maxStamina
+		return math.max(0, math.min(1, ratio))
+	end
+
+	method boolean HasEnoughStamina(number cost)
+		return self.CurrentStamina >= cost
+	end
+
+	@ExecSpace("ServerOnly")
+	method boolean TryConsumeStamina(number cost)
+		if cost <= 0 then
+			return true
+		end
+
+		if self:HasEnoughStamina(cost) == false then
+			return false
+		end
+
+		self.CurrentStamina = math.max(0, self.CurrentStamina - cost)
+		return true
+	end
+
+	@ExecSpace("ServerOnly")
+	method void RegenerateStamina()
+		local maxStamina = self:GetMaxStamina()
+		if maxStamina <= 0 then
+			return
+		end
+
+		if self.CurrentStamina >= maxStamina then
+			self.CurrentStamina = maxStamina
+			self.LastRegenTime = _UtilLogic.ElapsedSeconds
+			return
+		end
+
+		local now = _UtilLogic.ElapsedSeconds
+		local delta = now - self.LastRegenTime
+		if delta <= 0 then
+			return
+		end
+
+		self.LastRegenTime = now
+		self.CurrentStamina = math.min(maxStamina, self.CurrentStamina + (self.StaminaRegenPerSecond * delta))
+	end
+
+	@ExecSpace("ServerOnly")
+	method void IncreaseHealth()
+		self.HealthLevel = self.HealthLevel + 1
+
+		local playerComponent = self.Entity:GetComponent("PlayerComponent")
+		if isvalid(playerComponent) == false then
+			return
+		end
+
+		if self.BaseMaxHp <= 0 then
+			self.BaseMaxHp = playerComponent.MaxHp
+		end
+
+		local newMaxHp = math.floor(self.BaseMaxHp * self:GetHealthMultiplier())
+		if newMaxHp < 1 then
+			newMaxHp = 1
+		end
+		playerComponent.MaxHp = newMaxHp
+		playerComponent.Hp = newMaxHp
+	end
+
+	@ExecSpace("ServerOnly")
+	method void IncreaseStamina()
+		self.StaminaLevel = self.StaminaLevel + 1
+		self.CurrentStamina = self:GetMaxStamina()
+	end
+
+	@ExecSpace("ServerOnly")
+	method void IncreaseAttack()
+		self.AttackLevel = self.AttackLevel + 1
+	end
+
+	@ExecSpace("ServerOnly")
+	@EventSender("Self")
+	handler HandleUpgradeRequestEvent(UpgradeRequestEvent event)
+		local upgradeType = event.UpgradeType
+
+		if upgradeType == "Health" then
+			self:IncreaseHealth()
+			return
+		end
+
+		if upgradeType == "Stamina" then
+			self:IncreaseStamina()
+			return
+		end
+
+		if upgradeType == "Attack Power" then
+			self:IncreaseAttack()
+			return
+		end
+	end
+
+	method void SetInputLocked(boolean locked)
+		if self.InputLocked == locked then
+			return
+		end
+
+		self.InputLocked = locked
+
+		local rigidbody = self.Entity.RigidbodyComponent
+		if isvalid(rigidbody) == false then
+			return
+		end
+
+		if locked then
+			if self.CachedWalkSpeed < 0 then
+				self.CachedWalkSpeed = rigidbody.WalkSpeed
+			end
+			if self.CachedWalkJump < 0 then
+				self.CachedWalkJump = rigidbody.WalkJump
+			end
+			rigidbody.WalkSpeed = 0
+			rigidbody.WalkJump = 0
+			rigidbody.MoveVelocity = Vector2.zero
+			return
+		end
+
+		if self.CachedWalkSpeed >= 0 then
+			rigidbody.WalkSpeed = self.CachedWalkSpeed
+		end
+		if self.CachedWalkJump >= 0 then
+			rigidbody.WalkJump = self.CachedWalkJump
+		end
+		self.CachedWalkSpeed = -1
+		self.CachedWalkJump = -1
+	end
+
+	method boolean IsInputLocked()
+		return self.InputLocked
 	end
 
 	@ExecSpace("ClientOnly")

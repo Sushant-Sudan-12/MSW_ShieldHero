@@ -22,6 +22,7 @@ script DialogLogic extends Logic
 		if scriptData == nil then
 			return
 		end
+		self:SetPlayerInputLocked(true)
 		
 		if isvalid(self.PlayerStatsUI) then
 			self.PlayerStatsUI.Enable = false
@@ -43,8 +44,22 @@ script DialogLogic extends Logic
 	@ExecSpace("ClientOnly")
 	method void End()
 		self.DialogPanel:Close()
+		self:SetPlayerInputLocked(false)
 		if isvalid(self.PlayerStatsUI) then
 			self.PlayerStatsUI.Enable = true
+		end
+	end
+
+	@ExecSpace("ClientOnly")
+	method void SetPlayerInputLocked(boolean locked)
+		local player = _UserService.LocalPlayer
+		if isvalid(player) == false then
+			return
+		end
+
+		local soulSystem = player:GetComponent("PlayerSoulSystem")
+		if isvalid(soulSystem) then
+			soulSystem:SetInputLocked(locked)
 		end
 	end
 

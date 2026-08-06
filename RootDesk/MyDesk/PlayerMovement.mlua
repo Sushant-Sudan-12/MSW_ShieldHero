@@ -20,6 +20,11 @@ script PlayerMovement extends Component
 	end
 
 	method boolean CanDash()
+		local soulSystem = self.Entity:GetComponent("PlayerSoulSystem")
+		if isvalid(soulSystem) and soulSystem:IsInputLocked() then
+			return false
+		end
+
 		local currentTime = _UtilLogic.ElapsedSeconds
 		return currentTime - self.LastDashTime >= self.DashCooldown
 	end
