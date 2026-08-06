@@ -54,7 +54,7 @@ script ShieldThrow extends Component
 	method void OnBeginPlay()
 		local playerController = self.Entity.PlayerControllerComponent
 		if isvalid(playerController) then
-			playerController:SetActionKey(KeyboardKey.Mouse0, "ShieldThrow")
+			playerController:SetActionKey(KeyboardKey.Q, "ShieldThrow")
 		end
 	end
 

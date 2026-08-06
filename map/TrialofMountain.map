@@ -70614,9 +70614,14 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
-                "x": -12.64883,
-                "y": -52.12,
+                "x": -7.930275,
+                "y": -52.1200027,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -70630,6 +70635,7 @@
                 "y": 0.8,
                 "z": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -70653,6 +70659,7 @@
             },
             {
               "@type": "MOD.Core.InteractionComponent",
+              "ActionName": "Upgrade",
               "BoxSize": {
                 "x": 1.4,
                 "y": 1.41
