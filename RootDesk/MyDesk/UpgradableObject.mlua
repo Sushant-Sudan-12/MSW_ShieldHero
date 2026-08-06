@@ -1,0 +1,45 @@
+@Component
+script UpgradableObject extends Component
+
+    property string ObjectName = "UpgradeObject"
+    property Entity UpgradePanel = nil
+    property UpgradeUIAbility UpgradeUIScript = nil
+    property InteractionComponent Interaction = nil
+
+    @HideFromInspector
+    property boolean IsUpgraded = false
+
+    @ExecSpace("ClientOnly")
+    method void OnBeginPlay()
+        if isvalid(self.Interaction) then
+            self.Interaction.Entity:ConnectEvent(InteractionEvent, function(event) self:HandleInteraction(event) end)
+        end
+
+        if isvalid(self.UpgradePanel) then
+            self.UpgradePanel.Enable = false
+        end
+    end
+
+    method void HandleInteraction(InteractionEvent event)
+        if self.IsUpgraded then
+            return
+        end
+
+        if isvalid(self.UpgradePanel) then
+            self.UpgradePanel.Enable = true
+        end
+
+        if isvalid(self.UpgradeUIScript) then
+            self.UpgradeUIScript:Open()
+            self.UpgradeUIScript:SetActiveObject(self)
+        end
+    end
+
+    method void MarkUpgraded()
+        self.IsUpgraded = true
+        if isvalid(self.Interaction) then
+            self.Interaction.Enable = false
+        end
+    end
+
+end

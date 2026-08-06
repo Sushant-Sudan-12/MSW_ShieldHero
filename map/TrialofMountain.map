@@ -59019,7 +59019,7 @@
       {
         "id": "38ccd768-d49f-4048-8781-c8733af35fc8",
         "path": "/maps/TrialofMountain/monster-248",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-248",
           "path": "/maps/TrialofMountain/monster-248",
@@ -59151,6 +59151,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -59159,7 +59163,7 @@
       {
         "id": "98fcb358-fdb0-40fb-8644-b637a5bb57fa",
         "path": "/maps/TrialofMountain/monster-197",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197",
           "path": "/maps/TrialofMountain/monster-197",
@@ -59284,6 +59288,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -59292,7 +59300,7 @@
       {
         "id": "a7d9aa71-d16a-430f-a1a4-5f3b9b80a8db",
         "path": "/maps/TrialofMountain/monster-426",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426",
           "path": "/maps/TrialofMountain/monster-426",
@@ -59416,6 +59424,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -59424,7 +59436,7 @@
       {
         "id": "99e45067-e309-4065-9ce0-bff615081fe2",
         "path": "/maps/TrialofMountain/monster-235",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-235",
           "path": "/maps/TrialofMountain/monster-235",
@@ -59549,6 +59561,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -60235,7 +60251,7 @@
       {
         "id": "572b7cdc-051b-47d5-85bc-72199cba30f4",
         "path": "/maps/TrialofMountain/monster-426_1",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_1",
           "path": "/maps/TrialofMountain/monster-426_1",
@@ -60359,6 +60375,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -60367,7 +60387,7 @@
       {
         "id": "d2818795-4c92-44b9-bd0c-e44e44062871",
         "path": "/maps/TrialofMountain/monster-426_2",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_2",
           "path": "/maps/TrialofMountain/monster-426_2",
@@ -60491,6 +60511,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -60499,7 +60523,7 @@
       {
         "id": "c9c6548b-5974-49cc-901e-65633815ec85",
         "path": "/maps/TrialofMountain/monster-426_3",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_3",
           "path": "/maps/TrialofMountain/monster-426_3",
@@ -60623,6 +60647,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -60631,7 +60659,7 @@
       {
         "id": "b0fee8fd-0bd3-4f1f-b980-df948b6ffc33",
         "path": "/maps/TrialofMountain/monster-197_1",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_1",
           "path": "/maps/TrialofMountain/monster-197_1",
@@ -60756,6 +60784,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -60764,7 +60796,7 @@
       {
         "id": "fb32c9fe-07af-4127-b477-cbf6874d6980",
         "path": "/maps/TrialofMountain/monster-197_2",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_2",
           "path": "/maps/TrialofMountain/monster-197_2",
@@ -60889,6 +60921,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -60897,7 +60933,7 @@
       {
         "id": "427612e9-f663-4747-a036-8797f4005de0",
         "path": "/maps/TrialofMountain/monster-197_3",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_3",
           "path": "/maps/TrialofMountain/monster-197_3",
@@ -61022,6 +61058,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -61030,7 +61070,7 @@
       {
         "id": "98cd7007-ff91-4f78-ac1d-126f626480dc",
         "path": "/maps/TrialofMountain/monster-197_4",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_4",
           "path": "/maps/TrialofMountain/monster-197_4",
@@ -61155,6 +61195,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -61163,7 +61207,7 @@
       {
         "id": "fc1eae54-ab01-4098-b91c-5a03643be8fa",
         "path": "/maps/TrialofMountain/monster-197_5",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_5",
           "path": "/maps/TrialofMountain/monster-197_5",
@@ -61288,6 +61332,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -61296,7 +61344,7 @@
       {
         "id": "b1a9310c-9b72-4fe5-93be-46e2be935d57",
         "path": "/maps/TrialofMountain/monster-197_6",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_6",
           "path": "/maps/TrialofMountain/monster-197_6",
@@ -61421,6 +61469,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -61429,7 +61481,7 @@
       {
         "id": "b77ab666-233a-4319-a45b-985e702bb038",
         "path": "/maps/TrialofMountain/monster-197_7",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_7",
           "path": "/maps/TrialofMountain/monster-197_7",
@@ -61554,6 +61606,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -61562,7 +61618,7 @@
       {
         "id": "7646869a-6845-4175-9458-a8b6e36b18e1",
         "path": "/maps/TrialofMountain/monster-197_8",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_8",
           "path": "/maps/TrialofMountain/monster-197_8",
@@ -61687,6 +61743,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -61695,7 +61755,7 @@
       {
         "id": "a9794bc0-9a3c-473c-9023-97bfc40cc7a0",
         "path": "/maps/TrialofMountain/monster-197_9",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_9",
           "path": "/maps/TrialofMountain/monster-197_9",
@@ -61820,6 +61880,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -61828,7 +61892,7 @@
       {
         "id": "d67fbec8-a9ac-4198-86dc-49459d66be38",
         "path": "/maps/TrialofMountain/monster-197_10",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_10",
           "path": "/maps/TrialofMountain/monster-197_10",
@@ -61953,6 +62017,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -61961,7 +62029,7 @@
       {
         "id": "66b09772-92de-4e93-a55d-ee8769393c44",
         "path": "/maps/TrialofMountain/monster-426_4",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_4",
           "path": "/maps/TrialofMountain/monster-426_4",
@@ -62085,6 +62153,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -62093,7 +62165,7 @@
       {
         "id": "23fe6b82-8d0a-4738-a1bf-0e65786dd54f",
         "path": "/maps/TrialofMountain/monster-426_5",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_5",
           "path": "/maps/TrialofMountain/monster-426_5",
@@ -62217,6 +62289,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -62225,7 +62301,7 @@
       {
         "id": "fa5afa72-e8da-4d3c-b2f2-4658dffa848f",
         "path": "/maps/TrialofMountain/monster-426_6",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_6",
           "path": "/maps/TrialofMountain/monster-426_6",
@@ -62349,6 +62425,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -62357,7 +62437,7 @@
       {
         "id": "0220ba33-b2ba-4150-9adb-7dbd07d7d3eb",
         "path": "/maps/TrialofMountain/monster-426_7",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_7",
           "path": "/maps/TrialofMountain/monster-426_7",
@@ -62481,6 +62561,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -62489,7 +62573,7 @@
       {
         "id": "df17a25b-c562-41bf-a654-04534211ba06",
         "path": "/maps/TrialofMountain/monster-426_8",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_8",
           "path": "/maps/TrialofMountain/monster-426_8",
@@ -62613,6 +62697,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -62621,7 +62709,7 @@
       {
         "id": "725842b7-916c-4af2-8114-9bd01cf2acdf",
         "path": "/maps/TrialofMountain/monster-197_11",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_11",
           "path": "/maps/TrialofMountain/monster-197_11",
@@ -62746,6 +62834,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -62754,7 +62846,7 @@
       {
         "id": "5d165db9-fe0e-489d-87f9-98e96e3fe27d",
         "path": "/maps/TrialofMountain/monster-426_9",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_9",
           "path": "/maps/TrialofMountain/monster-426_9",
@@ -62878,6 +62970,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -62886,7 +62982,7 @@
       {
         "id": "b08a6fd9-0309-4a78-b33c-3302e77334de",
         "path": "/maps/TrialofMountain/monster-426_10",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_10",
           "path": "/maps/TrialofMountain/monster-426_10",
@@ -63010,6 +63106,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -63018,7 +63118,7 @@
       {
         "id": "e7b84b45-6c95-4056-b343-112aafe821c2",
         "path": "/maps/TrialofMountain/monster-426_11",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_11",
           "path": "/maps/TrialofMountain/monster-426_11",
@@ -63142,6 +63242,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -63150,7 +63254,7 @@
       {
         "id": "d713367d-963d-4a47-a093-df0a04d37c69",
         "path": "/maps/TrialofMountain/monster-426_12",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_12",
           "path": "/maps/TrialofMountain/monster-426_12",
@@ -63274,6 +63378,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -63282,7 +63390,7 @@
       {
         "id": "7c7cc8f9-910c-48bf-aeef-0b3c66e8bd84",
         "path": "/maps/TrialofMountain/monster-426_13",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_13",
           "path": "/maps/TrialofMountain/monster-426_13",
@@ -63406,6 +63514,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -63414,7 +63526,7 @@
       {
         "id": "411513da-c3d3-47d6-af5c-aa349de6668a",
         "path": "/maps/TrialofMountain/monster-426_14",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_14",
           "path": "/maps/TrialofMountain/monster-426_14",
@@ -63538,6 +63650,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -63546,7 +63662,7 @@
       {
         "id": "2dc936ee-56a6-4af4-a590-1a011b50fdbb",
         "path": "/maps/TrialofMountain/monster-426_15",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_15",
           "path": "/maps/TrialofMountain/monster-426_15",
@@ -63670,6 +63786,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -63678,7 +63798,7 @@
       {
         "id": "18dd66e7-c428-48e3-bb88-c8d4c620b0dc",
         "path": "/maps/TrialofMountain/monster-426_16",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_16",
           "path": "/maps/TrialofMountain/monster-426_16",
@@ -63802,6 +63922,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -63810,7 +63934,7 @@
       {
         "id": "dcbd9d67-2b3b-4079-8529-5a0704d53b78",
         "path": "/maps/TrialofMountain/monster-197_12",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_12",
           "path": "/maps/TrialofMountain/monster-197_12",
@@ -63935,6 +64059,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -63943,7 +64071,7 @@
       {
         "id": "e007d9b6-c2aa-41c5-a766-886349578a71",
         "path": "/maps/TrialofMountain/monster-196_2",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,script.Monster,script.MonsterAttack,MOD.Core.HitComponent",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,script.Monster,script.MonsterAttack,MOD.Core.HitComponent,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-196_2",
           "path": "/maps/TrialofMountain/monster-196_2",
@@ -64036,6 +64164,10 @@
               },
               "IsLegacy": false,
               "Enable": true
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -64044,7 +64176,7 @@
       {
         "id": "c28188dd-e21d-4b57-891f-7207b2364542",
         "path": "/maps/TrialofMountain/monster-426_17",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_17",
           "path": "/maps/TrialofMountain/monster-426_17",
@@ -64168,6 +64300,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -64176,7 +64312,7 @@
       {
         "id": "1cfcf223-0a06-4943-a45d-a728d95b2cbf",
         "path": "/maps/TrialofMountain/monster-426_18",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_18",
           "path": "/maps/TrialofMountain/monster-426_18",
@@ -64300,6 +64436,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -64308,7 +64448,7 @@
       {
         "id": "1c725f8d-d70f-4866-98bd-25ac93118076",
         "path": "/maps/TrialofMountain/monster-235_1",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-235_1",
           "path": "/maps/TrialofMountain/monster-235_1",
@@ -64433,6 +64573,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -64441,7 +64585,7 @@
       {
         "id": "eabe13f3-c109-4000-b1ae-bb3d7e58c311",
         "path": "/maps/TrialofMountain/monster-235_2",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-235_2",
           "path": "/maps/TrialofMountain/monster-235_2",
@@ -64566,6 +64710,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -64574,7 +64722,7 @@
       {
         "id": "974e24be-2f14-4641-b68e-b66f435adc93",
         "path": "/maps/TrialofMountain/monster-235_3",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-235_3",
           "path": "/maps/TrialofMountain/monster-235_3",
@@ -64699,6 +64847,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -64707,7 +64859,7 @@
       {
         "id": "a24ffb2a-663c-4eb7-ae49-524e5a3cabed",
         "path": "/maps/TrialofMountain/monster-426_19",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_19",
           "path": "/maps/TrialofMountain/monster-426_19",
@@ -64831,6 +64983,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -64839,7 +64995,7 @@
       {
         "id": "4bb46931-b8f1-47f9-bc5c-8875fb32924f",
         "path": "/maps/TrialofMountain/monster-426_20",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_20",
           "path": "/maps/TrialofMountain/monster-426_20",
@@ -64963,6 +65119,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -64971,7 +65131,7 @@
       {
         "id": "c5bdc191-2f8f-41d3-9410-73538263cfed",
         "path": "/maps/TrialofMountain/monster-197_13",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_13",
           "path": "/maps/TrialofMountain/monster-197_13",
@@ -65096,6 +65256,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -65104,7 +65268,7 @@
       {
         "id": "b82527b9-63c9-412e-a4cb-014df3756aa4",
         "path": "/maps/TrialofMountain/monster-197_14",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_14",
           "path": "/maps/TrialofMountain/monster-197_14",
@@ -65229,6 +65393,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -65237,7 +65405,7 @@
       {
         "id": "74e2f59b-31b0-4428-af0c-a908157276ff",
         "path": "/maps/TrialofMountain/monster-426_21",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_21",
           "path": "/maps/TrialofMountain/monster-426_21",
@@ -65361,6 +65529,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -65369,7 +65541,7 @@
       {
         "id": "ae5d10b7-2511-4ba7-a2de-692245043c92",
         "path": "/maps/TrialofMountain/monster-197_15",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_15",
           "path": "/maps/TrialofMountain/monster-197_15",
@@ -65494,6 +65666,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -65502,7 +65678,7 @@
       {
         "id": "8c37adaa-34d9-463e-9dd4-99ca7ee8f92a",
         "path": "/maps/TrialofMountain/monster-426_22",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_22",
           "path": "/maps/TrialofMountain/monster-426_22",
@@ -65626,6 +65802,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -65634,7 +65814,7 @@
       {
         "id": "e016eb63-6fa1-4ade-8523-dd7531b0d152",
         "path": "/maps/TrialofMountain/monster-197_16",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_16",
           "path": "/maps/TrialofMountain/monster-197_16",
@@ -65759,6 +65939,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -65767,7 +65951,7 @@
       {
         "id": "386edcc2-2a3c-4041-b068-81fc740f850f",
         "path": "/maps/TrialofMountain/monster-197_17",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_17",
           "path": "/maps/TrialofMountain/monster-197_17",
@@ -65892,6 +66076,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -65900,7 +66088,7 @@
       {
         "id": "9d696803-3e51-45c5-bc2e-8973784a8dc6",
         "path": "/maps/TrialofMountain/monster-426_23",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_23",
           "path": "/maps/TrialofMountain/monster-426_23",
@@ -66024,6 +66212,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -66032,7 +66224,7 @@
       {
         "id": "55631348-1675-4edb-8e49-4a657641c5c8",
         "path": "/maps/TrialofMountain/monster-426_24",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_24",
           "path": "/maps/TrialofMountain/monster-426_24",
@@ -66156,6 +66348,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -66164,7 +66360,7 @@
       {
         "id": "94f53efa-7a21-4924-8c76-16892ba87257",
         "path": "/maps/TrialofMountain/monster-426_25",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_25",
           "path": "/maps/TrialofMountain/monster-426_25",
@@ -66288,6 +66484,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -66296,7 +66496,7 @@
       {
         "id": "4cb24bdf-7e3e-4e0f-bde5-bff9f3a93def",
         "path": "/maps/TrialofMountain/monster-197_18",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_18",
           "path": "/maps/TrialofMountain/monster-197_18",
@@ -66421,6 +66621,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -66429,7 +66633,7 @@
       {
         "id": "5d148032-1cb3-4572-add3-bc6cc783b1b4",
         "path": "/maps/TrialofMountain/monster-197_19",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_19",
           "path": "/maps/TrialofMountain/monster-197_19",
@@ -66554,6 +66758,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -66562,7 +66770,7 @@
       {
         "id": "ce540a34-7fe1-4535-8092-45aeff350031",
         "path": "/maps/TrialofMountain/monster-197_20",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_20",
           "path": "/maps/TrialofMountain/monster-197_20",
@@ -66687,6 +66895,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -66695,7 +66907,7 @@
       {
         "id": "15605c59-f89a-4745-a8ef-2814e9fd4329",
         "path": "/maps/TrialofMountain/monster-426_26",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_26",
           "path": "/maps/TrialofMountain/monster-426_26",
@@ -66819,6 +67031,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -66827,7 +67043,7 @@
       {
         "id": "fc6143d5-a197-4ccd-a0f9-f9bb39d20bcd",
         "path": "/maps/TrialofMountain/monster-235_4",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-235_4",
           "path": "/maps/TrialofMountain/monster-235_4",
@@ -66952,6 +67168,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -66960,7 +67180,7 @@
       {
         "id": "abb6f942-8761-4f91-be51-add70ccb2c6c",
         "path": "/maps/TrialofMountain/monster-235_5",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-235_5",
           "path": "/maps/TrialofMountain/monster-235_5",
@@ -67085,6 +67305,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -67093,7 +67317,7 @@
       {
         "id": "caf907ee-6bd1-43ad-ba07-a79d4b3284ce",
         "path": "/maps/TrialofMountain/monster-197_21",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_21",
           "path": "/maps/TrialofMountain/monster-197_21",
@@ -67218,6 +67442,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -67226,7 +67454,7 @@
       {
         "id": "d7782a54-c8ac-4772-bcd5-ff1e544ed7a8",
         "path": "/maps/TrialofMountain/monster-426_27",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_27",
           "path": "/maps/TrialofMountain/monster-426_27",
@@ -67350,6 +67578,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -67358,7 +67590,7 @@
       {
         "id": "0011b59e-2597-44fc-bbe6-89f6654110e5",
         "path": "/maps/TrialofMountain/monster-426_28",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_28",
           "path": "/maps/TrialofMountain/monster-426_28",
@@ -67482,6 +67714,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -67490,7 +67726,7 @@
       {
         "id": "48a246d3-bcf9-4242-92e1-16c90e2eafbf",
         "path": "/maps/TrialofMountain/monster-426_29",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_29",
           "path": "/maps/TrialofMountain/monster-426_29",
@@ -67614,6 +67850,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -67622,7 +67862,7 @@
       {
         "id": "7519da07-9f56-43bf-a1c2-70ff8242c0db",
         "path": "/maps/TrialofMountain/monster-197_22",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_22",
           "path": "/maps/TrialofMountain/monster-197_22",
@@ -67747,6 +67987,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -67755,7 +67999,7 @@
       {
         "id": "9862d116-d125-4319-a216-36b45d083442",
         "path": "/maps/TrialofMountain/monster-197_23",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_23",
           "path": "/maps/TrialofMountain/monster-197_23",
@@ -67880,6 +68124,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -67888,7 +68136,7 @@
       {
         "id": "3fce2a8f-d2c1-4a9a-ba83-c230a9cfd9b2",
         "path": "/maps/TrialofMountain/monster-235_6",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-235_6",
           "path": "/maps/TrialofMountain/monster-235_6",
@@ -68013,6 +68261,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -68021,7 +68273,7 @@
       {
         "id": "234db91c-aa36-41f1-9e56-10da392140b0",
         "path": "/maps/TrialofMountain/monster-235_7",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-235_7",
           "path": "/maps/TrialofMountain/monster-235_7",
@@ -68146,6 +68398,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -68154,7 +68410,7 @@
       {
         "id": "219d523e-c354-4ecd-b140-bb71bfe36bfd",
         "path": "/maps/TrialofMountain/monster-235_8",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-235_8",
           "path": "/maps/TrialofMountain/monster-235_8",
@@ -68279,6 +68535,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -68287,7 +68547,7 @@
       {
         "id": "e25c1e06-3c49-485a-b49a-83c48044d6fb",
         "path": "/maps/TrialofMountain/monster-426_30",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_30",
           "path": "/maps/TrialofMountain/monster-426_30",
@@ -68411,6 +68671,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -68419,7 +68683,7 @@
       {
         "id": "1bb3feca-7f1a-48c1-9f61-5082c3b07fd9",
         "path": "/maps/TrialofMountain/monster-426_31",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_31",
           "path": "/maps/TrialofMountain/monster-426_31",
@@ -68543,6 +68807,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -68551,7 +68819,7 @@
       {
         "id": "0c458221-da9b-4a89-baca-22eda1bc1c32",
         "path": "/maps/TrialofMountain/monster-426_32",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_32",
           "path": "/maps/TrialofMountain/monster-426_32",
@@ -68675,6 +68943,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -68683,7 +68955,7 @@
       {
         "id": "9f19cd43-b94b-40ce-aca6-c3f046a2aecf",
         "path": "/maps/TrialofMountain/monster-426_33",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_33",
           "path": "/maps/TrialofMountain/monster-426_33",
@@ -68807,6 +69079,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -68815,7 +69091,7 @@
       {
         "id": "af6ed778-8b91-4055-83e1-dcbb156b2855",
         "path": "/maps/TrialofMountain/monster-426_34",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_34",
           "path": "/maps/TrialofMountain/monster-426_34",
@@ -68939,6 +69215,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -68947,7 +69227,7 @@
       {
         "id": "4b210035-d717-49a4-a03d-167525f299fa",
         "path": "/maps/TrialofMountain/monster-426_35",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_35",
           "path": "/maps/TrialofMountain/monster-426_35",
@@ -69071,6 +69351,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -69079,7 +69363,7 @@
       {
         "id": "18da5d32-b652-4e68-b6f4-664c7619a7a6",
         "path": "/maps/TrialofMountain/monster-426_36",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_36",
           "path": "/maps/TrialofMountain/monster-426_36",
@@ -69203,6 +69487,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -69211,7 +69499,7 @@
       {
         "id": "e7859571-536d-41f5-b8dc-f2f426e34a14",
         "path": "/maps/TrialofMountain/monster-426_37",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_37",
           "path": "/maps/TrialofMountain/monster-426_37",
@@ -69335,6 +69623,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -69343,7 +69635,7 @@
       {
         "id": "26e29fd9-9fda-4015-805c-f18c9c8ad6c0",
         "path": "/maps/TrialofMountain/monster-426_38",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_38",
           "path": "/maps/TrialofMountain/monster-426_38",
@@ -69467,6 +69759,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -69475,7 +69771,7 @@
       {
         "id": "a352e8c3-6599-495f-8cd7-32aa68d4521c",
         "path": "/maps/TrialofMountain/monster-426_39",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-426_39",
           "path": "/maps/TrialofMountain/monster-426_39",
@@ -69599,6 +69895,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -69744,7 +70044,7 @@
       {
         "id": "a1201019-120a-478f-857b-58f4c9f78a29",
         "path": "/maps/TrialofMountain/monster-197_24",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-197_24",
           "path": "/maps/TrialofMountain/monster-197_24",
@@ -69869,6 +70169,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -69877,7 +70181,7 @@
       {
         "id": "51aa1715-3fcd-48e0-bfab-3d5672ff08ed",
         "path": "/maps/TrialofMountain/monster-235_9",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
         "jsonString": {
           "name": "monster-235_9",
           "path": "/maps/TrialofMountain/monster-235_9",
@@ -70002,6 +70306,10 @@
                 "x": 0.0,
                 "y": 0.0
               }
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true
             }
           ],
           "@version": 1
@@ -70276,6 +70584,106 @@
               "@type": "script.MonsterSoulReward",
               "Enable": true,
               "SoulsToGive": 10.0
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "ddef4c74-2b3f-42d1-b3fb-db19f2f34137",
+        "path": "/maps/TrialofMountain/monster-26",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.InteractionComponent,script.UpgradableObject",
+        "jsonString": {
+          "name": "monster-26",
+          "path": "/maps/TrialofMountain/monster-26",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 99,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "StaticMonster",
+            "sub_entity_id": null,
+            "root_entity_id": "ddef4c74-2b3f-42d1-b3fb-db19f2f34137",
+            "replaced_model_id": null
+          },
+          "modelId": "staticmonster",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Position": {
+                "x": -12.64883,
+                "y": -52.12,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Scale": {
+                "x": 0.8,
+                "y": 0.8,
+                "z": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateAnimationComponent",
+              "ActionSheet": {
+                "stand": "9113569e6d374cd39cf532644ece82fb",
+                "hit": "0b3d2412ab2549019dc227e405bf0b93",
+                "die": "af385aee8549412da1799cad5f1082e5"
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "EndFrameIndex": 0,
+              "RenderSetting": 1,
+              "SortingLayer": "MapLayer0",
+              "SpriteRUID": "9113569e6d374cd39cf532644ece82fb",
+              "StartFrameIndex": 0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.InteractionComponent",
+              "BoxSize": {
+                "x": 1.4,
+                "y": 1.41
+              },
+              "ColliderOffset": {
+                "x": 0.01999998,
+                "y": 0.705
+              },
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "script.UpgradableObject",
+              "Enable": true,
+              "UpgradePanel": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "a17a2a27-1a96-4d34-beca-8421f74c3d9a",
+                "Version2": false
+              },
+              "UpgradeUIScript": {
+                "IsRelative": false,
+                "ComponentId": "a17a2a27-1a96-4d34-beca-8421f74c3d9a:UpgradeUIAbility",
+                "UseNested": false
+              },
+              "Interaction": {
+                "IsRelative": false,
+                "ComponentId": "ddef4c74-2b3f-42d1-b3fb-db19f2f34137:InteractionComponent",
+                "UseNested": false
+              },
+              "IsUpgraded": false
             }
           ],
           "@version": 1

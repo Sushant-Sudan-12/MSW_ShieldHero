@@ -2,7 +2,7 @@
 script MonsterSoulReward extends Component
 
 	@Sync
-	property number SoulsToGive = 1
+	property number SoulsToGive = 10
 
 	method Entity FindSoulOwner(Entity attacker)
 		local current = attacker

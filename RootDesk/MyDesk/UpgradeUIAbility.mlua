@@ -1,0 +1,130 @@
+@Component
+script UpgradeUIAbility extends Component
+
+    property ButtonComponent btnHealth = nil
+    property ButtonComponent btnStamina = nil
+    property ButtonComponent btnAttackPower = nil
+    property Entity statusTarget = nil
+    property Entity panelRoot = nil
+
+    @HideFromInspector
+    property number HealthLevel = 1
+
+    @HideFromInspector
+    property number StaminaLevel = 1
+
+    @HideFromInspector
+    property number AttackPowerLevel = 1
+
+    @HideFromInspector
+    property boolean IsOpen = false
+
+    @HideFromInspector
+    property UpgradableObject ActiveObject = nil
+
+    @ExecSpace("ClientOnly")
+    method void OnBeginPlay()
+        self:ConnectButton(self.btnHealth, function() self:OnHealthClicked() end)
+        self:ConnectButton(self.btnStamina, function() self:OnStaminaClicked() end)
+        self:ConnectButton(self.btnAttackPower, function() self:OnAttackPowerClicked() end)
+
+        if isvalid(self.panelRoot) then
+            self.panelRoot.Enable = false
+        end
+
+        self:UpdateStatusText()
+    end
+
+    method void ConnectButton(ButtonComponent button, any callback)
+        if isvalid(button) then
+            button.Entity:ConnectEvent(ButtonClickEvent, callback)
+        end
+    end
+
+    method void SetActiveObject(UpgradableObject target)
+        if isvalid(target) == false then
+            return
+        end
+        self.ActiveObject = target
+    end
+
+    method void ClearActiveObject()
+        self.ActiveObject = nil
+    end
+
+    method void Open()
+        if isvalid(self.panelRoot) then
+            self.panelRoot.Enable = true
+            self.IsOpen = true
+            log("UpgradeUIAbility: opened upgrade panel")
+        else
+            log("UpgradeUIAbility Open: panelRoot missing")
+        end
+    end
+
+    method void Close()
+        if isvalid(self.panelRoot) then
+            self.panelRoot.Enable = false
+            self.IsOpen = false
+            log("UpgradeUIAbility: closed upgrade panel")
+        end
+    end
+
+    method void OnHealthClicked()
+        self.HealthLevel = self.HealthLevel + 1
+        log("UpgradeUIAbility: Health increased to " .. tostring(self.HealthLevel))
+        self:ApplyUpgrade("Health")
+    end
+
+    method void OnStaminaClicked()
+        self.StaminaLevel = self.StaminaLevel + 1
+        log("UpgradeUIAbility: Stamina increased to " .. tostring(self.StaminaLevel))
+        self:ApplyUpgrade("Stamina")
+    end
+
+    method void OnAttackPowerClicked()
+        self.AttackPowerLevel = self.AttackPowerLevel + 1
+        log("UpgradeUIAbility: Attack Power increased to " .. tostring(self.AttackPowerLevel))
+        self:ApplyUpgrade("Attack Power")
+    end
+
+    method void ApplyUpgrade(string upgradeType)
+        self:UpdateStatusText()
+        if isvalid(self.ActiveObject) then
+            self.ActiveObject:MarkUpgraded()
+            log("UpgradeUIAbility: applied " .. upgradeType .. " upgrade to " .. tostring(self.ActiveObject.ObjectName))
+        end
+        self:Close()
+        self:ClearActiveObject()
+    end
+
+    method void UpdateStatusText()
+        local status = "Health: " .. tostring(self.HealthLevel) .. " | Stamina: " .. tostring(self.StaminaLevel) .. " | Attack: " .. tostring(self.AttackPowerLevel)
+        self:WriteText(status)
+    end
+
+    method void WriteText(string value)
+        if isvalid(self.statusTarget) == false then
+            log("UpgradeUIAbility WriteText: statusTarget missing")
+            return
+        end
+
+        if isvalid(self.statusTarget.TextComponent) then
+            self.statusTarget.TextComponent.Text = value
+            return
+        end
+
+        if isvalid(self.statusTarget.TextGUIRendererComponent) then
+            self.statusTarget.TextGUIRendererComponent.Text = value
+            return
+        end
+
+        if isvalid(self.statusTarget.TextInputComponent) then
+            self.statusTarget.TextInputComponent.Text = value
+            return
+        end
+
+        log("UpgradeUIAbility WriteText: no valid text component on statusTarget")
+    end
+
+end
