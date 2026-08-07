@@ -16,6 +16,8 @@ script SampleParryInvincible extends Component
     @MinValue(0)
     property number RapidPressMultiplier = 1.75
 
+	property Vector3 SpawnOffset = Vector3(0.8, 0.6, 0)
+
     @HideFromInspector
     property number ParryTimerId = 0
 
@@ -25,11 +27,17 @@ script SampleParryInvincible extends Component
     @HideFromInspector
     property number RapidParryPressCount = 0
 
+	@HideFromInspector
+    property Entity ActiveParryModel = nil
+
+    @HideFromInspector
+    property number ParryModelTimerId = 0
+
     @ExecSpace("ClientOnly")
     method void OnBeginPlay()
         local playerController = self.Entity.PlayerControllerComponent
         if isvalid(playerController) then
-            playerController:SetActionKey(KeyboardKey.E, "SampleParryStart")
+            playerController:SetActionKey(KeyboardKey.Mouse1, "SampleParryStart")
             log("CLIENT mapped E to SampleParryStart")
         end
     end
@@ -101,9 +109,76 @@ script SampleParryInvincible extends Component
             self.ParryTimerId = 0
         end
 
+		if self.ParryModelTimerId ~= 0 then
+			_TimerService:ClearTimer(self.ParryModelTimerId)
+			self.ParryModelTimerId = 0
+		end
+
+		if isvalid(self.ActiveParryModel) then
+			self.ActiveParryModel:Destroy()
+			self.ActiveParryModel = nil
+		end
+
         self.IsParryHeld = false
         self:SetPlayerHitEnabled(true, source)
         log("SERVER parry ended source=" .. tostring(source))
+    end
+
+	@ExecSpace("ServerOnly")
+    method void SpawnParryModel()
+        local modelId = _EntryService:GetModelIdByName("Model_Parry")
+        if modelId == nil or modelId == "" then
+            log("SampleParryInvincible SpawnParryModel: Model_Parry not found")
+            return
+        end
+
+        local playerController = self.Entity.PlayerControllerComponent
+        local lookDirectionX = 1
+        if isvalid(playerController) then
+            lookDirectionX = playerController.LookDirectionX
+            if lookDirectionX == 0 then
+                lookDirectionX = 1
+            end
+        end
+
+        local transform = self.Entity.TransformComponent
+        if isvalid(transform) == false then
+            log("SampleParryInvincible SpawnParryModel: TransformComponent missing")
+            return
+        end
+
+		local spawnPosition = transform.WorldPosition + Vector3(lookDirectionX * self.SpawnOffset.x, self.SpawnOffset.y, self.SpawnOffset.z)
+
+        if isvalid(self.ActiveParryModel) then
+            self.ActiveParryModel:Destroy()
+            self.ActiveParryModel = nil
+        end
+
+        local parryModel = _SpawnService:SpawnByModelId(modelId, "Model_Parry", spawnPosition, self.Entity.Parent)
+        if isvalid(parryModel) == false then
+            log("SampleParryInvincible SpawnParryModel: spawn failed")
+            return
+        end
+
+        self.ActiveParryModel = parryModel
+        parryModel.Enable = true
+        parryModel.TransformComponent.WorldPosition = spawnPosition
+		log("SampleParryInvincible SpawnParryModel: spawned at x=" .. tostring(spawnPosition.x)
+			.. " y=" .. tostring(spawnPosition.y)
+			.. " z=" .. tostring(spawnPosition.z))
+
+        if self.ParryModelTimerId ~= 0 then
+            _TimerService:ClearTimer(self.ParryModelTimerId)
+            self.ParryModelTimerId = 0
+        end
+
+        self.ParryModelTimerId = _TimerService:SetTimerOnce(function()
+            if isvalid(self.ActiveParryModel) then
+                self.ActiveParryModel:Destroy()
+                self.ActiveParryModel = nil
+            end
+            self.ParryModelTimerId = 0
+        end, self.ParryDuration)
     end
 
     @ExecSpace("ServerOnly")
@@ -118,6 +193,7 @@ script SampleParryInvincible extends Component
         end
 
         self.IsParryHeld = true
+		self:SpawnParryModel()
         self:SetPlayerHitEnabled(false, source)
         log("SERVER parry started source=" .. tostring(source))
 

@@ -50,6 +50,17 @@ script ShieldParry extends Component
 
 	@HideFromInspector
 	property number LastHoldActionSendTime = 0
+	    @HideFromInspector
+    property Entity ActiveParryModel = nil
+
+    @HideFromInspector
+    property number ParryModelTimerId = 0
+
+    @MinValue(0)
+    property number ParrySpawnOffsetX = 0.8
+
+    @MinValue(0)
+    property number ParrySpawnOffsetY = 0.6
 
 	@ExecSpace("ClientOnly")
 	method void OnBeginPlay()
@@ -132,6 +143,7 @@ script ShieldParry extends Component
 		end
 
 		self.IsParrying = true
+		self:SpawnParryModel()
 		self.ParryStartedAt = _UtilLogic.ElapsedSeconds
 		local playerController = self.Entity.PlayerControllerComponent
 		local lookDirectionX = 0
@@ -168,6 +180,60 @@ script ShieldParry extends Component
 			stateComponent:ChangeState("IDLE")
 		end
 	end
+
+	@ExecSpace("ServerOnly")
+    method void SpawnParryModel()
+        local modelId = _EntryService:GetModelIdByName("Model_Parry")
+        if modelId == nil or modelId == "" then
+            log("ShieldParry SpawnParryModel: Model_Parry not found")
+            return
+        end
+
+        local playerController = self.Entity.PlayerControllerComponent
+        local lookDirectionX = 1
+        if isvalid(playerController) then
+            lookDirectionX = playerController.LookDirectionX
+            if lookDirectionX == 0 then
+                lookDirectionX = 1
+            end
+        end
+
+        local transform = self.Entity.TransformComponent
+        if isvalid(transform) == false then
+            log("ShieldParry SpawnParryModel: TransformComponent missing")
+            return
+        end
+
+        local spawnPosition = transform.WorldPosition + Vector3(lookDirectionX * self.ParrySpawnOffsetX, self.ParrySpawnOffsetY, 0)
+
+        if isvalid(self.ActiveParryModel) then
+            self.ActiveParryModel:Destroy()
+            self.ActiveParryModel = nil
+        end
+
+        local parryModel = _SpawnService:SpawnByModelId(modelId, "Model_Parry", spawnPosition, self.Entity.Parent)
+        if isvalid(parryModel) == false then
+            log("ShieldParry SpawnParryModel: spawn failed")
+            return
+        end
+
+        self.ActiveParryModel = parryModel
+        parryModel.Enable = true
+        parryModel.TransformComponent.WorldPosition = spawnPosition
+
+        if self.ParryModelTimerId ~= 0 then
+            _TimerService:ClearTimer(self.ParryModelTimerId)
+            self.ParryModelTimerId = 0
+        end
+
+        self.ParryModelTimerId = _TimerService:SetTimerOnce(function()
+            if isvalid(self.ActiveParryModel) then
+                self.ActiveParryModel:Destroy()
+                self.ActiveParryModel = nil
+            end
+            self.ParryModelTimerId = 0
+        end, self.ParryDuration)
+    end
 
 	method void SendParryAction(string actionName)
 		local evt = PlayerActionEvent(actionName)

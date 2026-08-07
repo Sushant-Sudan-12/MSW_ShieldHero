@@ -1052,6 +1052,56 @@
             "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
           },
           "Value": 0.4
+        },
+        {
+          "TargetType": "script.SampleParryInvincible",
+          "Name": "BaseParryStaminaCost",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 2.0
+        },
+        {
+          "TargetType": "script.SampleParryInvincible",
+          "Name": "SpawnOffset",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "MOD.Core.MODVector3, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+          },
+          "Value": {
+            "$type": "MOD.Core.MODVector3, MOD.Core",
+            "x": 0.3,
+            "y": 0.4,
+            "z": 0.0
+          }
+        },
+        {
+          "TargetType": "script.ShieldThrow",
+          "Name": "ProjectileRotationSpeed",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 2880.0
+        },
+        {
+          "TargetType": "script.ShieldThrow",
+          "Name": "BoomerangRange",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 5.0
+        },
+        {
+          "TargetType": "script.ShieldThrow",
+          "Name": "Cooldown",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 0.0
         }
       ],
       "EventLinks": [],

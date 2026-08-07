@@ -100771,12 +100771,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 900.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -100785,76 +100786,6 @@
                 "x": 0.0,
                 "y": 0.0
               }
-            },
-            {
-              "@type": "script.MonsterSoulReward",
-              "Enable": true
-            }
-          ],
-          "@version": 1
-        }
-      },
-      {
-        "id": "0913627b-42fc-4deb-8a20-a0aa4f28f867",
-        "path": "/maps/SandMap/monster-348",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,script.MonsterSoulReward",
-        "jsonString": {
-          "name": "monster-348",
-          "path": "/maps/SandMap/monster-348",
-          "nameEditable": true,
-          "enable": true,
-          "visible": true,
-          "localize": false,
-          "displayOrder": 10,
-          "pathConstraints": "///",
-          "revision": 1,
-          "origin": {
-            "type": "Model",
-            "entry_id": "StaticMonster",
-            "sub_entity_id": null,
-            "root_entity_id": "0913627b-42fc-4deb-8a20-a0aa4f28f867",
-            "replaced_model_id": null
-          },
-          "modelId": "staticmonster",
-          "@components": [
-            {
-              "@type": "MOD.Core.TransformComponent",
-              "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-              },
-              "Position": {
-                "x": -8.01745,
-                "y": 4.699961,
-                "z": 999.999
-              },
-              "QuaternionRotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-              },
-              "ZRotation": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.StateAnimationComponent",
-              "ActionSheet": {
-                "regen": "c27846a81acb4db8a64a86ef2bb16dc0",
-                "stand": "94a98bc612b049578e7e817237286c10"
-              },
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.SpriteRendererComponent",
-              "ActionSheet": {},
-              "EndFrameIndex": 0,
-              "RenderSetting": 1,
-              "SortingLayer": "MapLayer4",
-              "SpriteRUID": "94a98bc612b049578e7e817237286c10",
-              "StartFrameIndex": 0,
-              "Enable": true
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -100875,7 +100806,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 11,
+          "displayOrder": 10,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -100977,12 +100908,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -101011,7 +100943,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 12,
+          "displayOrder": 11,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -101114,12 +101046,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -101148,7 +101081,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 13,
+          "displayOrder": 12,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -101251,12 +101184,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -101285,7 +101219,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 14,
+          "displayOrder": 13,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -101389,13 +101323,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -101424,7 +101359,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 15,
+          "displayOrder": 14,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -101526,12 +101461,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 350.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -101560,7 +101496,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 16,
+          "displayOrder": 15,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -101662,12 +101598,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 500.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -101696,7 +101633,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 17,
+          "displayOrder": 16,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -101732,7 +101669,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 18,
+          "displayOrder": 17,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -177958,7 +177895,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 19,
+          "displayOrder": 18,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -177994,7 +177931,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 20,
+          "displayOrder": 19,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -178053,7 +177990,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 21,
+          "displayOrder": 20,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -178280,7 +178217,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 22,
+          "displayOrder": 21,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -178506,7 +178443,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 23,
+          "displayOrder": 22,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -178568,7 +178505,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 24,
+          "displayOrder": 23,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -178630,7 +178567,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 25,
+          "displayOrder": 24,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -178692,7 +178629,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 26,
+          "displayOrder": 25,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -178918,7 +178855,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 27,
+          "displayOrder": 26,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -179144,7 +179081,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 28,
+          "displayOrder": 27,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -179370,7 +179307,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 29,
+          "displayOrder": 28,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -179596,7 +179533,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 30,
+          "displayOrder": 29,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -179658,7 +179595,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 31,
+          "displayOrder": 30,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -179720,7 +179657,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 32,
+          "displayOrder": 31,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -179782,7 +179719,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 33,
+          "displayOrder": 32,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -179844,7 +179781,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 34,
+          "displayOrder": 33,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -179912,7 +179849,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 35,
+          "displayOrder": 34,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -179974,7 +179911,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 36,
+          "displayOrder": 35,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -180036,7 +179973,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 37,
+          "displayOrder": 36,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -180098,7 +180035,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 38,
+          "displayOrder": 37,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -180160,7 +180097,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 39,
+          "displayOrder": 38,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -180228,7 +180165,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 40,
+          "displayOrder": 39,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -180296,7 +180233,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 41,
+          "displayOrder": 40,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -180358,7 +180295,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 42,
+          "displayOrder": 41,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -180420,7 +180357,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 43,
+          "displayOrder": 42,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -180647,7 +180584,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 44,
+          "displayOrder": 43,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -180873,7 +180810,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 45,
+          "displayOrder": 44,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -181099,7 +181036,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 46,
+          "displayOrder": 45,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -181325,7 +181262,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 47,
+          "displayOrder": 46,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -181409,7 +181346,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 48,
+          "displayOrder": 47,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -181512,12 +181449,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -181546,7 +181484,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 49,
+          "displayOrder": 48,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -181649,12 +181587,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -181683,7 +181622,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 50,
+          "displayOrder": 49,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -181786,12 +181725,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -181820,7 +181760,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 51,
+          "displayOrder": 50,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -181923,12 +181863,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -181957,7 +181898,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 52,
+          "displayOrder": 51,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -182060,12 +182001,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -182094,7 +182036,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 53,
+          "displayOrder": 52,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -182197,12 +182139,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -182231,7 +182174,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 54,
+          "displayOrder": 53,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -182334,12 +182277,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -182368,7 +182312,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 55,
+          "displayOrder": 54,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -182471,12 +182415,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -182505,7 +182450,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 56,
+          "displayOrder": 55,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -182608,12 +182553,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -182642,7 +182588,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 57,
+          "displayOrder": 56,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -182745,12 +182691,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -182779,7 +182726,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 58,
+          "displayOrder": 57,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -182882,12 +182829,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -182916,7 +182864,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 59,
+          "displayOrder": 58,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -183019,12 +182967,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -183053,7 +183002,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 60,
+          "displayOrder": 59,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -183156,12 +183105,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -183190,7 +183140,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 61,
+          "displayOrder": 60,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -183293,12 +183243,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -183327,7 +183278,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 62,
+          "displayOrder": 61,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -183430,12 +183381,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -183464,7 +183416,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 63,
+          "displayOrder": 62,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -183567,12 +183519,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -183601,7 +183554,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 64,
+          "displayOrder": 63,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -183703,12 +183656,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -183737,7 +183691,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 65,
+          "displayOrder": 64,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -183839,12 +183793,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -183873,7 +183828,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 66,
+          "displayOrder": 65,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -183975,12 +183930,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -184009,7 +183965,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 67,
+          "displayOrder": 66,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -184111,12 +184067,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -184145,7 +184102,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 68,
+          "displayOrder": 67,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -184247,12 +184204,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -184281,7 +184239,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 69,
+          "displayOrder": 68,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -184383,12 +184341,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -184417,7 +184376,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 70,
+          "displayOrder": 69,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -184519,12 +184478,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -184553,7 +184513,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 71,
+          "displayOrder": 70,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -184655,12 +184615,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -184689,7 +184650,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 72,
+          "displayOrder": 71,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -184791,12 +184752,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -184825,7 +184787,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 73,
+          "displayOrder": 72,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -184927,12 +184889,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -184961,7 +184924,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 74,
+          "displayOrder": 73,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -185063,12 +185026,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -185097,7 +185061,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 75,
+          "displayOrder": 74,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -185199,12 +185163,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -185233,7 +185198,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 76,
+          "displayOrder": 75,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -185335,12 +185300,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -185369,7 +185335,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 77,
+          "displayOrder": 76,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -185471,12 +185437,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -185505,7 +185472,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 78,
+          "displayOrder": 77,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -185607,12 +185574,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -185641,7 +185609,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 79,
+          "displayOrder": 78,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -185743,12 +185711,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -185777,7 +185746,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 80,
+          "displayOrder": 79,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -185879,12 +185848,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -185913,7 +185883,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 81,
+          "displayOrder": 80,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -186015,12 +185985,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -186049,7 +186020,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 82,
+          "displayOrder": 81,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -186151,12 +186122,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -186185,7 +186157,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 83,
+          "displayOrder": 82,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -186287,12 +186259,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -186321,7 +186294,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 84,
+          "displayOrder": 83,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -186423,12 +186396,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -186457,7 +186431,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 85,
+          "displayOrder": 84,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -186559,12 +186533,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -186593,7 +186568,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 86,
+          "displayOrder": 85,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -186695,12 +186670,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -186729,7 +186705,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 87,
+          "displayOrder": 86,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -186831,12 +186807,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -186865,7 +186842,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 88,
+          "displayOrder": 87,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -186967,12 +186944,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -187001,7 +186979,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 89,
+          "displayOrder": 88,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -187103,12 +187081,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -187137,7 +187116,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 90,
+          "displayOrder": 89,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -187239,12 +187218,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -187273,7 +187253,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 91,
+          "displayOrder": 90,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -187375,12 +187355,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -187409,7 +187390,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 92,
+          "displayOrder": 91,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -187511,12 +187492,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -187545,7 +187527,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 93,
+          "displayOrder": 92,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -187647,12 +187629,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -187681,7 +187664,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 94,
+          "displayOrder": 93,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -187783,12 +187766,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -187817,7 +187801,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 95,
+          "displayOrder": 94,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -187919,12 +187903,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -187953,7 +187938,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 96,
+          "displayOrder": 95,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -188055,12 +188040,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -188089,7 +188075,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 97,
+          "displayOrder": 96,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -188191,12 +188177,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -188225,7 +188212,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 98,
+          "displayOrder": 97,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -188327,12 +188314,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -188361,7 +188349,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 99,
+          "displayOrder": 98,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -188463,12 +188451,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -188497,7 +188486,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 100,
+          "displayOrder": 99,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -188599,12 +188588,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -188633,7 +188623,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 101,
+          "displayOrder": 100,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -188735,12 +188725,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -188769,7 +188760,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 102,
+          "displayOrder": 101,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -188871,12 +188862,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -188905,7 +188897,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 103,
+          "displayOrder": 102,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -189007,12 +188999,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -189041,7 +189034,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 104,
+          "displayOrder": 103,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -189143,12 +189136,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -189177,7 +189171,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 105,
+          "displayOrder": 104,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -189279,12 +189273,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -189313,7 +189308,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 106,
+          "displayOrder": 105,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -189415,12 +189410,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -189449,7 +189445,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 107,
+          "displayOrder": 106,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -189551,12 +189547,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 350.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -189585,7 +189582,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 108,
+          "displayOrder": 107,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -189687,12 +189684,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 350.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -189721,7 +189719,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 109,
+          "displayOrder": 108,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -189823,12 +189821,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 350.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -189857,7 +189856,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 110,
+          "displayOrder": 109,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -189959,12 +189958,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 350.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -189993,7 +189993,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 111,
+          "displayOrder": 110,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -190095,12 +190095,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 350.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -190129,7 +190130,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 112,
+          "displayOrder": 111,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -190231,12 +190232,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 350.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -190265,7 +190267,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 113,
+          "displayOrder": 112,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -190367,12 +190369,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 350.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -190401,7 +190404,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 114,
+          "displayOrder": 113,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -190503,12 +190506,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 350.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -190537,7 +190541,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 115,
+          "displayOrder": 114,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -190639,12 +190643,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 350.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -190673,7 +190678,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 116,
+          "displayOrder": 115,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -190775,12 +190780,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 350.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -190809,7 +190815,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 117,
+          "displayOrder": 116,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -190911,12 +190917,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 350.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -190945,7 +190952,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 118,
+          "displayOrder": 117,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -191047,12 +191054,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 350.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -191081,7 +191089,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 119,
+          "displayOrder": 118,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -191183,12 +191191,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 350.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -191217,7 +191226,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 120,
+          "displayOrder": 119,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -191319,12 +191328,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 350.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -191353,7 +191363,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 121,
+          "displayOrder": 120,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -191455,12 +191465,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 350.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -191489,7 +191500,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 122,
+          "displayOrder": 121,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -191591,12 +191602,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 350.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -191625,7 +191637,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 123,
+          "displayOrder": 122,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -191727,12 +191739,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 500.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -191761,7 +191774,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 124,
+          "displayOrder": 123,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -191863,12 +191876,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 500.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -191897,7 +191911,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 125,
+          "displayOrder": 124,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -191999,12 +192013,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 500.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -192033,7 +192048,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 126,
+          "displayOrder": 125,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -192135,12 +192150,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 500.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -192169,7 +192185,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 127,
+          "displayOrder": 126,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -192271,12 +192287,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 500.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -192305,7 +192322,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 128,
+          "displayOrder": 127,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -192407,12 +192424,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 500.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -192441,7 +192459,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 129,
+          "displayOrder": 128,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -192543,12 +192561,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 500.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -192577,7 +192596,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 130,
+          "displayOrder": 129,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -192679,12 +192698,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 500.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -192713,7 +192733,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 131,
+          "displayOrder": 130,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -192815,12 +192835,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 500.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -192849,7 +192870,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 132,
+          "displayOrder": 131,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -192951,12 +192972,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 500.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -192985,7 +193007,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 133,
+          "displayOrder": 132,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -193087,12 +193109,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 500.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -193121,7 +193144,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 134,
+          "displayOrder": 133,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -193223,12 +193246,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -193257,7 +193281,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 135,
+          "displayOrder": 134,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -193359,12 +193383,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -193393,7 +193418,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 136,
+          "displayOrder": 135,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -193495,12 +193520,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -193529,7 +193555,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 137,
+          "displayOrder": 136,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -193631,12 +193657,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -193665,7 +193692,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 138,
+          "displayOrder": 137,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -193767,12 +193794,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 500.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -193801,7 +193829,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 139,
+          "displayOrder": 138,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -193904,12 +193932,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -193938,7 +193967,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 140,
+          "displayOrder": 139,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -194040,12 +194069,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -194074,7 +194104,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 141,
+          "displayOrder": 140,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -194176,12 +194206,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 900.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -194210,7 +194241,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 142,
+          "displayOrder": 141,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -194312,12 +194343,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 900.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -194346,7 +194378,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 143,
+          "displayOrder": 142,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -194448,12 +194480,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 900.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -194482,7 +194515,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 144,
+          "displayOrder": 143,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -194584,12 +194617,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -194618,7 +194652,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 145,
+          "displayOrder": 144,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -194720,12 +194754,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 900.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -194754,7 +194789,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 146,
+          "displayOrder": 145,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -194857,12 +194892,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -194891,7 +194927,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 147,
+          "displayOrder": 146,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -194994,12 +195030,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -195028,7 +195065,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 148,
+          "displayOrder": 147,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -195131,12 +195168,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -195165,7 +195203,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 149,
+          "displayOrder": 148,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -195268,12 +195306,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -195302,7 +195341,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 150,
+          "displayOrder": 149,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -195405,12 +195444,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -195439,7 +195479,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 151,
+          "displayOrder": 150,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -195542,12 +195582,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -195576,7 +195617,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 152,
+          "displayOrder": 151,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -195679,12 +195720,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -195713,7 +195755,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 153,
+          "displayOrder": 152,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -195816,12 +195858,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -195850,7 +195893,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 154,
+          "displayOrder": 153,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -195953,12 +195996,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -195987,7 +196031,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 155,
+          "displayOrder": 154,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -196089,12 +196133,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 200.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -196123,7 +196168,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 156,
+          "displayOrder": 155,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -196226,12 +196271,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -196240,76 +196286,6 @@
                 "x": 0.0,
                 "y": 0.0
               }
-            },
-            {
-              "@type": "script.MonsterSoulReward",
-              "Enable": true
-            }
-          ],
-          "@version": 1
-        }
-      },
-      {
-        "id": "91ed3ea0-b290-4a55-9cac-23fcd34bfd8f",
-        "path": "/maps/SandMap/monster-348_1",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,script.MonsterSoulReward",
-        "jsonString": {
-          "name": "monster-348_1",
-          "path": "/maps/SandMap/monster-348_1",
-          "nameEditable": true,
-          "enable": true,
-          "visible": true,
-          "localize": false,
-          "displayOrder": 157,
-          "pathConstraints": "///",
-          "revision": 1,
-          "origin": {
-            "type": "Model",
-            "entry_id": "StaticMonster",
-            "sub_entity_id": null,
-            "root_entity_id": "0913627b-42fc-4deb-8a20-a0aa4f28f867",
-            "replaced_model_id": null
-          },
-          "modelId": "staticmonster",
-          "@components": [
-            {
-              "@type": "MOD.Core.TransformComponent",
-              "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-              },
-              "Position": {
-                "x": -16.6666164,
-                "y": 19.1200027,
-                "z": 999.999
-              },
-              "QuaternionRotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-              },
-              "ZRotation": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.StateAnimationComponent",
-              "ActionSheet": {
-                "regen": "c27846a81acb4db8a64a86ef2bb16dc0",
-                "stand": "94a98bc612b049578e7e817237286c10"
-              },
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.SpriteRendererComponent",
-              "ActionSheet": {},
-              "EndFrameIndex": 0,
-              "RenderSetting": 1,
-              "SortingLayer": "MapLayer4",
-              "SpriteRUID": "94a98bc612b049578e7e817237286c10",
-              "StartFrameIndex": 0,
-              "Enable": true
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -196330,7 +196306,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 158,
+          "displayOrder": 156,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -196433,12 +196409,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -196467,7 +196444,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 159,
+          "displayOrder": 157,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -196570,12 +196547,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -196604,7 +196582,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 160,
+          "displayOrder": 158,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -196707,12 +196685,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -196741,7 +196720,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 161,
+          "displayOrder": 159,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -196844,12 +196823,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -196878,7 +196858,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 162,
+          "displayOrder": 160,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -196981,12 +196961,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -197015,7 +196996,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 163,
+          "displayOrder": 161,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -197118,12 +197099,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -197152,7 +197134,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 164,
+          "displayOrder": 162,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -197255,12 +197237,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -197289,7 +197272,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 165,
+          "displayOrder": 163,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -197392,12 +197375,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -197426,7 +197410,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 166,
+          "displayOrder": 164,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -197529,12 +197513,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -197563,7 +197548,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 167,
+          "displayOrder": 165,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -197666,12 +197651,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -197700,7 +197686,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 168,
+          "displayOrder": 166,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -197803,12 +197789,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 120.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -197837,7 +197824,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 169,
+          "displayOrder": 167,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -197941,13 +197928,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -197976,7 +197964,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 170,
+          "displayOrder": 168,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -198080,13 +198068,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -198115,7 +198104,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 171,
+          "displayOrder": 169,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -198219,13 +198208,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -198254,7 +198244,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 172,
+          "displayOrder": 170,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -198358,13 +198348,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -198393,7 +198384,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 173,
+          "displayOrder": 171,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -198497,13 +198488,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -198532,7 +198524,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 174,
+          "displayOrder": 172,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -198636,13 +198628,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -198671,7 +198664,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 175,
+          "displayOrder": 173,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -198775,13 +198768,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -198810,7 +198804,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 176,
+          "displayOrder": 174,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -198914,13 +198908,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -198949,7 +198944,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 177,
+          "displayOrder": 175,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -199053,13 +199048,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -199088,7 +199084,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 178,
+          "displayOrder": 176,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -199192,13 +199188,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -199227,7 +199224,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 179,
+          "displayOrder": 177,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -199331,13 +199328,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -199366,7 +199364,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 180,
+          "displayOrder": 178,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -199470,13 +199468,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -199505,7 +199504,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 181,
+          "displayOrder": 179,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -199609,13 +199608,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -199644,7 +199644,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 182,
+          "displayOrder": 180,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -199748,13 +199748,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -199783,7 +199784,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 183,
+          "displayOrder": 181,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -199887,13 +199888,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -199922,7 +199924,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 184,
+          "displayOrder": 182,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -200026,13 +200028,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -200061,7 +200064,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 185,
+          "displayOrder": 183,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -200165,13 +200168,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -200200,7 +200204,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 186,
+          "displayOrder": 184,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -200304,13 +200308,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -200339,7 +200344,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 187,
+          "displayOrder": 185,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -200443,13 +200448,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -200478,7 +200484,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 188,
+          "displayOrder": 186,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -200582,13 +200588,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -200617,7 +200624,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 189,
+          "displayOrder": 187,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -200721,13 +200728,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -200756,7 +200764,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 190,
+          "displayOrder": 188,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -200860,13 +200868,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -200895,7 +200904,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 191,
+          "displayOrder": 189,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -200999,13 +201008,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -201034,7 +201044,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 192,
+          "displayOrder": 190,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -201138,13 +201148,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -201173,7 +201184,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 193,
+          "displayOrder": 191,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -201277,13 +201288,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -201312,7 +201324,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 194,
+          "displayOrder": 192,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -201416,13 +201428,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -201451,7 +201464,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 195,
+          "displayOrder": 193,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -201471,8 +201484,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 18.1949635,
-                "y": 22.2150021,
+                "x": 19.2696228,
+                "y": 19.8150024,
                 "z": 999.9971
               },
               "QuaternionRotation": {
@@ -201555,13 +201568,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -201590,7 +201604,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 196,
+          "displayOrder": 194,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -201694,13 +201708,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -201729,7 +201744,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 197,
+          "displayOrder": 195,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -201833,13 +201848,14 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 90.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -201868,7 +201884,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 198,
+          "displayOrder": 196,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -201971,12 +201987,13 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
-              "IsDead": false
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
             },
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -202005,7 +202022,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 199,
+          "displayOrder": 197,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -202075,7 +202092,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 200,
+          "displayOrder": 198,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -202137,7 +202154,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 201,
+          "displayOrder": 199,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -202199,7 +202216,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 202,
+          "displayOrder": 200,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -202261,7 +202278,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 203,
+          "displayOrder": 201,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -202323,7 +202340,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 204,
+          "displayOrder": 202,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -202385,7 +202402,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 205,
+          "displayOrder": 203,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -202447,7 +202464,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 206,
+          "displayOrder": 204,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -202509,7 +202526,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 207,
+          "displayOrder": 205,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -202571,7 +202588,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 208,
+          "displayOrder": 206,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -202633,7 +202650,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 209,
+          "displayOrder": 207,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -202695,7 +202712,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 210,
+          "displayOrder": 208,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -202757,7 +202774,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 211,
+          "displayOrder": 209,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -202819,7 +202836,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 212,
+          "displayOrder": 210,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -202881,7 +202898,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 213,
+          "displayOrder": 211,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -202943,7 +202960,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 214,
+          "displayOrder": 212,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -203005,7 +203022,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 215,
+          "displayOrder": 213,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -203067,7 +203084,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 216,
+          "displayOrder": 214,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -203129,7 +203146,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 217,
+          "displayOrder": 215,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -203191,7 +203208,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 218,
+          "displayOrder": 216,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -203253,7 +203270,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 219,
+          "displayOrder": 217,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -203315,7 +203332,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 220,
+          "displayOrder": 218,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -203377,7 +203394,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 221,
+          "displayOrder": 219,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -203439,7 +203456,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 222,
+          "displayOrder": 220,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -203501,7 +203518,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 223,
+          "displayOrder": 221,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -203563,7 +203580,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 224,
+          "displayOrder": 222,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -203625,7 +203642,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 225,
+          "displayOrder": 223,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -203687,7 +203704,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 226,
+          "displayOrder": 224,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -203751,7 +203768,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 227,
+          "displayOrder": 225,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -203814,7 +203831,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 228,
+          "displayOrder": 226,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -203879,6 +203896,326 @@
               "IsLegacy": false,
               "ShowActionInfo": false,
               "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "2adbe187-3554-40df-9816-91f91e0e232b",
+        "path": "/maps/SandMap/Model_Upgradable",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.InteractionComponent,script.UpgradableObject",
+        "jsonString": {
+          "name": "Model_Upgradable",
+          "path": "/maps/SandMap/Model_Upgradable",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 227,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "3d04f997-7f35-48a5-ba36-2f153ba8dfc4",
+            "sub_entity_id": null,
+            "root_entity_id": "2adbe187-3554-40df-9816-91f91e0e232b",
+            "replaced_model_id": null
+          },
+          "modelId": "3d04f997-7f35-48a5-ba36-2f153ba8dfc4",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Position": {
+                "x": 17.98669,
+                "y": 22.1578178,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateAnimationComponent",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "RenderSetting": 1,
+              "SortingLayer": "MapLayer0",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.InteractionComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "script.UpgradableObject",
+              "Enable": true,
+              "ObjectName": "UpgradeObject5",
+              "IsUpgraded": false
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "84de0553-9e84-47a2-86a1-2d45fe2e4cf3",
+        "path": "/maps/SandMap/Model_Upgradable_1",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.InteractionComponent,script.UpgradableObject",
+        "jsonString": {
+          "name": "Model_Upgradable_1",
+          "path": "/maps/SandMap/Model_Upgradable_1",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 228,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "3d04f997-7f35-48a5-ba36-2f153ba8dfc4",
+            "sub_entity_id": null,
+            "root_entity_id": "2adbe187-3554-40df-9816-91f91e0e232b",
+            "replaced_model_id": null
+          },
+          "modelId": "3d04f997-7f35-48a5-ba36-2f153ba8dfc4",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Position": {
+                "x": -4.51009846,
+                "y": -10.8956347,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateAnimationComponent",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "RenderSetting": 1,
+              "SortingLayer": "Background",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.InteractionComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "script.UpgradableObject",
+              "Enable": true,
+              "ObjectName": "UpgradeObject1",
+              "IsUpgraded": false
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "13c8cc26-a8df-4acb-96f8-eaa159c02825",
+        "path": "/maps/SandMap/Model_Upgradable_2",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.InteractionComponent,script.UpgradableObject",
+        "jsonString": {
+          "name": "Model_Upgradable_2",
+          "path": "/maps/SandMap/Model_Upgradable_2",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 229,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "3d04f997-7f35-48a5-ba36-2f153ba8dfc4",
+            "sub_entity_id": null,
+            "root_entity_id": "2adbe187-3554-40df-9816-91f91e0e232b",
+            "replaced_model_id": null
+          },
+          "modelId": "3d04f997-7f35-48a5-ba36-2f153ba8dfc4",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Position": {
+                "x": -16.65596,
+                "y": 19.1400013,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateAnimationComponent",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "RenderSetting": 1,
+              "SortingLayer": "MapLayer0",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.InteractionComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "script.UpgradableObject",
+              "Enable": true,
+              "ObjectName": "UpgradeObject4",
+              "IsUpgraded": false
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "e9e0207d-5869-4341-ab63-5773d699e847",
+        "path": "/maps/SandMap/Model_Upgradable_3",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.InteractionComponent,script.UpgradableObject",
+        "jsonString": {
+          "name": "Model_Upgradable_3",
+          "path": "/maps/SandMap/Model_Upgradable_3",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 230,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "3d04f997-7f35-48a5-ba36-2f153ba8dfc4",
+            "sub_entity_id": null,
+            "root_entity_id": "2adbe187-3554-40df-9816-91f91e0e232b",
+            "replaced_model_id": null
+          },
+          "modelId": "3d04f997-7f35-48a5-ba36-2f153ba8dfc4",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Position": {
+                "x": -8.242532,
+                "y": 4.78579044,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateAnimationComponent",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "RenderSetting": 1,
+              "SortingLayer": "Background",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.InteractionComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "script.UpgradableObject",
+              "Enable": true,
+              "ObjectName": "UpgradeObject3",
+              "IsUpgraded": false
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "3c5876ef-e390-49d3-bd66-c60ddce5d471",
+        "path": "/maps/SandMap/Model_Upgradable_4",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.InteractionComponent,script.UpgradableObject",
+        "jsonString": {
+          "name": "Model_Upgradable_4",
+          "path": "/maps/SandMap/Model_Upgradable_4",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 231,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "3d04f997-7f35-48a5-ba36-2f153ba8dfc4",
+            "sub_entity_id": null,
+            "root_entity_id": "2adbe187-3554-40df-9816-91f91e0e232b",
+            "replaced_model_id": null
+          },
+          "modelId": "3d04f997-7f35-48a5-ba36-2f153ba8dfc4",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Position": {
+                "x": 5.13052273,
+                "y": -1.86000013,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateAnimationComponent",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "RenderSetting": 1,
+              "SortingLayer": "Background",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.InteractionComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "script.UpgradableObject",
+              "Enable": true,
+              "ObjectName": "UpgradeObject2",
+              "IsUpgraded": false
             }
           ],
           "@version": 1
