@@ -1,0 +1,7 @@
+@Component
+script ParryContactPush extends AttackComponent
+
+	method void OnBeginPlay()
+	end
+
+end

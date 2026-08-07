@@ -20,8 +20,65 @@ script Monster extends Component
 	@Sync
 	property number DestroyDelay = 0.6
 
+	@MinValue(0)
+	property number ParryPushbackUnits = 1.8
+
+	@MinValue(0)
+	property number ParryStunDuration = 0.2
+
+	@HideFromInspector
+	property number ParryStunEndTime = 0
+
+	@HideFromInspector
+	property number ParryStunRecoverTimerId = 0
+
 	method void OnBeginPlay()
 		self.Hp = self.MaxHp
+	end
+
+	@ExecSpace("ServerOnly")
+	method void ApplyParryStun(number duration)
+		if duration <= 0 then
+			return
+		end
+
+		local newEndTime = _UtilLogic.ElapsedSeconds + duration
+		if newEndTime > self.ParryStunEndTime then
+			self.ParryStunEndTime = newEndTime
+		end
+
+		local wander = self.Entity.AIWanderComponent
+		if isvalid(wander) then
+			wander.Enable = false
+		end
+
+		local rigidbody = self.Entity.RigidbodyComponent
+		if isvalid(rigidbody) then
+			rigidbody.MoveVelocity = Vector2.zero
+		end
+
+		if self.ParryStunRecoverTimerId ~= 0 then
+			_TimerService:ClearTimer(self.ParryStunRecoverTimerId)
+			self.ParryStunRecoverTimerId = 0
+		end
+
+		self.ParryStunRecoverTimerId = _TimerService:SetTimerOnce(function()
+			if isvalid(self.Entity) == false then
+				return
+			end
+			local monster = self.Entity:GetComponent("Monster")
+			if isvalid(monster) == false or monster.IsDead then
+				return
+			end
+			local wanderComp = self.Entity.AIWanderComponent
+			if isvalid(wanderComp) then
+				wanderComp.Enable = true
+			end
+		end, duration)
+	end
+
+	method boolean IsParryStunned()
+		return _UtilLogic.ElapsedSeconds < self.ParryStunEndTime
 	end
 
 	@ExecSpace("ServerOnly")

@@ -42,7 +42,6 @@ script UISoulCounter extends Component
 
 		local textValue = self.Prefix .. tostring(soulSystem.TotalSouls)
 		self.LastShownSouls = soulSystem.TotalSouls
-		log("UISoulCounter Refresh: totalSouls changed, updating text to " .. textValue)
 		self:WriteText(textValue)
 	end
 
@@ -60,7 +59,6 @@ script UISoulCounter extends Component
 
 		if isvalid(target.TextGUIRendererComponent) then
 			target.TextGUIRendererComponent.Text = value
-			log("UISoulCounter WriteText: wrote text via TextGUIRendererComponent -> " .. value)
 			return
 		end
 

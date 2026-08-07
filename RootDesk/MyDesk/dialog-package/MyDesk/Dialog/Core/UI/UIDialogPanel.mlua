@@ -317,7 +317,7 @@ script UIDialogPanel extends Component
 			return
 		end
 		
-		if key == KeyboardKey.Space or key == KeyboardKey.Q then
+		if key == KeyboardKey.Space or key == KeyboardKey.F then
 			self:OnClickNext()
 		elseif key == KeyboardKey.UpArrow then
 			self:ChangeFocusedSelection(-1)

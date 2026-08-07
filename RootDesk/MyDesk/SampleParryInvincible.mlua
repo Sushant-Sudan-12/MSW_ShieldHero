@@ -1,0 +1,148 @@
+@Component
+script SampleParryInvincible extends Component
+
+    @Sync
+    property boolean IsParryHeld = false
+
+    @MinValue(0)
+    property number ParryDuration = 0.4
+
+    @MinValue(0)
+    property number BaseParryStaminaCost = 4
+
+    @MinValue(0)
+    property number RapidPressWindowSeconds = 1.0
+
+    @MinValue(0)
+    property number RapidPressMultiplier = 1.75
+
+    @HideFromInspector
+    property number ParryTimerId = 0
+
+    @HideFromInspector
+    property number LastParryStartTime = 0
+
+    @HideFromInspector
+    property number RapidParryPressCount = 0
+
+    @ExecSpace("ClientOnly")
+    method void OnBeginPlay()
+        local playerController = self.Entity.PlayerControllerComponent
+        if isvalid(playerController) then
+            playerController:SetActionKey(KeyboardKey.E, "SampleParryStart")
+            log("CLIENT mapped E to SampleParryStart")
+        end
+    end
+
+    @ExecSpace("ServerOnly")
+    method void SetPlayerHitEnabled(boolean enabled, string source)
+        local playerHit = self.Entity:GetComponent("PlayerHit")
+        if isvalid(playerHit) == false then
+            log("SERVER PlayerHit missing source=" .. tostring(source))
+            return
+        end
+
+        log("SERVER PlayerHit before=" .. tostring(playerHit.Enable)
+            .. " target=" .. tostring(enabled)
+            .. " source=" .. tostring(source))
+        playerHit.Enable = enabled
+        log("SERVER PlayerHit after=" .. tostring(playerHit.Enable)
+            .. " source=" .. tostring(source))
+    end
+
+    @ExecSpace("ServerOnly")
+    method number GetParryStaminaCost()
+        local now = _UtilLogic.ElapsedSeconds
+        if self.LastParryStartTime > 0 and now - self.LastParryStartTime <= self.RapidPressWindowSeconds then
+            self.RapidParryPressCount = self.RapidParryPressCount + 1
+        else
+            self.RapidParryPressCount = 1
+        end
+
+        self.LastParryStartTime = now
+
+        local cost = math.ceil(self.BaseParryStaminaCost * math.pow(self.RapidPressMultiplier, self.RapidParryPressCount - 1))
+        if cost < self.BaseParryStaminaCost then
+            cost = self.BaseParryStaminaCost
+        end
+
+        return cost
+    end
+
+    @ExecSpace("ServerOnly")
+    method boolean TryConsumeParryStamina(string source)
+        local soulSystem = self.Entity:GetComponent("PlayerSoulSystem")
+        if isvalid(soulSystem) == false then
+            log("SERVER parry stamina missing PlayerSoulSystem source=" .. tostring(source))
+            return false
+        end
+
+        local cost = self:GetParryStaminaCost()
+        local before = soulSystem.CurrentStamina
+        if soulSystem:TryConsumeStamina(cost) == false then
+            log("SERVER parry stamina blocked source=" .. tostring(source)
+                .. " cost=" .. tostring(cost)
+                .. " current=" .. tostring(before))
+            return false
+        end
+
+        log("SERVER parry stamina consumed source=" .. tostring(source)
+            .. " streak=" .. tostring(self.RapidParryPressCount)
+            .. " cost=" .. tostring(cost)
+            .. " before=" .. tostring(before)
+            .. " after=" .. tostring(soulSystem.CurrentStamina))
+        return true
+    end
+
+    @ExecSpace("ServerOnly")
+    method void EndParry(string source)
+        if self.ParryTimerId ~= 0 then
+            _TimerService:ClearTimer(self.ParryTimerId)
+            self.ParryTimerId = 0
+        end
+
+        self.IsParryHeld = false
+        self:SetPlayerHitEnabled(true, source)
+        log("SERVER parry ended source=" .. tostring(source))
+    end
+
+    @ExecSpace("ServerOnly")
+    method void StartParry(string source)
+        if self:TryConsumeParryStamina(source) == false then
+            return
+        end
+
+        if self.ParryTimerId ~= 0 then
+            _TimerService:ClearTimer(self.ParryTimerId)
+            self.ParryTimerId = 0
+        end
+
+        self.IsParryHeld = true
+        self:SetPlayerHitEnabled(false, source)
+        log("SERVER parry started source=" .. tostring(source))
+
+        self.ParryTimerId = _TimerService:SetTimerOnce(function()
+            if isvalid(self.Entity) == false then
+                return
+            end
+            self:EndParry("TimerEnd")
+        end, self.ParryDuration)
+    end
+
+    @ExecSpace("ServerOnly")
+    @EventSender("Self")
+    handler HandlePlayerActionEvent(PlayerActionEvent event)
+        log("SERVER action=" .. tostring(event.ActionName))
+        if event.ActionName == "SampleParryStart" then
+            self:StartParry("SampleParryStart")
+        end
+    end
+
+    @ExecSpace("ServerOnly")
+    method void OnDestroy()
+        self.RapidParryPressCount = 0
+        self.LastParryStartTime = 0
+        self:EndParry("OnDestroy")
+    end
+
+end

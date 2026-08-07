@@ -21,11 +21,30 @@ script PlayerImmuneLogic extends Component
 		return true
 	end
 
+	@ExecSpace("ServerOnly")
 	@EventSender("Self")
 	handler HandleHitEvent(HitEvent event)
+		log("PlayerImmuneLogic HandleHitEvent: attacker=" .. tostring(event.AttackerEntity) .. " totalDamage=" .. tostring(event.TotalDamage))
+
+		local shieldParry = self.Entity:GetComponent("ShieldParry")
+		if isvalid(shieldParry) then
+			log("PlayerImmuneLogic parry check: isParrying=" .. tostring(shieldParry.IsParrying)
+				.. " wantsParry=" .. tostring(shieldParry.WantsParry)
+				.. " attacker=" .. tostring(event.AttackerEntity))
+			if shieldParry:DisableMonsterAttackDueToParry(event.AttackerEntity, "PlayerImmuneLogic.HandleHitEvent") then
+				self.LastHitTime = _UtilLogic.ElapsedSeconds
+				log("PlayerImmuneLogic parry blocked hit: attacker=" .. tostring(event.AttackerEntity)
+					.. " enemy attack disabled and immune timer refreshed")
+				return
+			end
+		end
+
 		if self:CanTakeHit() == false then
+			log("PlayerImmuneLogic HandleHitEvent: immune cooldown blocked hit")
 			return
 		end
+
+		log("PlayerImmuneLogic HandleHitEvent: hit accepted")
 	end
 
 end

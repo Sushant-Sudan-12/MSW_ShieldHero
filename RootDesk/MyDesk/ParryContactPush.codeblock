@@ -1,14 +1,14 @@
 {
   "Id": "",
   "GameId": "",
-  "EntryKey": "codeblock://monster",
+  "EntryKey": "codeblock://e5f179d2-4bc4-46e9-bd86-e839982dacee",
   "ContentType": "x-mod/codeblock",
   "Content": "",
   "Usage": 0,
   "UsePublish": 1,
   "UseService": 0,
   "CoreVersion": "26.7.0.0",
-  "StudioVersion": "0.1.0.0",
+  "StudioVersion": "",
   "DynamicLoading": 0,
   "ContentProto": {
     "Use": "Json",
@@ -19,14 +19,14 @@
       },
       "ScriptVersion": {
         "Major": 1,
-        "Minor": 3
+        "Minor": 1
       },
       "Description": "",
-      "Id": "Monster",
+      "Id": "e5f179d2-4bc4-46e9-bd86-e839982dacee",
       "Language": 1,
-      "Name": "Monster",
+      "Name": "ParryContactPush",
       "Type": 1,
-      "Source": 1,
+      "Source": 0,
       "Target": null
     }
   }

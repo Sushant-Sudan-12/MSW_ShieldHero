@@ -80,6 +80,12 @@ script PlayerAttack extends AttackComponent
 		if isvalid(soulSystem) and soulSystem:IsInputLocked() then
 			return
 		end
+
+		local shieldParry = self.Entity:GetComponent("ShieldParry")
+		if isvalid(shieldParry) and shieldParry.IsParrying then
+			log("PlayerAttack blocked: currently parrying")
+			return
+		end
 		
 		if ActionName == "Attack" then
 			self:AttackNormal()

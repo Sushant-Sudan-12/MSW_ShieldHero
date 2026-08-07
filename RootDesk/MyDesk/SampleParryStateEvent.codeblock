@@ -1,14 +1,14 @@
 {
   "Id": "",
   "GameId": "",
-  "EntryKey": "codeblock://monster",
+  "EntryKey": "codeblock://36b7cc8f-f7d6-42ff-9e86-e8fd456f351b",
   "ContentType": "x-mod/codeblock",
   "Content": "",
   "Usage": 0,
   "UsePublish": 1,
   "UseService": 0,
   "CoreVersion": "26.7.0.0",
-  "StudioVersion": "0.1.0.0",
+  "StudioVersion": "",
   "DynamicLoading": 0,
   "ContentProto": {
     "Use": "Json",
@@ -19,14 +19,14 @@
       },
       "ScriptVersion": {
         "Major": 1,
-        "Minor": 3
+        "Minor": 1
       },
       "Description": "",
-      "Id": "Monster",
+      "Id": "36b7cc8f-f7d6-42ff-9e86-e8fd456f351b",
       "Language": 1,
-      "Name": "Monster",
-      "Type": 1,
-      "Source": 1,
+      "Name": "SampleParryStateEvent",
+      "Type": 3,
+      "Source": 0,
       "Target": null
     }
   }

@@ -1,0 +1,378 @@
+@Component
+script MonsterAttackDisableArea extends Component
+
+	@MinValue(0)
+	property number ReleaseGraceSeconds = 0.25
+
+	@MinValue(0)
+	property number DebugLogInterval = 0.6
+
+	@MinValue(0)
+	property number ResolveParentDepth = 6
+
+	@MinValue(1)
+	property number MaxHierarchyScanCount = 2000
+
+	@HideFromInspector
+	property any TrackedAttackers = nil
+
+	@HideFromInspector
+	property number LastDebugLogTime = 0
+
+	@HideFromInspector
+	property number LastScanChildrenCount = 0
+
+	@HideFromInspector
+	property number LastScanInsideCount = 0
+
+	@HideFromInspector
+	property number LastScanMonsterAttackCount = 0
+
+	@ExecSpace("ServerOnly")
+	method void OnBeginPlay()
+		local trigger = self.Entity.TriggerComponent
+		local transform = self.Entity.TransformComponent
+		local parent = self.Entity.Parent
+		local parentChildren = 0
+		if isvalid(parent) and parent.Children ~= nil then
+			parentChildren = #parent.Children
+		end
+
+		if isvalid(trigger) == false then
+			log("MonsterAttackDisableArea setup error: TriggerComponent missing on area entity=" .. tostring(self.Entity))
+			return
+		end
+
+		if isvalid(transform) == false then
+			log("MonsterAttackDisableArea setup error: TransformComponent missing on area entity=" .. tostring(self.Entity))
+			return
+		end
+
+		log("MonsterAttackDisableArea setup: entity=" .. tostring(self.Entity)
+			.. " parent=" .. tostring(parent)
+			.. " parentChildren=" .. tostring(parentChildren)
+			.. " colliderType=" .. tostring(trigger.ColliderType)
+			.. " boxSize=" .. tostring(trigger.BoxSize)
+			.. " circleRadius=" .. tostring(trigger.CircleRadius)
+			.. " offset=" .. tostring(trigger.ColliderOffset)
+			.. " scale=" .. tostring(transform.Scale)
+			.. " pos=" .. tostring(transform.WorldPosition))
+	end
+
+	method boolean IsEntityInsideArea(Entity target)
+		if isvalid(target) == false then
+			return false
+		end
+
+		local trigger = self.Entity.TriggerComponent
+		local areaTransform = self.Entity.TransformComponent
+		local targetTransform = target.TransformComponent
+		if isvalid(trigger) == false or isvalid(areaTransform) == false or isvalid(targetTransform) == false then
+			return false
+		end
+
+		local areaPos = areaTransform.WorldPosition
+		local targetPos = targetTransform.WorldPosition
+
+		local offset = trigger.ColliderOffset
+		local centerX = areaPos.x + offset.x * areaTransform.Scale.x
+		local centerY = areaPos.y + offset.y * areaTransform.Scale.y
+
+		if trigger.ColliderType == ColliderType.Circle then
+			local radius = trigger.CircleRadius * math.max(math.abs(areaTransform.Scale.x), math.abs(areaTransform.Scale.y))
+			local dx = targetPos.x - centerX
+			local dy = targetPos.y - centerY
+			return (dx * dx + dy * dy) <= (radius * radius)
+		end
+
+		local halfW = (trigger.BoxSize.x * math.abs(areaTransform.Scale.x)) * 0.5
+		local halfH = (trigger.BoxSize.y * math.abs(areaTransform.Scale.y)) * 0.5
+		return math.abs(targetPos.x - centerX) <= halfW and math.abs(targetPos.y - centerY) <= halfH
+	end
+
+	@ExecSpace("ServerOnly")
+	method void ScanAndTouchAllMonstersInParent()
+		local root = self:GetTopAncestor(self.Entity)
+		if isvalid(root) == false then
+			self.LastScanChildrenCount = 0
+			self.LastScanInsideCount = 0
+			self.LastScanMonsterAttackCount = 0
+			return
+		end
+
+		local scanned = 0
+		local inside = 0
+		local withMonsterAttack = 0
+		local stack = {root}
+		while #stack > 0 and scanned < self.MaxHierarchyScanCount do
+			local node = stack[#stack]
+			table.remove(stack)
+
+			if isvalid(node) then
+				if node ~= self.Entity then
+					scanned = scanned + 1
+					if self:IsEntityInsideArea(node) then
+						inside = inside + 1
+						local monsterAttack = node:GetComponent("MonsterAttack")
+						if isvalid(monsterAttack) then
+							withMonsterAttack = withMonsterAttack + 1
+						end
+						self:TouchAttacker(node, "AreaScan")
+					end
+				end
+
+				if node.Children ~= nil then
+					for _, child in ipairs(node.Children) do
+						if isvalid(child) then
+							table.insert(stack, child)
+						end
+					end
+				end
+			end
+		end
+
+		self.LastScanChildrenCount = scanned
+		self.LastScanInsideCount = inside
+		self.LastScanMonsterAttackCount = withMonsterAttack
+	end
+
+	method void EnsureTrackedTable()
+		if self.TrackedAttackers == nil then
+			self.TrackedAttackers = {}
+		end
+	end
+
+	method number FindTrackedIndex(Entity attacker)
+		if isvalid(attacker) == false then
+			return 0
+		end
+
+		self:EnsureTrackedTable()
+		for i, info in ipairs(self.TrackedAttackers) do
+			if info.EntityRef == attacker then
+				return i
+			end
+		end
+
+		return 0
+	end
+
+	method Entity ResolveMonsterAttackOwner(Entity startEntity)
+		if isvalid(startEntity) == false then
+			return nil
+		end
+
+		local current = startEntity
+		local hop = 0
+		while isvalid(current) and hop <= self.ResolveParentDepth do
+			local monsterAttack = current:GetComponent("MonsterAttack")
+			if isvalid(monsterAttack) then
+				return current
+			end
+			current = current.Parent
+			hop = hop + 1
+		end
+
+		return nil
+	end
+
+	method void LogEntityParentChain(Entity startEntity, number maxDepth, string source)
+		if isvalid(startEntity) == false then
+			return
+		end
+
+		local chain = ""
+		local current = startEntity
+		local hop = 0
+		while isvalid(current) and hop <= maxDepth do
+			if hop == 0 then
+				chain = tostring(current)
+			else
+				chain = chain .. " <- " .. tostring(current)
+			end
+			current = current.Parent
+			hop = hop + 1
+		end
+
+		log("MonsterAttackDisableArea entity chain: source=" .. tostring(source) .. " chain=" .. chain)
+	end
+
+	method Entity GetTopAncestor(Entity entity)
+		if isvalid(entity) == false then
+			return nil
+		end
+
+		local current = entity
+		local guard = 0
+		while isvalid(current.Parent) and guard < 128 do
+			current = current.Parent
+			guard = guard + 1
+		end
+
+		return current
+	end
+
+	@ExecSpace("ServerOnly")
+	method void TouchAttacker(Entity attacker, string source)
+		if isvalid(attacker) == false then
+			log("MonsterAttackDisableArea touch skip: invalid attacker source=" .. tostring(source))
+			return
+		end
+
+		local owner = self:ResolveMonsterAttackOwner(attacker)
+		if isvalid(owner) == false then
+			self:LogEntityParentChain(attacker, self.ResolveParentDepth + 2, source)
+			log("MonsterAttackDisableArea touch skip: no MonsterAttack in parent chain entity=" .. tostring(attacker)
+				.. " source=" .. tostring(source))
+			return
+		end
+
+		local monsterAttack = owner:GetComponent("MonsterAttack")
+		if isvalid(monsterAttack) == false then
+			log("MonsterAttackDisableArea touch skip: resolved owner missing MonsterAttack owner=" .. tostring(owner)
+				.. " source=" .. tostring(source))
+			return
+		end
+
+		local now = _UtilLogic.ElapsedSeconds
+		local idx = self:FindTrackedIndex(owner)
+		if idx > 0 then
+			self.TrackedAttackers[idx].LastSeenAt = now
+			return
+		end
+
+		local info = {
+			EntityRef = owner,
+			LastSeenAt = now,
+			WasEnabledBefore = monsterAttack.Enable
+		}
+		table.insert(self.TrackedAttackers, info)
+
+		if monsterAttack.Enable then
+			monsterAttack.Enable = false
+			log("MonsterAttackDisableArea disable: enemy=" .. tostring(owner)
+				.. " source=" .. tostring(source)
+				.. " fromTriggerEntity=" .. tostring(attacker))
+		else
+			log("MonsterAttackDisableArea tracked already disabled: enemy=" .. tostring(owner)
+				.. " source=" .. tostring(source)
+				.. " fromTriggerEntity=" .. tostring(attacker))
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void RestoreAttackerAt(number index, string source)
+		self:EnsureTrackedTable()
+		if index <= 0 or index > #self.TrackedAttackers then
+			return
+		end
+
+		local info = self.TrackedAttackers[index]
+		local attacker = info.EntityRef
+		if isvalid(attacker) then
+			local monsterAttack = attacker:GetComponent("MonsterAttack")
+			if isvalid(monsterAttack) and info.WasEnabledBefore then
+				monsterAttack.Enable = true
+				log("MonsterAttackDisableArea restore: enemy=" .. tostring(attacker) .. " source=" .. tostring(source))
+			end
+		end
+
+		table.remove(self.TrackedAttackers, index)
+	end
+
+	@ExecSpace("ServerOnly")
+	method void RestoreAttacker(Entity attacker, string source)
+		local owner = self:ResolveMonsterAttackOwner(attacker)
+		if isvalid(owner) == false then
+			owner = attacker
+		end
+
+		local idx = self:FindTrackedIndex(owner)
+		if idx > 0 then
+			self:RestoreAttackerAt(idx, source)
+		else
+			log("MonsterAttackDisableArea restore skip: not tracked enemy=" .. tostring(owner)
+				.. " fromTriggerEntity=" .. tostring(attacker)
+				.. " source=" .. tostring(source))
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void RestoreAll(string source)
+		self:EnsureTrackedTable()
+		for i = #self.TrackedAttackers, 1, -1 do
+			self:RestoreAttackerAt(i, source)
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void OnUpdate(number delta)
+		self:EnsureTrackedTable()
+		self:ScanAndTouchAllMonstersInParent()
+		local now = _UtilLogic.ElapsedSeconds
+
+		for i = #self.TrackedAttackers, 1, -1 do
+			local info = self.TrackedAttackers[i]
+			local attacker = info.EntityRef
+			if isvalid(attacker) == false then
+				table.remove(self.TrackedAttackers, i)
+			elseif self:IsEntityInsideArea(attacker) == false and now - info.LastSeenAt > self.ReleaseGraceSeconds then
+				self:RestoreAttackerAt(i, "Timeout")
+			end
+		end
+
+		if now - self.LastDebugLogTime >= self.DebugLogInterval then
+			self.LastDebugLogTime = now
+			log("MonsterAttackDisableArea active tracked=" .. tostring(#self.TrackedAttackers)
+				.. " scanned=" .. tostring(self.LastScanChildrenCount)
+				.. " insideArea=" .. tostring(self.LastScanInsideCount)
+				.. " insideWithMonsterAttack=" .. tostring(self.LastScanMonsterAttackCount))
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void OnEnterTriggerBody(TriggerEnterEvent enterEvent)
+		log("MonsterAttackDisableArea direct enter: entity=" .. tostring(enterEvent.TriggerBodyEntity))
+		self:TouchAttacker(enterEvent.TriggerBodyEntity, "DirectEnter")
+	end
+
+	@ExecSpace("ServerOnly")
+	method void OnStayTriggerBody(TriggerStayEvent stayEvent)
+		log("MonsterAttackDisableArea direct stay: entity=" .. tostring(stayEvent.TriggerBodyEntity))
+		self:TouchAttacker(stayEvent.TriggerBodyEntity, "DirectStay")
+	end
+
+	@ExecSpace("ServerOnly")
+	method void OnLeaveTriggerBody(TriggerLeaveEvent leaveEvent)
+		log("MonsterAttackDisableArea direct leave: entity=" .. tostring(leaveEvent.TriggerBodyEntity))
+		self:RestoreAttacker(leaveEvent.TriggerBodyEntity, "DirectLeave")
+	end
+
+	@ExecSpace("ServerOnly")
+	@EventSender("Self")
+	handler HandleTriggerEnterEvent(TriggerEnterEvent event)
+		log("MonsterAttackDisableArea trigger enter: entity=" .. tostring(event.TriggerBodyEntity))
+		self:TouchAttacker(event.TriggerBodyEntity, "Enter")
+	end
+
+	@ExecSpace("ServerOnly")
+	@EventSender("Self")
+	handler HandleTriggerStayEvent(TriggerStayEvent event)
+		log("MonsterAttackDisableArea trigger stay: entity=" .. tostring(event.TriggerBodyEntity))
+		self:TouchAttacker(event.TriggerBodyEntity, "Stay")
+	end
+
+	@ExecSpace("ServerOnly")
+	@EventSender("Self")
+	handler HandleTriggerLeaveEvent(TriggerLeaveEvent event)
+		log("MonsterAttackDisableArea trigger leave: entity=" .. tostring(event.TriggerBodyEntity))
+		self:RestoreAttacker(event.TriggerBodyEntity, "Leave")
+	end
+
+	@ExecSpace("ServerOnly")
+	method void OnDestroy()
+		log("MonsterAttackDisableArea destroy: restoring tracked attackers")
+		self:RestoreAll("OnDestroy")
+	end
+
+end

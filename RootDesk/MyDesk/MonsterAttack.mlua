@@ -2,13 +2,7 @@
 script MonsterAttack extends AttackComponent
 
 	@MinValue(0)
-	property number AttackInterval = 0.3
-
-	@MinValue(0)
-	property number AttackCooldown = 0.8
-
-	@HideFromInspector
-	property number LastAttackTime = 0
+	property number AttackInterval = 0.03
 
 	@HideFromInspector
 	property any Shape = nil
@@ -47,11 +41,14 @@ script MonsterAttack extends AttackComponent
 	end
 
 	method void AttackNear()
-		local currentTime = _UtilLogic.ElapsedSeconds
-		if currentTime - self.LastAttackTime < self.AttackCooldown then
+		local monster = self.Entity:GetComponent("Monster")
+		if isvalid(monster) and monster:IsParryStunned() then
+			local rigidbody = self.Entity.RigidbodyComponent
+			if isvalid(rigidbody) then
+				rigidbody.MoveVelocity = Vector2.zero
+			end
 			return
 		end
-		self.LastAttackTime = currentTime
 
 		local transformComponent = self.Entity.TransformComponent
 		
@@ -70,16 +67,24 @@ script MonsterAttack extends AttackComponent
 		self:AttackFast(self.Shape, nil, CollisionGroups.Player)
 	end
 
-	method integer CalcDamage(Entity attacker, Entity defender, string attackInfo)
-		return 20
-	end
-
 	method boolean IsAttackTarget(Entity defender, string attackInfo)
-		if isvalid(defender.PlayerComponent) == false then
-			return false
-		end
-		
-		return __base:IsAttackTarget(defender, attackInfo)
-	end
+        if isvalid(defender.PlayerComponent) == false then
+            return false
+        end
+
+        local sampleParry = defender:GetComponent("SampleParryInvincible")
+        if isvalid(sampleParry) and sampleParry.IsParryHeld then
+            log("MonsterAttack IsAttackTarget: blocked by SampleParryInvincible hold")
+            return false
+        end
+
+        local shieldParry = defender:GetComponent("ShieldParry")
+        if isvalid(shieldParry) and shieldParry:DisableMonsterAttackDueToParry(self.Entity, "MonsterAttack.IsAttackTarget") then
+            log("MonsterAttack IsAttackTarget: parry disabled enemy attack component")
+            return false
+        end
+        
+        return __base:IsAttackTarget(defender, attackInfo)
+    end
 
 end

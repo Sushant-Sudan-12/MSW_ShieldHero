@@ -405,7 +405,6 @@ script UpgradeUIAbility extends Component
         local s = math.floor(soulSystem.StaminaLevel)
         local a = math.floor(soulSystem.AttackLevel)
         if h ~= self.LastLoggedHealthLevel or s ~= self.LastLoggedStaminaLevel or a ~= self.LastLoggedAttackLevel then
-            log("UpgradeUIAbility UpdateUpgradeTexts: H=" .. tostring(h) .. " S=" .. tostring(s) .. " A=" .. tostring(a))
             self.LastLoggedHealthLevel = h
             self.LastLoggedStaminaLevel = s
             self.LastLoggedAttackLevel = a

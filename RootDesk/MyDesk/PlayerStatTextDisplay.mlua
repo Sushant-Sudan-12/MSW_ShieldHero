@@ -89,7 +89,6 @@ script PlayerStatTextDisplay extends Component
             local maxHp = math.max(1, math.floor(playerComponent.MaxHp))
             local healthText = tostring(hp) .. "/" .. tostring(maxHp)
             if healthText ~= self.LastLoggedHealthText then
-                log("PlayerStatTextDisplay Health text update: " .. healthText)
                 self.LastLoggedHealthText = healthText
             end
             self:WriteText(self.healthTextTarget, healthText, "Health")
@@ -100,7 +99,6 @@ script PlayerStatTextDisplay extends Component
             local maxStamina = math.max(1, math.floor(soulSystem:GetMaxStamina()))
             local staminaText = tostring(stamina) .. "/" .. tostring(maxStamina)
             if staminaText ~= self.LastLoggedStaminaText then
-                log("PlayerStatTextDisplay Stamina text update: " .. staminaText)
                 self.LastLoggedStaminaText = staminaText
             end
             self:WriteText(self.staminaTextTarget, staminaText, "Stamina")

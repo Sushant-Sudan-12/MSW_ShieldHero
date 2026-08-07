@@ -1,0 +1,79 @@
+@Component
+script MonsterMeleeAttack extends AttackComponent
+
+	@MinValue(0.1)
+	property number AttackInterval = 0.6
+
+	@MinValue(0.1)
+	property number AttackCooldown = 0.6
+
+	@MinValue(0)
+	property number Damage = 20
+
+	@HideFromInspector
+	property number LastAttackTime = 0
+
+	@HideFromInspector
+	property any Shape = nil
+
+	@ExecSpace("ServerOnly")
+	method void OnBeginPlay()
+		local monster = self.Entity:GetComponent("Monster")
+		if isvalid(monster) == false then
+			log("MonsterMeleeAttack OnBeginPlay skipped: Monster component missing")
+			return
+		end
+
+		self.Shape = BoxShape(Vector2.zero, Vector2.one, 0)
+		log("MonsterMeleeAttack OnBeginPlay: ready on " .. tostring(self.Entity))
+
+		_TimerService:SetTimerRepeat(function()
+			if isvalid(monster) and monster.IsDead == false then
+				self:AttackNear()
+			end
+		end, self.AttackInterval)
+	end
+
+	method void AttackNear()
+		local currentTime = _UtilLogic.ElapsedSeconds
+		if currentTime - self.LastAttackTime < self.AttackCooldown then
+			return
+		end
+
+		local monster = self.Entity:GetComponent("Monster")
+		if isvalid(monster) == false or monster.IsDead then
+			return
+		end
+
+		local transformComponent = self.Entity.TransformComponent
+		if isvalid(transformComponent) == false then
+			log("MonsterMeleeAttack AttackNear skipped: transform missing")
+			return
+		end
+
+		self.LastAttackTime = currentTime
+		self.Shape.Size = Vector2(1.25, 1.25)
+		self.Shape.Position = Vector2(transformComponent.WorldPosition.x, transformComponent.WorldPosition.y + 0.2)
+		self.Shape.Angle = transformComponent.ZRotation
+
+		log("MonsterMeleeAttack AttackNear: attacking at x=" .. tostring(transformComponent.WorldPosition.x) .. " y=" .. tostring(transformComponent.WorldPosition.y))
+		self:AttackFast(self.Shape, "MonsterMelee", CollisionGroups.Player)
+	end
+
+	method integer CalcDamage(Entity attacker, Entity defender, string attackInfo)
+		return self.Damage
+	end
+
+	method boolean IsAttackTarget(Entity defender, string attackInfo)
+		if isvalid(defender.PlayerComponent) == false then
+			return false
+		end
+
+		return __base:IsAttackTarget(defender, attackInfo)
+	end
+
+	method void OnAttack(Entity defender)
+		log("MonsterMeleeAttack OnAttack: defender=" .. tostring(defender))
+	end
+
+end

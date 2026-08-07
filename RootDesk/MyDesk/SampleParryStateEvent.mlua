@@ -1,0 +1,6 @@
+@Event
+script SampleParryStateEvent extends EventType
+
+    property boolean Held = false
+
+end

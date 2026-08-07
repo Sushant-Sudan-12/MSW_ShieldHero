@@ -1,14 +1,14 @@
 {
   "Id": "",
   "GameId": "",
-  "EntryKey": "codeblock://monster",
+  "EntryKey": "codeblock://996d42ce-4d9f-42b1-8ed4-68e46fc6d5f1",
   "ContentType": "x-mod/codeblock",
   "Content": "",
   "Usage": 0,
   "UsePublish": 1,
   "UseService": 0,
   "CoreVersion": "26.7.0.0",
-  "StudioVersion": "0.1.0.0",
+  "StudioVersion": "",
   "DynamicLoading": 0,
   "ContentProto": {
     "Use": "Json",
@@ -19,14 +19,14 @@
       },
       "ScriptVersion": {
         "Major": 1,
-        "Minor": 3
+        "Minor": 1
       },
       "Description": "",
-      "Id": "Monster",
+      "Id": "996d42ce-4d9f-42b1-8ed4-68e46fc6d5f1",
       "Language": 1,
-      "Name": "Monster",
+      "Name": "MonsterAttackDisableArea",
       "Type": 1,
-      "Source": 1,
+      "Source": 0,
       "Target": null
     }
   }

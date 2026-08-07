@@ -65,6 +65,11 @@ script ShieldThrow extends Component
 	end
 
 	method boolean CanUse()
+		local shieldParry = self.Entity:GetComponent("ShieldParry")
+		if isvalid(shieldParry) and shieldParry.IsParrying then
+			return false
+		end
+
 		local soulSystem = self.Entity:GetComponent("PlayerSoulSystem")
 		if isvalid(soulSystem) and soulSystem:IsInputLocked() then
 			return false

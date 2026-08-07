@@ -650,8 +650,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 1179.75562,
-                  "y": 374.977722
+                  "x": 1176.51111,
+                  "y": 381.711029
                 }
               },
               {
@@ -663,8 +663,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -1340.24438,
-                  "y": -285.022278
+                  "x": -1343.48889,
+                  "y": -278.288971
                 }
               },
               {
@@ -720,8 +720,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -0.3611,
-                  "y": -1.28260016
+                  "x": -0.3757,
+                  "y": -1.25230026
                 }
               },
               {
@@ -747,8 +747,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": -0.3611,
-                  "y": -3.7126,
+                  "x": -0.3757,
+                  "y": -3.6823,
                   "z": 0.0
                 }
               },
@@ -4194,7 +4194,7 @@
                   "$type": "MODNativeType",
                   "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
-                "Value": "Q"
+                "Value": "Space / F"
               },
               {
                 "TargetType": "MOD.Core.TextComponent",

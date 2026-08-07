@@ -1,0 +1,129 @@
+{
+  "Id": "",
+  "GameId": "",
+  "EntryKey": "stateset://3177bf7d-be75-4d15-b472-f92c4576bf86",
+  "ContentType": "x-mod/stateset",
+  "Content": "",
+  "Usage": 0,
+  "UsePublish": 1,
+  "UseService": 0,
+  "CoreVersion": "26.7.0.0",
+  "StudioVersion": "0.1.0.0",
+  "DynamicLoading": 0,
+  "ContentProto": {
+    "Use": "Json",
+    "Json": {
+      "id": "stateset://3177bf7d-be75-4d15-b472-f92c4576bf86",
+      "name": "BeetRootEnemy",
+      "stateset": {
+        "InitialStateNodeId": "d6b12a40-7e93-47bf-b106-e694d84ee794",
+        "Nodes": [
+          {
+            "Id": "d6b12a40-7e93-47bf-b106-e694d84ee794",
+            "PositionX": 10.0,
+            "PositionY": 7.0,
+            "IsNative": true,
+            "Name": "IDLE",
+            "NativeStateType": {
+              "$type": "MODNativeType",
+              "type": "MOD.Core.NSIdle, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+            },
+            "ScriptStateTypeId": "",
+            "ModifiedProperties": {
+              "Properties": []
+            }
+          },
+          {
+            "Id": "ce3e9f95-1d80-4f87-88b9-01b29aa93c03",
+            "PositionX": 209.0,
+            "PositionY": 72.0,
+            "IsNative": true,
+            "Name": "DEAD",
+            "NativeStateType": {
+              "$type": "MODNativeType",
+              "type": "MOD.Core.NSPawnDead, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+            },
+            "ScriptStateTypeId": "",
+            "ModifiedProperties": {
+              "Properties": []
+            }
+          },
+          {
+            "Id": "11f937ac-4aca-47c7-8a1c-811613213325",
+            "PositionX": -254.0,
+            "PositionY": 10.0,
+            "IsNative": true,
+            "Name": "HIT",
+            "NativeStateType": {
+              "$type": "MODNativeType",
+              "type": "MOD.Core.NSPawnHit, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+            },
+            "ScriptStateTypeId": "",
+            "ModifiedProperties": {
+              "Properties": []
+            }
+          },
+          {
+            "Id": "8833ab58-b3bc-4283-a496-dcf3b069add7",
+            "PositionX": 219.0,
+            "PositionY": -41.0,
+            "IsNative": true,
+            "Name": "MOVE",
+            "NativeStateType": {
+              "$type": "MODNativeType",
+              "type": "MOD.Core.NSDoNothing, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+            },
+            "ScriptStateTypeId": "",
+            "ModifiedProperties": {
+              "Properties": []
+            }
+          }
+        ],
+        "Transitions": [
+          {
+            "PrevStateNodeId": "11f937ac-4aca-47c7-8a1c-811613213325",
+            "NextStateNodeId": "d6b12a40-7e93-47bf-b106-e694d84ee794",
+            "TransitionConditions": [
+              {
+                "IsNative": true,
+                "NativeConditionType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.NCHasTimePassed, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "ScriptConditionTypeId": "",
+                "ModifiedProperties": {
+                  "Properties": [
+                    {
+                      "Name": "Duration",
+                      "Type": {
+                        "$type": "MODNativeType",
+                        "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                      },
+                      "Value": 0.5
+                    }
+                  ]
+                }
+              }
+            ],
+            "TransitIfAnyConditionIsTrue": true,
+            "OrderInTransit": 0
+          },
+          {
+            "PrevStateNodeId": "d6b12a40-7e93-47bf-b106-e694d84ee794",
+            "NextStateNodeId": "ce3e9f95-1d80-4f87-88b9-01b29aa93c03",
+            "TransitionConditions": [],
+            "TransitIfAnyConditionIsTrue": true,
+            "OrderInTransit": 0
+          },
+          {
+            "PrevStateNodeId": "d6b12a40-7e93-47bf-b106-e694d84ee794",
+            "NextStateNodeId": "8833ab58-b3bc-4283-a496-dcf3b069add7",
+            "TransitionConditions": [],
+            "TransitIfAnyConditionIsTrue": true,
+            "OrderInTransit": 0
+          }
+        ]
+      }
+    }
+  }
+}
