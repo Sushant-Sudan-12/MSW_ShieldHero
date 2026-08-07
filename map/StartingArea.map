@@ -6920,6 +6920,77 @@
           ],
           "@version": 1
         }
+      },
+      {
+        "id": "b2b1b5f0-1fbc-4704-b2a1-3e1d8dd1a8b4",
+        "path": "/maps/StartingArea/Firework",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.BasicParticleComponent",
+        "jsonString": {
+          "name": "Firework",
+          "path": "/maps/StartingArea/Firework",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 50,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "basicparticle",
+            "sub_entity_id": null,
+            "root_entity_id": null,
+            "replaced_model_id": null
+          },
+          "modelId": "basicparticle",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -13.5880861,
+                "y": -0.730344057,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.BasicParticleComponent",
+              "ParticleType": 1,
+              "Color": {
+                "r": 1.0,
+                "g": 0.408203125,
+                "b": 0.408203125,
+                "a": 1.0
+              },
+              "Loop": true,
+              "NeedMigration": false,
+              "ParticleCount": 1.0,
+              "ParticleLifeTime": 0.3,
+              "ParticleSize": 0.62,
+              "ParticleSpeed": 1.0,
+              "PlaySpeed": 0.67,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
       }
     ]
   }
