@@ -16,7 +16,7 @@
       "name": "SampleDialogDataSet",
       "id": "68885d7c-4d3b-4089-8763-a1fc2c1918e9",
       "serveronly": false,
-      "syncDataSetWebUrl": null,
+      "syncDataSetWebUrl": "",
       "dynamicloading": 0
     }
   }

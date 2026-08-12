@@ -19,7 +19,7 @@
             {
               "defined_actionname": "stabT2",
               "frameindex": 0,
-              "framedelay": 0.3,
+              "framedelay": 0.2,
               "move_x": 0,
               "move_y": 0,
               "rotation": 0,
@@ -41,7 +41,20 @@
               "move_x": 0,
               "move_y": 0,
               "rotation": 0,
-              "flip": false
+              "flip": false,
+              "eventdatas": [
+                {
+                  "EventId": "codeblock://36b7cc8f-f7d6-42ff-9e86-e8fd456f351b",
+                  "TriggerTime": 0.0,
+                  "EventType": 0,
+                  "EventParams": [
+                    {
+                      "PropertyName": "phase",
+                      "PropertyValue": "ParryStart"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
