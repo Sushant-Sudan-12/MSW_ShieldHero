@@ -214,6 +214,13 @@ script SampleParryInvincible extends Component
         end
     end
 
+	-- @EventSender("Self")
+	-- handler HandleSampleParryStateEvent(SampleParryStateEvent event)
+	-- 	local phase = event:Phase()
+	-- 	if phase == _AttackPhaseEnum.ParryStart then
+	-- 		self:StartParry("SampleParryStateEvent")
+	-- end
+
     @ExecSpace("ServerOnly")
     method void OnDestroy()
         self.RapidParryPressCount = 0
