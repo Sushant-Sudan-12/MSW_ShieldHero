@@ -3,3 +3,12 @@ Tutorial1,T_1,8ecaaccb025144daa5cbf645929af03b,Mage,Who are you?,Tell your name,
 Tutorial1,T_2,,@Nick,"I'm *@Nick*, the shield warrior",Where is the Tower? | I will be on my way.,T_3|T_4
 Tutorial1,T_3,8ecaaccb025144daa5cbf645929af03b,Mage,It's right ahead,,
 Tutorial1,T_4,8ecaaccb025144daa5cbf645929af03b,Mage,Nice to meet you *@Nick*,,
+Alighieri,T_5,17ef4e993b3c445597f72aab8abc7d35,Alighieri,"Ah… one of you again, is it?",One of who,T_6
+Alighieri,C_1,,,,,
+Alighieri,T_6,17ef4e993b3c445597f72aab8abc7d35,Alighieri,"Heed me, fool—do not take another step toward it. For should you cross that threshold… you shall burn in the Nine Hells… and beyond!",,
+Alighieri,T_7,17ef4e993b3c445597f72aab8abc7d35,Alighieri,For should you cross that threshold… you shall burn in the Nine Hells… and beyond!” For should you cross that threshold… you shall burn in the Nine Hells… and beyond!”,,
+Trader,T_8,bddcc9c4e33f438fba70b22d8feef09a,Trader,"Caw caw! Come, come! Have a look at my wares. Everything here is perfectly safe. …Well. Mostly safe. Caw caw.",,
+Trader,T_9,bddcc9c4e33f438fba70b22d8feef09a,Trader,"“Caw caw! …Don’t stare at me like that. I know what you’re thinking. No, I wasn’t always a crow.”",,
+Trader,T_10,bddcc9c4e33f438fba70b22d8feef09a,Trader,"“Caw caw! I was a trader once, you know. Then some blasted magical accident went wrong, and—well… feathers, beak, wings. The whole miserable package. Caw caw.”",,
+Lady Maria,T_11,5ba0403847a14322b0a656f442e676bd,Lady Maria,"Oh, wonderful. Another fool who thinks they’re strong enough to enter the tower. Don’t look so pleased with yourself—I haven’t decided if you’re worth my time yet.",Well I am,T_12
+Lady Maria,T_12,5ba0403847a14322b0a656f442e676bd,Lady Maria,"If you’re so determined , enter my father’s tower, then prove you’re not completely useless. There’s a little trial ahead. Finish it, and… maybe I’ll admit you have some potential.",,

@@ -7978,7 +7978,7 @@
                   "tileIndex": -1
                 },
                 {
-                  "type": 8,
+                  "type": 6,
                   "position": {
                     "x": 33,
                     "y": -12
@@ -14258,107 +14258,6 @@
         }
       },
       {
-        "id": "67008222-4358-44fd-b111-c7e03bd9d682",
-        "path": "/maps/StartingArea/npc-77",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.StateComponent,MOD.Core.ChatBalloonComponent,MOD.Core.StateAnimationComponent,MOD.Core.NameTagComponent",
-        "jsonString": {
-          "name": "npc-77",
-          "path": "/maps/StartingArea/npc-77",
-          "nameEditable": true,
-          "enable": true,
-          "visible": true,
-          "localize": false,
-          "displayOrder": 32,
-          "pathConstraints": "///",
-          "revision": 6,
-          "origin": {
-            "type": "Model",
-            "entry_id": "StaticNPC",
-            "sub_entity_id": null,
-            "root_entity_id": "a090bb7f-31be-44e8-98a2-11d446b4e298",
-            "replaced_model_id": null
-          },
-          "modelId": "staticnpc",
-          "@components": [
-            {
-              "@type": "MOD.Core.TransformComponent",
-              "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-              },
-              "Position": {
-                "x": 0.2004168,
-                "y": -2.48500013,
-                "z": 999.999
-              },
-              "QuaternionRotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-              },
-              "ZRotation": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.SpriteRendererComponent",
-              "ActionSheet": {},
-              "EndFrameIndex": 0,
-              "RenderSetting": 1,
-              "SortingLayer": "MapLayer4",
-              "SpriteRUID": "bddcc9c4e33f438fba70b22d8feef09a",
-              "StartFrameIndex": 0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.RigidbodyComponent",
-              "MoveVelocity": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "RealMoveVelocity": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.StateComponent",
-              "IsLegacy": false,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.ChatBalloonComponent",
-              "ChatBalloonRUID": {
-                "DataId": "7b6bd117bd0446a5bacec8ea6831c997"
-              },
-              "ChatModeEnabled": true,
-              "Message": "hi sudan",
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.StateAnimationComponent",
-              "ActionSheet": {
-                "stand": "bddcc9c4e33f438fba70b22d8feef09a",
-                "eye": "ba15e9ed55ed40edab400723874eee21",
-                "say": "d8af2eb779b341d597e2ca02e595e882"
-              },
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.NameTagComponent",
-              "Name": "trader",
-              "NameTagRUID": {
-                "DataId": "9bf18287398c44699c20fc5123d1a1ae"
-              },
-              "Enable": true
-            }
-          ],
-          "@version": 1
-        }
-      },
-      {
         "id": "21a981a7-dd46-476d-ae9b-c0f0319bffa4",
         "path": "/maps/StartingArea/npc-1",
         "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.StateComponent,MOD.Core.ChatBalloonComponent,MOD.Core.StateAnimationComponent,MOD.Core.NameTagComponent,MOD.Core.InteractionComponent,script.DialogInteractionTrigger",
@@ -14369,7 +14268,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 33,
+          "displayOrder": 32,
           "pathConstraints": "///",
           "revision": 8,
           "origin": {
@@ -14389,7 +14288,7 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -7.05798531,
+                "x": -7.078184,
                 "y": -2.48500013,
                 "z": 999.999
               },
@@ -14488,7 +14387,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 34,
+          "displayOrder": 33,
           "pathConstraints": "///",
           "revision": 6,
           "origin": {
@@ -14572,7 +14471,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 35,
+          "displayOrder": 34,
           "pathConstraints": "///",
           "revision": 4,
           "origin": {
@@ -14592,8 +14491,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -41.1869354,
-                "y": -2.66419053,
+                "x": -41.03654,
+                "y": -2.220287,
                 "z": 999.9971
               },
               "QuaternionRotation": {
@@ -14639,7 +14538,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 36,
+          "displayOrder": 35,
           "pathConstraints": "///",
           "revision": 3,
           "origin": {
@@ -14723,7 +14622,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 37,
+          "displayOrder": 36,
           "pathConstraints": "///",
           "revision": 7,
           "origin": {
@@ -14786,7 +14685,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 38,
+          "displayOrder": 37,
           "pathConstraints": "///",
           "revision": 7,
           "origin": {
@@ -14849,7 +14748,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 39,
+          "displayOrder": 38,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -14869,8 +14768,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -29.1432915,
-                "y": 0.566085,
+                "x": -40.2526436,
+                "y": 0.5256797,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -14912,7 +14811,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 40,
+          "displayOrder": 39,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -14975,7 +14874,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 41,
+          "displayOrder": 40,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -14995,8 +14894,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -18.25774,
-                "y": 0.242474556,
+                "x": -12.4808769,
+                "y": 0.363653183,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -15038,7 +14937,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 42,
+          "displayOrder": 41,
           "pathConstraints": "///",
           "revision": 7,
           "origin": {
@@ -15101,7 +15000,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 43,
+          "displayOrder": 42,
           "pathConstraints": "///",
           "revision": 7,
           "origin": {
@@ -15164,7 +15063,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 44,
+          "displayOrder": 43,
           "pathConstraints": "///",
           "revision": 7,
           "origin": {
@@ -15227,7 +15126,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 45,
+          "displayOrder": 44,
           "pathConstraints": "///",
           "revision": 7,
           "origin": {
@@ -15280,109 +15179,6 @@
         }
       },
       {
-        "id": "deedec57-bd5b-4abc-bc78-ca4d1599dc12",
-        "path": "/maps/StartingArea/npc-161",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.StateComponent,MOD.Core.ChatBalloonComponent,MOD.Core.StateAnimationComponent,MOD.Core.NameTagComponent",
-        "jsonString": {
-          "name": "npc-161",
-          "path": "/maps/StartingArea/npc-161",
-          "nameEditable": true,
-          "enable": true,
-          "visible": true,
-          "localize": false,
-          "displayOrder": 46,
-          "pathConstraints": "///",
-          "revision": 1,
-          "origin": {
-            "type": "Model",
-            "entry_id": "StaticNPC",
-            "sub_entity_id": null,
-            "root_entity_id": "deedec57-bd5b-4abc-bc78-ca4d1599dc12",
-            "replaced_model_id": null
-          },
-          "modelId": "staticnpc",
-          "@components": [
-            {
-              "@type": "MOD.Core.TransformComponent",
-              "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-              },
-              "Position": {
-                "x": -12.4166584,
-                "y": -2.48500013,
-                "z": 999.999
-              },
-              "QuaternionRotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-              },
-              "Scale": {
-                "x": 1.0,
-                "y": 1.06857657,
-                "z": 1.0
-              },
-              "ZRotation": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.SpriteRendererComponent",
-              "ActionSheet": {},
-              "EndFrameIndex": 0,
-              "RenderSetting": 1,
-              "SortingLayer": "MapLayer0",
-              "SpriteRUID": "17ef4e993b3c445597f72aab8abc7d35",
-              "StartFrameIndex": 0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.RigidbodyComponent",
-              "MoveVelocity": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "RealMoveVelocity": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.StateComponent",
-              "IsLegacy": false,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.ChatBalloonComponent",
-              "ChatBalloonRUID": {
-                "DataId": "7b6bd117bd0446a5bacec8ea6831c997"
-              },
-              "ChatModeEnabled": false,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.StateAnimationComponent",
-              "ActionSheet": {
-                "stand": "17ef4e993b3c445597f72aab8abc7d35"
-              },
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.NameTagComponent",
-              "Name": "npc-161",
-              "NameTagRUID": {
-                "DataId": "9bf18287398c44699c20fc5123d1a1ae"
-              },
-              "Enable": true
-            }
-          ],
-          "@version": 1
-        }
-      },
-      {
         "id": "c5eab805-8254-49f5-b0b6-94b3ebf58b3c",
         "path": "/maps/StartingArea/MapleMapLayer_6",
         "componentNames": "MOD.Core.MapLayerComponent",
@@ -15393,7 +15189,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 47,
+          "displayOrder": 45,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -15429,7 +15225,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 48,
+          "displayOrder": 46,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -15443,6 +15239,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -0.225,
                 "y": -0.15,
@@ -15454,6 +15255,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -15482,7 +15284,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 49,
+          "displayOrder": 47,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -15496,6 +15298,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": 15.2995481,
                 "y": -1.22000015,
@@ -15507,6 +15314,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -15524,32 +15332,37 @@
         }
       },
       {
-        "id": "0386c75b-04f8-4ebf-9198-eaa043930736",
-        "path": "/maps/StartingArea/npc-50",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.StateComponent,MOD.Core.ChatBalloonComponent,MOD.Core.StateAnimationComponent,MOD.Core.NameTagComponent",
+        "id": "9dc91efa-167d-445b-be4f-1d28734ea602",
+        "path": "/maps/StartingArea/npc-1_1",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.StateComponent,MOD.Core.ChatBalloonComponent,MOD.Core.StateAnimationComponent,MOD.Core.NameTagComponent,MOD.Core.InteractionComponent,script.DialogInteractionTrigger",
         "jsonString": {
-          "name": "npc-50",
-          "path": "/maps/StartingArea/npc-50",
+          "name": "npc-1_1",
+          "path": "/maps/StartingArea/npc-1_1",
           "nameEditable": true,
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 50,
+          "displayOrder": 48,
           "pathConstraints": "///",
-          "revision": 1,
+          "revision": 8,
           "origin": {
             "type": "Model",
             "entry_id": "StaticNPC",
             "sub_entity_id": null,
-            "root_entity_id": "0386c75b-04f8-4ebf-9198-eaa043930736",
+            "root_entity_id": "b6e13ba5-d2f6-4394-b647-3359cdb83374",
             "replaced_model_id": null
           },
           "modelId": "staticnpc",
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
-                "x": 6.88611126,
+                "x": -12.5635443,
                 "y": -2.48500013,
                 "z": 999.999
               },
@@ -15559,14 +15372,254 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
               "@type": "MOD.Core.SpriteRendererComponent",
               "ActionSheet": {},
-              "EndFrameIndex": 0,
+              "EndFrameIndex": 2147483647,
               "RenderSetting": 1,
-              "SortingLayer": "MapLayer2",
+              "SortingLayer": "MapLayer4",
+              "SpriteRUID": "17ef4e993b3c445597f72aab8abc7d35",
+              "StartFrameIndex": 0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.RigidbodyComponent",
+              "MoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "RealMoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.ChatBalloonComponent",
+              "ChatBalloonRUID": {
+                "DataId": "7b6bd117bd0446a5bacec8ea6831c997"
+              },
+              "ChatModeEnabled": false,
+              "Message": "be safe",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateAnimationComponent",
+              "ActionSheet": {
+                "stand": "17ef4e993b3c445597f72aab8abc7d35"
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.NameTagComponent",
+              "Name": "Alighieri",
+              "NameTagRUID": {
+                "DataId": "9bf18287398c44699c20fc5123d1a1ae"
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.InteractionComponent",
+              "ActionName": "Talk",
+              "BoxSize": {
+                "x": 0.67,
+                "y": 0.87
+              },
+              "ColliderOffset": {
+                "x": 0.004999995,
+                "y": 0.435
+              },
+              "IsLegacy": false,
+              "ShowActionInfo": true,
+              "Enable": true
+            },
+            {
+              "@type": "script.DialogInteractionTrigger",
+              "Enable": true,
+              "DialogId": "Alighieri"
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "f8d7c524-5337-4c9f-8563-011757df4453",
+        "path": "/maps/StartingArea/npc-1_2",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.StateComponent,MOD.Core.ChatBalloonComponent,MOD.Core.StateAnimationComponent,MOD.Core.NameTagComponent,MOD.Core.InteractionComponent,script.DialogInteractionTrigger",
+        "jsonString": {
+          "name": "npc-1_2",
+          "path": "/maps/StartingArea/npc-1_2",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 49,
+          "pathConstraints": "///",
+          "revision": 8,
+          "origin": {
+            "type": "Model",
+            "entry_id": "StaticNPC",
+            "sub_entity_id": null,
+            "root_entity_id": "b6e13ba5-d2f6-4394-b647-3359cdb83374",
+            "replaced_model_id": null
+          },
+          "modelId": "staticnpc",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": 0.102374077,
+                "y": -2.48500013,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "EndFrameIndex": 2147483647,
+              "RenderSetting": 1,
+              "SortingLayer": "MapLayer4",
+              "SpriteRUID": "bddcc9c4e33f438fba70b22d8feef09a",
+              "StartFrameIndex": 0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.RigidbodyComponent",
+              "MoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "RealMoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.ChatBalloonComponent",
+              "ChatBalloonRUID": {
+                "DataId": "7b6bd117bd0446a5bacec8ea6831c997"
+              },
+              "ChatModeEnabled": false,
+              "Message": "be safe",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateAnimationComponent",
+              "ActionSheet": {
+                "stand": "bddcc9c4e33f438fba70b22d8feef09a"
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.NameTagComponent",
+              "Name": "Trader",
+              "NameTagRUID": {
+                "DataId": "9bf18287398c44699c20fc5123d1a1ae"
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.InteractionComponent",
+              "ActionName": "Talk",
+              "BoxSize": {
+                "x": 0.67,
+                "y": 0.87
+              },
+              "ColliderOffset": {
+                "x": 0.004999995,
+                "y": 0.435
+              },
+              "IsLegacy": false,
+              "ShowActionInfo": true,
+              "Enable": true
+            },
+            {
+              "@type": "script.DialogInteractionTrigger",
+              "Enable": true,
+              "DialogId": "Trader",
+              "TriggerOnInteractionEnter": false
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "f528d81f-68b4-4911-99b6-698f0f338aab",
+        "path": "/maps/StartingArea/npc-1_3",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.StateComponent,MOD.Core.ChatBalloonComponent,MOD.Core.StateAnimationComponent,MOD.Core.NameTagComponent,MOD.Core.InteractionComponent,script.DialogInteractionTrigger",
+        "jsonString": {
+          "name": "npc-1_3",
+          "path": "/maps/StartingArea/npc-1_3",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 50,
+          "pathConstraints": "///",
+          "revision": 8,
+          "origin": {
+            "type": "Model",
+            "entry_id": "StaticNPC",
+            "sub_entity_id": null,
+            "root_entity_id": "b6e13ba5-d2f6-4394-b647-3359cdb83374",
+            "replaced_model_id": null
+          },
+          "modelId": "staticnpc",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": 7.232032,
+                "y": -2.48500013,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "EndFrameIndex": 2147483647,
+              "RenderSetting": 1,
+              "SortingLayer": "MapLayer4",
               "SpriteRUID": "5ba0403847a14322b0a656f442e676bd",
               "StartFrameIndex": 0,
               "Enable": true
@@ -15594,25 +15647,44 @@
                 "DataId": "7b6bd117bd0446a5bacec8ea6831c997"
               },
               "ChatModeEnabled": false,
+              "Message": "be safe",
               "Enable": true
             },
             {
               "@type": "MOD.Core.StateAnimationComponent",
               "ActionSheet": {
-                "stand": "5ba0403847a14322b0a656f442e676bd",
-                "move": "23c2f6ac44e44665a9c3b316d9d4bdc4",
-                "say": "44b47e154f9f4497b57a3ebf73a46517",
-                "eye": "f026c46b745f4bcdbf3c0ce418867d74"
+                "stand": "5ba0403847a14322b0a656f442e676bd"
               },
               "Enable": true
             },
             {
               "@type": "MOD.Core.NameTagComponent",
-              "Name": "npc-50",
+              "Name": "Lady Maria",
               "NameTagRUID": {
                 "DataId": "9bf18287398c44699c20fc5123d1a1ae"
               },
               "Enable": true
+            },
+            {
+              "@type": "MOD.Core.InteractionComponent",
+              "ActionName": "Talk",
+              "BoxSize": {
+                "x": 0.67,
+                "y": 0.87
+              },
+              "ColliderOffset": {
+                "x": 0.004999995,
+                "y": 0.435
+              },
+              "IsLegacy": false,
+              "ShowActionInfo": true,
+              "Enable": true
+            },
+            {
+              "@type": "script.DialogInteractionTrigger",
+              "Enable": true,
+              "DialogId": "Lady Maria",
+              "TriggerOnInteractionEnter": false
             }
           ],
           "@version": 1
