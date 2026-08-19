@@ -4,12 +4,6 @@ script DialogInteractionTrigger extends Component
 	@Sync
 	property string DialogId = "Tutorial"
 
-	@Sync
-	property boolean TriggerOnInteractionEvent = true
-
-	@Sync
-	property boolean TriggerOnInteractionEnter = false
-
 	@ExecSpace("ClientOnly")
 	method void StartDialog()
 		if self.DialogId == nil or self.DialogId == "" then
@@ -22,17 +16,13 @@ script DialogInteractionTrigger extends Component
 	@ExecSpace("ClientOnly")
 	@EventSender("Self")
 	handler HandleInteractionEvent(InteractionEvent event)
-		if self.TriggerOnInteractionEvent then
-			self:StartDialog()
-		end
+		self:StartDialog()
 	end
 
 	@ExecSpace("ClientOnly")
 	@EventSender("Self")
 	handler HandleInteractionEnterEvent(InteractionEnterEvent event)
-		if self.TriggerOnInteractionEnter then
-			self:StartDialog()
-		end
+		self:StartDialog()
 	end
 
 end
