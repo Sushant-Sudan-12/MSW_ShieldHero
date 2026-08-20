@@ -1,8 +1,29 @@
 @Component
 script MonsterAttack extends AttackComponent
 
-	@MinValue(0)
-	property number AttackInterval = 0.03
+	@MinValue(0.05)
+	property number AttackInterval = 1.0
+
+	property boolean AttackInFrontOnly = true
+
+	@MinValue(0.1)
+	property number AttackRange = 1.5
+
+	@MinValue(0.0)
+	property number FrontOffset = 0.5
+
+	property boolean InvertFacingDirection = false
+
+	property string AttackStateName = "attack"
+
+	@MinValue(0.0)
+	property number AttackStateDuration = 0.6
+
+	@HideFromInspector
+	property number ScanInterval = 0.05
+
+	@HideFromInspector
+	property number LastAttackTime = 0
 
 	@HideFromInspector
 	property any Shape = nil
@@ -12,6 +33,9 @@ script MonsterAttack extends AttackComponent
 
 	@HideFromInspector
 	property Vector2 PositionOffset = Vector2(0,0)
+
+	@HideFromInspector
+	property string OriginalSpriteRUID = ""
 
 	@ExecSpace("ServerOnly")
 	method void OnBeginPlay()
@@ -33,16 +57,182 @@ script MonsterAttack extends AttackComponent
 			self.PositionOffset = (firstSpriteSizeInPixel / 2 - firstFrameSprite.PivotPixel:ToVector2()) / ppu
 			
 			_TimerService:SetTimerRepeat(function() 
-				if monster.IsDead == false then
+				if isvalid(monster) and monster.IsDead == false then
 					self:AttackNear()
 				end
-			end, self.AttackInterval)
+			end, self.ScanInterval)
 		end)
 	end
 
+	method number GetLookDirectionX()
+		local lookDir = 0
+
+		-- 1. Check MovementComponent (Native MSW method)
+		local movement = self.Entity.MovementComponent
+		if isvalid(movement) then
+			if movement:IsFaceLeft() then
+				lookDir = -1
+			else
+				lookDir = 1
+			end
+		end
+
+		-- 2. Check Rigidbody velocity if moving
+		if lookDir == 0 then
+			local rigidbody = self.Entity.RigidbodyComponent
+			if isvalid(rigidbody) and math.abs(rigidbody.MoveVelocity.x) > 0.05 then
+				if rigidbody.MoveVelocity.x < 0 then
+					lookDir = -1
+				else
+					lookDir = 1
+				end
+			end
+		end
+
+		-- 3. Check Transform Scale
+		if lookDir == 0 then
+			local transform = self.Entity.TransformComponent
+			if isvalid(transform) then
+				if transform.Scale.x < 0 then
+					lookDir = -1
+				else
+					lookDir = 1
+				end
+			end
+		end
+
+		-- 4. Check SpriteRenderer FlipX
+		local spriteRenderer = self.Entity.SpriteRendererComponent
+		if isvalid(spriteRenderer) and spriteRenderer.FlipX then
+			lookDir = -lookDir
+		end
+
+		if lookDir == 0 then
+			lookDir = -1
+		end
+
+		if self.InvertFacingDirection then
+			lookDir = -lookDir
+		end
+
+		return lookDir
+	end
+
+	method void PlayAttackAction()
+		local actionKey = self.AttackStateName
+		if actionKey == nil or actionKey == "" then
+			actionKey = "attack"
+		end
+
+		local spriteRenderer = self.Entity.SpriteRendererComponent
+		local stateAnimation = self.Entity:GetComponent("StateAnimationComponent")
+		local stateComponent = self.Entity.StateComponent
+
+		-- 1. Look up animation RUID from ActionSheet in StateAnimationComponent
+		local attackRUID = nil
+		local restoreRUID = nil
+		if isvalid(stateAnimation) and stateAnimation.ActionSheet ~= nil then
+			local candidateKeys = {
+				actionKey,
+				string.lower(actionKey),
+				string.upper(actionKey),
+				"attack",
+				"ATTACK",
+				"attack1",
+				"attack2",
+				"hit",
+				"HIT"
+			}
+			for _, key in ipairs(candidateKeys) do
+				local ruid = stateAnimation.ActionSheet[key]
+				if ruid ~= nil and ruid ~= "" then
+					attackRUID = ruid
+					break
+				end
+			end
+
+			local restoreKeys = {"move", "stand", "idle", "fly", "MOVE", "IDLE", "STAND"}
+			for _, key in ipairs(restoreKeys) do
+				local ruid = stateAnimation.ActionSheet[key]
+				if ruid ~= nil and ruid ~= "" then
+					restoreRUID = ruid
+					break
+				end
+			end
+		end
+
+		-- 2. Try StateComponent:ChangeState
+		if isvalid(stateComponent) then
+			local changed = stateComponent:ChangeState(actionKey)
+			if not changed then
+				changed = stateComponent:ChangeState(string.upper(actionKey))
+			end
+			if not changed then
+				changed = stateComponent:ChangeState(string.lower(actionKey))
+			end
+		end
+
+		-- 3. Directly set SpriteRUID to play the attack animation clip
+		if attackRUID ~= nil and isvalid(spriteRenderer) then
+			if self.OriginalSpriteRUID == "" or self.OriginalSpriteRUID == nil then
+				self.OriginalSpriteRUID = spriteRenderer.SpriteRUID
+			end
+			spriteRenderer.SpriteRUID = attackRUID
+			spriteRenderer.StartFrameIndex = 0
+		end
+
+		-- 4. Pause movement during attack
+		local wander = self.Entity.AIWanderComponent
+		if isvalid(wander) then
+			wander.Enable = false
+		end
+
+		local rigidbody = self.Entity.RigidbodyComponent
+		if isvalid(rigidbody) then
+			rigidbody.MoveVelocity = Vector2.zero
+		end
+
+		-- 5. Restore after AttackStateDuration
+		if self.AttackStateDuration > 0 then
+			_TimerService:SetTimerOnce(function()
+				if isvalid(self.Entity) == false then
+					return
+				end
+				local monster = self.Entity:GetComponent("Monster")
+				if isvalid(monster) == false or monster.IsDead then
+					return
+				end
+
+				local renderer = self.Entity.SpriteRendererComponent
+				if isvalid(renderer) then
+					if restoreRUID ~= nil and restoreRUID ~= "" then
+						renderer.SpriteRUID = restoreRUID
+					elseif self.OriginalSpriteRUID ~= nil and self.OriginalSpriteRUID ~= "" then
+						renderer.SpriteRUID = self.OriginalSpriteRUID
+					end
+				end
+
+				local stateComp = self.Entity.StateComponent
+				if isvalid(stateComp) then
+					stateComp:ChangeState("MOVE")
+				end
+
+				local wanderComp = self.Entity.AIWanderComponent
+				if isvalid(wanderComp) then
+					wanderComp.Enable = true
+				end
+			end, self.AttackStateDuration)
+		end
+	end
+
 	method void AttackNear()
+		local currentTime = _UtilLogic.ElapsedSeconds
+		if currentTime - self.LastAttackTime < self.AttackInterval then
+			return
+		end
+
 		local monster = self.Entity:GetComponent("Monster")
-		if isvalid(monster) and monster:IsParryStunned() then
+		if isvalid(monster) and (monster.IsDead or monster:IsParryStunned()) then
 			local rigidbody = self.Entity.RigidbodyComponent
 			if isvalid(rigidbody) then
 				rigidbody.MoveVelocity = Vector2.zero
@@ -59,8 +249,20 @@ script MonsterAttack extends AttackComponent
 			local radian = math.rad(transformComponent.ZRotation)
 			local offsetX = math.cos(radian) * self.PositionOffset.x * scaleX - math.sin(radian) * self.PositionOffset.y * scaleY
 			local offsetY = math.sin(radian) * self.PositionOffset.x * scaleX + math.cos(radian) * self.PositionOffset.y * scaleY
-			self.Shape.Size = Vector2(self.SpriteSize.x * math.abs(scaleX), self.SpriteSize.y * math.abs(scaleY))
-			self.Shape.Position = Vector2(worldPosition.x + offsetX, worldPosition.y + offsetY)
+			
+			local spriteH = self.SpriteSize.y > 0 and (self.SpriteSize.y * math.abs(scaleY)) or math.abs(scaleY)
+			local spriteW = self.SpriteSize.x > 0 and (self.SpriteSize.x * math.abs(scaleX)) or math.abs(scaleX)
+
+			if self.AttackInFrontOnly then
+				local lookDir = self:GetLookDirectionX()
+				local frontDist = self.FrontOffset * lookDir
+				self.Shape.Size = Vector2(math.max(self.AttackRange, 1.2), math.max(spriteH, 1.0))
+				self.Shape.Position = Vector2(worldPosition.x + offsetX + frontDist, worldPosition.y + offsetY)
+			else
+				self.Shape.Size = Vector2(spriteW, spriteH)
+				self.Shape.Position = Vector2(worldPosition.x + offsetX, worldPosition.y + offsetY)
+			end
+
 			self.Shape.Angle = transformComponent.ZRotation
 		end
 		
@@ -68,23 +270,34 @@ script MonsterAttack extends AttackComponent
 	end
 
 	method boolean IsAttackTarget(Entity defender, string attackInfo)
-        if isvalid(defender.PlayerComponent) == false then
-            return false
-        end
+		if isvalid(defender.PlayerComponent) == false then
+			return false
+		end
 
-        local sampleParry = defender:GetComponent("SampleParryInvincible")
-        if isvalid(sampleParry) and sampleParry.IsParryHeld then
-            log("MonsterAttack IsAttackTarget: blocked by SampleParryInvincible hold")
-            return false
-        end
+		local immuneLogic = defender:GetComponent("PlayerImmuneLogic")
+		if isvalid(immuneLogic) and immuneLogic:IsImmune() then
+			return false
+		end
 
-        local shieldParry = defender:GetComponent("ShieldParry")
-        if isvalid(shieldParry) and shieldParry:DisableMonsterAttackDueToParry(self.Entity, "MonsterAttack.IsAttackTarget") then
-            log("MonsterAttack IsAttackTarget: parry disabled enemy attack component")
-            return false
-        end
-        
-        return __base:IsAttackTarget(defender, attackInfo)
-    end
+		local sampleParry = defender:GetComponent("SampleParryInvincible")
+		if isvalid(sampleParry) and sampleParry.IsParryHeld then
+			log("MonsterAttack IsAttackTarget: blocked by SampleParryInvincible hold")
+			return false
+		end
+
+		local shieldParry = defender:GetComponent("ShieldParry")
+		if isvalid(shieldParry) and shieldParry:DisableMonsterAttackDueToParry(self.Entity, "MonsterAttack.IsAttackTarget") then
+			log("MonsterAttack IsAttackTarget: parry disabled enemy attack component")
+			return false
+		end
+		
+		return __base:IsAttackTarget(defender, attackInfo)
+	end
+
+	method void OnAttack(Entity defender)
+		self.LastAttackTime = _UtilLogic.ElapsedSeconds
+		self:PlayAttackAction()
+		__base:OnAttack(defender)
+	end
 
 end

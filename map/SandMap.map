@@ -80874,6 +80874,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -81011,6 +81013,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -81149,6 +81153,9 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "AttackInterval": 1.0,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -81287,6 +81294,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -81427,6 +81436,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -81564,6 +81575,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -81701,6 +81714,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -160017,6 +160032,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -160155,6 +160172,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -160293,6 +160312,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -160431,6 +160452,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -160569,6 +160592,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -160707,6 +160732,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -160845,6 +160872,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -160983,6 +161012,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -161121,6 +161152,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -161259,6 +161292,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -161397,6 +161432,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -161535,6 +161572,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -161673,6 +161712,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -161811,6 +161852,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -161949,6 +161992,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -162087,6 +162132,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -162224,6 +162271,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -162361,6 +162410,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -162498,6 +162549,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -162635,6 +162688,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -162772,6 +162827,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -162909,6 +162966,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -163046,6 +163105,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -163183,6 +163244,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -163320,6 +163383,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -163457,6 +163522,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -163594,6 +163661,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -163731,6 +163800,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -163868,6 +163939,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -164005,6 +164078,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -164142,6 +164217,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -164279,6 +164356,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -164416,6 +164495,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -164553,6 +164634,9 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "AttackInterval": 1.0,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -164690,6 +164774,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -164827,6 +164913,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -164964,6 +165052,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -165101,6 +165191,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -165238,6 +165330,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -165375,6 +165469,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -165512,6 +165608,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -165649,6 +165747,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -165786,6 +165886,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -165923,6 +166025,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -166060,6 +166164,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -166197,6 +166303,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -166334,6 +166442,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -166471,6 +166581,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -166608,6 +166720,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -166745,6 +166859,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -166882,6 +166998,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -167019,6 +167137,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -167156,6 +167276,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -167293,6 +167415,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -167430,6 +167554,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -167567,6 +167693,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -167704,6 +167832,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -167841,6 +167971,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -167978,6 +168110,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -168115,6 +168249,9 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "AttackInterval": 1.0,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -168252,6 +168389,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -168389,6 +168528,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -168526,6 +168667,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -168663,6 +168806,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -168800,6 +168945,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -168937,6 +169084,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -169074,6 +169223,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -169211,6 +169362,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -169348,6 +169501,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -169485,6 +169640,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -169622,6 +169779,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -169759,6 +169918,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -169896,6 +170057,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -170033,6 +170196,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -170170,6 +170335,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -170307,6 +170474,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -170444,6 +170613,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -170581,6 +170752,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -170718,6 +170891,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -170855,6 +171030,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -170992,6 +171169,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -171129,6 +171308,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -171266,6 +171447,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -171403,6 +171586,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -171540,6 +171725,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -171677,6 +171864,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -171814,6 +172003,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -171951,6 +172142,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -172088,6 +172281,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -172225,6 +172420,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -172362,6 +172559,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -172500,6 +172699,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -172637,6 +172838,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -172774,6 +172977,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -172911,6 +173116,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -173048,6 +173255,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -173185,6 +173394,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -173322,6 +173533,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -173460,6 +173673,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -173598,6 +173813,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -173736,6 +173953,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -173874,6 +174093,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -174012,6 +174233,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -174150,6 +174373,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -174288,6 +174513,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -174426,6 +174653,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -174564,6 +174793,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -174701,6 +174932,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -174839,6 +175072,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -174977,6 +175212,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -175115,6 +175352,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -175253,6 +175492,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -175391,6 +175632,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -175529,6 +175772,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -175667,6 +175912,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -175805,6 +176052,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -175943,6 +176192,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -176081,6 +176332,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -176219,6 +176472,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -176357,6 +176612,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -176497,6 +176754,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -176637,6 +176896,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -176777,6 +177038,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -176917,6 +177180,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -177057,6 +177322,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -177196,7 +177463,9 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
-              "AttackInterval": 0.03,
+              "AttackInterval": 1.0,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -177337,6 +177606,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -177477,6 +177748,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -177617,6 +177890,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -177757,6 +178032,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -177897,6 +178174,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -178037,6 +178316,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -178177,6 +178458,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -178317,6 +178600,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -178457,6 +178742,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -178597,6 +178884,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -178737,6 +179026,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -178877,6 +179168,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -179017,6 +179310,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -179157,6 +179452,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -179297,6 +179594,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -179437,6 +179736,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -179577,6 +179878,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -179717,6 +180020,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -179857,6 +180162,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -179997,6 +180304,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -180137,6 +180446,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -180277,6 +180588,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -180417,6 +180730,8 @@
               "@type": "script.MonsterAttack",
               "Enable": true,
               "AttackInterval": 0.03,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -180555,6 +180870,8 @@
             {
               "@type": "script.MonsterAttack",
               "Enable": true,
+              "ScanInterval": 0.05,
+              "LastAttackTime": 0.0,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0

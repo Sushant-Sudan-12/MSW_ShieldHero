@@ -1,0 +1,664 @@
+@Component
+script MonsterAI extends AttackComponent
+
+	-- === Patrol Settings ===
+	@MinValue(0)
+	property number PatrolSpeed = 1.0
+
+	@MinValue(0)
+	property number PatrolDistance = 3.0
+
+	@MinValue(0)
+	property number PatrolIdleDuration = 1.5
+
+	-- === Chase Settings ===
+	@MinValue(0)
+	property number ChaseSpeed = 1.8
+
+	@MinValue(0)
+	property number DetectionRangeX = 4.5
+
+	@MinValue(0)
+	property number DetectionRangeY = 2.0
+
+	@MinValue(0)
+	property number LoseAggroDistance = 7.0
+
+	-- === Attack Range & Cooldown Settings ===
+	@MinValue(0.1)
+	property number AttackRange = 1.4
+
+	@MinValue(0.05)
+	property number AttackInterval = 1.0
+
+	-- === Attack Timing Settings ===
+	@MinValue(0.0)
+	property number AttackHitDelay = 0.3
+
+	@MinValue(0.0)
+	property number AttackHitDuration = 0.1
+
+	@MinValue(0.0)
+	property number AttackDuration = 0.6
+
+	-- === Attack Hitbox Dimensions & Offsets ===
+	@MinValue(0.1)
+	property number AttackBoxWidth = 1.4
+
+	@MinValue(0.1)
+	property number AttackBoxHeight = 1.2
+
+	@MinValue(0.0)
+	property number AttackBoxOffsetX = 0.6
+
+	property number AttackBoxOffsetY = 0.0
+
+	@MinValue(0)
+	property integer Damage = 20
+
+	-- === Hit Reaction & Stagger Settings ===
+	@MinValue(0.0)
+	property number HitKnockbackForce = 1.5
+
+	@MinValue(0.0)
+	property number HitStaggerDuration = 0.3
+
+	@MinValue(0.0)
+	property number HitAttackCooldown = 1.5
+
+	-- === Action Names (from ActionSheet) ===
+	property string StandActionName = "stand"
+	property string MoveActionName = "move"
+	property string AttackActionName = "attack"
+	property string HitActionName = "hit"
+	property string DieActionName = "die"
+
+	-- === Configuration Flags ===
+	property boolean InvertFacingDirection = false
+	property boolean FlipUsingScale = false
+	property boolean DisableNativeWander = true
+	property boolean DisableNativeStateAnimation = true
+	property boolean DebugLogs = true
+
+	-- === Internal State ===
+	@HideFromInspector
+	property string AIState = "PATROL_WALK" -- PATROL_WALK, PATROL_IDLE, CHASE, CHASE_WAIT, ATTACK, STUN
+
+	@HideFromInspector
+	property Vector2 SpawnPosition = Vector2(0, 0)
+
+	@HideFromInspector
+	property number PatrolDirection = 1
+
+	@HideFromInspector
+	property number PatrolIdleTimer = 0
+
+	@HideFromInspector
+	property number LastAttackTime = 0
+
+	@HideFromInspector
+	property boolean IsAttacking = false
+
+	@HideFromInspector
+	property any TargetPlayer = nil
+
+	@HideFromInspector
+	property any Shape = nil
+
+	@HideFromInspector
+	property Vector2 SpriteSize = Vector2(0, 0)
+
+	@HideFromInspector
+	property Vector2 PositionOffset = Vector2(0, 0)
+
+	@HideFromInspector
+	property string CurrentActionPlaying = ""
+
+	@HideFromInspector
+	property string OriginalSpriteRUID = ""
+
+	@HideFromInspector
+	property any ActionSheetTable = nil
+
+	method void OnBeginPlay()
+		local monster = self.Entity:GetComponent("Monster")
+		if isvalid(monster) == false then
+			log("MonsterAI: Warning - Monster component missing on " .. tostring(self.Entity))
+		end
+
+		-- Cache ActionSheet animations FIRST while StateAnimationComponent is still active
+		self:CacheActionSheet()
+
+		-- Disable native AIWanderComponent so it doesn't fight our custom movement
+		if self.DisableNativeWander then
+			local wander = self.Entity.AIWanderComponent
+			if isvalid(wander) then
+				wander.Enable = false
+				if self.DebugLogs then
+					log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Disabled native AIWanderComponent")
+				end
+			end
+		end
+
+		-- Disable native StateAnimationComponent so it doesn't overwrite our custom sprite animations
+		if self.DisableNativeStateAnimation then
+			local stateAnim = self.Entity:GetComponent("StateAnimationComponent")
+			if isvalid(stateAnim) then
+				stateAnim.Enable = false
+				if self.DebugLogs then
+					log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Disabled native StateAnimationComponent")
+				end
+			end
+		end
+
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) then
+			self.SpawnPosition = Vector2(transform.WorldPosition.x, transform.WorldPosition.y)
+		end
+
+		self.Shape = BoxShape(Vector2.zero, Vector2.one, 0)
+
+		-- Preload sprite sizing
+		local spriteRenderer = self.Entity.SpriteRendererComponent
+		if isvalid(spriteRenderer) and spriteRenderer.SpriteRUID ~= "" then
+			self.OriginalSpriteRUID = spriteRenderer.SpriteRUID
+			_ResourceService:PreloadAsync({spriteRenderer.SpriteRUID}, function()
+				local clip = _ResourceService:LoadAnimationClipAndWait(spriteRenderer.SpriteRUID)
+				if clip ~= nil and clip.Frames ~= nil and #clip.Frames > 0 then
+					local firstFrameSprite = clip.Frames[1].FrameSprite
+					local firstSpriteSizeInPixel = Vector2(firstFrameSprite.Width, firstFrameSprite.Height)
+					local ppu = firstFrameSprite.PixelPerUnit
+					if ppu > 0 then
+						self.SpriteSize = firstSpriteSizeInPixel / ppu
+						self.PositionOffset = (firstSpriteSizeInPixel / 2 - firstFrameSprite.PivotPixel:ToVector2()) / ppu
+					end
+				end
+			end)
+		end
+	end
+
+	method void CacheActionSheet()
+		self.ActionSheetTable = {}
+		local stateAnimation = self.Entity:GetComponent("StateAnimationComponent")
+		if isvalid(stateAnimation) and stateAnimation.ActionSheet ~= nil then
+			local ok, tbl = pcall(function() return stateAnimation.ActionSheet:ToTable() end)
+			if ok and type(tbl) == "table" then
+				for k, v in pairs(tbl) do
+					self.ActionSheetTable[string.lower(tostring(k))] = tostring(v)
+				end
+			else
+				local keys = stateAnimation.ActionSheet.Keys
+				if keys ~= nil then
+					for _, k in ipairs(keys) do
+						local hasVal, val = stateAnimation.ActionSheet:TryGetValue(k)
+						if hasVal then
+							self.ActionSheetTable[string.lower(tostring(k))] = tostring(val)
+						end
+					end
+				end
+			end
+		end
+
+		if self.DebugLogs then
+			local items = {}
+			for k, v in pairs(self.ActionSheetTable) do
+				table.insert(items, "'" .. k .. "': " .. v)
+			end
+			log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Cached Actions: " .. table.concat(items, ", "))
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void OnUpdate(number delta)
+		local monster = self.Entity:GetComponent("Monster")
+		if isvalid(monster) and monster.IsDead then
+			self.AIState = "DEAD"
+			self:SetVelocity(0)
+			self:PlayAction(self.DieActionName)
+			return
+		end
+
+		if isvalid(monster) and monster:IsParryStunned() then
+			self.AIState = "STUN"
+			self:SetVelocity(0)
+			self:PlayAction(self.HitActionName)
+			return
+		end
+
+		if self.AIState == "HIT_STAGGER" then
+			return
+		end
+
+		if self.IsAttacking then
+			self:SetVelocity(0)
+			return
+		end
+
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) == false then
+			return
+		end
+
+		local myPos = transform.WorldPosition
+
+		-- 1. Scan for nearest player
+		local playerInfo = self:FindNearestPlayer(myPos)
+		local nearestPlayer = playerInfo.Player
+		local distToPlayer = playerInfo.Distance
+		local dyToPlayer = playerInfo.DeltaY
+		self.TargetPlayer = nearestPlayer
+
+		-- 2. State transitions & behavior
+		if nearestPlayer ~= nil and distToPlayer <= self.DetectionRangeX and math.abs(dyToPlayer) <= self.DetectionRangeY then
+			local playerPos = nearestPlayer.TransformComponent.WorldPosition
+			local toPlayerX = playerPos.x - myPos.x
+			local dirX = (toPlayerX >= 0) and 1 or -1
+
+			-- Check if in attack range
+			if distToPlayer <= self.AttackRange and math.abs(dyToPlayer) <= 1.2 then
+				local currentTime = _UtilLogic.ElapsedSeconds
+				if currentTime - self.LastAttackTime >= self.AttackInterval then
+					self:StartAttack(nearestPlayer, dirX)
+					return
+				else
+					-- On attack cooldown: stand still facing player
+					self.AIState = "CHASE_WAIT"
+					self:SetFaceDirection(dirX)
+					self:SetVelocity(0)
+					self:PlayAction(self.StandActionName)
+					return
+				end
+			else
+				-- Move towards player
+				self.AIState = "CHASE"
+				self:SetFaceDirection(dirX)
+				self:SetVelocity(dirX * self.ChaseSpeed)
+				self:PlayAction(self.MoveActionName)
+			end
+
+		elseif self.AIState == "CHASE" and (nearestPlayer == nil or distToPlayer > self.LoseAggroDistance) then
+			-- Lost aggro -> return to patrol
+			if self.DebugLogs then
+				log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Lost aggro, returning to patrol")
+			end
+			self.TargetPlayer = nil
+			self.AIState = "PATROL_WALK"
+			self:PlayAction(self.MoveActionName)
+
+		else
+			-- Regular Patrol Behavior
+			self:UpdatePatrol(delta, myPos)
+		end
+	end
+
+	method void UpdatePatrol(number delta, Vector3 myPos)
+		if self.AIState == "PATROL_IDLE" then
+			self:SetVelocity(0)
+			self:PlayAction(self.StandActionName)
+
+			self.PatrolIdleTimer = self.PatrolIdleTimer - delta
+			if self.PatrolIdleTimer <= 0 then
+				self.PatrolDirection = -self.PatrolDirection
+				self.AIState = "PATROL_WALK"
+			end
+
+		else
+			-- PATROL_WALK
+			local distFromSpawn = myPos.x - self.SpawnPosition.x
+
+			-- Check if reached patrol limits
+			if (self.PatrolDirection > 0 and distFromSpawn >= self.PatrolDistance) or
+			   (self.PatrolDirection < 0 and distFromSpawn <= -self.PatrolDistance) then
+				self.AIState = "PATROL_IDLE"
+				self.PatrolIdleTimer = self.PatrolIdleDuration
+				self:SetVelocity(0)
+				self:PlayAction(self.StandActionName)
+				return
+			end
+
+			self:SetFaceDirection(self.PatrolDirection)
+			self:SetVelocity(self.PatrolDirection * self.PatrolSpeed)
+			self:PlayAction(self.MoveActionName)
+		end
+	end
+
+	method void StartAttack(Entity target, number dirX)
+		self.IsAttacking = true
+		self.AIState = "ATTACK"
+		self.LastAttackTime = _UtilLogic.ElapsedSeconds
+
+		if self.DebugLogs then
+			log("MonsterAI [" .. tostring(self.Entity.Name) .. "] StartAttack: playing attack animation (HitDelay=" .. tostring(self.AttackHitDelay) .. "s, TotalDuration=" .. tostring(self.AttackDuration) .. "s)")
+		end
+
+		self:SetFaceDirection(dirX)
+		self:SetVelocity(0)
+		self:PlayAction(self.AttackActionName)
+
+		-- Schedule the damage strike at AttackHitDelay (the exact moment damage should connect)
+		if self.AttackHitDelay <= 0 then
+			self:ExecuteHitboxStrike(dirX)
+		else
+			_TimerService:SetTimerOnce(function()
+				if isvalid(self.Entity) == false then
+					return
+				end
+				local monster = self.Entity:GetComponent("Monster")
+				if isvalid(monster) and (monster.IsDead or monster:IsParryStunned()) then
+					return
+				end
+				self:ExecuteHitboxStrike(dirX)
+			end, self.AttackHitDelay)
+		end
+
+		-- Total attack animation duration before monster resumes movement
+		local totalDuration = math.max(self.AttackDuration, self.AttackHitDelay + 0.1)
+		_TimerService:SetTimerOnce(function()
+			if isvalid(self.Entity) == false then
+				return
+			end
+			self.IsAttacking = false
+			self.CurrentActionPlaying = ""
+			local monster = self.Entity:GetComponent("Monster")
+			if isvalid(monster) == false or monster.IsDead then
+				return
+			end
+			if self.DebugLogs then
+				log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Attack animation duration completed")
+			end
+		end, totalDuration)
+	end
+
+	method void ExecuteHitboxStrike(number dirX)
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) == false then
+			return
+		end
+
+		local worldPos = transform.WorldPosition
+		local frontDist = self.AttackBoxOffsetX * dirX
+		local boxCenter = Vector2(worldPos.x + frontDist, worldPos.y + self.AttackBoxOffsetY)
+
+		self.Shape.Size = Vector2(self.AttackBoxWidth, self.AttackBoxHeight)
+		self.Shape.Position = boxCenter
+		self.Shape.Angle = transform.ZRotation
+
+		if self.DebugLogs then
+			log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Hitbox Active! Pos=(" .. tostring(boxCenter.x) .. ", " .. tostring(boxCenter.y) .. ") Size=(" .. tostring(self.AttackBoxWidth) .. ", " .. tostring(self.AttackBoxHeight) .. ")")
+		end
+
+		-- Deal attack damage via AttackFast (triggers parry check / damage pipeline)
+		self:AttackFast(self.Shape, "MonsterAIAttack", CollisionGroups.Player)
+	end
+
+	method void SetVelocity(number vx)
+		local rigidbody = self.Entity.RigidbodyComponent
+		if isvalid(rigidbody) then
+			rigidbody.MoveVelocity = Vector2(vx, rigidbody.MoveVelocity.y)
+		end
+	end
+
+	method void SetFaceDirection(number dirX)
+		if dirX == 0 then
+			return
+		end
+
+		local wantFaceLeft = (dirX < 0)
+		if self.InvertFacingDirection then
+			wantFaceLeft = not wantFaceLeft
+		end
+
+		local spriteRenderer = self.Entity.SpriteRendererComponent
+		local transform = self.Entity.TransformComponent
+
+		if self.FlipUsingScale then
+			if isvalid(transform) then
+				local absScaleX = math.abs(transform.Scale.x)
+				if absScaleX < 0.001 then
+					absScaleX = 1
+				end
+				if wantFaceLeft then
+					transform.Scale = Vector3(absScaleX, transform.Scale.y, transform.Scale.z)
+				else
+					transform.Scale = Vector3(-absScaleX, transform.Scale.y, transform.Scale.z)
+				end
+			end
+			if isvalid(spriteRenderer) then
+				spriteRenderer.FlipX = false
+			end
+		else
+			-- Standard MSW 2D sprite flipping via FlipX (Left = FlipX false, Right = FlipX true)
+			if isvalid(spriteRenderer) then
+				local shouldFlip = not wantFaceLeft
+				if spriteRenderer.FlipX ~= shouldFlip then
+					spriteRenderer.FlipX = shouldFlip
+					if self.DebugLogs then
+						log("MonsterAI [" .. tostring(self.Entity.Name) .. "] FlipX -> " .. tostring(shouldFlip) .. " (facing " .. (wantFaceLeft and "Left" or "Right") .. ")")
+					end
+				end
+			end
+			if isvalid(transform) then
+				local absScaleX = math.abs(transform.Scale.x)
+				if absScaleX < 0.001 then
+					absScaleX = 1
+				end
+				transform.Scale = Vector3(absScaleX, transform.Scale.y, transform.Scale.z)
+			end
+		end
+	end
+
+	method string ActionToStateName(string actionName)
+		local lower = string.lower(actionName)
+		if lower == "stand" or lower == "idle" then
+			return "IDLE"
+		elseif lower == "move" or lower == "walk" or lower == "chase" or lower == "run" then
+			return "MOVE"
+		elseif lower == "attack" or lower == "atk" then
+			return "ATTACK"
+		elseif lower == "hit" then
+			return "HIT"
+		elseif lower == "die" or lower == "dead" then
+			return "DEAD"
+		end
+		return string.upper(actionName)
+	end
+
+	method void PlayAction(string actionName)
+		if actionName == nil or actionName == "" then
+			return
+		end
+
+		if self.CurrentActionPlaying == actionName then
+			return
+		end
+
+		self.CurrentActionPlaying = actionName
+
+		local lowerAction = string.lower(actionName)
+		local targetState = self:ActionToStateName(actionName)
+
+		-- 1. Try StateComponent:ChangeState with standard StateSet mapping
+		local stateComponent = self.Entity.StateComponent
+		if isvalid(stateComponent) then
+			if stateComponent.CurrentStateName ~= targetState then
+				local changed = stateComponent:ChangeState(targetState)
+				if not changed then
+					changed = stateComponent:ChangeState(actionName)
+				end
+				if not changed then
+					changed = stateComponent:ChangeState(string.lower(actionName))
+				end
+			end
+		end
+
+		-- 2. Resolve RUID from ActionSheet table
+		local ruid = nil
+		if self.ActionSheetTable ~= nil then
+			ruid = self.ActionSheetTable[lowerAction]
+			if ruid == nil or ruid == "" then
+				-- Fallback aliases
+				if lowerAction == "attack" then
+					ruid = self.ActionSheetTable["attack"] or self.ActionSheetTable["attack1"] or self.ActionSheetTable["attack2"] or self.ActionSheetTable["hit"]
+				elseif lowerAction == "move" then
+					ruid = self.ActionSheetTable["move"] or self.ActionSheetTable["walk"] or self.ActionSheetTable["fly"]
+				elseif lowerAction == "stand" then
+					ruid = self.ActionSheetTable["stand"] or self.ActionSheetTable["idle"]
+				elseif lowerAction == "hit" then
+					ruid = self.ActionSheetTable["hit"]
+				elseif lowerAction == "die" then
+					ruid = self.ActionSheetTable["die"] or self.ActionSheetTable["dead"]
+				end
+			end
+		end
+
+		-- 3. Multicast to ensure all clients and server receive AnimationClipEvent and SpriteRUID
+		self:MulticastPlayAction(lowerAction, ruid or "")
+	end
+
+	@ExecSpace("Multicast")
+	method void MulticastPlayAction(string actionName, string ruid)
+		if isvalid(self.Entity) == false then
+			return
+		end
+
+		-- Direct AnimationClipEvent event dispatch to sprite player
+		self.Entity:SendEvent(AnimationClipEvent(actionName))
+
+		-- Direct SpriteRendererComponent.SpriteRUID assignment
+		local spriteRenderer = self.Entity.SpriteRendererComponent
+		if isvalid(spriteRenderer) and ruid ~= nil and ruid ~= "" then
+			if spriteRenderer.SpriteRUID ~= ruid then
+				spriteRenderer.SpriteRUID = ruid
+				spriteRenderer.StartFrameIndex = 0
+			end
+		end
+
+		if self.DebugLogs then
+			log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Multicast Action: " .. tostring(actionName) .. " (RUID: " .. tostring(ruid) .. ")")
+		end
+	end
+
+	method any FindNearestPlayer(Vector3 myPos)
+		local nearestPlayer = nil
+		local minDistance = 999999
+		local targetDy = 0
+
+		local users = _UserService.UserEntities
+		if users ~= nil then
+			for _, player in pairs(users) do
+				if isvalid(player) and isvalid(player.PlayerComponent) and isvalid(player.TransformComponent) then
+					local playerPos = player.TransformComponent.WorldPosition
+					local dx = math.abs(playerPos.x - myPos.x)
+					local dy = playerPos.y - myPos.y
+
+					if dx < minDistance then
+						minDistance = dx
+						targetDy = dy
+						nearestPlayer = player
+					end
+				end
+			end
+		end
+
+		return {
+			Player = nearestPlayer,
+			Distance = minDistance,
+			DeltaY = targetDy,
+		}
+	end
+
+	method integer CalcDamage(Entity attacker, Entity defender, string attackInfo)
+		return math.floor(self.Damage)
+	end
+
+	method boolean IsAttackTarget(Entity defender, string attackInfo)
+		if isvalid(defender) == false or isvalid(defender.PlayerComponent) == false then
+			return false
+		end
+
+		local immuneLogic = defender:GetComponent("PlayerImmuneLogic")
+		if isvalid(immuneLogic) and immuneLogic:IsImmune() then
+			return false
+		end
+
+		local sampleParry = defender:GetComponent("SampleParryInvincible")
+		if isvalid(sampleParry) and sampleParry.IsParryHeld then
+			log("MonsterAI IsAttackTarget: blocked by SampleParryInvincible hold")
+			return false
+		end
+
+		local shieldParry = defender:GetComponent("ShieldParry")
+		if isvalid(shieldParry) and shieldParry:DisableMonsterAttackDueToParry(self.Entity, "MonsterAI.IsAttackTarget") then
+			log("MonsterAI IsAttackTarget: parry disabled enemy attack component")
+			return false
+		end
+
+		return __base:IsAttackTarget(defender, attackInfo)
+	end
+
+	method void OnAttack(Entity defender)
+		self.LastAttackTime = _UtilLogic.ElapsedSeconds
+		__base:OnAttack(defender)
+	end
+
+	@ExecSpace("ServerOnly")
+	@EventSender("Self")
+	handler HandleHitEvent(HitEvent event)
+		local monster = self.Entity:GetComponent("Monster")
+		if isvalid(monster) and monster.IsDead then
+			return
+		end
+
+		if self.DebugLogs then
+			log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Took Hit! Resetting attack timer (Cooldown=" .. tostring(self.HitAttackCooldown) .. "s)")
+		end
+
+		-- 1. Reset attack timer to enforce HitAttackCooldown delay
+		local currentTime = _UtilLogic.ElapsedSeconds
+		self.LastAttackTime = currentTime + (self.HitAttackCooldown - self.AttackInterval)
+		self.IsAttacking = false
+		self.CurrentActionPlaying = ""
+
+		-- 2. Determine knockback direction away from attacker
+		local attacker = event.AttackerEntity
+		local knockbackDirX = 0
+		local transform = self.Entity.TransformComponent
+
+		if isvalid(attacker) and isvalid(attacker.TransformComponent) and isvalid(transform) then
+			local attackerX = attacker.TransformComponent.WorldPosition.x
+			local myX = transform.WorldPosition.x
+			knockbackDirX = (myX >= attackerX) and 1 or -1
+		else
+			local spriteRenderer = self.Entity.SpriteRendererComponent
+			if isvalid(spriteRenderer) then
+				knockbackDirX = spriteRenderer.FlipX and -1 or 1
+			else
+				knockbackDirX = 1
+			end
+		end
+
+		-- 3. Apply knockback force
+		if self.HitKnockbackForce > 0 then
+			self:SetVelocity(knockbackDirX * self.HitKnockbackForce)
+		end
+
+		-- 4. Play hit animation & enter stagger state
+		self.AIState = "HIT_STAGGER"
+		self:PlayAction(self.HitActionName)
+
+		-- 5. Resume after stagger duration
+		_TimerService:SetTimerOnce(function()
+			if isvalid(self.Entity) == false then
+				return
+			end
+			local mon = self.Entity:GetComponent("Monster")
+			if isvalid(mon) == false or mon.IsDead or mon:IsParryStunned() then
+				return
+			end
+			if self.AIState == "HIT_STAGGER" then
+				self.AIState = "CHASE"
+			end
+		end, self.HitStaggerDuration)
+	end
+
+end
