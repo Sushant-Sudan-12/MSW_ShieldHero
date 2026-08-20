@@ -80883,7 +80883,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -81022,7 +81023,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -81163,7 +81165,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -81303,7 +81306,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -81445,7 +81449,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -81584,7 +81589,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -81723,7 +81729,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -160041,7 +160048,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -160181,7 +160189,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -160321,7 +160330,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -160461,7 +160471,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -160601,7 +160612,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -160741,7 +160753,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -160881,7 +160894,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -161021,7 +161035,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -161161,7 +161176,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -161301,7 +161317,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -161441,7 +161458,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -161581,7 +161599,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -161721,7 +161740,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -161861,7 +161881,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -162001,7 +162022,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -162141,7 +162163,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -162280,7 +162303,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -162419,7 +162443,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -162558,7 +162583,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -162697,7 +162723,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -162836,7 +162863,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -162975,7 +163003,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -163114,7 +163143,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -163253,7 +163283,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -163392,7 +163423,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -163531,7 +163563,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -163670,7 +163703,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -163809,7 +163843,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -163948,7 +163983,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -164087,7 +164123,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -164226,7 +164263,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -164365,7 +164403,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -164504,7 +164543,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -164644,7 +164684,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -164783,7 +164824,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -164922,7 +164964,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -165061,7 +165104,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -165200,7 +165244,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -165339,7 +165384,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -165478,7 +165524,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -165617,7 +165664,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -165756,7 +165804,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -165895,7 +165944,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -166034,7 +166084,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -166173,7 +166224,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -166312,7 +166364,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -166451,7 +166504,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -166590,7 +166644,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -166729,7 +166784,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -166868,7 +166924,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -167007,7 +167064,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -167146,7 +167204,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -167285,7 +167344,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -167424,7 +167484,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -167563,7 +167624,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -167702,7 +167764,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -167841,7 +167904,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -167980,7 +168044,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -168119,7 +168184,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -168259,7 +168325,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -168398,7 +168465,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -168537,7 +168605,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -168676,7 +168745,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -168815,7 +168885,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -168954,7 +169025,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -169093,7 +169165,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -169232,7 +169305,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -169371,7 +169445,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -169510,7 +169585,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -169649,7 +169725,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -169788,7 +169865,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -169927,7 +170005,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -170066,7 +170145,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -170205,7 +170285,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -170344,7 +170425,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -170483,7 +170565,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -170622,7 +170705,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -170761,7 +170845,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -170900,7 +170985,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -171039,7 +171125,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -171178,7 +171265,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -171317,7 +171405,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -171456,7 +171545,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -171595,7 +171685,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -171734,7 +171825,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -171873,7 +171965,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -172012,7 +172105,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -172151,7 +172245,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -172290,7 +172385,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -172429,7 +172525,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -172568,7 +172665,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -172708,7 +172806,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -172847,7 +172946,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -172986,7 +173086,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -173125,7 +173226,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -173264,7 +173366,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -173403,7 +173506,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -173542,7 +173646,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -173682,7 +173787,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -173723,7 +173829,7 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -4.48749352,
+                "x": -4.50163746,
                 "y": -5.08500051,
                 "z": 999.999
               },
@@ -173822,7 +173928,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -173962,7 +174069,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -174102,7 +174210,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -174242,7 +174351,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -174382,7 +174492,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -174522,7 +174633,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -174662,7 +174774,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -174802,7 +174915,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -174941,7 +175055,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -175081,7 +175196,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -175221,7 +175337,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -175361,7 +175478,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -175501,7 +175619,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -175641,7 +175760,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -175781,7 +175901,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -175921,7 +176042,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -176061,7 +176183,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -176201,7 +176324,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -176341,7 +176465,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -176481,7 +176606,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -176621,7 +176747,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -176763,7 +176890,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -176905,7 +177033,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -177047,7 +177176,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -177189,7 +177319,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -177331,7 +177462,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -177473,7 +177605,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -177615,7 +177748,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -177757,7 +177891,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -177899,7 +178034,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -178041,7 +178177,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -178183,7 +178320,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -178325,7 +178463,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -178467,7 +178606,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -178609,7 +178749,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -178751,7 +178892,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -178893,7 +179035,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -179035,7 +179178,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -179177,7 +179321,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -179319,7 +179464,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -179461,7 +179607,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -179603,7 +179750,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -179745,7 +179893,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -179887,7 +180036,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -180029,7 +180179,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -180171,7 +180322,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -180313,7 +180465,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -180455,7 +180608,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -180597,7 +180751,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -180739,7 +180894,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -180879,7 +181035,8 @@
               "PositionOffset": {
                 "x": 0.0,
                 "y": 0.0
-              }
+              },
+              "OriginalSpriteRUID": ""
             },
             {
               "@type": "script.MonsterSoulReward",

@@ -78,6 +78,13 @@ script MonsterAI extends AttackComponent
 	property boolean FlipUsingScale = false
 	property boolean DisableNativeWander = true
 	property boolean DisableNativeStateAnimation = true
+	property boolean PreventLedgeFall = true
+
+	property boolean UseRigidbodyIsolatedMove = true
+
+	@MinValue(0.05)
+	property number LedgeProbeDistance = 0.45
+
 	property boolean DebugLogs = true
 
 	-- === Internal State ===
@@ -137,6 +144,14 @@ script MonsterAI extends AttackComponent
 				if self.DebugLogs then
 					log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Disabled native AIWanderComponent")
 				end
+			end
+		end
+
+		local rigidbody = self.Entity.RigidbodyComponent
+		if isvalid(rigidbody) then
+			rigidbody.IsolatedMove = self.UseRigidbodyIsolatedMove
+			if self.DebugLogs then
+				log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Rigidbody IsolatedMove = " .. tostring(rigidbody.IsolatedMove))
 			end
 		end
 
@@ -270,6 +285,14 @@ script MonsterAI extends AttackComponent
 				end
 			else
 				-- Move towards player
+				if self:HasWalkableFootholdAhead(dirX, self.ChaseSpeed, delta) == false then
+					self.AIState = "CHASE_WAIT"
+					self:SetFaceDirection(dirX)
+					self:SetVelocity(0)
+					self:PlayAction(self.StandActionName)
+					return
+				end
+
 				self.AIState = "CHASE"
 				self:SetFaceDirection(dirX)
 				self:SetVelocity(dirX * self.ChaseSpeed)
@@ -316,10 +339,46 @@ script MonsterAI extends AttackComponent
 				return
 			end
 
+			if self:HasWalkableFootholdAhead(self.PatrolDirection, self.PatrolSpeed, delta) == false then
+				self.PatrolDirection = -self.PatrolDirection
+				self:SetFaceDirection(self.PatrolDirection)
+				self:SetVelocity(self.PatrolDirection * self.PatrolSpeed)
+				self:PlayAction(self.MoveActionName)
+				return
+			end
+
 			self:SetFaceDirection(self.PatrolDirection)
 			self:SetVelocity(self.PatrolDirection * self.PatrolSpeed)
 			self:PlayAction(self.MoveActionName)
 		end
+	end
+
+	method boolean HasWalkableFootholdAhead(number dirX, number speed, number delta)
+		if self.PreventLedgeFall == false then
+			return true
+		end
+
+		if dirX == 0 then
+			return true
+		end
+
+		local rigidbody = self.Entity.RigidbodyComponent
+		if isvalid(rigidbody) == false then
+			return true
+		end
+
+		if rigidbody:IsOnGround() == false then
+			return true
+		end
+
+		local stepDistance = self.LedgeProbeDistance
+		local frameTime = math.max(delta, 0.016)
+		if speed ~= nil then
+			stepDistance = math.max(stepDistance, math.abs(speed) * frameTime)
+		end
+
+		local canMove = rigidbody:PredictFootholdEnd(stepDistance, dirX > 0)
+		return canMove
 	end
 
 	method void StartAttack(Entity target, number dirX)
