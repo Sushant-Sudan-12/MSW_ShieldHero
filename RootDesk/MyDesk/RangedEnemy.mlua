@@ -1,0 +1,521 @@
+@Component
+script RangedEnemy extends Component
+
+	-- === Patrol Settings ===
+	@MinValue(0)
+	property number PatrolSpeed = 0.9
+
+	@MinValue(0)
+	property number PatrolDistance = 3.0
+
+	@MinValue(0)
+	property number PatrolIdleDuration = 1.2
+
+	-- === Detection / Chase Settings ===
+	@MinValue(0.1)
+	property number DetectionRangeX = 5.0
+
+	@MinValue(0.1)
+	property number DetectionRangeY = 2.5
+
+	@MinValue(0)
+	property number LoseAggroDistance = 8.0
+
+	@MinValue(0)
+	property number ChaseSpeed = 1.2
+
+	property boolean ChasePlayer = false
+
+	-- === Ranged Attack Settings ===
+	property string ProjectileModelName = "Model_Porcupine"
+
+	@MinValue(1)
+	property integer SpikeCount = 4
+
+	@MinValue(0)
+	property number SpikeSpeed = 6.0
+
+	@MinValue(0.5)
+	property number AttackCooldown = 3.0
+
+	@MinValue(0.1)
+	property number AttackRange = 6.0
+
+	@MinValue(0)
+	property integer SpikeDamage = 15
+
+	@MinValue(0.1)
+	property number SpikeLifetime = 2.5
+
+	@MinValue(0)
+	property number SpikeSpawnScale = 1.0
+
+	property Vector2 ProjectileSpawnOffset = Vector2(0, 0)
+
+	@MinValue(0)
+	property number AttackWindup = 0.4
+
+	-- === Action Names ===
+	property string StandActionName = "stand"
+	property string MoveActionName = "move"
+	property string AttackActionName = "attack"
+	property string HitActionName = "hit"
+	property string DieActionName = "die"
+
+	-- === Config ===
+	property boolean InvertFacingDirection = false
+	property boolean PreventLedgeFall = true
+	property boolean UseRigidbodyIsolatedMove = true
+
+	@MinValue(0.05)
+	property number LedgeProbeDistance = 0.45
+
+	property boolean DebugLogs = false
+
+	-- === Internal State ===
+	@HideFromInspector
+	property string AIState = "PATROL_WALK"
+
+	@HideFromInspector
+	property number SpawnX = 0
+
+	@HideFromInspector
+	property number PatrolDirection = 1
+
+	@HideFromInspector
+	property number PatrolIdleTimer = 0
+
+	@HideFromInspector
+	property number LastAttackTime = -9999
+
+	@HideFromInspector
+	property boolean IsAttacking = false
+
+	@HideFromInspector
+	property number ActiveAttackToken = 0
+
+	@HideFromInspector
+	property any TargetPlayer = nil
+
+	@ExecSpace("ServerOnly")
+	method void OnBeginPlay()
+		-- Disable native wander so it doesn't fight our custom patrol/chase
+		local wander = self.Entity.AIWanderComponent
+		if isvalid(wander) then
+			wander.Enable = false
+			if self.DebugLogs then
+				log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] Disabled native AIWanderComponent")
+			end
+		end
+
+		local rigidbody = self.Entity.RigidbodyComponent
+		if isvalid(rigidbody) then
+			rigidbody.IsolatedMove = self.UseRigidbodyIsolatedMove
+			if self.DebugLogs then
+				log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] IsolatedMove=" .. tostring(rigidbody.IsolatedMove))
+			end
+		end
+
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) then
+			self.SpawnX = transform.WorldPosition.x
+			if self.DebugLogs then
+				log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] SpawnX=" .. tostring(self.SpawnX))
+			end
+		end
+
+		if self.DebugLogs then
+			local monster = self.Entity:GetComponent("Monster")
+			log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] Ready. Monster=" .. tostring(isvalid(monster))
+				.. " Rigidbody=" .. tostring(isvalid(rigidbody))
+				.. " Transform=" .. tostring(isvalid(transform)))
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void OnUpdate(number delta)
+		local monster = self.Entity:GetComponent("Monster")
+		if isvalid(monster) and monster.IsDead then
+			self:SetVelocityX(0)
+			return
+		end
+
+		if isvalid(monster) and monster:IsParryStunned() then
+			self:SetVelocityX(0)
+			return
+		end
+
+		if self.IsAttacking then
+			self:SetVelocityX(0)
+			return
+		end
+
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) == false then
+			return
+		end
+
+		local myPos = transform.WorldPosition
+		local playerInfo = self:FindNearestPlayer(myPos)
+		local nearestPlayer = playerInfo.Player
+		local distX = playerInfo.Distance
+		local distY = playerInfo.DeltaY
+		self.TargetPlayer = nearestPlayer
+
+		-- Player in detection zone
+		if nearestPlayer ~= nil and distX <= self.DetectionRangeX and math.abs(distY) <= self.DetectionRangeY then
+			local playerPos = nearestPlayer.TransformComponent.WorldPosition
+			local dirX = (playerPos.x >= myPos.x) and 1 or -1
+
+			if distX <= self.AttackRange then
+				local now = _UtilLogic.ElapsedSeconds
+				if now - self.LastAttackTime >= self.AttackCooldown then
+					self:StartRangedAttack(nearestPlayer)
+					return
+				else
+					self:SetFaceDirection(dirX)
+					self:SetVelocityX(0)
+					self:TryChangeState(self.StandActionName)
+					return
+				end
+			end
+
+			if self.ChasePlayer then
+				if self:HasWalkableFootholdAhead(dirX, self.ChaseSpeed, delta) == false then
+					self:SetFaceDirection(dirX)
+					self:SetVelocityX(0)
+					self:TryChangeState(self.StandActionName)
+					if self.DebugLogs then
+						log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] CHASE blocked by ledge")
+					end
+					return
+				end
+				self:SetFaceDirection(dirX)
+				self:SetVelocityX(dirX * self.ChaseSpeed)
+				self:TryChangeState(self.MoveActionName)
+				if self.DebugLogs then
+					log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] CHASING dir=" .. tostring(dirX))
+				end
+				return
+			else
+				self:SetFaceDirection(dirX)
+				self:SetVelocityX(0)
+				self:TryChangeState(self.StandActionName)
+				if self.DebugLogs then
+					log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] STANDING (no chase), distX=" .. tostring(distX))
+				end
+				return
+			end
+		end
+
+		-- Lost aggro -> patrol
+		if self.AIState ~= "PATROL_IDLE" and self.AIState ~= "PATROL_WALK" then
+			self.AIState = "PATROL_WALK"
+		end
+		if self.DebugLogs then
+			log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] -> PATROL, distX=" .. tostring(distX) .. " nearestPlayer=" .. tostring(nearestPlayer ~= nil))
+		end
+		self:UpdatePatrol(delta, myPos)
+	end
+
+	method void UpdatePatrol(number delta, Vector3 myPos)
+		if self.AIState == "PATROL_IDLE" then
+			self:SetVelocityX(0)
+			self:TryChangeState(self.StandActionName)
+			self.PatrolIdleTimer = self.PatrolIdleTimer - delta
+			if self.PatrolIdleTimer <= 0 then
+				self.PatrolDirection = -self.PatrolDirection
+				self.AIState = "PATROL_WALK"
+			end
+			return
+		end
+
+		local distFromSpawn = myPos.x - self.SpawnX
+		if (self.PatrolDirection > 0 and distFromSpawn >= self.PatrolDistance) or
+		   (self.PatrolDirection < 0 and distFromSpawn <= -self.PatrolDistance) then
+			self.AIState = "PATROL_IDLE"
+			self.PatrolIdleTimer = self.PatrolIdleDuration
+			self:SetVelocityX(0)
+			self:TryChangeState(self.StandActionName)
+			return
+		end
+
+		if self:HasWalkableFootholdAhead(self.PatrolDirection, self.PatrolSpeed, delta) == false then
+			self.PatrolDirection = -self.PatrolDirection
+			self.AIState = "PATROL_IDLE"
+			self.PatrolIdleTimer = self.PatrolIdleDuration
+			self:SetVelocityX(0)
+			self:TryChangeState(self.StandActionName)
+			if self.DebugLogs then
+				log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] PATROL blocked by ledge, turning")
+			end
+			return
+		end
+
+		self.AIState = "PATROL_WALK"
+		self:SetFaceDirection(self.PatrolDirection)
+		self:SetVelocityX(self.PatrolDirection * self.PatrolSpeed)
+		self:TryChangeState(self.MoveActionName)
+		if self.DebugLogs then
+			log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] PATROLLING dir=" .. tostring(self.PatrolDirection) .. " distFromSpawn=" .. tostring(distFromSpawn))
+		end
+	end
+
+	method boolean HasWalkableFootholdAhead(number dirX, number speed, number delta)
+		if self.PreventLedgeFall == false then
+			return true
+		end
+
+		if dirX == 0 then
+			return true
+		end
+
+		local rigidbody = self.Entity.RigidbodyComponent
+		if isvalid(rigidbody) == false then
+			return true
+		end
+
+		if rigidbody:IsOnGround() == false then
+			return true
+		end
+
+		local stepDistance = self.LedgeProbeDistance
+		local frameTime = math.max(delta, 0.016)
+		if speed ~= nil then
+			stepDistance = math.max(stepDistance, math.abs(speed) * frameTime)
+		end
+
+		return rigidbody:PredictFootholdEnd(stepDistance, dirX > 0)
+	end
+
+	method void StartRangedAttack(Entity targetPlayer)
+		self.IsAttacking = true
+		self.ActiveAttackToken = self.ActiveAttackToken + 1
+		local token = self.ActiveAttackToken
+		self.LastAttackTime = _UtilLogic.ElapsedSeconds
+
+		if self.DebugLogs then
+			log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] StartRangedAttack (windup=" .. tostring(self.AttackWindup) .. "s, model='" .. tostring(self.ProjectileModelName) .. "')")
+		end
+
+		self:SetVelocityX(0)
+		self:TryChangeState(self.AttackActionName)
+
+		local windup = math.max(self.AttackWindup, 0)
+		if windup <= 0 then
+			self:FireSpikeBurst(targetPlayer)
+			self.IsAttacking = false
+			return
+		end
+
+		_TimerService:SetTimerOnce(function()
+			if isvalid(self.Entity) == false then
+				return
+			end
+			if self.ActiveAttackToken ~= token then
+				return
+			end
+			local monster = self.Entity:GetComponent("Monster")
+			if isvalid(monster) and (monster.IsDead or monster:IsParryStunned()) then
+				self.IsAttacking = false
+				return
+			end
+			self:FireSpikeBurst(targetPlayer)
+			self.IsAttacking = false
+		end, windup)
+	end
+
+	method void FireSpikeBurst(Entity targetPlayer)
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) == false then
+			return
+		end
+
+		local modelId = _EntryService:GetModelIdByName(self.ProjectileModelName)
+		if modelId == nil or modelId == "" then
+			log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] ERROR: Projectile model '" .. tostring(self.ProjectileModelName) .. "' not found! Create the model asset first.")
+			return
+		end
+
+		if self.DebugLogs then
+			log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] Model resolved: " .. tostring(modelId))
+		end
+
+		local spawnPos = Vector3(
+			transform.WorldPosition.x + self.ProjectileSpawnOffset.x,
+			transform.WorldPosition.y + self.ProjectileSpawnOffset.y,
+			transform.WorldPosition.z
+		)
+
+		local baseAngle = 0
+		if isvalid(targetPlayer) and isvalid(targetPlayer.TransformComponent) then
+			local playerPos = targetPlayer.TransformComponent.WorldPosition
+			baseAngle = self:Atan2(playerPos.y - spawnPos.y, playerPos.x - spawnPos.x)
+		end
+
+		if self.DebugLogs then
+			log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] baseAngle=" .. tostring(baseAngle) .. " (deg=" .. tostring(math.deg(baseAngle)) .. ")")
+		end
+
+		local count = math.max(1, self.SpikeCount)
+		local angleStep = 0
+		if count > 1 then
+			angleStep = math.pi / count
+		end
+
+		for i = 0, count - 1 do
+			local angle = baseAngle + (i * angleStep)
+			local dirX = math.cos(angle)
+			local dirY = math.sin(angle)
+
+			-- Never fire spikes downward (below floor)
+			if dirY < 0 then
+				dirY = 0
+				local len = math.sqrt(dirX * dirX + dirY * dirY)
+				if len > 0.001 then
+					dirX = dirX / len
+					dirY = dirY / len
+				end
+			end
+
+			if self.DebugLogs then
+				log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] spawning spike " .. tostring(i) .. " dirX=" .. tostring(dirX) .. " dirY=" .. tostring(dirY))
+			end
+			self:SpawnNeedle(modelId, spawnPos, dirX, dirY)
+		end
+
+		if self.DebugLogs then
+			log("RangedEnemy: fired " .. tostring(count) .. " spikes (baseAngle=" .. tostring(baseAngle) .. ")")
+		end
+	end
+
+	method number Atan2(number y, number x)
+		if x > 0 then
+			return math.atan(y / x)
+		elseif x < 0 then
+			if y >= 0 then
+				return math.atan(y / x) + math.pi
+			else
+				return math.atan(y / x) - math.pi
+			end
+		else
+			if y > 0 then
+				return math.pi / 2
+			elseif y < 0 then
+				return -math.pi / 2
+			else
+				return 0
+			end
+		end
+	end
+
+	method void SpawnNeedle(string modelId, Vector3 spawnPos, number dirX, number dirY)
+		local needle = _SpawnService:SpawnByModelId(modelId, "Needle", spawnPos, self.Entity.Parent)
+		if isvalid(needle) == false then
+			return
+		end
+
+		needle.Enable = true
+
+		local angle = self:Atan2(dirY, dirX)
+
+		local needleTransform = needle.TransformComponent
+		if isvalid(needleTransform) then
+			needleTransform.WorldPosition = spawnPos
+			needleTransform.Scale = Vector3(self.SpikeSpawnScale, self.SpikeSpawnScale, 1)
+			needleTransform.ZRotation = math.deg(angle)
+		end
+
+		local mover = needle:GetComponent("NeedleProjectile")
+		if isvalid(mover) then
+			mover.Speed = self.SpikeSpeed
+			mover.DirectionX = dirX
+			mover.DirectionY = dirY
+			mover.Lifetime = self.SpikeLifetime
+			mover.Damage = self.SpikeDamage
+		else
+			if self.DebugLogs then
+				log("RangedEnemy: NeedleProjectile component missing on spawned needle")
+			end
+		end
+	end
+
+	method void SetVelocityX(number vx)
+		local rigidbody = self.Entity.RigidbodyComponent
+		if isvalid(rigidbody) then
+			rigidbody.MoveVelocity = Vector2(vx, rigidbody.MoveVelocity.y)
+		end
+	end
+
+	method void SetFaceDirection(number dirX)
+		if dirX == 0 then
+			return
+		end
+
+		local wantFaceLeft = (dirX < 0)
+		if self.InvertFacingDirection then
+			wantFaceLeft = not wantFaceLeft
+		end
+
+		local spriteRenderer = self.Entity.SpriteRendererComponent
+		if isvalid(spriteRenderer) then
+			spriteRenderer.FlipX = not wantFaceLeft
+		end
+	end
+
+	method void TryChangeState(string stateName)
+		if stateName == nil or stateName == "" then
+			return
+		end
+
+		local stateComponent = self.Entity.StateComponent
+		if isvalid(stateComponent) then
+			local upper = string.upper(stateName)
+			if stateComponent.CurrentStateName ~= upper then
+				stateComponent:ChangeState(upper)
+			end
+		end
+	end
+
+	method any FindNearestPlayer(Vector3 myPos)
+		local nearestPlayer = nil
+		local minDistance = 999999
+		local targetDy = 0
+
+		local users = _UserService.UserEntities
+		if users ~= nil then
+			for _, player in pairs(users) do
+				if isvalid(player) and isvalid(player.PlayerComponent) and isvalid(player.TransformComponent) then
+					local playerPos = player.TransformComponent.WorldPosition
+					local dx = math.abs(playerPos.x - myPos.x)
+					local dy = playerPos.y - myPos.y
+					if dx < minDistance then
+						minDistance = dx
+						targetDy = dy
+						nearestPlayer = player
+					end
+				end
+			end
+		end
+
+		return {
+			Player = nearestPlayer,
+			Distance = minDistance,
+			DeltaY = targetDy,
+		}
+	end
+
+	@ExecSpace("ServerOnly")
+	@EventSender("Self")
+	handler HandleHitEvent(HitEvent event)
+		local monster = self.Entity:GetComponent("Monster")
+		if isvalid(monster) and monster.IsDead then
+			return
+		end
+
+		self.ActiveAttackToken = self.ActiveAttackToken + 1
+		self.IsAttacking = false
+		self:TryChangeState(self.HitActionName)
+	end
+
+end

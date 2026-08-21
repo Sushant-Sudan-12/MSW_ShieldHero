@@ -81641,7 +81641,7 @@
       {
         "id": "f861e5b1-c88d-400f-9f57-dd2cf7e0bba7",
         "path": "/maps/SandMap/monster-758",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterSoulReward,script.RangedEnemy",
         "jsonString": {
           "name": "monster-758",
           "path": "/maps/SandMap/monster-758",
@@ -81652,14 +81652,7 @@
           "displayOrder": 10,
           "pathConstraints": "///",
           "revision": 1,
-          "origin": {
-            "type": "Model",
-            "entry_id": "MoveMonster",
-            "sub_entity_id": null,
-            "root_entity_id": "f861e5b1-c88d-400f-9f57-dd2cf7e0bba7",
-            "replaced_model_id": null
-          },
-          "modelId": "movemonster",
+          "modelId": null,
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
@@ -81669,8 +81662,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 14.2819958,
-                "y": -12.8660049,
+                "x": 8.52047348,
+                "y": -7.785001,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -81696,6 +81689,7 @@
               "@type": "MOD.Core.SpriteRendererComponent",
               "ActionSheet": {},
               "EndFrameIndex": 0,
+              "OrderInLayer": 2,
               "RenderSetting": 1,
               "SortingLayer": "MapLayer4",
               "SpriteRUID": "dce0adfebd9d4ceea9f197b65d4eff38",
@@ -81718,11 +81712,6 @@
               "@type": "MOD.Core.MovementComponent",
               "InputSpeed": 1.0,
               "JumpForce": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.AIWanderComponent",
-              "IsLegacy": false,
               "Enable": true
             },
             {
@@ -81756,23 +81745,22 @@
               "ParryStunRecoverTimerId": 0.0
             },
             {
-              "@type": "script.MonsterAttack",
-              "Enable": true,
-              "ScanInterval": 0.05,
-              "LastAttackTime": 0.0,
-              "SpriteSize": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "PositionOffset": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "OriginalSpriteRUID": ""
-            },
-            {
               "@type": "script.MonsterSoulReward",
               "Enable": true
+            },
+            {
+              "@type": "script.RangedEnemy",
+              "Enable": true,
+              "ChasePlayer": false,
+              "ProjectileModelName": "Model_Porcupine",
+              "DebugLogs": true,
+              "AIState": "PATROL_WALK",
+              "SpawnX": 0.0,
+              "PatrolDirection": 1.0,
+              "PatrolIdleTimer": 0.0,
+              "LastAttackTime": -9999.0,
+              "IsAttacking": false,
+              "ActiveAttackToken": 0.0
             }
           ],
           "@version": 1
@@ -159548,7 +159536,7 @@
       {
         "id": "77130d2f-6561-4ef9-b69a-e1db819a5aeb",
         "path": "/maps/SandMap/trap-135_7",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.InteractionComponent,script.TrapDamageExponential",
         "jsonString": {
           "name": "trap-135_7",
           "path": "/maps/SandMap/trap-135_7",
@@ -159576,8 +159564,8 @@
                 "z": 180.0
               },
               "Position": {
-                "x": 11.6898956,
-                "y": -12.1869392,
+                "x": 6.798004,
+                "y": -9.377051,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -159602,6 +159590,24 @@
               "SpriteRUID": "bbe2db3a2ded457fb313d085778d9152",
               "StartFrameIndex": 0,
               "Enable": true
+            },
+            {
+              "@type": "MOD.Core.InteractionComponent",
+              "BoxSize": {
+                "x": 0.5,
+                "y": 0.46
+              },
+              "ColliderOffset": {
+                "x": -0.08000001,
+                "y": -0.0199999958
+              },
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "script.TrapDamageExponential",
+              "Enable": true,
+              "LastTickTime": -9999.0
             }
           ],
           "@version": 1

@@ -461,7 +461,7 @@ script ExplodingEnemy extends AttackComponent
 		if isvalid(stateComponent) then
 			local upper = string.upper(stateName)
 			if stateComponent.CurrentStateName ~= upper then
-				stateComponent:ChangeState(upper)
+				--stateComponent:ChangeState(upper)
 			end
 		end
 	end

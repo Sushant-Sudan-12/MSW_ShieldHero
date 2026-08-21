@@ -1,0 +1,137 @@
+@Component
+script NeedleProjectile extends Component
+
+	@MinValue(0)
+	property number Speed = 6.0
+
+	property number DirectionX = 1.0
+
+	property number DirectionY = 0.0
+
+	@MinValue(0.05)
+	property number Lifetime = 2.5
+
+	@MinValue(0)
+	property integer Damage = 15
+
+	@MinValue(0.05)
+	property number HitInterval = 0.1
+
+	@MinValue(0.05)
+	property number HitboxSize = 0.5
+
+	property boolean DestroyOnHit = true
+
+	@HideFromInspector
+	property number SpawnTime = 0
+
+	@HideFromInspector
+	property number LastHitTime = -9999
+
+	@ExecSpace("ServerOnly")
+	method void OnUpdate(number delta)
+		if self.SpawnTime <= 0 then
+			self.SpawnTime = _UtilLogic.ElapsedSeconds
+		end
+
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) == false then
+			return
+		end
+
+		-- Move needle
+		local currentPos = transform.WorldPosition
+		local moveDistance = self.Speed * math.max(delta, 0)
+		transform.WorldPosition = Vector3(
+			currentPos.x + self.DirectionX * moveDistance,
+			currentPos.y + self.DirectionY * moveDistance,
+			currentPos.z
+		)
+
+		-- Hit check
+		local now = _UtilLogic.ElapsedSeconds
+		if now - self.LastHitTime >= self.HitInterval then
+			self.LastHitTime = now
+			self:TryHitPlayers(currentPos)
+		end
+
+		-- Lifetime expiry
+		if now - self.SpawnTime >= self.Lifetime then
+			self.Entity:Destroy()
+		end
+	end
+
+	method void TryHitPlayers(Vector3 pos)
+		local simulator = _CollisionService:GetSimulator(self.Entity)
+		if simulator == nil then
+			return
+		end
+
+		local shape = BoxShape(Vector2(pos.x, pos.y), Vector2(self.HitboxSize, self.HitboxSize), 0)
+		local hits = simulator:OverlapAll("Player", shape)
+		if hits == nil then
+			return
+		end
+
+		for _, comp in ipairs(hits) do
+			if isvalid(comp) and isvalid(comp.Entity) then
+				local target = comp.Entity
+				if self:CanHitTarget(target) then
+					self:ApplyDamageToTarget(target)
+					if self.DestroyOnHit then
+						self.Entity:Destroy()
+						return
+					end
+				end
+			end
+		end
+	end
+
+	method boolean CanHitTarget(Entity target)
+		if target == nil or isvalid(target) == false then
+			return false
+		end
+		if isvalid(target.PlayerComponent) == false then
+			return false
+		end
+
+		local immuneLogic = target:GetComponent("PlayerImmuneLogic")
+		if isvalid(immuneLogic) and immuneLogic:IsImmune() then
+			return false
+		end
+
+		return true
+	end
+
+	method void ApplyDamageToTarget(Entity target)
+		local damage = math.floor(self.Damage)
+
+		-- Damage popup
+		pcall(function()
+			local setting = target:GetComponent("DamageSkinSettingComponent")
+			local skinId = ""
+			if isvalid(setting) and setting.DamageSkinId ~= nil then
+				skinId = tostring(setting.DamageSkinId)
+			end
+			_DamageSkinService:Play(
+				target,
+				skinId,
+				0,
+				{damage},
+				DamageSkinTweenType.DefaultMini,
+				false,
+				Vector2(0, 0.5),
+				Vector2(1, 1),
+				1,
+				1
+			)
+		end)
+
+		-- Apply damage via HitComponent (same as TrapDamage)
+		local hitComponent = target:GetComponent("HitComponent")
+		if isvalid(hitComponent) then
+			hitComponent:OnHit(self.Entity, damage, false, "Needle", 1)
+		end
+	end
+
+end
