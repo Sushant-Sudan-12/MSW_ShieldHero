@@ -1,0 +1,499 @@
+@Component
+script ExplodingEnemy extends AttackComponent
+
+	@MinValue(0.1)
+	property number DetectionRangeX = 2.2
+
+	@MinValue(0.1)
+	property number DetectionRangeY = 1.6
+
+	@MinValue(0.1)
+	property number ChaseRangeX = 6.0
+
+	@MinValue(0.1)
+	property number ChaseRangeY = 2.0
+
+	@MinValue(0.0)
+	property number PatrolSpeed = 0.9
+
+	@MinValue(0.0)
+	property number ChaseSpeed = 1.3
+
+	@MinValue(0.0)
+	property number PatrolDistance = 3.0
+
+	@MinValue(0.0)
+	property number PatrolIdleDuration = 1.0
+
+	@MinValue(0.0)
+	property number ExplodeChargeDuration = 0.75
+
+	@MinValue(0.0)
+	property number ExplodeInterval = 1.5
+
+	@MinValue(0.1)
+	property number ExplosionRadius = 1.6
+
+	@MinValue(0)
+	property number ExplosionDamage = 35
+
+	@MinValue(0.0)
+	property number PushbackOnInterrupt = 2.0
+
+	@MinValue(0.0)
+	property number ExplosionOffsetY = 0.0
+
+	property boolean EnableChargePulse = true
+
+	property boolean PulseUseAlpha = true
+
+	@MinValue(0.0)
+	property number PulseMinAlpha = 0.35
+
+	@MinValue(0.0)
+	property number PulseMaxAlpha = 1.0
+
+	property boolean PulseUseScale = true
+
+	@MinValue(0.1)
+	property number PulseMinScaleMultiplier = 0.85
+
+	@MinValue(0.1)
+	property number PulseMaxScaleMultiplier = 1.1
+
+	@MinValue(0.1)
+	property number PulseFrequency = 6.0
+
+	property string ExplosionActionName = "attack"
+
+	@MinValue(0.0)
+	property number ExplosionVanishDelay = 0.45
+
+	property string ChargeActionName = "attack"
+	property string MoveActionName = "move"
+	property string IdleActionName = "stand"
+	property string HitActionName = "hit"
+	property boolean InvertFacingDirection = false
+	property boolean PreventLedgeFall = true
+
+	property boolean UseRigidbodyIsolatedMove = true
+
+	@MinValue(0.05)
+	property number LedgeProbeDistance = 0.45
+
+	property boolean DebugLogs = false
+
+	@HideFromInspector
+	property boolean IsChargingExplosion = false
+
+	@HideFromInspector
+	property number LastExplodeAttemptTime = -9999
+
+	@HideFromInspector
+	property number ActiveExplosionToken = 0
+
+	@HideFromInspector
+	property any ExplosionShape = nil
+
+	@HideFromInspector
+	property number SpawnX = 0
+
+	@HideFromInspector
+	property number PatrolDirection = 1
+
+	@HideFromInspector
+	property number PatrolIdleTimer = 0
+
+	@HideFromInspector
+	property boolean IsDetonating = false
+
+	@HideFromInspector
+	property number ChargePulseTime = 0
+
+	@HideFromInspector
+	property boolean PulseVisualApplied = false
+
+	@HideFromInspector
+	property number BaseSpriteAlpha = 1
+
+	@HideFromInspector
+	property Vector3 BaseScale = Vector3(1, 1, 1)
+
+	@ExecSpace("ServerOnly")
+	method void OnBeginPlay()
+		self.ExplosionShape = CircleShape(Vector2.zero, self.ExplosionRadius)
+
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) then
+			self.SpawnX = transform.WorldPosition.x
+			self.BaseScale = transform.Scale
+		end
+
+		local spriteRenderer = self.Entity.SpriteRendererComponent
+		if isvalid(spriteRenderer) then
+			self.BaseSpriteAlpha = spriteRenderer.Color.a
+		end
+
+		local rigidbody = self.Entity.RigidbodyComponent
+		if isvalid(rigidbody) then
+			rigidbody.IsolatedMove = self.UseRigidbodyIsolatedMove
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void OnUpdate(number delta)
+		local monster = self.Entity:GetComponent("Monster")
+		if isvalid(monster) and monster.IsDead then
+			return
+		end
+
+		if self.IsChargingExplosion then
+			self:UpdateChargePulse(delta)
+			self:SetVelocityX(0)
+			return
+		end
+
+		if self.PulseVisualApplied then
+			self:RestoreChargeVisuals()
+		end
+
+		if self.IsDetonating then
+			self:SetVelocityX(0)
+			return
+		end
+
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) == false then
+			return
+		end
+
+		local myPos = transform.WorldPosition
+		local playerInfo = self:FindNearestPlayer(myPos)
+		local nearestPlayer = playerInfo.Player
+		local distX = playerInfo.Distance
+		local distY = playerInfo.DeltaY
+		if nearestPlayer ~= nil and distX <= self.DetectionRangeX and math.abs(distY) <= self.DetectionRangeY and self:CanStartExplode() then
+			self:SetVelocityX(0)
+			self:TryChangeState(self.IdleActionName)
+			self:StartExplodeCharge(nearestPlayer)
+			return
+		end
+
+		if nearestPlayer ~= nil and distX <= self.ChaseRangeX and math.abs(distY) <= self.ChaseRangeY then
+			local playerPos = nearestPlayer.TransformComponent.WorldPosition
+			local dirX = (playerPos.x >= myPos.x) and 1 or -1
+			if self:HasWalkableFootholdAhead(dirX, self.ChaseSpeed, delta) == false then
+				self:SetFaceDirection(dirX)
+				self:SetVelocityX(0)
+				self:TryChangeState(self.IdleActionName)
+				return
+			end
+			self:SetFaceDirection(dirX)
+			self:SetVelocityX(dirX * self.ChaseSpeed)
+			self:TryChangeState(self.MoveActionName)
+			return
+		end
+
+		self:UpdatePatrol(delta, myPos)
+	end
+
+	method void UpdatePatrol(number delta, Vector3 myPos)
+		if self.PatrolDistance <= 0 or self.PatrolSpeed <= 0 then
+			self:SetVelocityX(0)
+			self:TryChangeState(self.IdleActionName)
+			return
+		end
+
+		if self.PatrolIdleTimer > 0 then
+			self.PatrolIdleTimer = self.PatrolIdleTimer - delta
+			self:SetVelocityX(0)
+			self:TryChangeState(self.IdleActionName)
+			return
+		end
+
+		local distFromSpawn = myPos.x - self.SpawnX
+		if (self.PatrolDirection > 0 and distFromSpawn >= self.PatrolDistance) or
+		   (self.PatrolDirection < 0 and distFromSpawn <= -self.PatrolDistance) then
+			self.PatrolDirection = -self.PatrolDirection
+			self.PatrolIdleTimer = self.PatrolIdleDuration
+			self:SetVelocityX(0)
+			self:TryChangeState(self.IdleActionName)
+			return
+		end
+
+		if self:HasWalkableFootholdAhead(self.PatrolDirection, self.PatrolSpeed, delta) == false then
+			self.PatrolDirection = -self.PatrolDirection
+			self.PatrolIdleTimer = self.PatrolIdleDuration
+			self:SetVelocityX(0)
+			self:TryChangeState(self.IdleActionName)
+			return
+		end
+
+		self:SetFaceDirection(self.PatrolDirection)
+		self:SetVelocityX(self.PatrolDirection * self.PatrolSpeed)
+		self:TryChangeState(self.MoveActionName)
+	end
+
+	method boolean HasWalkableFootholdAhead(number dirX, number speed, number delta)
+		if self.PreventLedgeFall == false then
+			return true
+		end
+
+		if dirX == 0 then
+			return true
+		end
+
+		local rigidbody = self.Entity.RigidbodyComponent
+		if isvalid(rigidbody) == false then
+			return true
+		end
+
+		if rigidbody:IsOnGround() == false then
+			return true
+		end
+
+		local stepDistance = self.LedgeProbeDistance
+		local frameTime = math.max(delta, 0.016)
+		if speed ~= nil then
+			stepDistance = math.max(stepDistance, math.abs(speed) * frameTime)
+		end
+
+		return rigidbody:PredictFootholdEnd(stepDistance, dirX > 0)
+	end
+
+	method boolean CanStartExplode()
+		local now = _UtilLogic.ElapsedSeconds
+		return (now - self.LastExplodeAttemptTime) >= self.ExplodeInterval
+	end
+
+	method void StartExplodeCharge(Entity targetPlayer)
+		self.IsChargingExplosion = true
+		self.IsDetonating = false
+		self.LastExplodeAttemptTime = _UtilLogic.ElapsedSeconds
+		self.ActiveExplosionToken = self.ActiveExplosionToken + 1
+		local token = self.ActiveExplosionToken
+
+		self:SetVelocityX(0)
+		self:TryChangeState(self.ChargeActionName)
+
+		_TimerService:SetTimerOnce(function()
+			if isvalid(self.Entity) == false then
+				return
+			end
+			if self.ActiveExplosionToken ~= token then
+				return
+			end
+			local monster = self.Entity:GetComponent("Monster")
+			if isvalid(monster) and (monster.IsDead or monster:IsParryStunned()) then
+				return
+			end
+			self:ExplodeNow(token)
+		end, self.ExplodeChargeDuration)
+	end
+
+	method void ExplodeNow(number token)
+		if self.ActiveExplosionToken ~= token then
+			return
+		end
+
+		self.IsChargingExplosion = false
+		self.IsDetonating = true
+		self:RestoreChargeVisuals()
+		self:SetVelocityX(0)
+		self:TryChangeState(self.ExplosionActionName)
+
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) == false then
+			return
+		end
+
+		if self.ExplosionShape == nil then
+			self.ExplosionShape = CircleShape(Vector2.zero, self.ExplosionRadius)
+		end
+
+		self.ExplosionShape.Radius = self.ExplosionRadius
+		self.ExplosionShape.Position = Vector2(transform.WorldPosition.x, transform.WorldPosition.y + self.ExplosionOffsetY)
+
+		self:AttackFast(self.ExplosionShape, "ExplodingEnemy", CollisionGroups.Player)
+
+		_TimerService:SetTimerOnce(function()
+			if isvalid(self.Entity) == false then
+				return
+			end
+
+			local monster = self.Entity:GetComponent("Monster")
+			if isvalid(monster) and monster.IsDead == false then
+				monster:Dead()
+			else
+				self.Entity:Destroy()
+			end
+		end, math.max(self.ExplosionVanishDelay, 0))
+	end
+
+	method void CancelExplosionChargeAndPushback(Entity attacker)
+		if self.IsChargingExplosion == false then
+			return
+		end
+
+		self.ActiveExplosionToken = self.ActiveExplosionToken + 1
+		self.IsChargingExplosion = false
+		self.IsDetonating = false
+		self:RestoreChargeVisuals()
+		self.LastExplodeAttemptTime = _UtilLogic.ElapsedSeconds
+
+		self:TryChangeState(self.HitActionName)
+
+		if self.PushbackOnInterrupt <= 0 then
+			return
+		end
+
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) == false then
+			return
+		end
+
+		local dirX = 1
+		if isvalid(attacker) and isvalid(attacker.TransformComponent) then
+			local attackerX = attacker.TransformComponent.WorldPosition.x
+			dirX = (transform.WorldPosition.x >= attackerX) and 1 or -1
+		end
+
+		self:SetVelocityX(dirX * self.PushbackOnInterrupt)
+	end
+
+	method void UpdateChargePulse(number delta)
+		if self.EnableChargePulse == false then
+			return
+		end
+
+		self.ChargePulseTime = self.ChargePulseTime + math.max(delta, 0)
+		local t = (math.sin(self.ChargePulseTime * self.PulseFrequency * 6.283185307179586) + 1) * 0.5
+
+		local spriteRenderer = self.Entity.SpriteRendererComponent
+		if self.PulseUseAlpha and isvalid(spriteRenderer) then
+			local minA = math.max(0, self.PulseMinAlpha)
+			local maxA = math.max(minA, self.PulseMaxAlpha)
+			local alpha = minA + (maxA - minA) * t
+			spriteRenderer:SetAlpha(alpha)
+		end
+
+		local transform = self.Entity.TransformComponent
+		if self.PulseUseScale and isvalid(transform) then
+			local minS = math.max(0.05, self.PulseMinScaleMultiplier)
+			local maxS = math.max(minS, self.PulseMaxScaleMultiplier)
+			local scaleMul = minS + (maxS - minS) * t
+			transform.Scale = Vector3(self.BaseScale.x * scaleMul, self.BaseScale.y * scaleMul, self.BaseScale.z)
+		end
+
+		self.PulseVisualApplied = true
+	end
+
+	method void RestoreChargeVisuals()
+		local spriteRenderer = self.Entity.SpriteRendererComponent
+		if isvalid(spriteRenderer) then
+			spriteRenderer:SetAlpha(self.BaseSpriteAlpha)
+		end
+
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) then
+			transform.Scale = self.BaseScale
+		end
+
+		self.ChargePulseTime = 0
+		self.PulseVisualApplied = false
+	end
+
+	method void SetVelocityX(number vx)
+		local rigidbody = self.Entity.RigidbodyComponent
+		if isvalid(rigidbody) then
+			rigidbody.MoveVelocity = Vector2(vx, rigidbody.MoveVelocity.y)
+		end
+	end
+
+	method void SetFaceDirection(number dirX)
+		if dirX == 0 then
+			return
+		end
+
+		local wantFaceLeft = (dirX < 0)
+		if self.InvertFacingDirection then
+			wantFaceLeft = not wantFaceLeft
+		end
+
+		local spriteRenderer = self.Entity.SpriteRendererComponent
+		if isvalid(spriteRenderer) then
+			local shouldFlip = not wantFaceLeft
+			spriteRenderer.FlipX = shouldFlip
+		end
+	end
+
+	method void TryChangeState(string stateName)
+		if stateName == nil or stateName == "" then
+			return
+		end
+
+		local stateComponent = self.Entity.StateComponent
+		if isvalid(stateComponent) then
+			stateComponent:ChangeState(stateName)
+			stateComponent:ChangeState(string.upper(stateName))
+			stateComponent:ChangeState(string.lower(stateName))
+		end
+	end
+
+	method any FindNearestPlayer(Vector3 myPos)
+		local nearestPlayer = nil
+		local minDistanceX = 999999
+		local targetDy = 0
+
+		local users = _UserService.UserEntities
+		if users ~= nil then
+			for _, player in pairs(users) do
+				if isvalid(player) and isvalid(player.PlayerComponent) and isvalid(player.TransformComponent) then
+					local playerPos = player.TransformComponent.WorldPosition
+					local dx = math.abs(playerPos.x - myPos.x)
+					local dy = playerPos.y - myPos.y
+					if dx < minDistanceX then
+						minDistanceX = dx
+						targetDy = dy
+						nearestPlayer = player
+					end
+				end
+			end
+		end
+
+		return {
+			Player = nearestPlayer,
+			Distance = minDistanceX,
+			DeltaY = targetDy,
+		}
+	end
+
+	method integer CalcDamage(Entity attacker, Entity defender, string attackInfo)
+		return math.floor(self.ExplosionDamage)
+	end
+
+	method boolean IsAttackTarget(Entity defender, string attackInfo)
+		if isvalid(defender) == false or isvalid(defender.PlayerComponent) == false then
+			return false
+		end
+
+		local immuneLogic = defender:GetComponent("PlayerImmuneLogic")
+		if isvalid(immuneLogic) and immuneLogic:IsImmune() then
+			return false
+		end
+
+		return __base:IsAttackTarget(defender, attackInfo)
+	end
+
+	@ExecSpace("ServerOnly")
+	@EventSender("Self")
+	handler HandleHitEvent(HitEvent event)
+		local monster = self.Entity:GetComponent("Monster")
+		if isvalid(monster) and monster.IsDead then
+			return
+		end
+
+		self:CancelExplosionChargeAndPushback(event.AttackerEntity)
+	end
+
+end

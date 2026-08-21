@@ -127,10 +127,12 @@ script MonsterAI extends AttackComponent
 	@HideFromInspector
 	property any ActionSheetTable = nil
 
+	@HideFromInspector
+	property number ActiveAttackToken = 0
+
 	method void OnBeginPlay()
 		local monster = self.Entity:GetComponent("Monster")
 		if isvalid(monster) == false then
-			log("MonsterAI: Warning - Monster component missing on " .. tostring(self.Entity))
 		end
 
 		-- Cache ActionSheet animations FIRST while StateAnimationComponent is still active
@@ -142,7 +144,6 @@ script MonsterAI extends AttackComponent
 			if isvalid(wander) then
 				wander.Enable = false
 				if self.DebugLogs then
-					log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Disabled native AIWanderComponent")
 				end
 			end
 		end
@@ -151,7 +152,6 @@ script MonsterAI extends AttackComponent
 		if isvalid(rigidbody) then
 			rigidbody.IsolatedMove = self.UseRigidbodyIsolatedMove
 			if self.DebugLogs then
-				log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Rigidbody IsolatedMove = " .. tostring(rigidbody.IsolatedMove))
 			end
 		end
 
@@ -161,7 +161,6 @@ script MonsterAI extends AttackComponent
 			if isvalid(stateAnim) then
 				stateAnim.Enable = false
 				if self.DebugLogs then
-					log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Disabled native StateAnimationComponent")
 				end
 			end
 		end
@@ -219,7 +218,6 @@ script MonsterAI extends AttackComponent
 			for k, v in pairs(self.ActionSheetTable) do
 				table.insert(items, "'" .. k .. "': " .. v)
 			end
-			log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Cached Actions: " .. table.concat(items, ", "))
 		end
 	end
 
@@ -301,9 +299,6 @@ script MonsterAI extends AttackComponent
 
 		elseif self.AIState == "CHASE" and (nearestPlayer == nil or distToPlayer > self.LoseAggroDistance) then
 			-- Lost aggro -> return to patrol
-			if self.DebugLogs then
-				log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Lost aggro, returning to patrol")
-			end
 			self.TargetPlayer = nil
 			self.AIState = "PATROL_WALK"
 			self:PlayAction(self.MoveActionName)
@@ -382,12 +377,14 @@ script MonsterAI extends AttackComponent
 	end
 
 	method void StartAttack(Entity target, number dirX)
+		self.ActiveAttackToken = self.ActiveAttackToken + 1
+		local attackToken = self.ActiveAttackToken
+
 		self.IsAttacking = true
 		self.AIState = "ATTACK"
 		self.LastAttackTime = _UtilLogic.ElapsedSeconds
 
 		if self.DebugLogs then
-			log("MonsterAI [" .. tostring(self.Entity.Name) .. "] StartAttack: playing attack animation (HitDelay=" .. tostring(self.AttackHitDelay) .. "s, TotalDuration=" .. tostring(self.AttackDuration) .. "s)")
 		end
 
 		self:SetFaceDirection(dirX)
@@ -396,17 +393,20 @@ script MonsterAI extends AttackComponent
 
 		-- Schedule the damage strike at AttackHitDelay (the exact moment damage should connect)
 		if self.AttackHitDelay <= 0 then
-			self:ExecuteHitboxStrike(dirX)
+			self:ExecuteHitboxStrike(dirX, attackToken)
 		else
 			_TimerService:SetTimerOnce(function()
 				if isvalid(self.Entity) == false then
+					return
+				end
+				if self.ActiveAttackToken ~= attackToken then
 					return
 				end
 				local monster = self.Entity:GetComponent("Monster")
 				if isvalid(monster) and (monster.IsDead or monster:IsParryStunned()) then
 					return
 				end
-				self:ExecuteHitboxStrike(dirX)
+				self:ExecuteHitboxStrike(dirX, attackToken)
 			end, self.AttackHitDelay)
 		end
 
@@ -416,6 +416,9 @@ script MonsterAI extends AttackComponent
 			if isvalid(self.Entity) == false then
 				return
 			end
+			if self.ActiveAttackToken ~= attackToken then
+				return
+			end
 			self.IsAttacking = false
 			self.CurrentActionPlaying = ""
 			local monster = self.Entity:GetComponent("Monster")
@@ -423,12 +426,15 @@ script MonsterAI extends AttackComponent
 				return
 			end
 			if self.DebugLogs then
-				log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Attack animation duration completed")
 			end
 		end, totalDuration)
 	end
 
-	method void ExecuteHitboxStrike(number dirX)
+	method void ExecuteHitboxStrike(number dirX, number attackToken)
+		if self.ActiveAttackToken ~= attackToken then
+			return
+		end
+
 		local transform = self.Entity.TransformComponent
 		if isvalid(transform) == false then
 			return
@@ -443,7 +449,6 @@ script MonsterAI extends AttackComponent
 		self.Shape.Angle = transform.ZRotation
 
 		if self.DebugLogs then
-			log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Hitbox Active! Pos=(" .. tostring(boxCenter.x) .. ", " .. tostring(boxCenter.y) .. ") Size=(" .. tostring(self.AttackBoxWidth) .. ", " .. tostring(self.AttackBoxHeight) .. ")")
 		end
 
 		-- Deal attack damage via AttackFast (triggers parry check / damage pipeline)
@@ -492,7 +497,6 @@ script MonsterAI extends AttackComponent
 				if spriteRenderer.FlipX ~= shouldFlip then
 					spriteRenderer.FlipX = shouldFlip
 					if self.DebugLogs then
-						log("MonsterAI [" .. tostring(self.Entity.Name) .. "] FlipX -> " .. tostring(shouldFlip) .. " (facing " .. (wantFaceLeft and "Left" or "Right") .. ")")
 					end
 				end
 			end
@@ -593,7 +597,6 @@ script MonsterAI extends AttackComponent
 		end
 
 		if self.DebugLogs then
-			log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Multicast Action: " .. tostring(actionName) .. " (RUID: " .. tostring(ruid) .. ")")
 		end
 	end
 
@@ -642,13 +645,11 @@ script MonsterAI extends AttackComponent
 
 		local sampleParry = defender:GetComponent("SampleParryInvincible")
 		if isvalid(sampleParry) and sampleParry.IsParryHeld then
-			log("MonsterAI IsAttackTarget: blocked by SampleParryInvincible hold")
 			return false
 		end
 
 		local shieldParry = defender:GetComponent("ShieldParry")
 		if isvalid(shieldParry) and shieldParry:DisableMonsterAttackDueToParry(self.Entity, "MonsterAI.IsAttackTarget") then
-			log("MonsterAI IsAttackTarget: parry disabled enemy attack component")
 			return false
 		end
 
@@ -669,12 +670,12 @@ script MonsterAI extends AttackComponent
 		end
 
 		if self.DebugLogs then
-			log("MonsterAI [" .. tostring(self.Entity.Name) .. "] Took Hit! Resetting attack timer (Cooldown=" .. tostring(self.HitAttackCooldown) .. "s)")
 		end
 
 		-- 1. Reset attack timer to enforce HitAttackCooldown delay
 		local currentTime = _UtilLogic.ElapsedSeconds
 		self.LastAttackTime = currentTime + (self.HitAttackCooldown - self.AttackInterval)
+		self.ActiveAttackToken = self.ActiveAttackToken + 1
 		self.IsAttacking = false
 		self.CurrentActionPlaying = ""
 

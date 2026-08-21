@@ -1,0 +1,275 @@
+@Component
+script TrapDamageExponential extends AttackComponent
+
+	@MinValue(0.1)
+	property number BaseDamagePerTick = 6
+
+	@MinValue(0.05)
+	property number TickInterval = 0.35
+
+	@MinValue(0.1)
+	property number ExponentialGrowthRate = 1.25
+
+	@MinValue(0.05)
+	property number ExponentialStepDuration = 0.8
+
+	@MinValue(1.0)
+	property number MaxDamageMultiplier = 10
+
+	property boolean ResetRampOnLeave = true
+
+	property boolean UseCircleArea = false
+
+	property Vector2 TrapAreaOffset = Vector2(0, 0)
+
+	@MinValue(0.1)
+	property number TrapAreaRadius = 1.0
+
+	property Vector2 TrapAreaSize = Vector2(1.6, 1.0)
+
+	property boolean EnableDamageSkinEffect = true
+
+	property string DamageSkinId = ""
+
+	property number DamageSkinTweenValue = 3
+
+	property Vector2 DamageSkinOffset = Vector2(0, 0.5)
+
+	property Vector2 DamageSkinScale = Vector2(1, 1)
+
+	@MinValue(0.1)
+	property number DamageSkinPlayRate = 1
+
+	@MinValue(0.0)
+	property number DamageSkinAlpha = 1
+
+	property boolean EnableHitAnimation = true
+
+	property string HitAnimationName = "hit"
+
+	property string HitStateName = "HIT"
+
+	property boolean DebugLogs = false
+
+	@HideFromInspector
+	property any AttackShape = nil
+
+	@HideFromInspector
+	property number LastTickTime = -9999
+
+	@HideFromInspector
+	property any ContactStartTimes = nil
+
+	@HideFromInspector
+	property any LastSeenTimes = nil
+
+	@HideFromInspector
+	property any LastCalculatedDamageByTarget = nil
+
+	@ExecSpace("ServerOnly")
+	method void OnBeginPlay()
+		self.ContactStartTimes = {}
+		self.LastSeenTimes = {}
+		self.LastCalculatedDamageByTarget = {}
+		self:BuildAttackShape()
+	end
+
+	@ExecSpace("ServerOnly")
+	method void OnUpdate(number delta)
+		local now = _UtilLogic.ElapsedSeconds
+		if now - self.LastTickTime < self.TickInterval then
+			return
+		end
+
+		self.LastTickTime = now
+		self:CleanupStaleContacts(now)
+		self:PerformTrapAttack()
+	end
+
+	method void BuildAttackShape()
+		if self.UseCircleArea then
+			self.AttackShape = CircleShape(Vector2.zero, self.TrapAreaRadius)
+		else
+			self.AttackShape = BoxShape(Vector2.zero, self.TrapAreaSize, 0)
+		end
+	end
+
+	method void PerformTrapAttack()
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) == false then
+			return
+		end
+
+		if self.AttackShape == nil then
+			self:BuildAttackShape()
+		end
+
+		local center = Vector2(transform.WorldPosition.x + self.TrapAreaOffset.x, transform.WorldPosition.y + self.TrapAreaOffset.y)
+
+		if self.UseCircleArea then
+			self.AttackShape.Position = center
+			self.AttackShape.Radius = self.TrapAreaRadius
+		else
+			self.AttackShape.Position = center
+			self.AttackShape.Size = self.TrapAreaSize
+			self.AttackShape.Angle = transform.ZRotation
+		end
+
+		self:AttackFast(self.AttackShape, "TrapExponential", CollisionGroups.Player)
+	end
+
+	method string GetTargetKey(Entity target)
+		if target == nil then
+			return ""
+		end
+		return tostring(target.Id)
+	end
+
+	method void CleanupStaleContacts(number now)
+		if self.LastSeenTimes == nil then
+			return
+		end
+
+		local staleThreshold = self.TickInterval * 2
+		for key, lastSeen in pairs(self.LastSeenTimes) do
+			if now - lastSeen > staleThreshold then
+				self.LastSeenTimes[key] = nil
+				self.LastCalculatedDamageByTarget[key] = nil
+				if self.ResetRampOnLeave then
+					self.ContactStartTimes[key] = nil
+				end
+			end
+		end
+	end
+
+	method integer ComputeDamage(number contactDuration)
+		local safeDuration = math.max(contactDuration, 0)
+		local steps = math.floor(safeDuration / self.ExponentialStepDuration)
+		local multiplier = math.pow(self.ExponentialGrowthRate, steps)
+		if self.MaxDamageMultiplier > 0 then
+			multiplier = math.min(multiplier, self.MaxDamageMultiplier)
+		end
+		return math.floor(math.max(1, self.BaseDamagePerTick * multiplier))
+	end
+
+	method boolean IsAttackTarget(Entity defender, string attackInfo)
+		if isvalid(defender) == false or isvalid(defender.PlayerComponent) == false then
+			return false
+		end
+
+		local immuneLogic = defender:GetComponent("PlayerImmuneLogic")
+		if isvalid(immuneLogic) and immuneLogic:IsImmune() then
+			return false
+		end
+
+		local key = self:GetTargetKey(defender)
+		if key ~= "" then
+			local now = _UtilLogic.ElapsedSeconds
+			self.LastSeenTimes[key] = now
+			if self.ContactStartTimes[key] == nil then
+				self.ContactStartTimes[key] = now
+			end
+		end
+
+		return __base:IsAttackTarget(defender, attackInfo)
+	end
+
+	method integer CalcDamage(Entity attacker, Entity defender, string attackInfo)
+		if defender == nil then
+			return math.floor(self.BaseDamagePerTick)
+		end
+
+		local key = self:GetTargetKey(defender)
+		local now = _UtilLogic.ElapsedSeconds
+		local startTime = self.ContactStartTimes[key]
+		if startTime == nil then
+			startTime = now
+			self.ContactStartTimes[key] = startTime
+		end
+
+		local damage = self:ComputeDamage(now - startTime)
+		self.LastCalculatedDamageByTarget[key] = damage
+		return damage
+	end
+
+	method void OnAttack(Entity defender)
+		if isvalid(defender) == false then
+			return
+		end
+
+		local key = self:GetTargetKey(defender)
+		local damage = self.LastCalculatedDamageByTarget[key]
+		if damage == nil then
+			damage = math.floor(self.BaseDamagePerTick)
+		end
+
+		self:PlayTrapHitFeedback(defender, damage)
+		__base:OnAttack(defender)
+	end
+
+	method void EnsureDamageSkinComponents(Entity target)
+		if target == nil then
+			return
+		end
+
+		local spawner = target:GetComponent("DamageSkinSpawnerComponent")
+		if isvalid(spawner) == false then
+			target:AddComponent("DamageSkinSpawnerComponent")
+		end
+
+		local setting = target:GetComponent("DamageSkinSettingComponent")
+		if isvalid(setting) == false then
+			target:AddComponent("DamageSkinSettingComponent")
+		end
+	end
+
+	method void PlayTrapHitFeedback(Entity target, integer damage)
+		if target == nil then
+			return
+		end
+
+		if self.EnableDamageSkinEffect then
+			self:EnsureDamageSkinComponents(target)
+
+			local skinId = self.DamageSkinId
+			if skinId == nil then
+				skinId = ""
+			end
+
+			if skinId == "" then
+				local setting = target:GetComponent("DamageSkinSettingComponent")
+				if isvalid(setting) and setting.DamageSkinId ~= nil then
+					skinId = tostring(setting.DamageSkinId)
+				end
+			end
+
+			local tweenType = DamageSkinTweenType.CastFrom(self.DamageSkinTweenValue)
+			pcall(function()
+				_DamageSkinService:Play(
+					target,
+					skinId,
+					0,
+					{damage},
+					tweenType,
+					false,
+					self.DamageSkinOffset,
+					self.DamageSkinScale,
+					self.DamageSkinPlayRate,
+					self.DamageSkinAlpha
+				)
+			end)
+		end
+
+		if self.EnableHitAnimation then
+			local stateComponent = target.StateComponent
+			if isvalid(stateComponent) and self.HitStateName ~= nil and self.HitStateName ~= "" then
+				stateComponent:ChangeState(self.HitStateName)
+			end
+
+			if self.HitAnimationName ~= nil and self.HitAnimationName ~= "" then
+				target:SendEvent(AnimationClipEvent(self.HitAnimationName))
+			end
+		end
+	end
+
+end
