@@ -1704,11 +1704,11 @@
               "MobileOnly": false,
               "OffsetMax": {
                 "x": -24.5899963,
-                "y": 49.72
+                "y": 42.7269
               },
               "OffsetMin": {
                 "x": -124.59,
-                "y": -50.28
+                "y": -57.2731
               },
               "Pivot": {
                 "x": 0.5,
@@ -1727,7 +1727,7 @@
               "UIVersion": 2,
               "anchoredPosition": {
                 "x": -74.59,
-                "y": -0.28
+                "y": -7.2731
               },
               "Rotation": {
                 "x": 0.0,
@@ -1736,7 +1736,7 @@
               },
               "Position": {
                 "x": -74.59,
-                "y": -0.28,
+                "y": -7.2731,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -1755,7 +1755,10 @@
             },
             {
               "@type": "MOD.Core.TextGUIRendererComponent",
+              "EnableProfanityFilter": true,
+              "Font": "Bazzi",
               "FontSize": 69.0,
+              "FontStyle": 0,
               "MaxSize": 69.0,
               "MinSize": 10.0,
               "OverrideSorting": false,
@@ -2082,6 +2085,7 @@
             },
             {
               "@type": "MOD.Core.TextGUIRendererComponent",
+              "Font": "Bazzi",
               "FontSize": 69.0,
               "MaxSize": 69.0,
               "MinSize": 10.0,
@@ -2410,6 +2414,7 @@
             },
             {
               "@type": "MOD.Core.TextGUIRendererComponent",
+              "Font": "Bazzi",
               "FontSize": 69.0,
               "MaxSize": 69.0,
               "MinSize": 10.0,

@@ -81781,7 +81781,7 @@
       {
         "id": "bb8676b8-b569-4204-85d9-d98f7c5bc820",
         "path": "/maps/SandMap/monster-819",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterSoulReward,script.ExplodingEnemy",
         "jsonString": {
           "name": "monster-819",
           "path": "/maps/SandMap/monster-819",
@@ -81792,14 +81792,7 @@
           "displayOrder": 11,
           "pathConstraints": "///",
           "revision": 1,
-          "origin": {
-            "type": "Model",
-            "entry_id": "MoveMonster",
-            "sub_entity_id": null,
-            "root_entity_id": "bb8676b8-b569-4204-85d9-d98f7c5bc820",
-            "replaced_model_id": null
-          },
-          "modelId": "movemonster",
+          "modelId": null,
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
@@ -81809,8 +81802,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 13.4637775,
-                "y": -11.4718933,
+                "x": 12.878005,
+                "y": -7.785001,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -81837,6 +81830,7 @@
               "@type": "MOD.Core.SpriteRendererComponent",
               "ActionSheet": {},
               "EndFrameIndex": 0,
+              "OrderInLayer": 2,
               "RenderSetting": 1,
               "SortingLayer": "MapLayer4",
               "SpriteRUID": "3b18851348b0412bb60e3c83f6a46942",
@@ -81859,11 +81853,6 @@
               "@type": "MOD.Core.MovementComponent",
               "InputSpeed": 1.0,
               "JumpForce": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.AIWanderComponent",
-              "IsLegacy": false,
               "Enable": true
             },
             {
@@ -81897,24 +81886,33 @@
               "ParryStunRecoverTimerId": 0.0
             },
             {
-              "@type": "script.MonsterAttack",
+              "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "AttackInterval": 1.0,
-              "ScanInterval": 0.05,
-              "LastAttackTime": 0.0,
-              "SpriteSize": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "PositionOffset": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "OriginalSpriteRUID": ""
+              "SoulsToGive": 15.0
             },
             {
-              "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "@type": "script.ExplodingEnemy",
+              "Enable": true,
+              "DetectionRangeX": 0.8,
+              "ExplodeChargeDuration": 1.2,
+              "ExplosionRadius": 1.8,
+              "ExplosionDamage": 25.0,
+              "ExplosionVanishDelay": 0.1,
+              "IsChargingExplosion": false,
+              "LastExplodeAttemptTime": -9999.0,
+              "ActiveExplosionToken": 0.0,
+              "SpawnX": 0.0,
+              "PatrolDirection": 1.0,
+              "PatrolIdleTimer": 0.0,
+              "IsDetonating": false,
+              "ChargePulseTime": 0.0,
+              "PulseVisualApplied": false,
+              "BaseSpriteAlpha": 1.0,
+              "BaseScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
             }
           ],
           "@version": 1
@@ -81923,7 +81921,7 @@
       {
         "id": "ce9cde34-2988-4bd1-a10a-4ef634654638",
         "path": "/maps/SandMap/monster-830",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterSoulReward,script.MonsterAI",
         "jsonString": {
           "name": "monster-830",
           "path": "/maps/SandMap/monster-830",
@@ -81934,14 +81932,7 @@
           "displayOrder": 12,
           "pathConstraints": "///",
           "revision": 1,
-          "origin": {
-            "type": "Model",
-            "entry_id": "MoveMonster",
-            "sub_entity_id": null,
-            "root_entity_id": "ce9cde34-2988-4bd1-a10a-4ef634654638",
-            "replaced_model_id": null
-          },
-          "modelId": "movemonster",
+          "modelId": null,
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
@@ -81951,8 +81942,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 16.3780937,
-                "y": -13.139082,
+                "x": 14.9843655,
+                "y": -7.785001,
                 "z": 999.998047
               },
               "QuaternionRotation": {
@@ -81979,6 +81970,7 @@
               "@type": "MOD.Core.SpriteRendererComponent",
               "ActionSheet": {},
               "EndFrameIndex": 0,
+              "OrderInLayer": 2,
               "RenderSetting": 1,
               "SortingLayer": "MapLayer4",
               "SpriteRUID": "8ab826ecc08441a6854d06e136884003",
@@ -82001,11 +81993,6 @@
               "@type": "MOD.Core.MovementComponent",
               "InputSpeed": 1.0,
               "JumpForce": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.AIWanderComponent",
-              "IsLegacy": false,
               "Enable": true
             },
             {
@@ -82039,10 +82026,25 @@
               "ParryStunRecoverTimerId": 0.0
             },
             {
-              "@type": "script.MonsterAttack",
+              "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "ScanInterval": 0.05,
+              "SoulsToGive": 25.0
+            },
+            {
+              "@type": "script.MonsterAI",
+              "Enable": true,
+              "AttackHitDelay": 0.9,
+              "AttackDuration": 1.5,
+              "Damage": 10,
+              "AIState": "PATROL_WALK",
+              "SpawnPosition": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "PatrolDirection": 1.0,
+              "PatrolIdleTimer": 0.0,
               "LastAttackTime": 0.0,
+              "IsAttacking": false,
               "SpriteSize": {
                 "x": 0.0,
                 "y": 0.0
@@ -82051,11 +82053,9 @@
                 "x": 0.0,
                 "y": 0.0
               },
-              "OriginalSpriteRUID": ""
-            },
-            {
-              "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "CurrentActionPlaying": "",
+              "OriginalSpriteRUID": "",
+              "ActiveAttackToken": 0.0
             }
           ],
           "@version": 1
@@ -82064,7 +82064,7 @@
       {
         "id": "fe5186ee-142b-4eca-9fa1-1420b370d7bc",
         "path": "/maps/SandMap/monster-864",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterSoulReward,script.ExplodingEnemy",
         "jsonString": {
           "name": "monster-864",
           "path": "/maps/SandMap/monster-864",
@@ -82075,14 +82075,7 @@
           "displayOrder": 13,
           "pathConstraints": "///",
           "revision": 1,
-          "origin": {
-            "type": "Model",
-            "entry_id": "MoveMonster",
-            "sub_entity_id": null,
-            "root_entity_id": "fe5186ee-142b-4eca-9fa1-1420b370d7bc",
-            "replaced_model_id": null
-          },
-          "modelId": "movemonster",
+          "modelId": null,
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
@@ -82092,8 +82085,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 14.6443682,
-                "y": -11.5457745,
+                "x": 9.59465,
+                "y": -7.785001,
                 "z": 999.9971
               },
               "QuaternionRotation": {
@@ -82121,6 +82114,7 @@
               "@type": "MOD.Core.SpriteRendererComponent",
               "ActionSheet": {},
               "EndFrameIndex": 0,
+              "OrderInLayer": 2,
               "RenderSetting": 1,
               "SortingLayer": "MapLayer4",
               "SpriteRUID": "4b5810b48fb94dabb275d458ae9ed997",
@@ -82143,11 +82137,6 @@
               "@type": "MOD.Core.MovementComponent",
               "InputSpeed": 1.0,
               "JumpForce": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.AIWanderComponent",
-              "IsLegacy": false,
               "Enable": true
             },
             {
@@ -82181,24 +82170,31 @@
               "ParryStunRecoverTimerId": 0.0
             },
             {
-              "@type": "script.MonsterAttack",
-              "Enable": true,
-              "AttackInterval": 0.03,
-              "ScanInterval": 0.05,
-              "LastAttackTime": 0.0,
-              "SpriteSize": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "PositionOffset": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "OriginalSpriteRUID": ""
-            },
-            {
               "@type": "script.MonsterSoulReward",
               "Enable": true
+            },
+            {
+              "@type": "script.ExplodingEnemy",
+              "Enable": true,
+              "DetectionRangeX": 0.7,
+              "ExplodeChargeDuration": 0.8,
+              "ExplosionDamage": 20.0,
+              "ExplosionVanishDelay": 0.1,
+              "IsChargingExplosion": false,
+              "LastExplodeAttemptTime": -9999.0,
+              "ActiveExplosionToken": 0.0,
+              "SpawnX": 0.0,
+              "PatrolDirection": 1.0,
+              "PatrolIdleTimer": 0.0,
+              "IsDetonating": false,
+              "ChargePulseTime": 0.0,
+              "PulseVisualApplied": false,
+              "BaseSpriteAlpha": 1.0,
+              "BaseScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
             }
           ],
           "@version": 1

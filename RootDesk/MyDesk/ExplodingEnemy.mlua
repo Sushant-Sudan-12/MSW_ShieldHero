@@ -69,6 +69,9 @@ script ExplodingEnemy extends AttackComponent
 	@MinValue(0.0)
 	property number ExplosionVanishDelay = 0.45
 
+	@MinValue(0.0)
+	property number ExplosionHitDelay = 0.2
+
 	property string ChargeActionName = "attack"
 	property string MoveActionName = "move"
 	property string IdleActionName = "stand"
@@ -300,8 +303,43 @@ script ExplodingEnemy extends AttackComponent
 		self.IsDetonating = true
 		self:RestoreChargeVisuals()
 		self:SetVelocityX(0)
+
+		-- 1. Start explosion animation immediately so impact frame can line up
 		self:TryChangeState(self.ExplosionActionName)
 
+		-- 2. Fire damage hitbox at the impact frame (ExplosionHitDelay)
+		local hitDelay = math.max(self.ExplosionHitDelay, 0)
+		if hitDelay <= 0 then
+			self:FireExplosionDamage()
+		else
+			_TimerService:SetTimerOnce(function()
+				if isvalid(self.Entity) == false then
+					return
+				end
+				if self.ActiveExplosionToken ~= token then
+					return
+				end
+				self:FireExplosionDamage()
+			end, hitDelay)
+		end
+
+		-- 3. Death/destroy after full animation timing
+		local vanishDelay = math.max(self.ExplosionVanishDelay, hitDelay + 0.05)
+		_TimerService:SetTimerOnce(function()
+			if isvalid(self.Entity) == false then
+				return
+			end
+
+			local monster = self.Entity:GetComponent("Monster")
+			if isvalid(monster) and monster.IsDead == false then
+				monster:Dead()
+			else
+				self.Entity:Destroy()
+			end
+		end, vanishDelay)
+	end
+
+	method void FireExplosionDamage()
 		local transform = self.Entity.TransformComponent
 		if isvalid(transform) == false then
 			return
@@ -315,19 +353,6 @@ script ExplodingEnemy extends AttackComponent
 		self.ExplosionShape.Position = Vector2(transform.WorldPosition.x, transform.WorldPosition.y + self.ExplosionOffsetY)
 
 		self:AttackFast(self.ExplosionShape, "ExplodingEnemy", CollisionGroups.Player)
-
-		_TimerService:SetTimerOnce(function()
-			if isvalid(self.Entity) == false then
-				return
-			end
-
-			local monster = self.Entity:GetComponent("Monster")
-			if isvalid(monster) and monster.IsDead == false then
-				monster:Dead()
-			else
-				self.Entity:Destroy()
-			end
-		end, math.max(self.ExplosionVanishDelay, 0))
 	end
 
 	method void CancelExplosionChargeAndPushback(Entity attacker)
@@ -434,9 +459,10 @@ script ExplodingEnemy extends AttackComponent
 
 		local stateComponent = self.Entity.StateComponent
 		if isvalid(stateComponent) then
-			stateComponent:ChangeState(stateName)
-			stateComponent:ChangeState(string.upper(stateName))
-			stateComponent:ChangeState(string.lower(stateName))
+			local upper = string.upper(stateName)
+			if stateComponent.CurrentStateName ~= upper then
+				stateComponent:ChangeState(upper)
+			end
 		end
 	end
 
