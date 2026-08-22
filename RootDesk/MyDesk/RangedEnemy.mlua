@@ -55,6 +55,18 @@ script RangedEnemy extends Component
 	@MinValue(0)
 	property number AttackWindup = 0.4
 
+	-- === Attack Sound Settings ===
+	property string AttackSoundRUID = ""
+
+	@MinValue(0.0)
+	property number AttackSoundDelay = 0.0
+
+	@MinValue(0.0)
+	property number AttackSoundVolume = 1
+
+	@MinValue(0.0)
+	property number AttackSoundPitch = 1
+
 	-- === Action Names ===
 	property string StandActionName = "stand"
 	property string MoveActionName = "move"
@@ -300,6 +312,7 @@ script RangedEnemy extends Component
 
 		self:SetVelocityX(0)
 		self:TryChangeState(self.AttackActionName)
+		self:PlayAttackSound(token)
 
 		local windup = math.max(self.AttackWindup, 0)
 		if windup <= 0 then
@@ -325,12 +338,47 @@ script RangedEnemy extends Component
 		end, windup)
 	end
 
+	method void PlayAttackSound(number attackToken)
+		if self.AttackSoundRUID == nil or self.AttackSoundRUID == "" then
+			return
+		end
+
+		local playFn = function()
+			if isvalid(self.Entity) == false then
+				return
+			end
+			if self.ActiveAttackToken ~= attackToken then
+				return
+			end
+
+			local sound = self.Entity.SoundComponent
+			if isvalid(sound) == false then
+				sound = self.Entity:AddComponent("SoundComponent")
+			end
+			if isvalid(sound) == false then
+				return
+			end
+
+			sound.AudioClipRUID = self.AttackSoundRUID
+			sound.Volume = math.max(0, math.min(1, self.AttackSoundVolume))
+			sound.Pitch = math.max(0, math.min(3, self.AttackSoundPitch))
+			sound.Loop = false
+			sound.Bgm = false
+			sound:PlaySyncedSound()
+		end
+
+		if self.AttackSoundDelay <= 0 then
+			playFn()
+		else
+			_TimerService:SetTimerOnce(playFn, self.AttackSoundDelay)
+		end
+	end
+
 	method void FireSpikeBurst(Entity targetPlayer)
 		local transform = self.Entity.TransformComponent
 		if isvalid(transform) == false then
 			return
 		end
-
 		local modelId = _EntryService:GetModelIdByName(self.ProjectileModelName)
 		if modelId == nil or modelId == "" then
 			log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] ERROR: Projectile model '" .. tostring(self.ProjectileModelName) .. "' not found! Create the model asset first.")

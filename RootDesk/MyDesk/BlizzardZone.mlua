@@ -1,0 +1,226 @@
+@Component
+script BlizzardZone extends Component
+
+    -- === Damage Settings ===
+    @MinValue(0)
+    property number DamagePerTick = 5
+
+    @MinValue(0.05)
+    property number TickInterval = 1.0
+
+    -- === Feedback ===
+    property boolean ShowDamagePopup = true
+    property number DamageSkinTweenValue = 3
+    property Vector2 DamagePopupOffset = Vector2(0, 0.5)
+
+    -- === Detection ===
+    property boolean UseTriggerEvents = true
+
+    property boolean UseBoundsFallback = false
+
+    property Vector2 ZoneSize = Vector2(10, 6)
+
+    property Vector2 ZoneOffset = Vector2(0, 0)
+
+    property boolean DebugLogs = false
+
+    @HideFromInspector
+    property any PlayersInZone = nil
+
+    @HideFromInspector
+    property any LastTickTimes = nil
+
+    @ExecSpace("ServerOnly")
+    method void OnBeginPlay()
+        self.PlayersInZone = {}
+        self.LastTickTimes = {}
+        if self.DebugLogs then
+            log("BlizzardZone [" .. tostring(self.Entity.Name) .. "] ready")
+        end
+    end
+
+    @ExecSpace("ServerOnly")
+    method void OnUpdate(number delta)
+        if self.PlayersInZone == nil then
+            self.PlayersInZone = {}
+            self.LastTickTimes = {}
+        end
+
+        if self.UseBoundsFallback then
+            self:ScanPlayersByBounds()
+        end
+
+        local now = _UtilLogic.ElapsedSeconds
+        for key, target in pairs(self.PlayersInZone) do
+            if isvalid(target) == false or isvalid(target.PlayerComponent) == false then
+                self.PlayersInZone[key] = nil
+                self.LastTickTimes[key] = nil
+            else
+                local lastTick = self.LastTickTimes[key]
+                if lastTick == nil then
+                    lastTick = now - self.TickInterval
+                end
+
+                if now - lastTick >= self.TickInterval then
+                    self.LastTickTimes[key] = now
+                    self:ApplyBlizzardDamage(target)
+                end
+            end
+        end
+    end
+
+    method string GetTargetKey(Entity target)
+        if target == nil then
+            return ""
+        end
+        return tostring(target.Id)
+    end
+
+    method void AddPlayer(Entity target)
+        if target == nil or isvalid(target) == false then
+            return
+        end
+        if isvalid(target.PlayerComponent) == false then
+            return
+        end
+
+        local key = self:GetTargetKey(target)
+        if key == "" then
+            return
+        end
+
+        if self.PlayersInZone[key] == nil then
+            self.PlayersInZone[key] = target
+            self.LastTickTimes[key] = _UtilLogic.ElapsedSeconds - self.TickInterval
+            if self.DebugLogs then
+                log("BlizzardZone [" .. tostring(self.Entity.Name) .. "] player entered: " .. tostring(target.Name))
+            end
+        end
+    end
+
+    method void RemovePlayer(Entity target)
+        if target == nil then
+            return
+        end
+
+        local key = self:GetTargetKey(target)
+        if key == "" then
+            return
+        end
+
+        if self.PlayersInZone[key] ~= nil then
+            self.PlayersInZone[key] = nil
+            self.LastTickTimes[key] = nil
+            if self.DebugLogs then
+                log("BlizzardZone [" .. tostring(self.Entity.Name) .. "] player left: " .. tostring(target.Name))
+            end
+        end
+    end
+
+    method void ScanPlayersByBounds()
+        local transform = self.Entity.TransformComponent
+        if isvalid(transform) == false then
+            return
+        end
+
+        local centerX = transform.WorldPosition.x + self.ZoneOffset.x
+        local centerY = transform.WorldPosition.y + self.ZoneOffset.y
+        local halfX = math.max(self.ZoneSize.x, 0.1) * 0.5
+        local halfY = math.max(self.ZoneSize.y, 0.1) * 0.5
+
+        local users = _UserService.UserEntities
+        if users == nil then
+            return
+        end
+
+        for _, player in pairs(users) do
+            if isvalid(player) and isvalid(player.PlayerComponent) and isvalid(player.TransformComponent) then
+                local pos = player.TransformComponent.WorldPosition
+                local inside = math.abs(pos.x - centerX) <= halfX and math.abs(pos.y - centerY) <= halfY
+                if inside then
+                    self:AddPlayer(player)
+                else
+                    self:RemovePlayer(player)
+                end
+            end
+        end
+    end
+
+    method void ApplyBlizzardDamage(Entity target)
+        local immuneLogic = target:GetComponent("PlayerImmuneLogic")
+        if isvalid(immuneLogic) and immuneLogic:IsImmune() then
+            return
+        end
+
+        local damage = math.floor(self.DamagePerTick)
+        if damage <= 0 then
+            return
+        end
+
+        -- Damage through HitComponent (same pipeline as traps/monster hits)
+        local hitComponent = target:GetComponent("HitComponent")
+        if isvalid(hitComponent) then
+            hitComponent:OnHit(self.Entity, damage, false, "BlizzardZone", 1)
+        end
+
+        -- Damage number popup
+        if self.ShowDamagePopup then
+            pcall(function()
+                local skinId = ""
+                local setting = target:GetComponent("DamageSkinSettingComponent")
+                if isvalid(setting) and setting.DamageSkinId ~= nil then
+                    skinId = tostring(setting.DamageSkinId)
+                end
+                _DamageSkinService:Play(
+                    target,
+                    skinId,
+                    0,
+                    {damage},
+                    DamageSkinTweenType.CastFrom(self.DamageSkinTweenValue),
+                    false,
+                    self.DamagePopupOffset,
+                    Vector2(1, 1),
+                    1,
+                    1
+                )
+            end)
+        end
+
+        if self.DebugLogs then
+            log("BlizzardZone [" .. tostring(self.Entity.Name) .. "] tick damage " .. tostring(damage) .. " -> " .. tostring(target.Name))
+        end
+    end
+
+    -- === Trigger callbacks (direct methods, like MonsterAttackDisableArea) ===
+    @ExecSpace("ServerOnly")
+    method void OnEnterTriggerBody(TriggerEnterEvent enterEvent)
+        if self.UseTriggerEvents then
+            self:AddPlayer(enterEvent.TriggerBodyEntity)
+        end
+    end
+
+    @ExecSpace("ServerOnly")
+    method void OnLeaveTriggerBody(TriggerLeaveEvent leaveEvent)
+        if self.UseTriggerEvents then
+            self:RemovePlayer(leaveEvent.TriggerBodyEntity)
+        end
+    end
+
+    -- === Trigger callbacks (event handlers, belt and braces) ===
+    @ExecSpace("ServerOnly")
+    @EventSender("Self")
+    handler HandleTriggerEnterEvent(TriggerEnterEvent event)
+        if self.UseTriggerEvents then
+            self:AddPlayer(event.TriggerBodyEntity)
+        end
+    end
+
+    @ExecSpace("ServerOnly")
+    @EventSender("Self")
+    handler HandleTriggerLeaveEvent(TriggerLeaveEvent event)
+        if self.UseTriggerEvents then
+            self:RemovePlayer(event.TriggerBodyEntity)
+        end
+    end
+
+end

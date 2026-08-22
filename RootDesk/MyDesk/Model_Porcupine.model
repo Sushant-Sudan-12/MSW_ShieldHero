@@ -296,7 +296,7 @@
             "$type": "MODNativeType",
             "type": "MOD.Core.Common.Enums.BasicParticleType, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
-          "Value": 24
+          "Value": 16
         },
         {
           "TargetType": "MOD.Core.BasicParticleComponent",
@@ -315,6 +315,51 @@
             "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
           },
           "Value": true
+        },
+        {
+          "TargetType": "MOD.Core.BasicParticleComponent",
+          "Name": "ParticleCount",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 1.0
+        },
+        {
+          "TargetType": "MOD.Core.BasicParticleComponent",
+          "Name": "ParticleLifeTime",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 0.39
+        },
+        {
+          "TargetType": "MOD.Core.BasicParticleComponent",
+          "Name": "ParticleSize",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 0.02
+        },
+        {
+          "TargetType": "MOD.Core.BasicParticleComponent",
+          "Name": "ParticleSpeed",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 2.83
+        },
+        {
+          "TargetType": "MOD.Core.BasicParticleComponent",
+          "Name": "PlaySpeed",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 1.0
         }
       ],
       "EventLinks": [],

@@ -41,6 +41,18 @@ script MonsterAI extends AttackComponent
 	@MinValue(0.0)
 	property number AttackDuration = 0.6
 
+	-- === Attack Sound Settings ===
+	property string AttackSoundRUID = ""
+
+	@MinValue(0.0)
+	property number AttackSoundDelay = 0.0
+
+	@MinValue(0.0)
+	property number AttackSoundVolume = 1
+
+	@MinValue(0.0)
+	property number AttackSoundPitch = 1
+
 	-- === Attack Hitbox Dimensions & Offsets ===
 	@MinValue(0.1)
 	property number AttackBoxWidth = 1.4
@@ -391,6 +403,8 @@ script MonsterAI extends AttackComponent
 		self:SetVelocity(0)
 		self:PlayAction(self.AttackActionName)
 
+		self:PlayAttackSound(attackToken)
+
 		-- Schedule the damage strike at AttackHitDelay (the exact moment damage should connect)
 		if self.AttackHitDelay <= 0 then
 			self:ExecuteHitboxStrike(dirX, attackToken)
@@ -428,6 +442,42 @@ script MonsterAI extends AttackComponent
 			if self.DebugLogs then
 			end
 		end, totalDuration)
+	end
+
+	method void PlayAttackSound(number attackToken)
+		if self.AttackSoundRUID == nil or self.AttackSoundRUID == "" then
+			return
+		end
+
+		local playFn = function()
+			if isvalid(self.Entity) == false then
+				return
+			end
+			if self.ActiveAttackToken ~= attackToken then
+				return
+			end
+
+			local sound = self.Entity.SoundComponent
+			if isvalid(sound) == false then
+				sound = self.Entity:AddComponent("SoundComponent")
+			end
+			if isvalid(sound) == false then
+				return
+			end
+
+			sound.AudioClipRUID = self.AttackSoundRUID
+			sound.Volume = math.max(0, math.min(1, self.AttackSoundVolume))
+			sound.Pitch = math.max(0, math.min(3, self.AttackSoundPitch))
+			sound.Loop = false
+			sound.Bgm = false
+			sound:PlaySyncedSound()
+		end
+
+		if self.AttackSoundDelay <= 0 then
+			playFn()
+		else
+			_TimerService:SetTimerOnce(playFn, self.AttackSoundDelay)
+		end
 	end
 
 	method void ExecuteHitboxStrike(number dirX, number attackToken)

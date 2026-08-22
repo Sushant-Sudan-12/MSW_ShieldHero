@@ -72,6 +72,23 @@ script ExplodingEnemy extends AttackComponent
 	@MinValue(0.0)
 	property number ExplosionHitDelay = 0.2
 
+	-- === Sound Settings ===
+	property string ChargeSoundRUID = ""
+
+	@MinValue(0.0)
+	property number ChargeSoundDelay = 0.0
+
+	property string ExplosionSoundRUID = ""
+
+	@MinValue(0.0)
+	property number ExplosionSoundDelay = 0.0
+
+	@MinValue(0.0)
+	property number SoundVolume = 1
+
+	@MinValue(0.0)
+	property number SoundPitch = 1
+
 	property string ChargeActionName = "attack"
 	property string MoveActionName = "move"
 	property string IdleActionName = "stand"
@@ -269,6 +286,42 @@ script ExplodingEnemy extends AttackComponent
 		return (now - self.LastExplodeAttemptTime) >= self.ExplodeInterval
 	end
 
+	method void PlaySoundDelayed(string ruid, number delay, number token)
+		if ruid == nil or ruid == "" then
+			return
+		end
+
+		local playFn = function()
+			if isvalid(self.Entity) == false then
+				return
+			end
+			if self.ActiveExplosionToken ~= token then
+				return
+			end
+
+			local sound = self.Entity.SoundComponent
+			if isvalid(sound) == false then
+				sound = self.Entity:AddComponent("SoundComponent")
+			end
+			if isvalid(sound) == false then
+				return
+			end
+
+			sound.AudioClipRUID = ruid
+			sound.Volume = math.max(0, math.min(1, self.SoundVolume))
+			sound.Pitch = math.max(0, math.min(3, self.SoundPitch))
+			sound.Loop = false
+			sound.Bgm = false
+			sound:PlaySyncedSound()
+		end
+
+		if delay <= 0 then
+			playFn()
+		else
+			_TimerService:SetTimerOnce(playFn, delay)
+		end
+	end
+
 	method void StartExplodeCharge(Entity targetPlayer)
 		self.IsChargingExplosion = true
 		self.IsDetonating = false
@@ -278,6 +331,7 @@ script ExplodingEnemy extends AttackComponent
 
 		self:SetVelocityX(0)
 		self:TryChangeState(self.ChargeActionName)
+		self:PlaySoundDelayed(self.ChargeSoundRUID, self.ChargeSoundDelay, token)
 
 		_TimerService:SetTimerOnce(function()
 			if isvalid(self.Entity) == false then
@@ -306,6 +360,7 @@ script ExplodingEnemy extends AttackComponent
 
 		-- 1. Start explosion animation immediately so impact frame can line up
 		self:TryChangeState(self.ExplosionActionName)
+		self:PlaySoundDelayed(self.ExplosionSoundRUID, self.ExplosionSoundDelay, token)
 
 		-- 2. Fire damage hitbox at the impact frame (ExplosionHitDelay)
 		local hitDelay = math.max(self.ExplosionHitDelay, 0)
