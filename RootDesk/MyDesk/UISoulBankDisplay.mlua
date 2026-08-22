@@ -1,0 +1,79 @@
+@ExecSpace("Client")
+@Component
+script UISoulBankDisplay extends Component
+
+	property Entity TextTarget = nil
+
+	property string Prefix = "Echo Shards: "
+
+	property boolean ShowOnlyInStartMap = false
+
+	property string StartMapPathPart = "StartingArea"
+
+	@HideFromInspector
+	property number LastShownBalance = -1
+
+	method void OnBeginPlay()
+		self.LastShownBalance = -1
+		self:WriteText(self.Prefix .. "0")
+	end
+
+	method void OnUpdate(number delta)
+		self:Refresh()
+	end
+
+	method void Refresh()
+		local player = _UserService.LocalPlayer
+		if isvalid(player) == false then
+			return
+		end
+
+		-- Optional: only show on the starting map
+		if self.ShowOnlyInStartMap then
+			local path = tostring(player.Path)
+			if string.find(path, self.StartMapPathPart, 1, true) == nil then
+				if self.LastShownBalance ~= -2 then
+					self.LastShownBalance = -2
+					self:WriteText("")
+				end
+				return
+			end
+		end
+
+		local runManager = player:GetComponent("RogueliteRunManager")
+		if isvalid(runManager) == false then
+			return
+		end
+
+		local balance = math.floor(runManager.SoulBankBalance)
+		if balance == self.LastShownBalance then
+			return
+		end
+
+		self.LastShownBalance = balance
+		self:WriteText(self.Prefix .. tostring(balance))
+	end
+
+	method void WriteText(string value)
+		local target = self.TextTarget
+		if isvalid(target) == false then
+			target = self.Entity
+		end
+
+		if isvalid(target.TextComponent) then
+			target.TextComponent.Text = value
+			return
+		end
+
+		if isvalid(target.TextGUIRendererComponent) then
+			target.TextGUIRendererComponent.Text = value
+			return
+		end
+
+		if isvalid(target.TextInputComponent) then
+			target.TextInputComponent.Text = value
+			return
+		end
+	end
+
+end

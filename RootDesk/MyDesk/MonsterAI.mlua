@@ -594,12 +594,12 @@ script MonsterAI extends AttackComponent
 		local stateComponent = self.Entity.StateComponent
 		if isvalid(stateComponent) then
 			if stateComponent.CurrentStateName ~= targetState then
-				local changed = stateComponent:ChangeState(targetState)
+				-- local changed = stateComponent:ChangeState(targetState)
 				if not changed then
-					changed = stateComponent:ChangeState(actionName)
+					-- changed = stateComponent:ChangeState(actionName)
 				end
 				if not changed then
-					changed = stateComponent:ChangeState(string.lower(actionName))
+					-- changed = stateComponent:ChangeState(string.lower(actionName))
 				end
 			end
 		end

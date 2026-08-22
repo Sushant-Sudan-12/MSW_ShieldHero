@@ -2463,12 +2463,12 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": -459.4993,
-                "y": -329.2398
+                "x": -447.067169,
+                "y": -286.9699
               },
               "OffsetMin": {
-                "x": -707.956543,
-                "y": -395.0498
+                "x": -695.5244,
+                "y": -352.7799
               },
               "Pivot": {
                 "x": 0.5,
@@ -2486,8 +2486,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": -583.7279,
-                "y": -362.1448
+                "x": -571.2958,
+                "y": -319.8749
               },
               "Rotation": {
                 "x": 0.0,
@@ -2495,15 +2495,15 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -583.7279,
-                "y": -362.1448,
+                "x": -571.2958,
+                "y": -319.8749,
                 "z": 0.0
               },
               "QuaternionRotation": {
                 "x": 0.0,
                 "y": 0.0,
                 "z": 0.0,
-                "w": -1.0
+                "w": 1.0
               },
               "Scale": {
                 "x": 1.0,
@@ -3933,6 +3933,126 @@
               },
               "ZRotation": 0.0,
               "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "a6d76e2c-b8cf-4d52-8359-09064f82a6fd",
+        "path": "/ui/PlayerStats/Total_Souls",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.TextGUIRendererComponent,script.UISoulBankDisplay",
+        "jsonString": {
+          "name": "Total_Souls",
+          "path": "/ui/PlayerStats/Total_Souls",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 5,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uitextguirenderer",
+            "sub_entity_id": null,
+            "root_entity_id": "f252a9da-bf6a-4e6e-a854-7ea07eebb13d",
+            "replaced_model_id": null
+          },
+          "modelId": "uitextguirenderer",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 142.059738,
+                "y": 516.3191
+              },
+              "OffsetMin": {
+                "x": -183.477737,
+                "y": 450.5091
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 325.537476,
+                "y": 65.81
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": -20.709,
+                "y": 483.4141
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -20.709,
+                "y": 483.4141,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.TextGUIRendererComponent",
+              "BestFit": false,
+              "EnableProfanityFilter": true,
+              "FontColor": {
+                "r": 0.0,
+                "g": 0.0,
+                "b": 0.0,
+                "a": 1.0
+              },
+              "FontSize": 40.0,
+              "HorizontalAlignment": 1,
+              "MaxSize": 50.0,
+              "MinSize": 10.0,
+              "OverrideSorting": false,
+              "Text": "x 1000000",
+              "Enable": true
+            },
+            {
+              "@type": "script.UISoulBankDisplay",
+              "Enable": true,
+              "TextTarget": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "a6d76e2c-b8cf-4d52-8359-09064f82a6fd",
+                "Version2": false
+              },
+              "ShowOnlyInStartMap": true,
+              "LastShownBalance": -1.0
             }
           ],
           "@version": 1

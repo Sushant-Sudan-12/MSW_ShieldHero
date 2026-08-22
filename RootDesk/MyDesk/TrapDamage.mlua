@@ -42,6 +42,13 @@ script TrapDamage extends Component
 			end
 		end
 
+		local hitComponent = target:GetComponent("HitComponent")
+		if isvalid(hitComponent) then
+			hitComponent:OnHit(self.Entity, math.floor(self.Damage), false, "Trap", 1)
+			log("TrapDamage: sent hit event")
+			return
+		end
+
 		local playerComponent = target:GetComponent("PlayerComponent")
 		if isvalid(playerComponent) then
 			local newHp = playerComponent.Hp - math.floor(self.Damage)
@@ -50,13 +57,6 @@ script TrapDamage extends Component
 			end
 			playerComponent.Hp = newHp
 			log("TrapDamage: player hp -> " .. tostring(playerComponent.Hp))
-			return
-		end
-
-		local hitComponent = target:GetComponent("HitComponent")
-		if isvalid(hitComponent) then
-			hitComponent:OnHit(self.Entity, math.floor(self.Damage), false, "Trap", 1)
-			log("TrapDamage: sent hit event")
 			return
 		end
 

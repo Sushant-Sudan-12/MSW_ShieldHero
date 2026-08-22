@@ -160,22 +160,16 @@ script ShieldThrow extends Component
 
 		local modelId = _EntryService:GetModelIdByName("Model_Projectile")
 
-local ownerId = nil
-	local playerComponent = self.Entity:GetComponent("PlayerComponent")
-	if isvalid(playerComponent) then
-		ownerId = playerComponent.UserId
-	end
-
-	local projectile = _SpawnService:SpawnByModelId(modelId, "ShieldProjectile", startPosition, self.Entity.Parent, ownerId)
-		if isvalid(projectile) == false then
+		local spawned = _SpawnService:SpawnByModelId(modelId, "ShieldProjectile", startPosition, self.Entity.Parent)
+		if isvalid(spawned) == false then
 			return
 		end
 
-		self.ActiveProjectile = projectile
-		projectile.Enable = true
-		projectile.TransformComponent.WorldPosition = startPosition
-		projectile.TransformComponent.Scale = Vector3(self.ProjectileSpawnScale, self.ProjectileSpawnScale, 1)
-		projectile.TransformComponent.ZRotation = 0
+		self.ActiveProjectile = spawned
+		spawned.Enable = true
+		spawned.TransformComponent.WorldPosition = startPosition
+		spawned.TransformComponent.Scale = Vector3(self.ProjectileSpawnScale, self.ProjectileSpawnScale, 1)
+		spawned.TransformComponent.ZRotation = 0
 
 		self.BoomerangSourcePosition = startPosition
 		self.BoomerangDirection = spawnDirection

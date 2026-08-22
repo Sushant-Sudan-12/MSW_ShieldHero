@@ -12,7 +12,7 @@ script NeedleProjectile extends Component
 	property number Lifetime = 2.5
 
 	@MinValue(0)
-	property integer Damage = 15
+	property integer NeedleDamage = 15
 
 	@MinValue(0.05)
 	property number HitInterval = 0.1
@@ -104,7 +104,7 @@ script NeedleProjectile extends Component
 	end
 
 	method void ApplyDamageToTarget(Entity target)
-		local damage = math.floor(self.Damage)
+		local damage = math.floor(self.NeedleDamage)
 
 		-- Damage popup
 		pcall(function()

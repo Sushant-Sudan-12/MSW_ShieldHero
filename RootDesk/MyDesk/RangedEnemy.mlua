@@ -480,7 +480,7 @@ script RangedEnemy extends Component
 			mover.DirectionX = dirX
 			mover.DirectionY = dirY
 			mover.Lifetime = self.SpikeLifetime
-			mover.Damage = self.SpikeDamage
+			mover.NeedleDamage = self.SpikeDamage
 		else
 			if self.DebugLogs then
 				log("RangedEnemy: NeedleProjectile component missing on spawned needle")

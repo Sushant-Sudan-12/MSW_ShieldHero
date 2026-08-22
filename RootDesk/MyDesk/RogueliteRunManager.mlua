@@ -1,0 +1,346 @@
+@Component
+script RogueliteRunManager extends Component
+
+	-- === Respawn / Teleport Settings ===
+	property string StartMapName = ""
+
+	property Vector3 StartSpawnPosition = Vector3(0, 0, 0)
+
+	@MinValue(0.0)
+	property number RespawnDelaySeconds = 1.5
+
+	-- === Run Reset Settings ===
+	property boolean ResetSoulsOnDeath = true
+	property boolean ResetUpgradeLevelsOnDeath = true
+	property boolean ResetMonstersOnDeath = true
+
+	property string MonsterTag = "Monster"
+
+	-- === Soul Bank (meta-currency) ===
+	property boolean EnableSoulBank = true
+
+	@MinValue(0.0)
+	property number SoulBankShare = 0.5
+
+	property string SoulBankStorageKey = "SoulBank"
+
+	property string MetaCurrencyName = "EchoShards"
+
+	property boolean DebugLogs = false
+
+	@Sync
+	property number SoulBankBalance = 0
+
+	@HideFromInspector
+	property boolean WasDead = false
+
+	method void OnBeginPlay()
+		-- Client: register I key for soul bank print
+		local playerController = self.Entity.PlayerControllerComponent
+		if isvalid(playerController) then
+			playerController:SetActionKey(KeyboardKey.I, "PrintSoulBank")
+		end
+
+		if self.DebugLogs then
+			log("RogueliteRunManager ready on " .. tostring(self.Entity.Name))
+		end
+
+		-- Load persisted bank balance into synced property
+		local playerComponent = self.Entity:GetComponent("PlayerComponent")
+		if isvalid(playerComponent) then
+			local uid = playerComponent.UserId
+			if uid ~= nil and uid ~= "" then
+				self:RefreshSoulBankBalance(uid)
+			end
+		end
+
+		-- If this is a fresh spawn right after death reset, verify run state is default
+		_TimerService:SetTimerOnce(function()
+			if isvalid(self.Entity) == false then
+				return
+			end
+			local ss = self.Entity:GetComponent("PlayerSoulSystem")
+			local pc = self.Entity:GetComponent("PlayerComponent")
+			if isvalid(ss) and isvalid(pc) then
+				log("RUNRESET-SPAWN check: souls=" .. tostring(ss.TotalSouls) .. " H=" .. tostring(ss.HealthLevel) .. " maxHp=" .. tostring(pc.MaxHp))
+				if ss.HealthLevel > 1 or ss.StaminaLevel > 1 or ss.AttackLevel > 1 or ss.TotalSouls > 0 then
+					log("RUNRESET-SPAWN WARNING: spawned with non-default run state, forcing reset")
+					ss:ResetRunUpgrades()
+				end
+			end
+		end, 0.5)
+	end
+
+	@ExecSpace("ServerOnly")
+	method void OnUpdate(number delta)
+		local playerComponent = self.Entity:GetComponent("PlayerComponent")
+		if isvalid(playerComponent) == false then
+			return
+		end
+
+		local isDead = playerComponent:IsDead()
+		if isDead and self.WasDead == false then
+			self.WasDead = true
+			self:HandlePlayerDeath(self.Entity, playerComponent)
+		elseif isDead == false and self.WasDead then
+			self.WasDead = false
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	@EventSender("Self")
+	handler HandlePlayerActionEvent(PlayerActionEvent event)
+		if event.ActionName == "PrintSoulBank" then
+			local playerComponent = self.Entity:GetComponent("PlayerComponent")
+			if isvalid(playerComponent) then
+				local balance = self:GetSoulBankBalance(playerComponent.UserId)
+				log("SOUL BANK: " .. tostring(balance) .. " " .. tostring(self.MetaCurrencyName))
+			end
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void HandlePlayerDeath(Entity player, any playerComponent)
+		local soulSystem = player:GetComponent("PlayerSoulSystem")
+		local soulsThisRun = 0
+		if isvalid(soulSystem) then
+			soulsThisRun = math.floor(soulSystem.TotalSouls)
+		end
+		log("RUNRESET-1 death: souls=" .. tostring(soulsThisRun)
+			.. " maxHp=" .. tostring(playerComponent.MaxHp)
+			.. " hp=" .. tostring(playerComponent.Hp)
+			.. " defaultMaxHp=" .. tostring(isvalid(soulSystem) and soulSystem.DefaultMaxHp or -1))
+
+		-- Bank half the souls into persistent storage (meta-currency)
+		if self.EnableSoulBank and soulsThisRun > 0 then
+			local banked = math.floor(soulsThisRun * self.SoulBankShare)
+			if banked > 0 then
+				self:DepositToSoulBank(playerComponent.UserId, banked)
+			end
+		end
+
+		-- Reset run state
+		self:ResetPlayerRunState(player, playerComponent)
+
+		-- Respawn monsters
+		if self.ResetMonstersOnDeath then
+			self:ResetAllMonsters()
+		end
+
+		-- Respawn + teleport after delay
+		_TimerService:SetTimerOnce(function()
+			if isvalid(player) == false then
+				return
+			end
+			self:RespawnPlayerAtStart(player, playerComponent)
+		end, self.RespawnDelaySeconds)
+	end
+
+	@ExecSpace("ServerOnly")
+	method void ResetPlayerRunState(Entity player, any playerComponent)
+		local soulSystem = player:GetComponent("PlayerSoulSystem")
+		if isvalid(soulSystem) then
+			if self.ResetSoulsOnDeath or self.ResetUpgradeLevelsOnDeath then
+				soulSystem:ResetRunUpgrades()
+			else
+				soulSystem.CurrentStamina = soulSystem:GetMaxStamina()
+			end
+			log("RUNRESET-2 after reset: maxHp=" .. tostring(playerComponent.MaxHp)
+				.. " hp=" .. tostring(playerComponent.Hp)
+				.. " souls=" .. tostring(soulSystem.TotalSouls)
+				.. " H=" .. tostring(soulSystem.HealthLevel)
+				.. " S=" .. tostring(soulSystem.StaminaLevel)
+				.. " A=" .. tostring(soulSystem.AttackLevel))
+		else
+			log("RUNRESET-2 ERROR: PlayerSoulSystem missing on player")
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void ResetAllMonsters()
+		local monsters = _EntityService:GetEntitiesByTag(self.MonsterTag)
+		if monsters == nil then
+			if self.DebugLogs then
+				log("RogueliteRunManager: no monsters found with tag '" .. tostring(self.MonsterTag) .. "'")
+			end
+			return
+		end
+
+		local resetCount = 0
+		local skippedCount = 0
+		for _, monsterEntity in ipairs(monsters) do
+			if isvalid(monsterEntity) then
+				local monster = monsterEntity:GetComponent("Monster")
+				if isvalid(monster) and monster.IsDead then
+					-- Force respawn regardless of RespawnOn — undo the destroy if it happened
+					monster.RespawnOn = true
+					monster.IsDead = false
+					monster.Hp = monster.MaxHp
+					monsterEntity:SetVisible(true)
+					monsterEntity:SetEnable(true)
+					local stateComponent = monsterEntity.StateComponent
+					if isvalid(stateComponent) then
+						stateComponent:ChangeState("IDLE")
+					end
+					resetCount = resetCount + 1
+				end
+			end
+		end
+
+		if self.DebugLogs then
+			log("RogueliteRunManager: respawned " .. tostring(resetCount) .. " monsters (skipped " .. tostring(skippedCount) .. ")")
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void RespawnPlayerAtStart(Entity player, any playerComponent)
+		log("RUNRESET-3 respawn start: maxHp=" .. tostring(playerComponent.MaxHp) .. " hp=" .. tostring(playerComponent.Hp))
+
+		-- Revive the player
+		pcall(function()
+			playerComponent:ProcessRevive(playerComponent.UserId)
+		end)
+		pcall(function()
+			playerComponent:Respawn()
+		end)
+
+		-- Re-apply reset AFTER revive because engine respawn may overwrite MaxHp
+		local soulSystem = player:GetComponent("PlayerSoulSystem")
+		if isvalid(soulSystem) then
+			soulSystem:ResetRunUpgrades()
+		end
+		log("RUNRESET-4 after post-revive reset: maxHp=" .. tostring(playerComponent.MaxHp) .. " hp=" .. tostring(playerComponent.Hp))
+
+		-- Teleport to starting map/position if configured
+		if self.StartMapName ~= nil and self.StartMapName ~= "" then
+			pcall(function()
+				_TeleportService:TeleportToMapPosition(player, self.StartSpawnPosition, self.StartMapName)
+			end)
+		end
+
+		-- Final verification + UI refresh after sync delay
+		_TimerService:SetTimerOnce(function()
+			if isvalid(player) == false then
+				return
+			end
+			-- Second reset to catch any late engine restore of MaxHp from model defaults
+			local soulSystem2 = player:GetComponent("PlayerSoulSystem")
+			if isvalid(soulSystem2) then
+				soulSystem2:ResetRunUpgrades()
+				soulSystem2.TotalSouls = soulSystem2.TotalSouls
+				soulSystem2.HealthLevel = soulSystem2.HealthLevel
+				soulSystem2.StaminaLevel = soulSystem2.StaminaLevel
+				soulSystem2.AttackLevel = soulSystem2.AttackLevel
+				log("RUNRESET-5 final: maxHp=" .. tostring(playerComponent.MaxHp)
+					.. " hp=" .. tostring(playerComponent.Hp)
+					.. " souls=" .. tostring(soulSystem2.TotalSouls)
+					.. " H=" .. tostring(soulSystem2.HealthLevel))
+			end
+		end, 0.5)
+	end
+
+	-- === Soul Bank (persistent meta-currency via UserDataStorage) ===
+
+	@ExecSpace("ServerOnly")
+	method void RefreshSoulBankBalance(string userId)
+		self.SoulBankBalance = self:GetSoulBankBalance(userId)
+	end
+
+	@ExecSpace("ServerOnly")
+	method void DepositToSoulBank(string userId, number amount)
+		if userId == nil or userId == "" or amount <= 0 then
+			return
+		end
+
+		local storage = _DataStorageService:GetUserDataStorage(userId)
+		if storage == nil then
+			if self.DebugLogs then
+				log("RogueliteRunManager: failed to get UserDataStorage for " .. tostring(userId))
+			end
+			return
+		end
+
+		local self_ref = self
+		storage:BatchGetAsync({self.SoulBankStorageKey}, function(err, keys, pages)
+			local current = 0
+			if err == 0 and pages ~= nil then
+				local ok, items = pcall(function() return pages:GetCurrentPageDatas() end)
+				if ok and items ~= nil then
+					for _, item in ipairs(items) do
+						if item ~= nil and item.KeyInfo ~= nil and item.KeyInfo.Key == self_ref.SoulBankStorageKey then
+							current = tonumber(item.Value) or 0
+							break
+						end
+					end
+				end
+			end
+
+			local newTotal = current + amount
+			local data = {}
+			data[self_ref.SoulBankStorageKey] = tostring(newTotal)
+			storage:BatchSetAsync(data, function(setErr, setKeys)
+				if setErr == 0 then
+					self_ref.SoulBankBalance = newTotal
+				end
+				if self_ref.DebugLogs then
+					if setErr == 0 then
+						log("RogueliteRunManager: banked " .. tostring(amount) .. " " .. self_ref.MetaCurrencyName .. " (total=" .. tostring(newTotal) .. ") for " .. tostring(userId))
+					else
+						log("RogueliteRunManager: failed to save soul bank, err=" .. tostring(setErr))
+					end
+				end
+			end)
+		end)
+	end
+
+	@ExecSpace("ServerOnly")
+	method number GetSoulBankBalance(string userId)
+		if userId == nil or userId == "" then
+			return 0
+		end
+
+		local storage = _DataStorageService:GetUserDataStorage(userId)
+		if storage == nil then
+			return 0
+		end
+
+		local err, value = storage:GetAndWait(self.SoulBankStorageKey)
+		if err == 0 and value ~= nil then
+			return tonumber(value) or 0
+		end
+
+		return 0
+	end
+
+	@ExecSpace("ServerOnly")
+	method boolean TrySpendFromSoulBank(string userId, number cost)
+		if userId == nil or userId == "" or cost <= 0 then
+			return false
+		end
+
+		local balance = self:GetSoulBankBalance(userId)
+		if balance < cost then
+			return false
+		end
+
+		local newBalance = balance - cost
+		local storage = _DataStorageService:GetUserDataStorage(userId)
+		if storage == nil then
+			return false
+		end
+
+		local data = {}
+		data[self.SoulBankStorageKey] = tostring(newBalance)
+		local err, setKeys = storage:BatchSetAndWait(data)
+		if err == 0 then
+			self.SoulBankBalance = newBalance
+			if self.DebugLogs then
+				log("RogueliteRunManager: spent " .. tostring(cost) .. " " .. self.MetaCurrencyName .. " (remaining=" .. tostring(newBalance) .. ") for " .. tostring(userId))
+			end
+			return true
+		end
+
+		return false
+	end
+
+end

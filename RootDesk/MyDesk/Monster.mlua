@@ -91,12 +91,9 @@ script Monster extends Component
 		end
 		
 		local delayHide = function()
+			-- Never destroy: hide + disable only, so run reset can respawn this monster
 			self.Entity:SetVisible(false)
 			self.Entity:SetEnable(false)
-			
-			if self.RespawnOn == false then
-				self.Entity:Destroy()
-			end
 		end
 		
 		_TimerService:SetTimerOnce(delayHide, self.DestroyDelay)

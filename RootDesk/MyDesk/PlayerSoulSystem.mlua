@@ -37,6 +37,9 @@ script PlayerSoulSystem extends Component
 	@Sync
 	property boolean InputLocked = false
 
+	@MinValue(1)
+	property number DefaultMaxHp = 120
+
 	@HideFromInspector
 	property number CachedWalkSpeed = -1
 
@@ -53,10 +56,11 @@ script PlayerSoulSystem extends Component
 	method void OnBeginPlay()
 		local playerComponent = self.Entity:GetComponent("PlayerComponent")
 		if isvalid(playerComponent) then
-			if playerComponent.MaxHp <= 0 then
-				playerComponent.MaxHp = 1000
-			end
-			self.BaseMaxHp = playerComponent.MaxHp
+			-- BaseMaxHp is the true default, never the upgraded value
+			self.BaseMaxHp = self.DefaultMaxHp
+			-- Never spawn inflated: compute from levels but clamp to what levels should allow
+			local maxAllowed = math.floor(self.DefaultMaxHp * self:GetHealthMultiplier())
+			playerComponent.MaxHp = maxAllowed
 			playerComponent.Hp = playerComponent.MaxHp
 		end
 
@@ -173,10 +177,8 @@ script PlayerSoulSystem extends Component
 			return
 		end
 
-		if self.BaseMaxHp <= 0 then
-			self.BaseMaxHp = playerComponent.MaxHp
-		end
-
+		-- Always base upgrades on the immutable default, never the inflated value
+		self.BaseMaxHp = self.DefaultMaxHp
 		local newMaxHp = math.floor(self.BaseMaxHp * self:GetHealthMultiplier())
 		if newMaxHp < 1 then
 			newMaxHp = 1
@@ -204,6 +206,24 @@ script PlayerSoulSystem extends Component
 		local beforeLevel = self.AttackLevel
 		self.AttackLevel = self.AttackLevel + 1
 		log("PlayerSoulSystem IncreaseAttack: level " .. tostring(beforeLevel) .. " -> " .. tostring(self.AttackLevel))
+	end
+
+	@ExecSpace("ServerOnly")
+	method void ResetRunUpgrades()
+		self.TotalSouls = 0
+		self.HealthLevel = 1
+		self.StaminaLevel = 1
+		self.AttackLevel = 1
+
+		local playerComponent = self.Entity:GetComponent("PlayerComponent")
+		if isvalid(playerComponent) then
+			self.BaseMaxHp = self.DefaultMaxHp
+			playerComponent.MaxHp = math.floor(self.DefaultMaxHp)
+			playerComponent.Hp = playerComponent.MaxHp
+		end
+
+		self.CurrentStamina = self:GetMaxStamina()
+		log("PlayerSoulSystem ResetRunUpgrades: levels->1, MaxHp->" .. tostring(self.DefaultMaxHp))
 	end
 
 	@EventSender("Self")
