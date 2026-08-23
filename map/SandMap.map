@@ -16,7 +16,7 @@
       {
         "id": "485224d1-a218-4119-9b68-bdf31af10d96",
         "path": "/maps/SandMap",
-        "componentNames": "MOD.Core.MapComponent,MOD.Core.FootholdComponent",
+        "componentNames": "MOD.Core.MapComponent,MOD.Core.FootholdComponent,MOD.Core.SoundComponent",
         "jsonString": {
           "name": "SandMap",
           "path": "/maps/SandMap",
@@ -39165,6 +39165,14 @@
                   }
                 ]
               },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SoundComponent",
+              "AudioClipRUID": "cc16343374894dd49ad90233a394c78d",
+              "Bgm": true,
+              "PlayOnEnable": true,
+              "Volume": 1.0,
               "Enable": true
             }
           ],
