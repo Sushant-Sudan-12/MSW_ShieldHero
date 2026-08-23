@@ -29,6 +29,10 @@ script ShieldThrow extends Component
 	@MinValue(0)
 	property number BoomerangRange = 6.0
 
+	-- Pristine range before permanent Echo Shard upgrades scale it (set once by RogueliteRunManager)
+	@HideFromInspector
+	property number BaseBoomerangRange = 0
+
 	@MinValue(0)
 	property number BoomerangDistanceTravelled = 0
 
@@ -130,7 +134,10 @@ script ShieldThrow extends Component
 		end
 
 		self.LastUseTime = _UtilLogic.ElapsedSeconds
-		self.Entity.StateComponent:ChangeState("THROW")
+		local stateComponent = self.Entity.StateComponent
+		if isvalid(stateComponent) then
+			stateComponent:ChangeState("ATTACK")
+		end
 
 		local transform = self.Entity.TransformComponent
 		if isvalid(transform) == false then

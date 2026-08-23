@@ -26,7 +26,8 @@
         "script.PlayerSoulSystem",
         "script.ShieldThrow",
         "script.SampleParryInvincible",
-        "script.RogueliteRunManager"
+        "script.RogueliteRunManager",
+        "script.PlayerWorldShop"
       ],
       "Properties": [],
       "Values": [
@@ -302,12 +303,20 @@
               "AvatarBodyActionStateName": "attack",
               "PlayRate": 2.2
             },
+            "ALERT": {
+              "AvatarBodyActionStateName": "alert",
+              "PlayRate": 1.0
+            },
+            "PARRY": {
+              "AvatarBodyActionStateName": "alert",
+              "PlayRate": 1.0
+            },
             "HIT": {
               "AvatarBodyActionStateName": "hit",
               "PlayRate": 1.0
             },
             "CROUCH": {
-              "AvatarBodyActionStateName": "crouch",
+              "AvatarBodyActionStateName": "fall",
               "PlayRate": 1.0
             },
             "FALL": {
@@ -361,6 +370,8 @@
             "IDLE": "stand",
             "MOVE": "walk",
             "ATTACK": "attack",
+            "ALERT": "alert",
+            "PARRY": "alert",
             "HIT": "hit",
             "CROUCH": "crouch",
             "FALL": "fall",
@@ -1126,6 +1137,15 @@
             "y": -2.0,
             "z": 0.0
           }
+        },
+        {
+          "TargetType": "script.SampleParryInvincible",
+          "Name": "ParryStateName",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": "PARRY"
         }
       ],
       "EventLinks": [],

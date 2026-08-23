@@ -22,6 +22,16 @@ script PlayerSoulSystem extends Component
 	@Sync
 	property number AttackUpgradePercent = 20
 
+	-- === Permanent (Echo Shard) Upgrade Bonuses - persist across runs/deaths ===
+	@Sync
+	property number PermanentHealthBonusPercent = 0
+
+	@Sync
+	property number PermanentStaminaBonusPercent = 0
+
+	@Sync
+	property number PermanentAttackBonusPercent = 0
+
 	@Sync
 	property number BaseMaxStamina = 100
 
@@ -93,15 +103,15 @@ script PlayerSoulSystem extends Component
 	end
 
 	method number GetHealthMultiplier()
-		return 1 + ((self.HealthLevel - 1) * (self.HealthUpgradePercent / 100))
+		return 1 + ((self.HealthLevel - 1) * (self.HealthUpgradePercent / 100)) + (self.PermanentHealthBonusPercent / 100)
 	end
 
 	method number GetStaminaMultiplier()
-		return 1 + ((self.StaminaLevel - 1) * (self.StaminaUpgradePercent / 100))
+		return 1 + ((self.StaminaLevel - 1) * (self.StaminaUpgradePercent / 100)) + (self.PermanentStaminaBonusPercent / 100)
 	end
 
 	method number GetAttackMultiplier()
-		return 1 + ((self.AttackLevel - 1) * (self.AttackUpgradePercent / 100))
+		return 1 + ((self.AttackLevel - 1) * (self.AttackUpgradePercent / 100)) + (self.PermanentAttackBonusPercent / 100)
 	end
 
 	method number GetMaxStamina()
@@ -206,6 +216,38 @@ script PlayerSoulSystem extends Component
 		local beforeLevel = self.AttackLevel
 		self.AttackLevel = self.AttackLevel + 1
 		log("PlayerSoulSystem IncreaseAttack: level " .. tostring(beforeLevel) .. " -> " .. tostring(self.AttackLevel))
+	end
+
+	-- Called by RogueliteRunManager after an Echo Shard permanent upgrade purchase; never reset on death
+	@ExecSpace("ServerOnly")
+	method void ApplyPermanentHealthBonus(number percent)
+		self.PermanentHealthBonusPercent = percent
+
+		local playerComponent = self.Entity:GetComponent("PlayerComponent")
+		if isvalid(playerComponent) == false then
+			return
+		end
+
+		self.BaseMaxHp = self.DefaultMaxHp
+		local newMaxHp = math.floor(self.BaseMaxHp * self:GetHealthMultiplier())
+		if newMaxHp < 1 then
+			newMaxHp = 1
+		end
+		playerComponent.MaxHp = newMaxHp
+		if playerComponent.Hp > newMaxHp then
+			playerComponent.Hp = newMaxHp
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void ApplyPermanentStaminaBonus(number percent)
+		self.PermanentStaminaBonusPercent = percent
+		self.CurrentStamina = self:GetMaxStamina()
+	end
+
+	@ExecSpace("ServerOnly")
+	method void ApplyPermanentAttackBonus(number percent)
+		self.PermanentAttackBonusPercent = percent
 	end
 
 	@ExecSpace("ServerOnly")

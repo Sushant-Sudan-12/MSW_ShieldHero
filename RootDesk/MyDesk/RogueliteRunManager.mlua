@@ -31,6 +31,42 @@ script RogueliteRunManager extends Component
 	@Sync
 	property number SoulBankBalance = 0
 
+	-- === Permanent Echo Shard Upgrades (persist across deaths/sessions) ===
+	property string EchoUpgradeStorageKey = "EchoUpgrades"
+
+	@MinValue(0)
+	property number BonusPercentPerLevel = 10
+
+	@MinValue(0)
+	property number HealthUpgradeCostBase = 500
+
+	@MinValue(0)
+	property number AttackUpgradeCostBase = 500
+
+	@MinValue(0)
+	property number StaminaSpeedUpgradeCostBase = 500
+
+	@MinValue(0)
+	property number ShieldThrowDistanceUpgradeCostBase = 400
+
+	@MinValue(0)
+	property number ParryWindowUpgradeCostBase = 600
+
+	@Sync
+	property integer PermanentHealthLevel = 1
+
+	@Sync
+	property integer PermanentAttackLevel = 1
+
+	@Sync
+	property integer PermanentStaminaSpeedLevel = 1
+
+	@Sync
+	property integer PermanentShieldThrowDistanceLevel = 1
+
+	@Sync
+	property integer PermanentParryWindowLevel = 1
+
 	@HideFromInspector
 	property boolean WasDead = false
 
@@ -51,6 +87,7 @@ script RogueliteRunManager extends Component
 			local uid = playerComponent.UserId
 			if uid ~= nil and uid ~= "" then
 				self:RefreshSoulBankBalance(uid)
+				self:LoadPermanentUpgrades(uid)
 			end
 		end
 
@@ -96,6 +133,18 @@ script RogueliteRunManager extends Component
 				local balance = self:GetSoulBankBalance(playerComponent.UserId)
 				log("SOUL BANK: " .. tostring(balance) .. " " .. tostring(self.MetaCurrencyName))
 			end
+		end
+	end
+
+	-- Reuses the existing UpgradeRequestEvent; run-based upgrades are handled by PlayerSoulSystem,
+	-- permanent Echo Shard upgrades (unrecognized types there) are handled here.
+	@ExecSpace("ServerOnly")
+	@EventSender("Self")
+	handler HandleUpgradeRequestEvent(UpgradeRequestEvent event)
+		local upgradeType = event.UpgradeType
+		if upgradeType == "PermanentHealth" or upgradeType == "PermanentAttackPower" or upgradeType == "PermanentStaminaSpeed"
+			or upgradeType == "ShieldThrowDistance" or upgradeType == "ParryWindow" then
+			self:PurchasePermanentUpgrade(upgradeType)
 		end
 	end
 
@@ -341,6 +390,152 @@ script RogueliteRunManager extends Component
 		end
 
 		return false
+	end
+
+	-- === Permanent Echo Shard Upgrades ===
+
+	@ExecSpace("ServerOnly")
+	method void LoadPermanentUpgrades(string userId)
+		if userId == nil or userId == "" then
+			return
+		end
+
+		local storage = _DataStorageService:GetUserDataStorage(userId)
+		if storage == nil then
+			return
+		end
+
+		local err, value = storage:GetAndWait(self.EchoUpgradeStorageKey)
+		if err == 0 and value ~= nil and value ~= "" then
+			local ok, data = pcall(function() return _HttpService:JSONDecode(value) end)
+			if ok and type(data) == "table" then
+				self.PermanentHealthLevel = tonumber(data.Health) or 1
+				self.PermanentAttackLevel = tonumber(data.Attack) or 1
+				self.PermanentStaminaSpeedLevel = tonumber(data.StaminaSpeed) or 1
+				self.PermanentShieldThrowDistanceLevel = tonumber(data.ShieldThrowDistance) or 1
+				self.PermanentParryWindowLevel = tonumber(data.ParryWindow) or 1
+			end
+		end
+
+		self:ApplyAllPermanentUpgrades()
+	end
+
+	@ExecSpace("ServerOnly")
+	method void SavePermanentUpgrades(string userId)
+		if userId == nil or userId == "" then
+			return
+		end
+
+		local storage = _DataStorageService:GetUserDataStorage(userId)
+		if storage == nil then
+			return
+		end
+
+		local data = {
+			Health = self.PermanentHealthLevel,
+			Attack = self.PermanentAttackLevel,
+			StaminaSpeed = self.PermanentStaminaSpeedLevel,
+			ShieldThrowDistance = self.PermanentShieldThrowDistanceLevel,
+			ParryWindow = self.PermanentParryWindowLevel,
+		}
+
+		local payload = {}
+		payload[self.EchoUpgradeStorageKey] = _HttpService:JSONEncode(data)
+		storage:BatchSetAndWait(payload)
+	end
+
+	@ExecSpace("ServerOnly")
+	method void ApplyAllPermanentUpgrades()
+		local soulSystem = self.Entity:GetComponent("PlayerSoulSystem")
+		if isvalid(soulSystem) then
+			soulSystem:ApplyPermanentHealthBonus((self.PermanentHealthLevel - 1) * self.BonusPercentPerLevel)
+			soulSystem:ApplyPermanentAttackBonus((self.PermanentAttackLevel - 1) * self.BonusPercentPerLevel)
+			soulSystem:ApplyPermanentStaminaBonus((self.PermanentStaminaSpeedLevel - 1) * self.BonusPercentPerLevel)
+		end
+
+		local shieldThrow = self.Entity:GetComponent("ShieldThrow")
+		if isvalid(shieldThrow) then
+			if shieldThrow.BaseBoomerangRange <= 0 then
+				shieldThrow.BaseBoomerangRange = shieldThrow.BoomerangRange
+			end
+			shieldThrow.BoomerangRange = shieldThrow.BaseBoomerangRange * (1 + ((self.PermanentShieldThrowDistanceLevel - 1) * (self.BonusPercentPerLevel / 100)))
+		end
+
+		-- ParryWindow: no ShieldParry component exists yet in this project; level is stored/persisted
+		-- for whenever parry-window mechanics are implemented (read PermanentParryWindowLevel there).
+	end
+
+	method integer GetPermanentUpgradeLevel(string upgradeType)
+		if upgradeType == "PermanentHealth" then
+			return self.PermanentHealthLevel
+		elseif upgradeType == "PermanentAttackPower" then
+			return self.PermanentAttackLevel
+		elseif upgradeType == "PermanentStaminaSpeed" then
+			return self.PermanentStaminaSpeedLevel
+		elseif upgradeType == "ShieldThrowDistance" then
+			return self.PermanentShieldThrowDistanceLevel
+		elseif upgradeType == "ParryWindow" then
+			return self.PermanentParryWindowLevel
+		end
+		return 0
+	end
+
+	@ExecSpace("ServerOnly")
+	method number GetPermanentUpgradeCost(string upgradeType)
+		local baseCost = 0
+		if upgradeType == "PermanentHealth" then
+			baseCost = self.HealthUpgradeCostBase
+		elseif upgradeType == "PermanentAttackPower" then
+			baseCost = self.AttackUpgradeCostBase
+		elseif upgradeType == "PermanentStaminaSpeed" then
+			baseCost = self.StaminaSpeedUpgradeCostBase
+		elseif upgradeType == "ShieldThrowDistance" then
+			baseCost = self.ShieldThrowDistanceUpgradeCostBase
+		elseif upgradeType == "ParryWindow" then
+			baseCost = self.ParryWindowUpgradeCostBase
+		else
+			return -1
+		end
+
+		return math.floor(baseCost * self:GetPermanentUpgradeLevel(upgradeType))
+	end
+
+	@ExecSpace("ServerOnly")
+	method boolean PurchasePermanentUpgrade(string upgradeType)
+		local playerComponent = self.Entity:GetComponent("PlayerComponent")
+		if isvalid(playerComponent) == false then
+			return false
+		end
+
+		local userId = playerComponent.UserId
+		local cost = self:GetPermanentUpgradeCost(upgradeType)
+		if cost < 0 then
+			log("RogueliteRunManager PurchasePermanentUpgrade: unknown upgradeType=" .. tostring(upgradeType))
+			return false
+		end
+
+		if self:TrySpendFromSoulBank(userId, cost) == false then
+			log("RogueliteRunManager PurchasePermanentUpgrade: insufficient " .. self.MetaCurrencyName .. " for " .. tostring(upgradeType) .. " (cost=" .. tostring(cost) .. ")")
+			return false
+		end
+
+		if upgradeType == "PermanentHealth" then
+			self.PermanentHealthLevel = self.PermanentHealthLevel + 1
+		elseif upgradeType == "PermanentAttackPower" then
+			self.PermanentAttackLevel = self.PermanentAttackLevel + 1
+		elseif upgradeType == "PermanentStaminaSpeed" then
+			self.PermanentStaminaSpeedLevel = self.PermanentStaminaSpeedLevel + 1
+		elseif upgradeType == "ShieldThrowDistance" then
+			self.PermanentShieldThrowDistanceLevel = self.PermanentShieldThrowDistanceLevel + 1
+		elseif upgradeType == "ParryWindow" then
+			self.PermanentParryWindowLevel = self.PermanentParryWindowLevel + 1
+		end
+
+		self:ApplyAllPermanentUpgrades()
+		self:SavePermanentUpgrades(userId)
+
+		log("RogueliteRunManager PurchasePermanentUpgrade: " .. tostring(upgradeType) .. " -> level " .. tostring(self:GetPermanentUpgradeLevel(upgradeType)) .. " cost=" .. tostring(cost))
+		return true
 	end
 
 end

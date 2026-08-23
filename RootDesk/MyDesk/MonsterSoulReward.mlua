@@ -4,6 +4,10 @@ script MonsterSoulReward extends Component
 	@Sync
 	property number SoulsToGive = 10
 
+	@Description("Persistent Echo Shards granted directly to the killer's permanent wallet, in addition to run Souls")
+	@Sync
+	property number EchoShardsToGive = 10
+
 	method Entity FindSoulOwner(Entity attacker)
 		local current = attacker
 		while isvalid(current) do
@@ -35,6 +39,12 @@ script MonsterSoulReward extends Component
 			local playerSoulSystem = soulOwner:GetComponent("PlayerSoulSystem")
 			playerSoulSystem:AddSouls(self.SoulsToGive)
 			log("MonsterSoulReward GrantSoulsToPlayer: granted " .. tostring(self.SoulsToGive) .. " to " .. tostring(soulOwner))
+
+			local runManager = soulOwner:GetComponent("RogueliteRunManager")
+			local playerComponent = soulOwner:GetComponent("PlayerComponent")
+			if isvalid(runManager) and isvalid(playerComponent) and self.EchoShardsToGive > 0 then
+				runManager:DepositToSoulBank(playerComponent.UserId, self.EchoShardsToGive)
+			end
 			return
 		end
 

@@ -16,6 +16,10 @@ script SampleParryInvincible extends Component
     @MinValue(0)
     property number RapidPressMultiplier = 1.75
 
+    property string ParryStateName = "ATTACK"
+
+	property string IdleStateName = "IDLE"
+
 	property Vector3 SpawnOffset = Vector3(0.8, 0.6, 0)
 
     @HideFromInspector
@@ -38,7 +42,8 @@ script SampleParryInvincible extends Component
         local playerController = self.Entity.PlayerControllerComponent
         if isvalid(playerController) then
             playerController:SetActionKey(KeyboardKey.Mouse1, "SampleParryStart")
-            log("CLIENT mapped E to SampleParryStart")
+            playerController:SetActionKey(KeyboardKey.S, "SampleParryStart")
+            log("CLIENT mapped Mouse1/S to SampleParryStart")
         end
     end
 
@@ -124,6 +129,21 @@ script SampleParryInvincible extends Component
         log("SERVER parry ended source=" .. tostring(source))
     end
 
+    method void TryChangeState(string stateName)
+        if stateName == nil or stateName == "" then
+            return
+        end
+
+        local stateComponent = self.Entity.StateComponent
+        if isvalid(stateComponent) then
+            local upper = string.upper(stateName)
+            local changed = stateComponent:ChangeState(upper)
+            if changed == false and upper ~= "CROUCH" then
+                stateComponent:ChangeState("CROUCH")
+            end
+        end
+    end
+
 	@ExecSpace("ServerOnly")
     method void SpawnParryModel()
         local modelId = _EntryService:GetModelIdByName("Model_Parry")
@@ -193,6 +213,7 @@ script SampleParryInvincible extends Component
         end
 
         self.IsParryHeld = true
+        self:TryChangeState(self.ParryStateName)
 		self:SpawnParryModel()
         self:SetPlayerHitEnabled(false, source)
         log("SERVER parry started source=" .. tostring(source))
