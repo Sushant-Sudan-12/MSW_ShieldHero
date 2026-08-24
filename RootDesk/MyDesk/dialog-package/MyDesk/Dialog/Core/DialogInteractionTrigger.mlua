@@ -19,10 +19,4 @@ script DialogInteractionTrigger extends Component
 		self:StartDialog()
 	end
 
-	@ExecSpace("ClientOnly")
-	@EventSender("Self")
-	handler HandleInteractionEnterEvent(InteractionEnterEvent event)
-		self:StartDialog()
-	end
-
 end

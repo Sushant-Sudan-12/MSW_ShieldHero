@@ -234,9 +234,8 @@ script PlayerSoulSystem extends Component
 			newMaxHp = 1
 		end
 		playerComponent.MaxHp = newMaxHp
-		if playerComponent.Hp > newMaxHp then
-			playerComponent.Hp = newMaxHp
-		end
+		-- Always heal to full on a permanent bonus change (spawn/load/purchase), not just clamp down
+		playerComponent.Hp = newMaxHp
 	end
 
 	@ExecSpace("ServerOnly")
@@ -259,19 +258,24 @@ script PlayerSoulSystem extends Component
 
 		local playerComponent = self.Entity:GetComponent("PlayerComponent")
 		if isvalid(playerComponent) then
+			-- Recompute from the permanent (Echo Shard) bonus only - run-level bonus is gone, permanent stays
 			self.BaseMaxHp = self.DefaultMaxHp
-			playerComponent.MaxHp = math.floor(self.DefaultMaxHp)
-			playerComponent.Hp = playerComponent.MaxHp
+			local newMaxHp = math.floor(self.BaseMaxHp * self:GetHealthMultiplier())
+			if newMaxHp < 1 then
+				newMaxHp = 1
+			end
+			playerComponent.MaxHp = newMaxHp
+			playerComponent.Hp = newMaxHp
 		end
 
 		self.CurrentStamina = self:GetMaxStamina()
-		log("PlayerSoulSystem ResetRunUpgrades: levels->1, MaxHp->" .. tostring(self.DefaultMaxHp))
+		log("PlayerSoulSystem ResetRunUpgrades: levels->1, MaxHp->" .. tostring(isvalid(playerComponent) and playerComponent.MaxHp or self.DefaultMaxHp))
 	end
 
-	@EventSender("Self")
-	handler HandleUpgradeRequestEvent(UpgradeRequestEvent event)
-		local upgradeType = event.UpgradeType
-		log("PlayerSoulSystem HandleUpgradeRequestEvent: received type=" .. tostring(upgradeType)
+	-- Called directly (RPC) from client UI scripts, e.g. self.Entity:GetComponent("PlayerSoulSystem"):RequestUpgrade(type)
+	@ExecSpace("Server")
+	method void RequestUpgrade(string upgradeType)
+		log("PlayerSoulSystem RequestUpgrade: received type=" .. tostring(upgradeType)
 			.. " current H=" .. tostring(self.HealthLevel)
 			.. " S=" .. tostring(self.StaminaLevel)
 			.. " A=" .. tostring(self.AttackLevel)
@@ -279,23 +283,30 @@ script PlayerSoulSystem extends Component
 
 		if upgradeType == "Health" then
 			self:IncreaseHealth()
-			log("PlayerSoulSystem HandleUpgradeRequestEvent: applied Health -> H=" .. tostring(self.HealthLevel))
+			log("PlayerSoulSystem RequestUpgrade: applied Health -> H=" .. tostring(self.HealthLevel))
 			return
 		end
 
 		if upgradeType == "Stamina" then
 			self:IncreaseStamina()
-			log("PlayerSoulSystem HandleUpgradeRequestEvent: applied Stamina -> S=" .. tostring(self.StaminaLevel) .. " CurrentStamina=" .. tostring(self.CurrentStamina) .. " MaxStamina=" .. tostring(self:GetMaxStamina()))
+			log("PlayerSoulSystem RequestUpgrade: applied Stamina -> S=" .. tostring(self.StaminaLevel) .. " CurrentStamina=" .. tostring(self.CurrentStamina) .. " MaxStamina=" .. tostring(self:GetMaxStamina()))
 			return
 		end
 
 		if upgradeType == "Attack Power" then
 			self:IncreaseAttack()
-			log("PlayerSoulSystem HandleUpgradeRequestEvent: applied Attack Power -> A=" .. tostring(self.AttackLevel))
+			log("PlayerSoulSystem RequestUpgrade: applied Attack Power -> A=" .. tostring(self.AttackLevel))
 			return
 		end
 
-		log("PlayerSoulSystem HandleUpgradeRequestEvent: unknown upgradeType=" .. tostring(upgradeType))
+		-- Not a run-based type; delegate to the persistent Echo Shard permanent-upgrade shop
+		local runManager = self.Entity:GetComponent("RogueliteRunManager")
+		if isvalid(runManager) then
+			runManager:PurchasePermanentUpgrade(upgradeType)
+			return
+		end
+
+		log("PlayerSoulSystem RequestUpgrade: unknown upgradeType=" .. tostring(upgradeType))
 	end
 
 	method void SetInputLocked(boolean locked)

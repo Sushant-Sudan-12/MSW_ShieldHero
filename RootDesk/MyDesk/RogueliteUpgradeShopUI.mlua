@@ -1,0 +1,254 @@
+@Component
+script RogueliteUpgradeShopUI extends Component
+
+	property ButtonComponent btnHealth = nil
+	property ButtonComponent btnAttackPower = nil
+	property ButtonComponent btnStaminaSpeed = nil
+	property ButtonComponent btnClose = nil
+	property Entity panelRoot = nil
+
+	property Entity balanceTextTarget = nil
+	property Entity healthLevelTextTarget = nil
+	property Entity healthCostTextTarget = nil
+	property Entity attackLevelTextTarget = nil
+	property Entity attackCostTextTarget = nil
+	property Entity staminaLevelTextTarget = nil
+	property Entity staminaCostTextTarget = nil
+
+	@HideFromInspector
+	property boolean IsOpen = false
+
+	@HideFromInspector
+	property UpgradableObject ActiveObject = nil
+
+	@HideFromInspector
+	property number ClickDebounceSeconds = 0.2
+
+	@HideFromInspector
+	property number LastClickTime = -999
+
+	@HideFromInspector
+	property boolean KeybindBound = false
+
+	@ExecSpace("ClientOnly")
+	method void OnBeginPlay()
+		self:ConnectButton(self.btnHealth, function() self:OnHealthClicked() end)
+		self:ConnectButton(self.btnAttackPower, function() self:OnAttackPowerClicked() end)
+		self:ConnectButton(self.btnStaminaSpeed, function() self:OnStaminaSpeedClicked() end)
+		self:ConnectButton(self.btnClose, function() self:Close() end)
+
+		if isvalid(self.panelRoot) then
+			self.panelRoot.Enable = false
+		end
+
+		self:TryBindOpenKey()
+	end
+
+	method void TryBindOpenKey()
+		if self.KeybindBound then
+			return
+		end
+
+		local player = _UserService.LocalPlayer
+		if isvalid(player) == false then
+			return
+		end
+
+		local playerController = player.PlayerControllerComponent
+		if isvalid(playerController) == false then
+			return
+		end
+
+		playerController:SetActionKey(KeyboardKey.J, "ToggleRogueliteShop")
+		player:ConnectEvent(PlayerActionEvent, function(event) self:HandlePlayerActionEvent(event) end)
+		self.KeybindBound = true
+	end
+
+	method void HandlePlayerActionEvent(PlayerActionEvent event)
+		if event.ActionName ~= "ToggleRogueliteShop" then
+			return
+		end
+
+		local player = _UserService.LocalPlayer
+		if isvalid(player) == false or string.find(tostring(player.Path), "StartingArea", 1, true) == nil then
+			return
+		end
+
+		if self.IsOpen then
+			self:Close()
+		else
+			self:Open()
+		end
+	end
+
+	@ExecSpace("ClientOnly")
+	method void OnUpdate(number delta)
+		self:TryBindOpenKey()
+
+		if self.IsOpen then
+			self:UpdateShopTexts()
+		end
+	end
+
+	method void ConnectButton(ButtonComponent button, any callback)
+		if isvalid(button) then
+			button.Entity:ConnectEvent(ButtonClickEvent, callback)
+		end
+	end
+
+	method void SetActiveObject(UpgradableObject target)
+		if isvalid(target) == false then
+			return
+		end
+		self.ActiveObject = target
+	end
+
+	method void ClearActiveObject()
+		self.ActiveObject = nil
+	end
+
+	method void Open()
+		if isvalid(self.panelRoot) then
+			self.panelRoot.Enable = true
+			self.IsOpen = true
+			self:SetPlayerInputLocked(true)
+			self:UpdateShopTexts()
+		end
+	end
+
+	method void Close()
+		if isvalid(self.panelRoot) then
+			self.panelRoot.Enable = false
+			self.IsOpen = false
+			self:SetPlayerInputLocked(false)
+			self:ClearActiveObject()
+		end
+	end
+
+	method void SetPlayerInputLocked(boolean locked)
+		local player = _UserService.LocalPlayer
+		if isvalid(player) == false then
+			return
+		end
+
+		local soulSystem = player:GetComponent("PlayerSoulSystem")
+		if isvalid(soulSystem) then
+			soulSystem:SetInputLocked(locked)
+		end
+	end
+
+	method boolean CanAcceptClick()
+		local now = _UtilLogic.ElapsedSeconds
+		if now - self.LastClickTime < self.ClickDebounceSeconds then
+			return false
+		end
+
+		self.LastClickTime = now
+		return true
+	end
+
+	method void OnHealthClicked()
+		if self:CanAcceptClick() == false then
+			return
+		end
+		self:RequestPermanentUpgrade("PermanentHealth")
+	end
+
+	method void OnAttackPowerClicked()
+		if self:CanAcceptClick() == false then
+			return
+		end
+		self:RequestPermanentUpgrade("PermanentAttackPower")
+	end
+
+	method void OnStaminaSpeedClicked()
+		if self:CanAcceptClick() == false then
+			return
+		end
+		self:RequestPermanentUpgrade("PermanentStaminaSpeed")
+	end
+
+	method void RequestPermanentUpgrade(string upgradeType)
+		local player = _UserService.LocalPlayer
+		if isvalid(player) == false then
+			return
+		end
+
+		local soulSystem = player:GetComponent("PlayerSoulSystem")
+		if isvalid(soulSystem) == false then
+			log("RogueliteUpgradeShopUI RequestPermanentUpgrade: PlayerSoulSystem missing for type=" .. tostring(upgradeType))
+			return
+		end
+
+		log("RogueliteUpgradeShopUI RequestPermanentUpgrade: calling PlayerSoulSystem:RequestUpgrade type=" .. tostring(upgradeType))
+		soulSystem:RequestUpgrade(upgradeType)
+
+		-- Kiosk stays open for browsing/buying multiple upgrades; texts refresh live via OnUpdate
+		self:UpdateShopTexts()
+	end
+
+	method any GetRunManager()
+		local player = _UserService.LocalPlayer
+		if isvalid(player) == false then
+			return nil
+		end
+
+		return player:GetComponent("RogueliteRunManager")
+	end
+
+	-- Mirrors RogueliteRunManager:GetPermanentUpgradeCost() client-side (that method is ServerOnly)
+	method number GetDisplayCost(any runManager, string upgradeType)
+		local baseCost = 0
+		if upgradeType == "PermanentHealth" then
+			baseCost = runManager.HealthUpgradeCostBase
+		elseif upgradeType == "PermanentAttackPower" then
+			baseCost = runManager.AttackUpgradeCostBase
+		elseif upgradeType == "PermanentStaminaSpeed" then
+			baseCost = runManager.StaminaSpeedUpgradeCostBase
+		else
+			return 0
+		end
+
+		return math.floor(baseCost * runManager:GetPermanentUpgradeLevel(upgradeType))
+	end
+
+	method void UpdateShopTexts()
+		local runManager = self:GetRunManager()
+		if isvalid(runManager) == false then
+			return
+		end
+
+		self:WriteText(self.balanceTextTarget, tostring(math.floor(runManager.SoulBankBalance)) .. " " .. tostring(runManager.MetaCurrencyName))
+
+		self:WriteText(self.healthLevelTextTarget, "Lv " .. tostring(runManager.PermanentHealthLevel))
+		self:WriteText(self.healthCostTextTarget, tostring(self:GetDisplayCost(runManager, "PermanentHealth")))
+
+		self:WriteText(self.attackLevelTextTarget, "Lv " .. tostring(runManager.PermanentAttackLevel))
+		self:WriteText(self.attackCostTextTarget, tostring(self:GetDisplayCost(runManager, "PermanentAttackPower")))
+
+		self:WriteText(self.staminaLevelTextTarget, "Lv " .. tostring(runManager.PermanentStaminaSpeedLevel))
+		self:WriteText(self.staminaCostTextTarget, tostring(self:GetDisplayCost(runManager, "PermanentStaminaSpeed")))
+	end
+
+	method void WriteText(Entity textTarget, string value)
+		if isvalid(textTarget) == false then
+			return
+		end
+
+		if isvalid(textTarget.TextComponent) then
+			textTarget.TextComponent.Text = value
+			return
+		end
+
+		if isvalid(textTarget.TextGUIRendererComponent) then
+			textTarget.TextGUIRendererComponent.Text = value
+			return
+		end
+
+		if isvalid(textTarget.TextInputComponent) then
+			textTarget.TextInputComponent.Text = value
+			return
+		end
+	end
+
+end

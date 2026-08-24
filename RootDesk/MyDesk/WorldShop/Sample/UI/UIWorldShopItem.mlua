@@ -67,14 +67,14 @@ script UIWorldShopItem extends Component
 		if productData.PurchaseLimit > 0 then
 			local purchaseCount = _UserService.LocalPlayer.PlayerWorldShop:GetPurchaseCount(self.ProductId)
 			local remainingLimit = productData.PurchaseLimit - purchaseCount
-			self.BtnPurchase.TextComponent.Text = string.format("구매 (%d/%d)", purchaseCount, productData.PurchaseLimit)
+			self.BtnPurchase.TextComponent.Text = string.format("Buy (%d/%d)", purchaseCount, productData.PurchaseLimit)
 			
 			if remainingLimit <= 0 then
 				self.BtnPurchase.ButtonComponent.Enable = false
 			end
 		else
 			self.BtnPurchase.ButtonComponent.Enable = true
-			self.BtnPurchase.TextComponent.Text = "구매"	
+			self.BtnPurchase.TextComponent.Text = "Limit Over"	
 		end
 	end
 

@@ -67,6 +67,7 @@ script UpgradeUIAbility extends Component
     method void OnUpdate(number delta)
         if self.IsOpen then
             self:UpdateUpgradeTexts()
+            self:TryCompletePendingUpgrade()
         end
     end
     
@@ -209,15 +210,7 @@ script UpgradeUIAbility extends Component
             return
         end
 
-        local soulSystem = self:GetPlayerSoulSystem()
-        if isvalid(soulSystem) then
-            log("UpgradeUIAbility OnHealthClicked before: H=" .. tostring(soulSystem.HealthLevel) .. " S=" .. tostring(soulSystem.StaminaLevel) .. " A=" .. tostring(soulSystem.AttackLevel))
-        else
-            log("UpgradeUIAbility OnHealthClicked before: soulSystem invalid")
-        end
-
-        self:RequestUpgrade("Health")
-        self:ApplyUpgrade("Health")
+        self:StartOrReplacePendingUpgrade("Health")
     end
 
     method void OnStaminaClicked()
@@ -226,15 +219,7 @@ script UpgradeUIAbility extends Component
             return
         end
 
-        local soulSystem = self:GetPlayerSoulSystem()
-        if isvalid(soulSystem) then
-            log("UpgradeUIAbility OnStaminaClicked before: H=" .. tostring(soulSystem.HealthLevel) .. " S=" .. tostring(soulSystem.StaminaLevel) .. " A=" .. tostring(soulSystem.AttackLevel))
-        else
-            log("UpgradeUIAbility OnStaminaClicked before: soulSystem invalid")
-        end
-
-        self:RequestUpgrade("Stamina")
-        self:ApplyUpgrade("Stamina")
+        self:StartOrReplacePendingUpgrade("Stamina")
     end
 
     method void OnAttackPowerClicked()
@@ -243,15 +228,7 @@ script UpgradeUIAbility extends Component
             return
         end
 
-        local soulSystem = self:GetPlayerSoulSystem()
-        if isvalid(soulSystem) then
-            log("UpgradeUIAbility OnAttackPowerClicked before: H=" .. tostring(soulSystem.HealthLevel) .. " S=" .. tostring(soulSystem.StaminaLevel) .. " A=" .. tostring(soulSystem.AttackLevel))
-        else
-            log("UpgradeUIAbility OnAttackPowerClicked before: soulSystem invalid")
-        end
-
-        self:RequestUpgrade("Attack Power")
-        self:ApplyUpgrade("Attack Power")
+        self:StartOrReplacePendingUpgrade("Attack Power")
     end
 
     method boolean CanAcceptClick()
@@ -354,10 +331,15 @@ script UpgradeUIAbility extends Component
             return
         end
 
-        local evt = UpgradeRequestEvent()
-        evt.UpgradeType = upgradeType
-        log("UpgradeUIAbility RequestUpgrade: sending UpgradeRequestEvent type=" .. tostring(upgradeType) .. " player=" .. tostring(player))
-        player:SendEvent(evt)
+        local soulSystem = player:GetComponent("PlayerSoulSystem")
+        if isvalid(soulSystem) == false then
+            log("UpgradeUIAbility RequestUpgrade: PlayerSoulSystem missing for type=" .. tostring(upgradeType))
+            self:ClearPendingUpgrade()
+            return
+        end
+
+        log("UpgradeUIAbility RequestUpgrade: calling PlayerSoulSystem:RequestUpgrade type=" .. tostring(upgradeType))
+        soulSystem:RequestUpgrade(upgradeType)
     end
 
     method void ApplyUpgrade(string upgradeType)

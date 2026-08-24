@@ -36,14 +36,15 @@ script WorldShopSampleLogic extends Logic
 		local key = event.key
 		---------------------------------------------------------
 		if key == KeyboardKey.K then
-			self.Popup.UIWorldShop:Open()
-		elseif key == KeyboardKey.L then
-			if not _AdminLogic:IsAdminLocalPlayer() then
-				log_error("Access denied. Administrator rights required.")
+			local player = _UserService.LocalPlayer
+			if isvalid(player) == false or string.find(tostring(player.Path), "StartingArea", 1, true) == nil then
 				return
 			end
-			
-			self.AdminPopup.UIGMWorldShopTool:Open()
+
+			self.Popup.UIWorldShop:Open()
+		elseif key == KeyboardKey.L then
+			-- GM admin tool disabled for now
+			return
 		end
 	end
 

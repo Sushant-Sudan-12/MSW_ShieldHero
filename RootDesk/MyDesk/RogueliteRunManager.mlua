@@ -34,8 +34,11 @@ script RogueliteRunManager extends Component
 	-- === Permanent Echo Shard Upgrades (persist across deaths/sessions) ===
 	property string EchoUpgradeStorageKey = "EchoUpgrades"
 
+	@Description("Dev/testing toggle: when true, wipes Echo Shards + permanent upgrade levels on every new run (death/respawn). Leave false to persist them normally.")
+	property boolean ResetEchoShardsAndUpgradesOnNewRun = false
+
 	@MinValue(0)
-	property number BonusPercentPerLevel = 10
+	property number BonusPercentPerLevel = 20
 
 	@MinValue(0)
 	property number HealthUpgradeCostBase = 500
@@ -136,17 +139,8 @@ script RogueliteRunManager extends Component
 		end
 	end
 
-	-- Reuses the existing UpgradeRequestEvent; run-based upgrades are handled by PlayerSoulSystem,
-	-- permanent Echo Shard upgrades (unrecognized types there) are handled here.
-	@ExecSpace("ServerOnly")
-	@EventSender("Self")
-	handler HandleUpgradeRequestEvent(UpgradeRequestEvent event)
-		local upgradeType = event.UpgradeType
-		if upgradeType == "PermanentHealth" or upgradeType == "PermanentAttackPower" or upgradeType == "PermanentStaminaSpeed"
-			or upgradeType == "ShieldThrowDistance" or upgradeType == "ParryWindow" then
-			self:PurchasePermanentUpgrade(upgradeType)
-		end
-	end
+	-- Permanent Echo Shard upgrade purchases are routed here by PlayerSoulSystem.HandleUpgradeRequestEvent
+	-- (kept as the single handler per entity for UpgradeRequestEvent; see PurchasePermanentUpgrade below).
 
 	@ExecSpace("ServerOnly")
 	method void HandlePlayerDeath(Entity player, any playerComponent)
@@ -171,6 +165,11 @@ script RogueliteRunManager extends Component
 		-- Reset run state
 		self:ResetPlayerRunState(player, playerComponent)
 
+		-- Dev/testing toggle: wipe the persistent Echo economy on every new run
+		if self.ResetEchoShardsAndUpgradesOnNewRun then
+			self:ResetEchoEconomy(playerComponent.UserId)
+		end
+
 		-- Respawn monsters
 		if self.ResetMonstersOnDeath then
 			self:ResetAllMonsters()
@@ -183,6 +182,35 @@ script RogueliteRunManager extends Component
 			end
 			self:RespawnPlayerAtStart(player, playerComponent)
 		end, self.RespawnDelaySeconds)
+	end
+
+	@ExecSpace("ServerOnly")
+	method void ResetEchoEconomy(string userId)
+		if userId == nil or userId == "" then
+			return
+		end
+
+		local storage = _DataStorageService:GetUserDataStorage(userId)
+		if storage == nil then
+			return
+		end
+
+		self.PermanentHealthLevel = 1
+		self.PermanentAttackLevel = 1
+		self.PermanentStaminaSpeedLevel = 1
+		self.PermanentShieldThrowDistanceLevel = 1
+		self.PermanentParryWindowLevel = 1
+		self.SoulBankBalance = 0
+
+		local payload = {}
+		payload[self.SoulBankStorageKey] = tostring(0)
+		payload[self.EchoUpgradeStorageKey] = _HttpService:JSONEncode({
+			Health = 1, Attack = 1, StaminaSpeed = 1, ShieldThrowDistance = 1, ParryWindow = 1,
+		})
+		storage:BatchSetAndWait(payload)
+
+		self:ApplyAllPermanentUpgrades()
+		log("RogueliteRunManager ResetEchoEconomy: wiped Echo Shards + permanent upgrades for " .. tostring(userId))
 	end
 
 	@ExecSpace("ServerOnly")
@@ -254,9 +282,12 @@ script RogueliteRunManager extends Component
 		end)
 
 		-- Re-apply reset AFTER revive because engine respawn may overwrite MaxHp
+		-- AND may reset PlayerSoulSystem's PermanentXBonusPercent back to 0, so reload+reapply from storage
 		local soulSystem = player:GetComponent("PlayerSoulSystem")
 		if isvalid(soulSystem) then
 			soulSystem:ResetRunUpgrades()
+			self:LoadPermanentUpgrades(playerComponent.UserId)
+			playerComponent.Hp = playerComponent.MaxHp
 		end
 		log("RUNRESET-4 after post-revive reset: maxHp=" .. tostring(playerComponent.MaxHp) .. " hp=" .. tostring(playerComponent.Hp))
 
@@ -272,10 +303,12 @@ script RogueliteRunManager extends Component
 			if isvalid(player) == false then
 				return
 			end
-			-- Second reset to catch any late engine restore of MaxHp from model defaults
+			-- Second reset to catch any late engine restore of MaxHp/permanent bonus from model defaults
 			local soulSystem2 = player:GetComponent("PlayerSoulSystem")
 			if isvalid(soulSystem2) then
 				soulSystem2:ResetRunUpgrades()
+				self:LoadPermanentUpgrades(playerComponent.UserId)
+				playerComponent.Hp = playerComponent.MaxHp
 				soulSystem2.TotalSouls = soulSystem2.TotalSouls
 				soulSystem2.HealthLevel = soulSystem2.HealthLevel
 				soulSystem2.StaminaLevel = soulSystem2.StaminaLevel
