@@ -159,7 +159,7 @@
           },
           "Value": {
             "$type": "MOD.Core.MODDataRef, MOD.Core",
-            "DataId": "4c96468d0e72454b864dbb2efcf42413"
+            "DataId": "085dee85cb044114937ca8b1d08dddb0"
           }
         },
         {
@@ -847,7 +847,7 @@
           },
           "Value": {
             "$type": "MOD.Core.MODDataRef, MOD.Core",
-            "DataId": "4c96468d0e72454b864dbb2efcf42413"
+            "DataId": "085dee85cb044114937ca8b1d08dddb0"
           }
         },
         {
@@ -1154,7 +1154,16 @@
             "$type": "MODNativeType",
             "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
           },
-          "Value": 150.0
+          "Value": 200.0
+        },
+        {
+          "TargetType": "script.PlayerImmuneLogic",
+          "Name": "ImmuneCooldown",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 0.3
         }
       ],
       "EventLinks": [],

@@ -1091,7 +1091,7 @@
               },
               "OffsetMin": {
                 "x": -199.8536,
-                "y": -38.4199257
+                "y": -38.41992
               },
               "Pivot": {
                 "x": 0.5,
@@ -1099,7 +1099,7 @@
               },
               "RectSize": {
                 "x": 649.6304,
-                "y": 202.96994
+                "y": 202.969925
               },
               "UIMode": 1,
               "UIScale": {
@@ -5306,7 +5306,7 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 5.2,
+                "x": 5.200012,
                 "y": 0.0,
                 "z": 0.0
               },
@@ -8086,11 +8086,11 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": -242.279,
+                "x": -242.278992,
                 "y": -125.731293
               },
               "OffsetMin": {
-                "x": 60.6969757,
+                "x": 60.69696,
                 "y": -193.723419
               },
               "Pivot": {
@@ -8098,7 +8098,7 @@
                 "y": 1.0
               },
               "RectSize": {
-                "x": 82.96091,
+                "x": 82.96094,
                 "y": 67.99212
               },
               "UIMode": 1,
@@ -8172,6 +8172,409 @@
               "Overflow": 1,
               "OverrideSorting": false,
               "Text": "1",
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "3328f2af-3c37-492a-af3d-e9b65809774a",
+        "path": "/ui/PlayerStats/BossHealthBar",
+        "componentNames": "MOD.Core.UITransformComponent,script.BossHealthBarUI",
+        "jsonString": {
+          "name": "BossHealthBar",
+          "path": "/ui/PlayerStats/BossHealthBar",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 7,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uiempty",
+            "sub_entity_id": null,
+            "root_entity_id": "3328f2af-3c37-492a-af3d-e9b65809774a",
+            "replaced_model_id": null
+          },
+          "modelId": "uiempty",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 50.0,
+                "y": 50.0
+              },
+              "OffsetMin": {
+                "x": -50.0,
+                "y": -50.0
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 100.0,
+                "y": 100.0
+              },
+              "UIMode": 1,
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "script.BossHealthBarUI",
+              "Enable": true,
+              "BossEntityPath": "/maps/SpadeBoss/Boss",
+              "BarRoot": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "3328f2af-3c37-492a-af3d-e9b65809774a",
+                "Version2": false
+              },
+              "SliderTarget": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "8c81d716-8b7b-4296-b822-1f4fee0fa0bc",
+                "Version2": false
+              },
+              "FillTarget": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "8c81d716-8b7b-4296-b822-1f4fee0fa0bc",
+                "Version2": false
+              },
+              "DebugLogs": true,
+              "LastSearchTime": -9999.0,
+              "LastVisibleState": true,
+              "LastDiagnosticTime": -9999.0
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "e29af581-fd0d-4f0c-87b8-d64fd8579cca",
+        "path": "/ui/PlayerStats/BossHealthBar/BossHealth_1",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
+        "jsonString": {
+          "name": "BossHealth_1",
+          "path": "/ui/PlayerStats/BossHealthBar/BossHealth_1",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 0,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uisprite",
+            "sub_entity_id": null,
+            "root_entity_id": "1600276f-fcd7-4c2c-9743-28090ff08f59",
+            "replaced_model_id": null
+          },
+          "modelId": "uisprite",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 791.454,
+                "y": 543.668945
+              },
+              "OffsetMin": {
+                "x": -759.7551,
+                "y": 325.569275
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 1551.20911,
+                "y": 218.0997
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 15.8494005,
+                "y": 434.6191
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": 15.8494005,
+                "y": 434.6191,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": -1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "ImageRUID": {
+                "DataId": "140f11458dd244349a760cabdb98062b"
+              },
+              "OverrideSorting": false,
+              "SortingLayer": "MapLayer0",
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "8c81d716-8b7b-4296-b822-1f4fee0fa0bc",
+        "path": "/ui/PlayerStats/BossHealthBar/HealthBar",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SliderComponent",
+        "jsonString": {
+          "name": "HealthBar",
+          "path": "/ui/PlayerStats/BossHealthBar/HealthBar",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 1,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uiempty",
+            "sub_entity_id": null,
+            "root_entity_id": "8c81d716-8b7b-4296-b822-1f4fee0fa0bc",
+            "replaced_model_id": null
+          },
+          "modelId": "uiempty",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 592.1697,
+                "y": 431.646454
+              },
+              "OffsetMin": {
+                "x": -621.9354,
+                "y": 378.973541
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 1214.1051,
+                "y": 52.672905
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": -14.8829,
+                "y": 405.31
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -14.8829,
+                "y": 405.31,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": -1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SliderComponent",
+              "FillRectColor": {
+                "r": 0.8066406,
+                "g": 0.1780281,
+                "b": 0.1780281,
+                "a": 1.0
+              },
+              "FillRectImageRUID": {
+                "DataId": ""
+              },
+              "OverrideSorting": false,
+              "Value": 1.0,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "1600276f-fcd7-4c2c-9743-28090ff08f59",
+        "path": "/ui/PlayerStats/BossHealthBar/BossHealth",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
+        "jsonString": {
+          "name": "BossHealth",
+          "path": "/ui/PlayerStats/BossHealthBar/BossHealth",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 2,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uisprite",
+            "sub_entity_id": null,
+            "root_entity_id": "1600276f-fcd7-4c2c-9743-28090ff08f59",
+            "replaced_model_id": null
+          },
+          "modelId": "uisprite",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 767.096436,
+                "y": 543.668945
+              },
+              "OffsetMin": {
+                "x": -784.1127,
+                "y": 325.569275
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 1551.20911,
+                "y": 218.0997
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": -8.5081,
+                "y": 434.6191
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -8.5081,
+                "y": 434.6191,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": -1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "ImageRUID": {
+                "DataId": "dfd320e9d5084f88884c5e8aa3101df1"
+              },
+              "OverrideSorting": false,
               "Enable": true
             }
           ],

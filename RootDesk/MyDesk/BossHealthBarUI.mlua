@@ -1,0 +1,235 @@
+@ExecSpace("Client")
+@Component
+script BossHealthBarUI extends Component
+
+	-- Only show the bar while the local player is inside this map
+	property string BossMapName = "SpadeBoss"
+
+	-- Boss presence alone normally decides visibility; enable to also gate on BossMapName
+	property boolean RequireMapNameMatch = false
+
+	-- How to locate the boss entity (path wins, then tag)
+	property string BossEntityPath = ""
+
+	property string BossTag = "Boss"
+
+	-- UI targets
+	property Entity BarRoot = nil
+
+	property Entity SliderTarget = nil
+
+	property Entity FillTarget = nil
+
+	property Entity NameTextTarget = nil
+
+	property Entity HpTextTarget = nil
+
+	property boolean HideWhenBossDead = true
+
+	@MinValue(0.1)
+	property number BossSearchInterval = 1.0
+
+	property boolean DebugLogs = false
+
+	@HideFromInspector
+	property any CachedBoss = nil
+
+	@HideFromInspector
+	property number LastSearchTime = -9999
+
+	@HideFromInspector
+	property boolean LastVisibleState = true
+
+	@HideFromInspector
+	property number LastDiagnosticTime = -9999
+
+	method void OnBeginPlay()
+		self.LastVisibleState = true
+		self:SetBarVisible(false)
+	end
+
+	method void OnUpdate(number delta)
+		self:Refresh()
+	end
+
+	method void Refresh()
+		local bossAI = self:GetBossAI()
+		if isvalid(bossAI) == false then
+			self:HideWithReason("boss not found")
+			return
+		end
+
+		if self.RequireMapNameMatch and self:IsInBossMap() == false then
+			self:HideWithReason("not in boss map")
+			return
+		end
+
+		if self.HideWhenBossDead and bossAI.IsBossDead then
+			self:HideWithReason("boss dead")
+			return
+		end
+
+		self:SetBarVisible(true)
+
+		local ratio = 0
+		if bossAI.BossMaxHp > 0 then
+			ratio = math.max(0, math.min(1, bossAI.BossCurrentHp / bossAI.BossMaxHp))
+		end
+
+		self:WriteRatio(ratio)
+		self:WriteText(self.NameTextTarget, tostring(bossAI.BossDisplayName))
+		self:WriteText(self.HpTextTarget, tostring(math.floor(bossAI.BossCurrentHp)) .. "/" .. tostring(math.floor(bossAI.BossMaxHp)))
+	end
+
+	method boolean IsInBossMap()
+		if self.BossMapName == nil or self.BossMapName == "" then
+			return true
+		end
+
+		local player = _UserService.LocalPlayer
+		if isvalid(player) == false then
+			return false
+		end
+
+		local path = tostring(player.Path)
+		return string.find(path, self.BossMapName, 1, true) ~= nil
+	end
+
+	method any GetBossAI()
+		if isvalid(self.CachedBoss) then
+			local cached = self.CachedBoss:GetComponent("BossAI")
+			if isvalid(cached) then
+				return cached
+			end
+			self.CachedBoss = nil
+		end
+
+		local now = _UtilLogic.ElapsedSeconds
+		if now - self.LastSearchTime < self.BossSearchInterval then
+			return nil
+		end
+		self.LastSearchTime = now
+
+		local boss = self:FindBossEntity()
+		if isvalid(boss) == false then
+			return nil
+		end
+
+		local bossAI = boss:GetComponent("BossAI")
+		if isvalid(bossAI) == false then
+			if self.DebugLogs then
+				log("BossHealthBarUI: found entity but it has no BossAI component")
+			end
+			return nil
+		end
+
+		self.CachedBoss = boss
+		if self.DebugLogs then
+			log("BossHealthBarUI: bound to boss " .. tostring(boss.Name))
+		end
+		return bossAI
+	end
+
+	method any FindBossEntity()
+		if self.BossEntityPath ~= nil and self.BossEntityPath ~= "" then
+			local byPath = _EntityService:GetEntityByPath(self.BossEntityPath)
+			if isvalid(byPath) then
+				return byPath
+			end
+		end
+
+		if self.BossTag ~= nil and self.BossTag ~= "" then
+			local byTag = _EntityService:GetEntityByTag(self.BossTag)
+			if isvalid(byTag) then
+				return byTag
+			end
+		end
+
+		return nil
+	end
+
+	method void HideWithReason(string reason)
+		self:SetBarVisible(false)
+
+		if self.DebugLogs == false then
+			return
+		end
+
+		local now = _UtilLogic.ElapsedSeconds
+		if now - self.LastDiagnosticTime < 2.0 then
+			return
+		end
+		self.LastDiagnosticTime = now
+
+		local player = _UserService.LocalPlayer
+		local playerPath = "<no local player>"
+		if isvalid(player) then
+			playerPath = tostring(player.Path)
+		end
+
+		log("BossHealthBarUI hidden (" .. tostring(reason) .. ")"
+			.. " playerPath=" .. playerPath
+			.. " tag=" .. tostring(self.BossTag)
+			.. " bossPath=" .. tostring(self.BossEntityPath))
+	end
+
+	method void SetBarVisible(boolean visible)
+        if self.LastVisibleState == visible then
+            return
+        end
+        self.LastVisibleState = visible
+
+        local root = self.BarRoot
+        -- Disabling our own entity stops OnUpdate, so the bar could never come back
+        if isvalid(root) and root ~= self.Entity then
+            root.Enable = visible
+        else
+            self.Entity:SetVisible(visible)
+        end
+
+        if self.DebugLogs then
+            log("BossHealthBarUI: visible=" .. tostring(visible))
+        end
+    end
+
+	method void WriteRatio(number ratio)
+		local slider = self.SliderTarget
+		if isvalid(slider) == false then
+			slider = self.Entity
+		end
+
+		if isvalid(slider) and isvalid(slider.SliderComponent) then
+			slider.SliderComponent.Value = ratio
+		end
+
+		local fill = self.FillTarget
+		if isvalid(fill) == false then
+			fill = self.Entity
+		end
+
+		if isvalid(fill) and isvalid(fill.SpriteGUIRendererComponent) then
+			fill.SpriteGUIRendererComponent.FillAmount = ratio
+		end
+	end
+
+	method void WriteText(Entity target, string value)
+		if isvalid(target) == false then
+			return
+		end
+
+		if isvalid(target.TextComponent) then
+			target.TextComponent.Text = value
+			return
+		end
+
+		if isvalid(target.TextGUIRendererComponent) then
+			target.TextGUIRendererComponent.Text = value
+			return
+		end
+
+		if isvalid(target.TextInputComponent) then
+			target.TextInputComponent.Text = value
+		end
+	end
+
+end

@@ -214,7 +214,7 @@ script RangedEnemy extends Component
 				self:SetVelocityX(0)
 				self:TryChangeState(self.StandActionName)
 				if self.DebugLogs then
-					log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] STANDING (no chase), distX=" .. tostring(distX))
+					-- log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] STANDING (no chase), distX=" .. tostring(distX))
 				end
 				return
 			end
@@ -225,7 +225,7 @@ script RangedEnemy extends Component
 			self.AIState = "PATROL_WALK"
 		end
 		if self.DebugLogs then
-			log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] -> PATROL, distX=" .. tostring(distX) .. " nearestPlayer=" .. tostring(nearestPlayer ~= nil))
+			-- log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] -> PATROL, distX=" .. tostring(distX) .. " nearestPlayer=" .. tostring(nearestPlayer ~= nil))
 		end
 		self:UpdatePatrol(delta, myPos)
 	end
@@ -520,7 +520,7 @@ script RangedEnemy extends Component
 		if isvalid(stateComponent) then
 			local upper = string.upper(stateName)
 			if stateComponent.CurrentStateName ~= upper then
-				stateComponent:ChangeState(upper)
+				-- stateComponent:ChangeState(upper)
 			end
 		end
 	end

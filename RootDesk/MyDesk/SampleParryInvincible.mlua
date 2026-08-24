@@ -42,7 +42,7 @@ script SampleParryInvincible extends Component
         local playerController = self.Entity.PlayerControllerComponent
         if isvalid(playerController) then
             playerController:SetActionKey(KeyboardKey.Mouse1, "SampleParryStart")
-            playerController:SetActionKey(KeyboardKey.S, "SampleParryStart")
+            playerController:SetActionKey(KeyboardKey.P, "SampleParryStart")
             log("CLIENT mapped Mouse1/S to SampleParryStart")
         end
     end

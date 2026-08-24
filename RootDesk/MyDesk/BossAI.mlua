@@ -1,0 +1,723 @@
+@Component
+script BossAI extends AttackComponent
+
+	-- === Identity ===
+	property string BossDisplayName = "Spade Boss"
+
+	-- Tag the boss carries so BossHealthBarUI can find it
+	property string BossTag = "Boss"
+
+	-- === Health (synced so the boss bar UI can read it from the client) ===
+	@Sync
+	property number BossMaxHp = 1000
+
+	@Sync
+	property number BossCurrentHp = 1000
+
+	@Sync
+	property boolean IsBossDead = false
+
+	-- === Detection / Movement ===
+	@MinValue(0)
+	property number DetectionRangeX = 9.0
+
+	@MinValue(0)
+	property number DetectionRangeY = 3.5
+
+	@MinValue(0)
+	property number ChaseSpeed = 1.6
+
+	property boolean PreventLedgeFall = true
+
+	@MinValue(0.05)
+	property number LedgeProbeDistance = 0.45
+
+	property boolean UseRigidbodyIsolatedMove = true
+
+	property boolean DisableNativeWander = true
+
+	property boolean DisableNativeStateAnimation = true
+
+	property boolean InvertFacingDirection = false
+
+	-- === Melee Attack 1 ===
+	property string Attack1ActionName = "attack"
+
+	@MinValue(0.1)
+	property number Attack1Range = 1.6
+
+	@MinValue(0)
+	property integer Attack1Damage = 25
+
+	@MinValue(0.0)
+	property number Attack1HitDelay = 0.3
+
+	@MinValue(0.0)
+	property number Attack1Duration = 0.7
+
+	property Vector2 Attack1BoxSize = Vector2(1.8, 1.4)
+
+	property Vector2 Attack1BoxOffset = Vector2(0.8, 0.0)
+
+	-- === Melee Attack 2 ===
+	property string Attack2ActionName = "attack2"
+
+	@MinValue(0.1)
+	property number Attack2Range = 2.2
+
+	@MinValue(0)
+	property integer Attack2Damage = 35
+
+	@MinValue(0.0)
+	property number Attack2HitDelay = 0.45
+
+	@MinValue(0.0)
+	property number Attack2Duration = 0.9
+
+	property Vector2 Attack2BoxSize = Vector2(2.4, 1.6)
+
+	property Vector2 Attack2BoxOffset = Vector2(1.0, 0.0)
+
+	@MinValue(0.05)
+	property number MeleeCooldown = 1.6
+
+	-- === Ranged Skill (spike burst) ===
+	property string SkillActionName = "skill"
+
+	property string SkillProjectileModelName = "Model_Porcupine"
+
+	@MinValue(1)
+	property integer SkillSpikeCount = 6
+
+	@MinValue(0)
+	property number SkillSpikeSpeed = 6.5
+
+	@MinValue(0)
+	property integer SkillSpikeDamage = 20
+
+	@MinValue(0.1)
+	property number SkillSpikeLifetime = 3.0
+
+	@MinValue(0)
+	property number SkillSpikeScale = 1.0
+
+	@MinValue(0.0)
+	property number SkillWindup = 0.5
+
+	@MinValue(0.0)
+	property number SkillDuration = 1.1
+
+	@MinValue(0.5)
+	property number SkillCooldown = 6.0
+
+	@MinValue(0.1)
+	property number SkillRange = 8.0
+
+	property Vector2 SkillSpawnOffset = Vector2(0, 0.5)
+
+	-- === Movement / reaction action names ===
+	property string StandActionName = "stand"
+	property string MoveActionName = "move"
+	property string HitActionName = "hit"
+	property string DieActionName = "die"
+
+	@MinValue(0.0)
+	property number HitStaggerDuration = 0.2
+
+	@MinValue(0.0)
+	property number DeathHideDelay = 2.0
+
+	property boolean DebugLogs = false
+
+	-- === Internal ===
+	@HideFromInspector
+	property string AIState = "IDLE"
+
+	@HideFromInspector
+	property boolean IsBusy = false
+
+	@HideFromInspector
+	property number LastMeleeTime = -9999
+
+	@HideFromInspector
+	property number LastSkillTime = -9999
+
+	@HideFromInspector
+	property number ActiveActionToken = 0
+
+	@HideFromInspector
+	property integer NextMeleeIndex = 1
+
+	@HideFromInspector
+	property integer PendingDamage = 0
+
+	@HideFromInspector
+	property any Shape = nil
+
+	@HideFromInspector
+	property any ActionSheetTable = nil
+
+	@HideFromInspector
+	property string CurrentActionPlaying = ""
+
+	@ExecSpace("ServerOnly")
+	method void OnBeginPlay()
+		self:EnsureBossTag()
+		self:CacheActionSheet()
+
+		if self.DisableNativeWander then
+			local wander = self.Entity.AIWanderComponent
+			if isvalid(wander) then
+				wander.Enable = false
+			end
+		end
+
+		if self.DisableNativeStateAnimation then
+			local stateAnim = self.Entity:GetComponent("StateAnimationComponent")
+			if isvalid(stateAnim) then
+				stateAnim.Enable = false
+			end
+		end
+
+		local rigidbody = self.Entity.RigidbodyComponent
+		if isvalid(rigidbody) then
+			rigidbody.IsolatedMove = self.UseRigidbodyIsolatedMove
+		end
+
+		self.Shape = BoxShape(Vector2.zero, Vector2.one, 0)
+
+		self.BossCurrentHp = self.BossMaxHp
+		self.IsBossDead = false
+
+		if self.DebugLogs then
+			log("BossAI [" .. tostring(self.Entity.Name) .. "] ready hp=" .. tostring(self.BossCurrentHp) .. "/" .. tostring(self.BossMaxHp))
+		end
+	end
+
+	method void EnsureBossTag()
+		if self.BossTag == nil or self.BossTag == "" then
+			return
+		end
+
+		local tagComponent = self.Entity:GetComponent("TagComponent")
+		if isvalid(tagComponent) == false then
+			tagComponent = self.Entity:AddComponent("TagComponent")
+		end
+
+		if isvalid(tagComponent) then
+			tagComponent:AddTag(self.BossTag)
+			if self.DebugLogs then
+				log("BossAI tagged '" .. tostring(self.BossTag) .. "' on " .. tostring(self.Entity.Path))
+			end
+		end
+	end
+
+	method void CacheActionSheet()
+		self.ActionSheetTable = {}
+		local stateAnimation = self.Entity:GetComponent("StateAnimationComponent")
+		if isvalid(stateAnimation) == false or stateAnimation.ActionSheet == nil then
+			return
+		end
+
+		local ok, tbl = pcall(function() return stateAnimation.ActionSheet:ToTable() end)
+		if ok and type(tbl) == "table" then
+			for k, v in pairs(tbl) do
+				self.ActionSheetTable[string.lower(tostring(k))] = tostring(v)
+			end
+			return
+		end
+
+		local keys = stateAnimation.ActionSheet.Keys
+		if keys ~= nil then
+			for _, k in ipairs(keys) do
+				local hasVal, val = stateAnimation.ActionSheet:TryGetValue(k)
+				if hasVal then
+					self.ActionSheetTable[string.lower(tostring(k))] = tostring(val)
+				end
+			end
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void OnUpdate(number delta)
+		if self.IsBossDead then
+			self:SetVelocityX(0)
+			return
+		end
+
+		if self.IsBusy then
+			self:SetVelocityX(0)
+			return
+		end
+
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) == false then
+			return
+		end
+
+		local myPos = transform.WorldPosition
+		local playerInfo = self:FindNearestPlayer(myPos)
+		local nearestPlayer = playerInfo.Player
+		local distX = playerInfo.Distance
+		local distY = playerInfo.DeltaY
+
+		if nearestPlayer == nil or distX > self.DetectionRangeX or math.abs(distY) > self.DetectionRangeY then
+			self.AIState = "IDLE"
+			self:SetVelocityX(0)
+			self:PlayAction(self.StandActionName)
+			return
+		end
+
+		local playerPos = nearestPlayer.TransformComponent.WorldPosition
+		local dirX = (playerPos.x >= myPos.x) and 1 or -1
+		self:SetFaceDirection(dirX)
+
+		local now = _UtilLogic.ElapsedSeconds
+
+		if distX <= self.SkillRange and now - self.LastSkillTime >= self.SkillCooldown then
+			self:StartSkill(nearestPlayer, dirX)
+			return
+		end
+
+		local meleeRange = math.max(self.Attack1Range, self.Attack2Range)
+		if distX <= meleeRange and now - self.LastMeleeTime >= self.MeleeCooldown then
+			self:StartMeleeAttack(dirX)
+			return
+		end
+
+		if distX <= meleeRange then
+			self.AIState = "WAIT"
+			self:SetVelocityX(0)
+			self:PlayAction(self.StandActionName)
+			return
+		end
+
+		if self:HasWalkableFootholdAhead(dirX, self.ChaseSpeed, delta) == false then
+			self.AIState = "WAIT"
+			self:SetVelocityX(0)
+			self:PlayAction(self.StandActionName)
+			return
+		end
+
+		self.AIState = "CHASE"
+		self:SetVelocityX(dirX * self.ChaseSpeed)
+		self:PlayAction(self.MoveActionName)
+	end
+
+	@ExecSpace("ServerOnly")
+	method void StartMeleeAttack(number dirX)
+		self.ActiveActionToken = self.ActiveActionToken + 1
+		local token = self.ActiveActionToken
+
+		self.IsBusy = true
+		self.AIState = "ATTACK"
+		self.LastMeleeTime = _UtilLogic.ElapsedSeconds
+
+		local useSecond = (self.NextMeleeIndex == 2)
+		self.NextMeleeIndex = useSecond and 1 or 2
+
+		local actionName = useSecond and self.Attack2ActionName or self.Attack1ActionName
+		local hitDelay = useSecond and self.Attack2HitDelay or self.Attack1HitDelay
+		local duration = useSecond and self.Attack2Duration or self.Attack1Duration
+		local damage = useSecond and self.Attack2Damage or self.Attack1Damage
+		local boxSize = useSecond and self.Attack2BoxSize or self.Attack1BoxSize
+		local boxOffset = useSecond and self.Attack2BoxOffset or self.Attack1BoxOffset
+
+		self:SetVelocityX(0)
+		self:PlayAction(actionName)
+
+		if self.DebugLogs then
+			log("BossAI melee=" .. tostring(actionName) .. " damage=" .. tostring(damage))
+		end
+
+		if hitDelay <= 0 then
+			self:ExecuteMeleeStrike(dirX, token, damage, boxSize, boxOffset)
+		else
+			_TimerService:SetTimerOnce(function()
+				if isvalid(self.Entity) == false or self.ActiveActionToken ~= token or self.IsBossDead then
+					return
+				end
+				self:ExecuteMeleeStrike(dirX, token, damage, boxSize, boxOffset)
+			end, hitDelay)
+		end
+
+		local total = math.max(duration, hitDelay + 0.1)
+		_TimerService:SetTimerOnce(function()
+			if isvalid(self.Entity) == false or self.ActiveActionToken ~= token then
+				return
+			end
+			self.IsBusy = false
+			self.CurrentActionPlaying = ""
+		end, total)
+	end
+
+	@ExecSpace("ServerOnly")
+	method void ExecuteMeleeStrike(number dirX, number token, integer damage, Vector2 boxSize, Vector2 boxOffset)
+		if self.ActiveActionToken ~= token or self.IsBossDead then
+			return
+		end
+
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) == false then
+			return
+		end
+
+		if self.Shape == nil then
+			self.Shape = BoxShape(Vector2.zero, Vector2.one, 0)
+		end
+
+		local worldPos = transform.WorldPosition
+		self.PendingDamage = damage
+		self.Shape.Size = boxSize
+		self.Shape.Position = Vector2(worldPos.x + (boxOffset.x * dirX), worldPos.y + boxOffset.y)
+		self.Shape.Angle = transform.ZRotation
+
+		self:AttackFast(self.Shape, "BossMelee", CollisionGroups.Player)
+	end
+
+	@ExecSpace("ServerOnly")
+	method void StartSkill(Entity targetPlayer, number dirX)
+		self.ActiveActionToken = self.ActiveActionToken + 1
+		local token = self.ActiveActionToken
+
+		self.IsBusy = true
+		self.AIState = "SKILL"
+		self.LastSkillTime = _UtilLogic.ElapsedSeconds
+
+		self:SetVelocityX(0)
+		self:PlayAction(self.SkillActionName)
+
+		local windup = math.max(self.SkillWindup, 0)
+		if windup <= 0 then
+			self:FireSpikeBurst(targetPlayer)
+		else
+			_TimerService:SetTimerOnce(function()
+				if isvalid(self.Entity) == false or self.ActiveActionToken ~= token or self.IsBossDead then
+					return
+				end
+				self:FireSpikeBurst(targetPlayer)
+			end, windup)
+		end
+
+		local total = math.max(self.SkillDuration, windup + 0.1)
+		_TimerService:SetTimerOnce(function()
+			if isvalid(self.Entity) == false or self.ActiveActionToken ~= token then
+				return
+			end
+			self.IsBusy = false
+			self.CurrentActionPlaying = ""
+		end, total)
+	end
+
+	@ExecSpace("ServerOnly")
+	method void FireSpikeBurst(Entity targetPlayer)
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) == false then
+			return
+		end
+
+		local modelId = _EntryService:GetModelIdByName(self.SkillProjectileModelName)
+		if modelId == nil or modelId == "" then
+			log("BossAI ERROR: projectile model '" .. tostring(self.SkillProjectileModelName) .. "' not found")
+			return
+		end
+
+		local spawnPos = Vector3(
+			transform.WorldPosition.x + self.SkillSpawnOffset.x,
+			transform.WorldPosition.y + self.SkillSpawnOffset.y,
+			transform.WorldPosition.z
+		)
+
+		local baseAngle = 0
+		if isvalid(targetPlayer) and isvalid(targetPlayer.TransformComponent) then
+			local playerPos = targetPlayer.TransformComponent.WorldPosition
+			baseAngle = self:Atan2(playerPos.y - spawnPos.y, playerPos.x - spawnPos.x)
+		end
+
+		local count = math.max(1, self.SkillSpikeCount)
+		local angleStep = 0
+		if count > 1 then
+			angleStep = math.pi / count
+		end
+
+		for i = 0, count - 1 do
+			local angle = baseAngle + (i * angleStep)
+			local dirX = math.cos(angle)
+			local dirY = math.sin(angle)
+
+			-- Keep the burst above the floor line
+			if dirY < 0 then
+				dirY = 0
+				local len = math.sqrt(dirX * dirX + dirY * dirY)
+				if len > 0.001 then
+					dirX = dirX / len
+					dirY = dirY / len
+				end
+			end
+
+			self:SpawnNeedle(modelId, spawnPos, dirX, dirY)
+		end
+
+		if self.DebugLogs then
+			log("BossAI skill fired " .. tostring(count) .. " spikes")
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void SpawnNeedle(string modelId, Vector3 spawnPos, number dirX, number dirY)
+		local needle = _SpawnService:SpawnByModelId(modelId, "BossNeedle", spawnPos, self.Entity.Parent)
+		if isvalid(needle) == false then
+			return
+		end
+
+		needle.Enable = true
+
+		local needleTransform = needle.TransformComponent
+		if isvalid(needleTransform) then
+			needleTransform.WorldPosition = spawnPos
+			needleTransform.Scale = Vector3(self.SkillSpikeScale, self.SkillSpikeScale, 1)
+			needleTransform.ZRotation = math.deg(self:Atan2(dirY, dirX))
+		end
+
+		local mover = needle:GetComponent("NeedleProjectile")
+		if isvalid(mover) then
+			mover.Speed = self.SkillSpikeSpeed
+			mover.DirectionX = dirX
+			mover.DirectionY = dirY
+			mover.Lifetime = self.SkillSpikeLifetime
+			mover.NeedleDamage = self.SkillSpikeDamage
+		end
+	end
+
+	method number Atan2(number y, number x)
+		if x > 0 then
+			return math.atan(y / x)
+		elseif x < 0 then
+			if y >= 0 then
+				return math.atan(y / x) + math.pi
+			else
+				return math.atan(y / x) - math.pi
+			end
+		else
+			if y > 0 then
+				return math.pi / 2
+			elseif y < 0 then
+				return -math.pi / 2
+			else
+				return 0
+			end
+		end
+	end
+
+	method boolean HasWalkableFootholdAhead(number dirX, number speed, number delta)
+		if self.PreventLedgeFall == false or dirX == 0 then
+			return true
+		end
+
+		local rigidbody = self.Entity.RigidbodyComponent
+		if isvalid(rigidbody) == false then
+			return true
+		end
+
+		if rigidbody:IsOnGround() == false then
+			return true
+		end
+
+		local stepDistance = self.LedgeProbeDistance
+		local frameTime = math.max(delta, 0.016)
+		if speed ~= nil then
+			stepDistance = math.max(stepDistance, math.abs(speed) * frameTime)
+		end
+
+		return rigidbody:PredictFootholdEnd(stepDistance, dirX > 0)
+	end
+
+	method void SetVelocityX(number vx)
+		local rigidbody = self.Entity.RigidbodyComponent
+		if isvalid(rigidbody) then
+			rigidbody.MoveVelocity = Vector2(vx, rigidbody.MoveVelocity.y)
+		end
+	end
+
+	method void SetFaceDirection(number dirX)
+		if dirX == 0 then
+			return
+		end
+
+		local wantFaceLeft = (dirX < 0)
+		if self.InvertFacingDirection then
+			wantFaceLeft = not wantFaceLeft
+		end
+
+		local spriteRenderer = self.Entity.SpriteRendererComponent
+		if isvalid(spriteRenderer) then
+			local shouldFlip = not wantFaceLeft
+			if spriteRenderer.FlipX ~= shouldFlip then
+				spriteRenderer.FlipX = shouldFlip
+			end
+		end
+	end
+
+	method void PlayAction(string actionName)
+		if actionName == nil or actionName == "" then
+			return
+		end
+
+		if self.CurrentActionPlaying == actionName then
+			return
+		end
+
+		self.CurrentActionPlaying = actionName
+
+		local lowerAction = string.lower(actionName)
+		local ruid = nil
+		if self.ActionSheetTable ~= nil then
+			ruid = self.ActionSheetTable[lowerAction]
+			if ruid == nil or ruid == "" then
+				if lowerAction == "attack2" then
+					ruid = self.ActionSheetTable["attack2"] or self.ActionSheetTable["attack"]
+				elseif lowerAction == "skill" then
+					ruid = self.ActionSheetTable["skill"] or self.ActionSheetTable["attack2"] or self.ActionSheetTable["attack"]
+				elseif lowerAction == "stand" then
+					ruid = self.ActionSheetTable["stand"] or self.ActionSheetTable["idle"]
+				elseif lowerAction == "move" then
+					ruid = self.ActionSheetTable["move"] or self.ActionSheetTable["walk"]
+				elseif lowerAction == "die" then
+					ruid = self.ActionSheetTable["die"] or self.ActionSheetTable["dead"]
+				end
+			end
+		end
+
+		self:MulticastPlayAction(lowerAction, ruid or "")
+	end
+
+	@ExecSpace("Multicast")
+	method void MulticastPlayAction(string actionName, string ruid)
+		if isvalid(self.Entity) == false then
+			return
+		end
+
+		self.Entity:SendEvent(AnimationClipEvent(actionName))
+
+		local spriteRenderer = self.Entity.SpriteRendererComponent
+		if isvalid(spriteRenderer) and ruid ~= nil and ruid ~= "" then
+			if spriteRenderer.SpriteRUID ~= ruid then
+				spriteRenderer.SpriteRUID = ruid
+				spriteRenderer.StartFrameIndex = 0
+			end
+		end
+	end
+
+	method any FindNearestPlayer(Vector3 myPos)
+		local nearestPlayer = nil
+		local minDistance = 999999
+		local targetDy = 0
+
+		local users = _UserService.UserEntities
+		if users ~= nil then
+			for _, player in pairs(users) do
+				if isvalid(player) and isvalid(player.PlayerComponent) and isvalid(player.TransformComponent) then
+					local playerPos = player.TransformComponent.WorldPosition
+					local dx = math.abs(playerPos.x - myPos.x)
+					local dy = playerPos.y - myPos.y
+					if dx < minDistance then
+						minDistance = dx
+						targetDy = dy
+						nearestPlayer = player
+					end
+				end
+			end
+		end
+
+		return {
+			Player = nearestPlayer,
+			Distance = minDistance,
+			DeltaY = targetDy,
+		}
+	end
+
+	method number GetHpRatio()
+		if self.BossMaxHp <= 0 then
+			return 0
+		end
+		return math.max(0, math.min(1, self.BossCurrentHp / self.BossMaxHp))
+	end
+
+	method integer CalcDamage(Entity attacker, Entity defender, string attackInfo)
+		if self.PendingDamage > 0 then
+			return math.floor(self.PendingDamage)
+		end
+		return math.floor(self.Attack1Damage)
+	end
+
+	method boolean IsAttackTarget(Entity defender, string attackInfo)
+		if isvalid(defender) == false or isvalid(defender.PlayerComponent) == false then
+			return false
+		end
+
+		local immuneLogic = defender:GetComponent("PlayerImmuneLogic")
+		if isvalid(immuneLogic) and immuneLogic:IsImmune() then
+			return false
+		end
+
+		local sampleParry = defender:GetComponent("SampleParryInvincible")
+		if isvalid(sampleParry) and sampleParry.IsParryHeld then
+			return false
+		end
+
+		return __base:IsAttackTarget(defender, attackInfo)
+	end
+
+	@ExecSpace("ServerOnly")
+	method void KillBoss()
+		if self.IsBossDead then
+			return
+		end
+
+		self.IsBossDead = true
+		self.BossCurrentHp = 0
+		self.IsBusy = true
+		self.ActiveActionToken = self.ActiveActionToken + 1
+		self:SetVelocityX(0)
+		self.CurrentActionPlaying = ""
+		self:PlayAction(self.DieActionName)
+
+		_TimerService:SetTimerOnce(function()
+			if isvalid(self.Entity) == false then
+				return
+			end
+			self.Entity:SetVisible(false)
+			self.Entity:SetEnable(false)
+		end, self.DeathHideDelay)
+	end
+
+	@ExecSpace("ServerOnly")
+	@EventSender("Self")
+	handler HandleHitEvent(HitEvent event)
+		if self.IsBossDead then
+			return
+		end
+
+		self.BossCurrentHp = math.max(0, self.BossCurrentHp - event.TotalDamage)
+
+		if self.DebugLogs then
+			log("BossAI took " .. tostring(event.TotalDamage) .. " hp=" .. tostring(self.BossCurrentHp))
+		end
+
+		if self.BossCurrentHp <= 0 then
+			self:KillBoss()
+			return
+		end
+
+		self.CurrentActionPlaying = ""
+		self:PlayAction(self.HitActionName)
+
+		_TimerService:SetTimerOnce(function()
+			if isvalid(self.Entity) == false or self.IsBossDead then
+				return
+			end
+			self.CurrentActionPlaying = ""
+		end, self.HitStaggerDuration)
+	end
+
+end
