@@ -163194,8 +163194,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -9.418412,
-                "y": -0.8907536,
+                "x": -12.1013107,
+                "y": 7.81257629,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -163205,8 +163205,8 @@
                 "w": 1.0
               },
               "Scale": {
-                "x": 0.8026537,
-                "y": 0.8026538,
+                "x": 1.234745,
+                "y": 1.18317187,
                 "z": 1.0
               },
               "ZRotation": 0.0,
@@ -163218,7 +163218,7 @@
               "EndFrameIndex": 2147483647,
               "RenderSetting": 0,
               "SortingLayer": "MapLayer1",
-              "SpriteRUID": "240937815ae4405ca782a0005a0f5abe",
+              "SpriteRUID": "eaca9ef6587b4ca29ccc5fd2590d21f2",
               "StartFrameIndex": 0,
               "Enable": true
             }
@@ -163668,8 +163668,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -17.54673,
-                "y": 15.5458689,
+                "x": -14.8842049,
+                "y": 15.3916283,
                 "z": 999.998047
               },
               "QuaternionRotation": {
@@ -163686,8 +163686,318 @@
               "ActionSheet": {},
               "EndFrameIndex": 2147483647,
               "RenderSetting": 0,
-              "SortingLayer": "Player",
+              "SortingLayer": "MapLayer1",
               "SpriteRUID": "eaca9ef6587b4ca29ccc5fd2590d21f2",
+              "StartFrameIndex": 0,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "e2ab9bac-44e1-4fb8-8854-81e87c293d77",
+        "path": "/maps/SandMap/object-282_1",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent",
+        "jsonString": {
+          "name": "object-282_1",
+          "path": "/maps/SandMap/object-282_1",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 93,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "MapObject",
+            "sub_entity_id": null,
+            "root_entity_id": "9ef03671-2583-44b6-af26-91d2093ed190",
+            "replaced_model_id": null
+          },
+          "modelId": "mapobject",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -9.452105,
+                "y": -0.898535669,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Scale": {
+                "x": 0.8026537,
+                "y": 0.8026538,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "EndFrameIndex": 2147483647,
+              "RenderSetting": 0,
+              "SortingLayer": "MapLayer1",
+              "SpriteRUID": "240937815ae4405ca782a0005a0f5abe",
+              "StartFrameIndex": 0,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "392916a3-d579-4643-91da-e35179f154d6",
+        "path": "/maps/SandMap/object-282_2",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent",
+        "jsonString": {
+          "name": "object-282_2",
+          "path": "/maps/SandMap/object-282_2",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 94,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "MapObject",
+            "sub_entity_id": null,
+            "root_entity_id": "9ef03671-2583-44b6-af26-91d2093ed190",
+            "replaced_model_id": null
+          },
+          "modelId": "mapobject",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -11.2605667,
+                "y": 5.4438777,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Scale": {
+                "x": 0.8026537,
+                "y": 0.8026538,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "EndFrameIndex": 2147483647,
+              "RenderSetting": 0,
+              "SortingLayer": "MapLayer1",
+              "SpriteRUID": "49c69c43a81341a59545d33af24a75c4",
+              "StartFrameIndex": 0,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "96473bb6-7310-4d42-b179-604e2af9044d",
+        "path": "/maps/SandMap/object-282_3",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent",
+        "jsonString": {
+          "name": "object-282_3",
+          "path": "/maps/SandMap/object-282_3",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 95,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "MapObject",
+            "sub_entity_id": null,
+            "root_entity_id": "9ef03671-2583-44b6-af26-91d2093ed190",
+            "replaced_model_id": null
+          },
+          "modelId": "mapobject",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -5.20733547,
+                "y": 0.9369763,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Scale": {
+                "x": 0.8026537,
+                "y": 0.8026538,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "EndFrameIndex": 2147483647,
+              "RenderSetting": 0,
+              "SortingLayer": "MapLayer1",
+              "SpriteRUID": "240937815ae4405ca782a0005a0f5abe",
+              "StartFrameIndex": 0,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "26b4c634-c82c-4f59-ae6d-cc812e8606b1",
+        "path": "/maps/SandMap/object-15_1",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent",
+        "jsonString": {
+          "name": "object-15_1",
+          "path": "/maps/SandMap/object-15_1",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 96,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "MapObject",
+            "sub_entity_id": null,
+            "root_entity_id": "b6f2441b-c0d2-4b88-807a-6c83dffe0820",
+            "replaced_model_id": null
+          },
+          "modelId": "mapobject",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -24.1324978,
+                "y": 24.0,
+                "z": 999.998047
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "EndFrameIndex": 2147483647,
+              "RenderSetting": 0,
+              "SortingLayer": "MapLayer1",
+              "SpriteRUID": "4412b65dcad04a8bb95441db33324af0",
+              "StartFrameIndex": 0,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "432fd22f-e5c8-443d-85f8-3f1730f0feb5",
+        "path": "/maps/SandMap/object-282_4",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent",
+        "jsonString": {
+          "name": "object-282_4",
+          "path": "/maps/SandMap/object-282_4",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 97,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "MapObject",
+            "sub_entity_id": null,
+            "root_entity_id": "9ef03671-2583-44b6-af26-91d2093ed190",
+            "replaced_model_id": null
+          },
+          "modelId": "mapobject",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -28.2792282,
+                "y": 6.399784,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Scale": {
+                "x": 0.9095861,
+                "y": 0.8715942,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "EndFrameIndex": 2147483647,
+              "RenderSetting": 0,
+              "SortingLayer": "MapLayer1",
+              "SpriteRUID": "008d29eac48d4223851261801f7addf9",
               "StartFrameIndex": 0,
               "Enable": true
             }
