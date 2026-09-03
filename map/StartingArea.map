@@ -13993,8 +13993,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -0.8311885,
-                "y": -3.91245127,
+                "x": -0.846900761,
+                "y": -3.89673424,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -14184,127 +14184,6 @@
         }
       },
       {
-        "id": "9a57039d-7539-4339-9009-d9a846937fbf",
-        "path": "/maps/StartingArea/object-172",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent",
-        "jsonString": {
-          "name": "object-172",
-          "path": "/maps/StartingArea/object-172",
-          "nameEditable": true,
-          "enable": true,
-          "visible": true,
-          "localize": false,
-          "displayOrder": 11,
-          "pathConstraints": "///",
-          "revision": 6,
-          "origin": {
-            "type": "Model",
-            "entry_id": "MapObject",
-            "sub_entity_id": null,
-            "root_entity_id": "9a57039d-7539-4339-9009-d9a846937fbf",
-            "replaced_model_id": null
-          },
-          "modelId": "mapobject",
-          "@components": [
-            {
-              "@type": "MOD.Core.TransformComponent",
-              "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-              },
-              "Position": {
-                "x": -6.248027,
-                "y": -2.03006721,
-                "z": 999.998047
-              },
-              "QuaternionRotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-              },
-              "ZRotation": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.SpriteRendererComponent",
-              "ActionSheet": {},
-              "EndFrameIndex": 2147483647,
-              "RenderSetting": 0,
-              "SortingLayer": "MapLayer1",
-              "SpriteRUID": "18846f7aab2f4a938f0bbb8cc05ad5be",
-              "StartFrameIndex": 0,
-              "Enable": true
-            }
-          ],
-          "@version": 1
-        }
-      },
-      {
-        "id": "590e61e2-bdc5-4f8f-9a42-4ab2f438f997",
-        "path": "/maps/StartingArea/object-432",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent",
-        "jsonString": {
-          "name": "object-432",
-          "path": "/maps/StartingArea/object-432",
-          "nameEditable": true,
-          "enable": true,
-          "visible": true,
-          "localize": false,
-          "displayOrder": 12,
-          "pathConstraints": "///",
-          "revision": 8,
-          "origin": {
-            "type": "Model",
-            "entry_id": "MapObject",
-            "sub_entity_id": null,
-            "root_entity_id": "590e61e2-bdc5-4f8f-9a42-4ab2f438f997",
-            "replaced_model_id": null
-          },
-          "modelId": "mapobject",
-          "@components": [
-            {
-              "@type": "MOD.Core.TransformComponent",
-              "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-              },
-              "Position": {
-                "x": 2.03386974,
-                "y": -2.01466751,
-                "z": 999.999
-              },
-              "QuaternionRotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-              },
-              "Scale": {
-                "x": -0.478125244,
-                "y": 0.495756924,
-                "z": 1.0
-              },
-              "ZRotation": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.SpriteRendererComponent",
-              "ActionSheet": {},
-              "EndFrameIndex": 2147483647,
-              "RenderSetting": 0,
-              "SortingLayer": "MapLayer1",
-              "SpriteRUID": "9c1cddaa4a684966934a1739bf4bc481",
-              "StartFrameIndex": 0,
-              "Enable": true
-            }
-          ],
-          "@version": 1
-        }
-      },
-      {
         "id": "b561a350-8dab-4af0-a9d9-162bc08e7c50",
         "path": "/maps/StartingArea/object-449",
         "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent",
@@ -14315,7 +14194,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 13,
+          "displayOrder": 11,
           "pathConstraints": "///",
           "revision": 6,
           "origin": {
@@ -14378,7 +14257,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 14,
+          "displayOrder": 12,
           "pathConstraints": "///",
           "revision": 6,
           "origin": {
@@ -14398,7 +14277,7 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -15.8250141,
+                "x": -15.7150249,
                 "y": -2.14999986,
                 "z": 999.999
               },
@@ -14436,7 +14315,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 15,
+          "displayOrder": 13,
           "pathConstraints": "///",
           "revision": 5,
           "origin": {
@@ -14494,7 +14373,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 16,
+          "displayOrder": 14,
           "pathConstraints": "///",
           "revision": 8,
           "origin": {
@@ -14557,7 +14436,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 17,
+          "displayOrder": 15,
           "pathConstraints": "///",
           "revision": 8,
           "origin": {
@@ -14620,7 +14499,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 18,
+          "displayOrder": 16,
           "pathConstraints": "///",
           "revision": 3,
           "origin": {
@@ -14656,7 +14535,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 19,
+          "displayOrder": 17,
           "pathConstraints": "///",
           "revision": 4,
           "origin": {
@@ -14715,7 +14594,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 20,
+          "displayOrder": 18,
           "pathConstraints": "///",
           "revision": 3,
           "origin": {
@@ -14778,7 +14657,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 21,
+          "displayOrder": 19,
           "pathConstraints": "///",
           "revision": 3,
           "origin": {
@@ -14841,7 +14720,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 22,
+          "displayOrder": 20,
           "pathConstraints": "///",
           "revision": 7,
           "origin": {
@@ -14904,7 +14783,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 23,
+          "displayOrder": 21,
           "pathConstraints": "///",
           "revision": 2,
           "origin": {
@@ -14924,8 +14803,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -3.99216938,
-                "y": -2.480469,
+                "x": -2.76656771,
+                "y": -2.33571672,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -14962,7 +14841,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 24,
+          "displayOrder": 22,
           "pathConstraints": "///",
           "revision": 4,
           "origin": {
@@ -14998,7 +14877,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 25,
+          "displayOrder": 23,
           "pathConstraints": "///",
           "revision": 4,
           "origin": {
@@ -15057,7 +14936,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 26,
+          "displayOrder": 24,
           "pathConstraints": "///",
           "revision": 3,
           "origin": {
@@ -15125,7 +15004,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 27,
+          "displayOrder": 25,
           "pathConstraints": "///d5bc03f3-0f09-43ea-bbf9-6dac9efb47a3",
           "revision": 2,
           "origin": {
@@ -15196,7 +15075,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 28,
+          "displayOrder": 26,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -15232,7 +15111,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 29,
+          "displayOrder": 27,
           "pathConstraints": "///",
           "revision": 3,
           "origin": {
@@ -15291,7 +15170,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 30,
+          "displayOrder": 28,
           "pathConstraints": "///",
           "revision": 8,
           "origin": {
@@ -15311,8 +15190,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -7.078184,
-                "y": -2.48500013,
+                "x": 0.0396757126,
+                "y": -2.485,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -15402,7 +15281,7 @@
       {
         "id": "7a1c4501-2533-4eb8-ac38-7902bb9b788b",
         "path": "/maps/StartingArea/Tower",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.PortalComponent,MOD.Core.TagComponent",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.PortalComponent,MOD.Core.TagComponent,script.RoguelitePortalGate,MOD.Core.InteractionComponent",
         "jsonString": {
           "name": "Tower",
           "path": "/maps/StartingArea/Tower",
@@ -15410,7 +15289,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 31,
+          "displayOrder": 29,
           "pathConstraints": "///",
           "revision": 6,
           "origin": {
@@ -15478,6 +15357,32 @@
                 "MODRespawnArea"
               ],
               "Enable": true
+            },
+            {
+              "@type": "script.RoguelitePortalGate",
+              "Enable": true,
+              "Portal": {
+                "IsRelative": false,
+                "ComponentId": "7a1c4501-2533-4eb8-ac38-7902bb9b788b:PortalComponent",
+                "UseNested": false
+              },
+              "IsUnlocked": false,
+              "FoundRequiredMonster": false
+            },
+            {
+              "@type": "MOD.Core.InteractionComponent",
+              "ActionKey": 119,
+              "ActionName": "ENTER THE TOWER",
+              "BoxSize": {
+                "x": 1.2,
+                "y": 1.64
+              },
+              "ColliderOffset": {
+                "x": 0.01000005,
+                "y": 0.719999969
+              },
+              "IsLegacy": false,
+              "Enable": true
             }
           ],
           "@version": 1
@@ -15494,7 +15399,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 32,
+          "displayOrder": 30,
           "pathConstraints": "///",
           "revision": 4,
           "origin": {
@@ -15514,8 +15419,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -29.8714561,
-                "y": -1.12009764,
+                "x": -1.40549183,
+                "y": -1.82735825,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -15561,7 +15466,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 33,
+          "displayOrder": 31,
           "pathConstraints": "///",
           "revision": 3,
           "origin": {
@@ -15656,7 +15561,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 34,
+          "displayOrder": 32,
           "pathConstraints": "///",
           "revision": 7,
           "origin": {
@@ -15719,7 +15624,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 35,
+          "displayOrder": 33,
           "pathConstraints": "///",
           "revision": 7,
           "origin": {
@@ -15782,7 +15687,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 36,
+          "displayOrder": 34,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -15845,7 +15750,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 37,
+          "displayOrder": 35,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -15908,7 +15813,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 38,
+          "displayOrder": 36,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -15971,7 +15876,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 39,
+          "displayOrder": 37,
           "pathConstraints": "///",
           "revision": 7,
           "origin": {
@@ -16034,7 +15939,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 40,
+          "displayOrder": 38,
           "pathConstraints": "///",
           "revision": 7,
           "origin": {
@@ -16097,7 +16002,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 41,
+          "displayOrder": 39,
           "pathConstraints": "///",
           "revision": 7,
           "origin": {
@@ -16160,7 +16065,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 42,
+          "displayOrder": 40,
           "pathConstraints": "///",
           "revision": 7,
           "origin": {
@@ -16223,7 +16128,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 43,
+          "displayOrder": 41,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -16259,7 +16164,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 44,
+          "displayOrder": 42,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -16318,7 +16223,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 45,
+          "displayOrder": 43,
           "pathConstraints": "///",
           "revision": 8,
           "origin": {
@@ -16439,7 +16344,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 46,
+          "displayOrder": 44,
           "pathConstraints": "///",
           "revision": 8,
           "origin": {
@@ -16459,8 +16364,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 0.102374077,
-                "y": -2.48500013,
+                "x": -7.911087,
+                "y": -2.485,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -16558,7 +16463,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 47,
+          "displayOrder": 45,
           "pathConstraints": "///",
           "revision": 8,
           "origin": {
@@ -16677,7 +16582,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 48,
+          "displayOrder": 46,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -16713,7 +16618,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 49,
+          "displayOrder": 47,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -16772,7 +16677,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 50,
+          "displayOrder": 48,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -16836,7 +16741,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 51,
+          "displayOrder": 49,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -16872,7 +16777,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 52,
+          "displayOrder": 50,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -16931,7 +16836,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 53,
+          "displayOrder": 51,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -16995,7 +16900,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 54,
+          "displayOrder": 52,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -17059,7 +16964,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 55,
+          "displayOrder": 53,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -17123,7 +17028,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 56,
+          "displayOrder": 54,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -17187,7 +17092,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 57,
+          "displayOrder": 55,
           "pathConstraints": "///ae975506-40d1-4a73-b482-efe6ad5bfa87",
           "revision": 1,
           "origin": {
@@ -17258,7 +17163,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 58,
+          "displayOrder": 56,
           "pathConstraints": "///1c60ad75-5c5b-413b-8aff-c441170f85d7",
           "revision": 1,
           "origin": {
@@ -17326,7 +17231,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 59,
+          "displayOrder": 57,
           "pathConstraints": "///b4a02715-b7c6-473c-8c40-ab2ea0e322cd",
           "revision": 1,
           "origin": {
@@ -17399,7 +17304,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 60,
+          "displayOrder": 58,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -17435,7 +17340,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 61,
+          "displayOrder": 59,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -18775,7 +18680,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 62,
+          "displayOrder": 60,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -18838,7 +18743,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 63,
+          "displayOrder": 61,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -18901,7 +18806,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 64,
+          "displayOrder": 62,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -18964,7 +18869,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 65,
+          "displayOrder": 63,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -19027,7 +18932,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 66,
+          "displayOrder": 64,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -19090,7 +18995,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 67,
+          "displayOrder": 65,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -19153,7 +19058,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 68,
+          "displayOrder": 66,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -19216,7 +19121,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 69,
+          "displayOrder": 67,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -19279,7 +19184,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 70,
+          "displayOrder": 68,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -19342,7 +19247,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 71,
+          "displayOrder": 69,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -19405,7 +19310,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 72,
+          "displayOrder": 70,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -19468,7 +19373,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 73,
+          "displayOrder": 71,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -19531,7 +19436,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 74,
+          "displayOrder": 72,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -19594,7 +19499,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 75,
+          "displayOrder": 73,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -19657,7 +19562,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 76,
+          "displayOrder": 74,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -19716,7 +19621,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 77,
+          "displayOrder": 75,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -19774,7 +19679,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 78,
+          "displayOrder": 76,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -19821,6 +19726,185 @@
               "SpriteRUID": "80ca26f346024398aae79466dd2e8c60",
               "StartFrameIndex": 0,
               "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "2a88d0f3-04ab-4c95-a028-6ec47ee87e58",
+        "path": "/maps/StartingArea/Model_Shop",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.InteractionComponent",
+        "jsonString": {
+          "name": "Model_Shop",
+          "path": "/maps/StartingArea/Model_Shop",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 77,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "202f9b75-2650-408e-9afa-a97565151b34",
+            "sub_entity_id": null,
+            "root_entity_id": "2a88d0f3-04ab-4c95-a028-6ec47ee87e58",
+            "replaced_model_id": null
+          },
+          "modelId": "202f9b75-2650-408e-9afa-a97565151b34",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Position": {
+                "x": -5.99598169,
+                "y": -2.01466727,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "RenderSetting": 0,
+              "SortingLayer": "MapLayer0",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.InteractionComponent",
+              "IsLegacy": false,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "59f04eab-d015-491b-b626-34de566ee128",
+        "path": "/maps/StartingArea/Model_WorldShop",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.InteractionComponent,script.WorldShopInteractionTrigger",
+        "jsonString": {
+          "name": "Model_WorldShop",
+          "path": "/maps/StartingArea/Model_WorldShop",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 78,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "e181fea6-082e-44af-8dd5-0c8a2ec23480",
+            "sub_entity_id": null,
+            "root_entity_id": "59f04eab-d015-491b-b626-34de566ee128",
+            "replaced_model_id": null
+          },
+          "modelId": "e181fea6-082e-44af-8dd5-0c8a2ec23480",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Position": {
+                "x": 1.61396837,
+                "y": -2.01,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "RenderSetting": 0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.InteractionComponent",
+              "ActionName": "WorldShop",
+              "BoxSize": {
+                "x": 1.58,
+                "y": 1.09
+              },
+              "ColliderOffset": {
+                "x": 0.0,
+                "y": -0.004999995
+              },
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "script.WorldShopInteractionTrigger",
+              "Enable": true,
+              "Interaction": {
+                "IsRelative": false,
+                "ComponentId": "59f04eab-d015-491b-b626-34de566ee128:InteractionComponent",
+                "UseNested": false
+              },
+              "WorldShopUI": null
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "225b31a4-dc9e-4178-be89-75cc7e4740c2",
+        "path": "/maps/StartingArea/HidePlayerInfo",
+        "componentNames": "MOD.Core.TransformComponent,script.WorldSpecificUIVisibility",
+        "jsonString": {
+          "name": "HidePlayerInfo",
+          "path": "/maps/StartingArea/HidePlayerInfo",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 79,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "mapempty",
+            "sub_entity_id": null,
+            "root_entity_id": "225b31a4-dc9e-4178-be89-75cc7e4740c2",
+            "replaced_model_id": null
+          },
+          "modelId": "mapempty",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -12.8666439,
+                "y": -0.142762318,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "script.WorldSpecificUIVisibility",
+              "Enable": true,
+              "Applied": false
             }
           ],
           "@version": 1

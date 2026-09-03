@@ -6,6 +6,7 @@ script RogueliteUpgradeShopUI extends Component
 	property ButtonComponent btnStaminaSpeed = nil
 	property ButtonComponent btnClose = nil
 	property Entity panelRoot = nil
+	property InteractionComponent ShopInteraction = nil
 
 	property Entity balanceTextTarget = nil
 	property Entity healthLevelTextTarget = nil
@@ -27,9 +28,6 @@ script RogueliteUpgradeShopUI extends Component
 	@HideFromInspector
 	property number LastClickTime = -999
 
-	@HideFromInspector
-	property boolean KeybindBound = false
-
 	@ExecSpace("ClientOnly")
 	method void OnBeginPlay()
 		self:ConnectButton(self.btnHealth, function() self:OnHealthClicked() end)
@@ -41,50 +39,18 @@ script RogueliteUpgradeShopUI extends Component
 			self.panelRoot.Enable = false
 		end
 
-		self:TryBindOpenKey()
-	end
-
-	method void TryBindOpenKey()
-		if self.KeybindBound then
-			return
-		end
-
-		local player = _UserService.LocalPlayer
-		if isvalid(player) == false then
-			return
-		end
-
-		local playerController = player.PlayerControllerComponent
-		if isvalid(playerController) == false then
-			return
-		end
-
-		playerController:SetActionKey(KeyboardKey.J, "ToggleRogueliteShop")
-		player:ConnectEvent(PlayerActionEvent, function(event) self:HandlePlayerActionEvent(event) end)
-		self.KeybindBound = true
-	end
-
-	method void HandlePlayerActionEvent(PlayerActionEvent event)
-		if event.ActionName ~= "ToggleRogueliteShop" then
-			return
-		end
-
-		local player = _UserService.LocalPlayer
-		if isvalid(player) == false or string.find(tostring(player.Path), "StartingArea", 1, true) == nil then
-			return
-		end
-
-		if self.IsOpen then
-			self:Close()
-		else
-			self:Open()
+		if isvalid(self.ShopInteraction) then
+			self.ShopInteraction.Entity:ConnectEvent(InteractionEvent, function(event) self:HandleShopInteraction(event) end)
 		end
 	end
 
 	@ExecSpace("ClientOnly")
-	method void OnUpdate(number delta)
-		self:TryBindOpenKey()
+	method void HandleShopInteraction(InteractionEvent event)
+		self:Open()
+	end
 
+	@ExecSpace("ClientOnly")
+	method void OnUpdate(number delta)
 		if self.IsOpen then
 			self:UpdateShopTexts()
 		end

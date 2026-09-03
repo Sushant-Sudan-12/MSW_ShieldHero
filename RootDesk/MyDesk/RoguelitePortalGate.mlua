@@ -1,0 +1,84 @@
+@Component
+script RoguelitePortalGate extends Component
+
+	property PortalComponent Portal = nil
+
+	property string RequiredMonsterTag = "TrialOfMountainMonster"
+
+	@MinValue(1)
+	property integer RequiredDefeatedCount = 10
+
+	property boolean UnlockWhenAllTaggedMonstersDefeated = true
+
+	property boolean UnlockOverride = false
+
+	@HideFromInspector
+	property boolean IsUnlocked = false
+
+	@HideFromInspector
+	property boolean FoundRequiredMonster = false
+
+	@ExecSpace("ServerOnly")
+	method void OnBeginPlay()
+		if isvalid(self.Portal) == false then
+			self.Portal = self.Entity.PortalComponent
+		end
+
+		self.IsUnlocked = false
+		self:ApplyPortalState()
+	end
+
+	@ExecSpace("ServerOnly")
+	method void OnUpdate(number delta)
+		if self.IsUnlocked then
+			return
+		end
+
+		if self.UnlockOverride then
+			self:UnlockPortal()
+			return
+		end
+
+		if self.UnlockWhenAllTaggedMonstersDefeated == false then
+			return
+		end
+
+		local monsters = _EntityService:GetEntitiesByTag(self.RequiredMonsterTag)
+		if monsters == nil then
+			return
+		end
+
+		local defeatedCount = 0
+		for _, monsterEntity in ipairs(monsters) do
+			if isvalid(monsterEntity) then
+				self.FoundRequiredMonster = true
+				local monster = monsterEntity:GetComponent("Monster")
+				if isvalid(monster) and monster.IsDead then
+					defeatedCount = defeatedCount + 1
+				end
+			end
+		end
+
+		if self.FoundRequiredMonster and defeatedCount >= self.RequiredDefeatedCount then
+			self:UnlockPortal()
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void UnlockPortal()
+		if self.IsUnlocked then
+			return
+		end
+
+		self.IsUnlocked = true
+		self:ApplyPortalState()
+	end
+
+	@ExecSpace("ServerOnly")
+	method void ApplyPortalState()
+		if isvalid(self.Portal) then
+			self.Portal.Enable = self.IsUnlocked
+		end
+	end
+
+end

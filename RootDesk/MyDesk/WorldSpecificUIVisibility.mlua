@@ -1,0 +1,53 @@
+@Component
+script WorldSpecificUIVisibility extends Component
+
+	property string SkillQuickSlotPath = "/ui/PlayerStats/SkillQuickSlot"
+
+	property string MyInfoPath = "/ui/PlayerStats/UIMyInfo"
+
+	@HideFromInspector
+	property boolean Applied = false
+
+	@ExecSpace("ClientOnly")
+	method void OnBeginPlay()
+		self:ApplyVisibility()
+	end
+
+	@ExecSpace("ClientOnly")
+	method void OnUpdate(number delta)
+		if self.Applied == false then
+			self:ApplyVisibility()
+		end
+	end
+
+	@ExecSpace("ClientOnly")
+	method void ApplyVisibility()
+		local skillQuickSlot = _EntityService:GetEntityByPath(self.SkillQuickSlotPath)
+		local myInfo = _EntityService:GetEntityByPath(self.MyInfoPath)
+
+		if isvalid(skillQuickSlot) then
+			skillQuickSlot:SetEnable(false)
+		end
+
+		if isvalid(myInfo) then
+			myInfo:SetEnable(false)
+		end
+
+		self.Applied = isvalid(skillQuickSlot) or isvalid(myInfo)
+	end
+
+	@ExecSpace("ClientOnly")
+	method void OnDestroy()
+		local skillQuickSlot = _EntityService:GetEntityByPath(self.SkillQuickSlotPath)
+		local myInfo = _EntityService:GetEntityByPath(self.MyInfoPath)
+
+		if isvalid(skillQuickSlot) then
+			skillQuickSlot:SetEnable(true)
+		end
+
+		if isvalid(myInfo) then
+			myInfo:SetEnable(true)
+		end
+	end
+
+end

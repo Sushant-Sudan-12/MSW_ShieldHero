@@ -1390,6 +1390,124 @@
         }
       },
       {
+        "id": "f252a9da-bf6a-4e6e-a854-7ea07eebb13d",
+        "path": "/ui/PlayerStats/UIMyInfo/Soul_Counter",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.TextGUIRendererComponent,script.UISoulCounter",
+        "jsonString": {
+          "name": "Soul_Counter",
+          "path": "/ui/PlayerStats/UIMyInfo/Soul_Counter",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 6,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uitextguirenderer",
+            "sub_entity_id": null,
+            "root_entity_id": "f252a9da-bf6a-4e6e-a854-7ea07eebb13d",
+            "replaced_model_id": null
+          },
+          "modelId": "uitextguirenderer",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 125.182518,
+                "y": 116.4051
+              },
+              "OffsetMin": {
+                "x": -123.274712,
+                "y": 50.5951
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 248.45723,
+                "y": 65.81
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 0.9539,
+                "y": 83.5001
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": 0.9539,
+                "y": 83.5001,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": -1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.TextGUIRendererComponent",
+              "BestFit": false,
+              "EnableProfanityFilter": true,
+              "FontColor": {
+                "r": 0.0,
+                "g": 0.0,
+                "b": 0.0,
+                "a": 1.0
+              },
+              "FontSize": 40.0,
+              "HorizontalAlignment": 1,
+              "MaxSize": 50.0,
+              "MinSize": 10.0,
+              "OverrideSorting": false,
+              "Text": "x 1000000",
+              "Enable": true
+            },
+            {
+              "@type": "script.UISoulCounter",
+              "Enable": true,
+              "TextTarget": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "f252a9da-bf6a-4e6e-a854-7ea07eebb13d",
+                "Version2": false
+              }
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
         "id": "6f715af8-9087-47e8-8733-c59f40c6141d",
         "path": "/ui/PlayerStats/SkillQuickSlot",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
@@ -2522,124 +2640,6 @@
         }
       },
       {
-        "id": "f252a9da-bf6a-4e6e-a854-7ea07eebb13d",
-        "path": "/ui/PlayerStats/Soul_Counter",
-        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.TextGUIRendererComponent,script.UISoulCounter",
-        "jsonString": {
-          "name": "Soul_Counter",
-          "path": "/ui/PlayerStats/Soul_Counter",
-          "nameEditable": true,
-          "enable": true,
-          "visible": true,
-          "localize": true,
-          "displayOrder": 2,
-          "pathConstraints": "///",
-          "revision": 1,
-          "origin": {
-            "type": "Model",
-            "entry_id": "uitextguirenderer",
-            "sub_entity_id": null,
-            "root_entity_id": "f252a9da-bf6a-4e6e-a854-7ea07eebb13d",
-            "replaced_model_id": null
-          },
-          "modelId": "uitextguirenderer",
-          "@components": [
-            {
-              "@type": "MOD.Core.UITransformComponent",
-              "AlignmentOption": 0,
-              "AnchorsMax": {
-                "x": 0.5,
-                "y": 0.5
-              },
-              "AnchorsMin": {
-                "x": 0.5,
-                "y": 0.5
-              },
-              "MobileOnly": false,
-              "OffsetMax": {
-                "x": -462.764679,
-                "y": -293.9471
-              },
-              "OffsetMin": {
-                "x": -711.2219,
-                "y": -359.7571
-              },
-              "Pivot": {
-                "x": 0.5,
-                "y": 0.5
-              },
-              "RectSize": {
-                "x": 248.45723,
-                "y": 65.81
-              },
-              "UIMode": 1,
-              "UIScale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-              },
-              "UIVersion": 2,
-              "anchoredPosition": {
-                "x": -586.9933,
-                "y": -326.8521
-              },
-              "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-              },
-              "Position": {
-                "x": -586.9933,
-                "y": -326.8521,
-                "z": 0.0
-              },
-              "QuaternionRotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-              },
-              "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-              },
-              "ZRotation": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.TextGUIRendererComponent",
-              "BestFit": false,
-              "EnableProfanityFilter": true,
-              "FontColor": {
-                "r": 0.0,
-                "g": 0.0,
-                "b": 0.0,
-                "a": 1.0
-              },
-              "FontSize": 40.0,
-              "HorizontalAlignment": 1,
-              "MaxSize": 50.0,
-              "MinSize": 10.0,
-              "OverrideSorting": false,
-              "Text": "x 1000000",
-              "Enable": true
-            },
-            {
-              "@type": "script.UISoulCounter",
-              "Enable": true,
-              "TextTarget": {
-                "tempEntityId": null,
-                "IsRelative": false,
-                "EntityId": "f252a9da-bf6a-4e6e-a854-7ea07eebb13d",
-                "Version2": false
-              }
-            }
-          ],
-          "@version": 1
-        }
-      },
-      {
         "id": "a17a2a27-1a96-4d34-beca-8421f74c3d9a",
         "path": "/ui/PlayerStats/UpgradePanel",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,script.UpgradeUIAbility",
@@ -2650,7 +2650,7 @@
           "enable": true,
           "visible": true,
           "localize": true,
-          "displayOrder": 3,
+          "displayOrder": 2,
           "pathConstraints": "///",
           "revision": 0,
           "origin": {
@@ -3963,7 +3963,7 @@
           "enable": true,
           "visible": true,
           "localize": true,
-          "displayOrder": 4,
+          "displayOrder": 3,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -4043,7 +4043,7 @@
           "enable": true,
           "visible": true,
           "localize": true,
-          "displayOrder": 5,
+          "displayOrder": 4,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -4163,7 +4163,7 @@
           "enable": true,
           "visible": true,
           "localize": true,
-          "displayOrder": 6,
+          "displayOrder": 5,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -4181,12 +4181,12 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": 326.454071,
-                "y": 323.043
+                "x": 289.901123,
+                "y": 288.729523
               },
               "OffsetMin": {
-                "x": -273.545929,
-                "y": -276.957
+                "x": -310.098877,
+                "y": -311.270477
               },
               "Pivot": {
                 "x": 0.5,
@@ -4204,8 +4204,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": 26.4540749,
-                "y": 23.0429974
+                "x": -10.0988731,
+                "y": -11.2704716
               },
               "Rotation": {
                 "x": 0.0,
@@ -4213,8 +4213,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 26.4541016,
-                "y": 23.0429688,
+                "x": -10.098877,
+                "y": -11.2704468,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -4317,6 +4317,11 @@
                 "EntityId": "c0910696-def8-4013-b55b-fadbaa72871b",
                 "Version2": false
               },
+              "ShopInteraction": {
+                "IsRelative": false,
+                "ComponentId": "2a88d0f3-04ab-4c95-a028-6ec47ee87e58:InteractionComponent",
+                "UseNested": false
+              },
               "balanceTextTarget": {
                 "tempEntityId": null,
                 "IsRelative": false,
@@ -4366,8 +4371,7 @@
                 "UseNested": false
               },
               "ClickDebounceSeconds": 0.2,
-              "LastClickTime": -999.0,
-              "KeybindBound": false
+              "LastClickTime": -999.0
             }
           ],
           "@version": 1
@@ -8189,7 +8193,7 @@
           "enable": true,
           "visible": true,
           "localize": true,
-          "displayOrder": 7,
+          "displayOrder": 6,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {

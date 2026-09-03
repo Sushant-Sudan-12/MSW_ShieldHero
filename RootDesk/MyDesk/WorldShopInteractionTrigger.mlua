@@ -1,0 +1,77 @@
+@Component
+script WorldShopInteractionTrigger extends Component
+
+	property InteractionComponent Interaction = nil
+
+	property string WorldShopUIPath = "/ui/DefaultGroup/UIWorldShop"
+
+	property string WorldShopModelName = "Model_UIWorldShop"
+
+	@HideFromInspector
+	property Entity WorldShopUI = nil
+
+	property boolean StartingAreaOnly = true
+
+	@ExecSpace("ClientOnly")
+	method void OnBeginPlay()
+		if isvalid(self.Interaction) == false then
+			self.Interaction = self.Entity.InteractionComponent
+		end
+
+		if isvalid(self.Interaction) then
+			self.Interaction.Entity:ConnectEvent(InteractionEvent, function(event) self:HandleInteraction(event) end)
+			log("WorldShopInteractionTrigger: interaction listener ready")
+		else
+			log_error("WorldShopInteractionTrigger: InteractionComponent missing on shop object")
+		end
+	end
+
+	@ExecSpace("ClientOnly")
+	method void HandleInteraction(InteractionEvent event)
+		log("WorldShopInteractionTrigger: interaction received")
+		if self.StartingAreaOnly then
+			local player = _UserService.LocalPlayer
+			if isvalid(player) == false or string.find(tostring(player.Path), "StartingArea", 1, true) == nil then
+				return
+			end
+		end
+
+		local worldShopEntity = self.WorldShopUI
+		if isvalid(worldShopEntity) == false then
+			worldShopEntity = _EntityService:GetEntityByPath(self.WorldShopUIPath)
+		end
+
+		if isvalid(worldShopEntity) == false then
+			local uiRoot = _EntityService:GetEntityByPath("/ui/DefaultGroup")
+			local modelId = _EntryService:GetModelIdByName(self.WorldShopModelName)
+			log("WorldShopInteractionTrigger: uiRoot=" .. tostring(uiRoot) .. " modelId=" .. tostring(modelId))
+			if isvalid(uiRoot) == false then
+				log_error("WorldShopInteractionTrigger: /ui/DefaultGroup not found")
+			elseif modelId == nil or modelId == "" then
+				log_error("WorldShopInteractionTrigger: model not found: " .. tostring(self.WorldShopModelName))
+			else
+				worldShopEntity = _SpawnService:SpawnByModelId(modelId, "UIWorldShop", Vector3.zero, uiRoot)
+				if isvalid(worldShopEntity) then
+					self.WorldShopUI = worldShopEntity
+					log("WorldShopInteractionTrigger: UIWorldShop spawned")
+				else
+					log_error("WorldShopInteractionTrigger: SpawnByModelId returned invalid entity")
+				end
+			end
+		end
+
+		if isvalid(worldShopEntity) == false then
+			log_error("WorldShopInteractionTrigger: could not find or spawn " .. tostring(self.WorldShopModelName))
+			return
+		end
+
+		local worldShop = worldShopEntity:GetComponent("UIWorldShop")
+		if isvalid(worldShop) == false then
+			log_error("WorldShopInteractionTrigger: UIWorldShop component not found")
+			return
+		end
+
+		worldShop:Open()
+	end
+
+end

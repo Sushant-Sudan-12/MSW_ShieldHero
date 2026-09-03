@@ -5,6 +5,7 @@ script UpgradableObject extends Component
     property Entity UpgradePanel = nil
     property UpgradeUIAbility UpgradeUIScript = nil
     property RogueliteUpgradeShopUI EchoUpgradeUIScript = nil
+    property boolean OpenRogueliteShopOnInteract = false
     property InteractionComponent Interaction = nil
 
     @HideFromInspector
@@ -26,6 +27,14 @@ script UpgradableObject extends Component
             return
         end
 
+        if self.OpenRogueliteShopOnInteract then
+            if isvalid(self.EchoUpgradeUIScript) then
+                self.EchoUpgradeUIScript:Open()
+                self.EchoUpgradeUIScript:SetActiveObject(self)
+            end
+            return
+        end
+
         if isvalid(self.UpgradePanel) then
             self.UpgradePanel.Enable = true
         end
@@ -33,11 +42,6 @@ script UpgradableObject extends Component
         if isvalid(self.UpgradeUIScript) then
             self.UpgradeUIScript:Open()
             self.UpgradeUIScript:SetActiveObject(self)
-        end
-
-        if isvalid(self.EchoUpgradeUIScript) then
-            self.EchoUpgradeUIScript:Open()
-            self.EchoUpgradeUIScript:SetActiveObject(self)
         end
     end
 

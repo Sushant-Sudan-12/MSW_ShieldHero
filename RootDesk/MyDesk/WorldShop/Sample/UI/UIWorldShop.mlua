@@ -3,11 +3,14 @@ script UIWorldShop extends Component
 
 	property Entity ItemPanel = nil
 
-	property Entity PassPanel = nil
-
 	property GridViewComponent GridView = nil
 
 	property integer Category = 0
+
+	@MinValue(1)
+	property integer ShopOrderInLayer = 10000
+
+	property string ShopSortingLayer = "UI"
 
 	@ExecSpace("ClientOnly")
 	method void OnBeginPlay()
@@ -22,31 +25,44 @@ script UIWorldShop extends Component
 			self:Close()
 		end)
 		
-		local tab = panel:GetChildByName("Tabs")
-		local btnItem = tab:GetChildByName("Btn_Item")
-		btnItem:ConnectEvent(ButtonClickEvent, function()
-			self:ApplyPanel(_WorldShopCategoryType.Item)
-		end)
-		
-		local btnDia = tab:GetChildByName("Btn_Dia")
-		btnDia:ConnectEvent(ButtonClickEvent, function()
-			self:ApplyPanel(_WorldShopCategoryType.Dia)
-		end)
-		
-		local btnPass = tab:GetChildByName("Btn_Pass")
-		btnPass:ConnectEvent(ButtonClickEvent, function()
-			self:ApplyPanel(_WorldShopCategoryType.Pass)
-		end)
-		
 		local main = panel:GetChildByName("Main")
 		self.ItemPanel = main:GetChildByName("ItemPanel")
-		self.PassPanel = main:GetChildByName("PassPanel")
+		self:ApplyTopSorting()
+	end
+
+	@ExecSpace("ClientOnly")
+	method void ApplyTopSorting()
+		local spriteRenderers = self.Entity:GetChildComponentsByTypeName("SpriteGUIRendererComponent", true)
+		for _, component in ipairs(spriteRenderers) do
+			---@type SpriteGUIRendererComponent
+			local renderer = component
+			renderer.OverrideSorting = true
+			renderer.SortingLayer = self.ShopSortingLayer
+			renderer.OrderInLayer = self.ShopOrderInLayer
+		end
+
+		local textRenderers = self.Entity:GetChildComponentsByTypeName("TextGUIRendererComponent", true)
+		for _, component in ipairs(textRenderers) do
+			---@type TextGUIRendererComponent
+			local renderer = component
+			renderer.OverrideSorting = true
+			renderer.SortingLayer = self.ShopSortingLayer
+			renderer.OrderInLayer = self.ShopOrderInLayer
+		end
+
+		local inputRenderers = self.Entity:GetChildComponentsByTypeName("TextGUIRendererInputComponent", true)
+		for _, component in ipairs(inputRenderers) do
+			---@type TextGUIRendererInputComponent
+			local renderer = component
+			renderer.OverrideSorting = true
+			renderer.SortingLayer = self.ShopSortingLayer
+			renderer.OrderInLayer = self.ShopOrderInLayer
+		end
 	end
 
 	@ExecSpace("ClientOnly")
 	method void Close()
 		self.ItemPanel.UIWorldShopItemPanel:Close()
-		self.PassPanel.UIWorldShopPassPanel:Close()
 		self.Entity:SetEnable(false)
 	end
 
@@ -70,22 +86,14 @@ script UIWorldShop extends Component
 
 	@ExecSpace("ClientOnly")
 	method void ApplyPanel(integer category)
-		self.Category = category
-		
-		local isItemPanel = self:IsItemPanelCategory(category)
-		if isItemPanel then
-			self.ItemPanel.UIWorldShopItemPanel:Apply(category)
-		elseif self.Category == _WorldShopCategoryType.Pass then
-			self.PassPanel.UIWorldShopPassPanel:Apply(category)
-		end
-		
-		self.ItemPanel:SetEnable(isItemPanel)
-		self.PassPanel:SetEnable(not isItemPanel)
+		self.Category = _WorldShopCategoryType.Item
+		self.ItemPanel.UIWorldShopItemPanel:Apply(self.Category)
+		self.ItemPanel:SetEnable(true)
 	end
 
 	@ExecSpace("ClientOnly")
 	method boolean IsItemPanelCategory(integer category)
-		return category == _WorldShopCategoryType.Item or category == _WorldShopCategoryType.Dia
+		return true
 	end
 
 	@ExecSpace("ClientOnly")

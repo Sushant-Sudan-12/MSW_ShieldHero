@@ -1,0 +1,33 @@
+{
+  "Id": "",
+  "GameId": "",
+  "EntryKey": "codeblock://bbd3cbe8-881a-4857-8f59-29ddaffd164c",
+  "ContentType": "x-mod/codeblock",
+  "Content": "",
+  "Usage": 0,
+  "UsePublish": 1,
+  "UseService": 0,
+  "CoreVersion": "26.7.0.0",
+  "StudioVersion": "",
+  "DynamicLoading": 0,
+  "ContentProto": {
+    "Use": "Json",
+    "Json": {
+      "CoreVersion": {
+        "Major": 0,
+        "Minor": 2
+      },
+      "ScriptVersion": {
+        "Major": 1,
+        "Minor": 1
+      },
+      "Description": "",
+      "Id": "bbd3cbe8-881a-4857-8f59-29ddaffd164c",
+      "Language": 1,
+      "Name": "WorldSpecificUIVisibility",
+      "Type": 1,
+      "Source": 0,
+      "Target": null
+    }
+  }
+}
