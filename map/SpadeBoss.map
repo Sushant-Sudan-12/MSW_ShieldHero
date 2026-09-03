@@ -8486,7 +8486,7 @@
       {
         "id": "8776607c-ca16-46cb-b74c-e35d26dd5fd0",
         "path": "/maps/SpadeBoss/Boss",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.HitComponent,MOD.Core.MovementComponent,MOD.Core.DamageSkinSpawnerComponent,script.BossAI,MOD.Core.TagComponent",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.HitComponent,MOD.Core.MovementComponent,MOD.Core.DamageSkinSpawnerComponent,script.BossAI,MOD.Core.TagComponent,script.MonsterSoulReward",
         "jsonString": {
           "name": "Boss",
           "path": "/maps/SpadeBoss/Boss",
@@ -8598,9 +8598,15 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Boss"
+                "SpadeBoss"
               ],
               "Enable": true
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true,
+              "DefeatProgressId": "SpadeBoss",
+              "ProgressRecorded": false
             }
           ],
           "@version": 1
@@ -8608,11 +8614,11 @@
       },
       {
         "id": "532ddfbf-fc57-4b6a-bb14-9b8206b9cc9a",
-        "path": "/maps/SpadeBoss/portal-6",
+        "path": "/maps/SpadeBoss/Entry",
         "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.PortalComponent,MOD.Core.TagComponent",
         "jsonString": {
-          "name": "portal-6",
-          "path": "/maps/SpadeBoss/portal-6",
+          "name": "Entry",
+          "path": "/maps/SpadeBoss/Entry",
           "nameEditable": true,
           "enable": true,
           "visible": true,
@@ -8686,11 +8692,11 @@
       },
       {
         "id": "5dca0e00-d91a-4656-a3dd-2ff2529a996a",
-        "path": "/maps/SpadeBoss/portal-6_1",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.PortalComponent,MOD.Core.TagComponent",
+        "path": "/maps/SpadeBoss/Exit",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.PortalComponent,MOD.Core.TagComponent,script.RoguelitePortalGate",
         "jsonString": {
-          "name": "portal-6_1",
-          "path": "/maps/SpadeBoss/portal-6_1",
+          "name": "Exit",
+          "path": "/maps/SpadeBoss/Exit",
           "nameEditable": true,
           "enable": true,
           "visible": true,
@@ -8715,8 +8721,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -0.0297927856,
-                "y": 2.8725152,
+                "x": 13.7816772,
+                "y": -3.09715176,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -8752,7 +8758,7 @@
               "PortalEntityRef": {
                 "tempEntityId": null,
                 "IsRelative": false,
-                "EntityId": "4796d664-2b50-405d-8cc8-770b68079074",
+                "EntityId": "b83707b3-eff6-4b86-a456-382a5d8667f9",
                 "Version2": false
               },
               "Enable": true
@@ -8763,6 +8769,21 @@
                 "MODRespawnArea"
               ],
               "Enable": true
+            },
+            {
+              "@type": "script.RoguelitePortalGate",
+              "Enable": true,
+              "Portal": {
+                "IsRelative": false,
+                "ComponentId": "5dca0e00-d91a-4656-a3dd-2ff2529a996a:PortalComponent",
+                "UseNested": false
+              },
+              "RequiredMonsterTag": "SpadeBoss",
+              "RequiredProgressId": "SpadeBoss",
+              "RequiredDefeatedCount": 1,
+              "UnlockWhenAllTaggedMonstersDefeated": false,
+              "IsUnlocked": false,
+              "FoundRequiredMonster": false
             }
           ],
           "@version": 1

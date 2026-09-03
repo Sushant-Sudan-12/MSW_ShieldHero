@@ -19779,6 +19779,7 @@
             {
               "@type": "MOD.Core.InteractionComponent",
               "IsLegacy": false,
+              "ShowActionInfo": true,
               "Enable": true
             }
           ],
@@ -19851,7 +19852,8 @@
                 "ComponentId": "59f04eab-d015-491b-b626-34de566ee128:InteractionComponent",
                 "UseNested": false
               },
-              "WorldShopUI": null
+              "WorldShopUI": null,
+              "InteractionBound": false
             }
           ],
           "@version": 1

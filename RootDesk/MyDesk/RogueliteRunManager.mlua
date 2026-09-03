@@ -31,6 +31,10 @@ script RogueliteRunManager extends Component
 	@Sync
 	property number SoulBankBalance = 0
 
+	property string DefeatProgressStorageKey = "RogueliteDefeatProgress"
+
+	property table DefeatProgress = {}
+
 	-- === Permanent Echo Shard Upgrades (persist across deaths/sessions) ===
 	property string EchoUpgradeStorageKey = "EchoUpgrades"
 
@@ -91,6 +95,7 @@ script RogueliteRunManager extends Component
 			if uid ~= nil and uid ~= "" then
 				self:RefreshSoulBankBalance(uid)
 				self:LoadPermanentUpgrades(uid)
+				self:LoadDefeatProgress(uid)
 			end
 		end
 
@@ -109,6 +114,51 @@ script RogueliteRunManager extends Component
 				end
 			end
 		end, 0.5)
+	end
+
+	@ExecSpace("ServerOnly")
+	method number GetDefeatProgress(string progressId)
+		return tonumber(self.DefeatProgress[progressId]) or 0
+	end
+
+	@ExecSpace("ServerOnly")
+	method void AddDefeatProgress(string progressId, number amount)
+		if progressId == nil or progressId == "" or amount <= 0 then
+			return
+		end
+
+		local playerComponent = self.Entity:GetComponent("PlayerComponent")
+		if isvalid(playerComponent) == false then
+			return
+		end
+
+		self.DefeatProgress[progressId] = self:GetDefeatProgress(progressId) + amount
+		local storage = _DataStorageService:GetUserDataStorage(playerComponent.UserId)
+		if storage ~= nil then
+			local payload = {}
+			payload[self.DefeatProgressStorageKey] = _HttpService:JSONEncode(self.DefeatProgress)
+			storage:BatchSetAndWait(payload)
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void LoadDefeatProgress(string userId)
+		if userId == nil or userId == "" then
+			return
+		end
+
+		local storage = _DataStorageService:GetUserDataStorage(userId)
+		if storage == nil then
+			return
+		end
+
+		local err, value = storage:GetAndWait(self.DefeatProgressStorageKey)
+		if err == 0 and value ~= nil and value ~= "" then
+			local ok, data = pcall(function() return _HttpService:JSONDecode(value) end)
+			if ok and type(data) == "table" then
+				self.DefeatProgress = data
+			end
+		end
 	end
 
 	@ExecSpace("ServerOnly")
@@ -201,12 +251,14 @@ script RogueliteRunManager extends Component
 		self.PermanentShieldThrowDistanceLevel = 1
 		self.PermanentParryWindowLevel = 1
 		self.SoulBankBalance = 0
+		self.DefeatProgress = {}
 
 		local payload = {}
 		payload[self.SoulBankStorageKey] = tostring(0)
 		payload[self.EchoUpgradeStorageKey] = _HttpService:JSONEncode({
 			Health = 1, Attack = 1, StaminaSpeed = 1, ShieldThrowDistance = 1, ParryWindow = 1,
 		})
+		payload[self.DefeatProgressStorageKey] = _HttpService:JSONEncode({})
 		storage:BatchSetAndWait(payload)
 
 		self:ApplyAllPermanentUpgrades()

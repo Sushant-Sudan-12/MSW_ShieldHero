@@ -4,6 +4,11 @@ script MonsterSoulReward extends Component
 	@Sync
 	property number SoulsToGive = 10
 
+	property string DefeatProgressId = ""
+
+	@HideFromInspector
+	property boolean ProgressRecorded = false
+
 	method Entity FindSoulOwner(Entity attacker)
 		local current = attacker
 		while isvalid(current) do
@@ -59,7 +64,22 @@ script MonsterSoulReward extends Component
 			return
 		end
 
+		if self.ProgressRecorded then
+			return
+		end
+		self.ProgressRecorded = true
+
 		self:GrantSoulsToPlayer(attackerEntity)
+
+		if self.DefeatProgressId ~= "" then
+			local soulOwner = self:FindSoulOwner(attackerEntity)
+			if isvalid(soulOwner) then
+				local runManager = soulOwner:GetComponent("RogueliteRunManager")
+				if isvalid(runManager) then
+					runManager:AddDefeatProgress(self.DefeatProgressId, 1)
+				end
+			end
+		end
 	end
 
 end

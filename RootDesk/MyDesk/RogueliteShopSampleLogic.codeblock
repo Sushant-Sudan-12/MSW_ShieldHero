@@ -1,0 +1,33 @@
+{
+  "Id": "",
+  "GameId": "",
+  "EntryKey": "codeblock://a40993d7-fa91-4152-b0b1-1933c8e3b4fb",
+  "ContentType": "x-mod/codeblock",
+  "Content": "",
+  "Usage": 0,
+  "UsePublish": 1,
+  "UseService": 0,
+  "CoreVersion": "26.7.0.0",
+  "StudioVersion": "",
+  "DynamicLoading": 0,
+  "ContentProto": {
+    "Use": "Json",
+    "Json": {
+      "CoreVersion": {
+        "Major": 0,
+        "Minor": 2
+      },
+      "ScriptVersion": {
+        "Major": 1,
+        "Minor": 1
+      },
+      "Description": "",
+      "Id": "a40993d7-fa91-4152-b0b1-1933c8e3b4fb",
+      "Language": 1,
+      "Name": "RogueliteShopSampleLogic",
+      "Type": 5,
+      "Source": 0,
+      "Target": null
+    }
+  }
+}

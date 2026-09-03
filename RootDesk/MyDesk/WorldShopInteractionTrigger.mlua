@@ -10,19 +10,33 @@ script WorldShopInteractionTrigger extends Component
 	@HideFromInspector
 	property Entity WorldShopUI = nil
 
+	@HideFromInspector
+	property boolean InteractionBound = false
+
 	property boolean StartingAreaOnly = true
 
 	@ExecSpace("ClientOnly")
 	method void OnBeginPlay()
+		self:BindInteraction()
+	end
+
+	@ExecSpace("ClientOnly")
+	method void OnUpdate(number delta)
+		if self.InteractionBound == false then
+			self:BindInteraction()
+		end
+	end
+
+	@ExecSpace("ClientOnly")
+	method void BindInteraction()
 		if isvalid(self.Interaction) == false then
 			self.Interaction = self.Entity.InteractionComponent
 		end
 
-		if isvalid(self.Interaction) then
+		if isvalid(self.Interaction) and self.InteractionBound == false then
 			self.Interaction.Entity:ConnectEvent(InteractionEvent, function(event) self:HandleInteraction(event) end)
+			self.InteractionBound = true
 			log("WorldShopInteractionTrigger: interaction listener ready")
-		else
-			log_error("WorldShopInteractionTrigger: InteractionComponent missing on shop object")
 		end
 	end
 
@@ -39,6 +53,9 @@ script WorldShopInteractionTrigger extends Component
 		local worldShopEntity = self.WorldShopUI
 		if isvalid(worldShopEntity) == false then
 			worldShopEntity = _EntityService:GetEntityByPath(self.WorldShopUIPath)
+			if isvalid(worldShopEntity) then
+				self.WorldShopUI = worldShopEntity
+			end
 		end
 
 		if isvalid(worldShopEntity) == false then
@@ -72,6 +89,13 @@ script WorldShopInteractionTrigger extends Component
 		end
 
 		worldShop:Open()
+	end
+
+	@ExecSpace("ClientOnly")
+	method void OnDestroy()
+		self.WorldShopUI = nil
+		self.Interaction = nil
+		self.InteractionBound = false
 	end
 
 end

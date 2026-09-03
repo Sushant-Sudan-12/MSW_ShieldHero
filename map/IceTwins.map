@@ -42643,12 +42643,12 @@
             {
               "@type": "MOD.Core.TriggerComponent",
               "BoxSize": {
-                "x": 9.063857,
+                "x": 8.040166,
                 "y": 81.80756
               },
               "ColliderOffset": {
-                "x": 0.104393959,
-                "y": -40.6528549
+                "x": 0.185211182,
+                "y": -40.65286
               },
               "IsLegacy": false,
               "Enable": true
@@ -42740,11 +42740,11 @@
             {
               "@type": "MOD.Core.TriggerComponent",
               "BoxSize": {
-                "x": 15.3306761,
+                "x": 14.8323,
                 "y": 75.5851
               },
               "ColliderOffset": {
-                "x": 0.06524181,
+                "x": -0.183945656,
                 "y": -37.5383263
               },
               "IsLegacy": false,
@@ -42837,11 +42837,11 @@
             {
               "@type": "MOD.Core.TriggerComponent",
               "BoxSize": {
-                "x": 15.1833191,
+                "x": 14.2135077,
                 "y": 80.37264
               },
               "ColliderOffset": {
-                "x": -0.4916706,
+                "x": -0.0067653656,
                 "y": -39.9351425
               },
               "IsLegacy": false,

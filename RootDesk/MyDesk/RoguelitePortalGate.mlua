@@ -5,6 +5,8 @@ script RoguelitePortalGate extends Component
 
 	property string RequiredMonsterTag = "TrialOfMountainMonster"
 
+	property string RequiredProgressId = ""
+
 	@MinValue(1)
 	property integer RequiredDefeatedCount = 10
 
@@ -40,6 +42,18 @@ script RoguelitePortalGate extends Component
 		end
 
 		if self.UnlockWhenAllTaggedMonstersDefeated == false then
+			if self.RequiredProgressId == "" then
+				return
+			end
+		end
+
+		local player = _UserService.LocalPlayer
+		if self.RequiredProgressId ~= "" and isvalid(player) then
+			---@type RogueliteRunManager
+			local runManager = player:GetComponent("RogueliteRunManager")
+			if isvalid(runManager) and runManager:GetDefeatProgress(self.RequiredProgressId) >= self.RequiredDefeatedCount then
+				self:UnlockPortal()
+			end
 			return
 		end
 
@@ -52,9 +66,16 @@ script RoguelitePortalGate extends Component
 		for _, monsterEntity in ipairs(monsters) do
 			if isvalid(monsterEntity) then
 				self.FoundRequiredMonster = true
+				---@type Monster
 				local monster = monsterEntity:GetComponent("Monster")
 				if isvalid(monster) and monster.IsDead then
 					defeatedCount = defeatedCount + 1
+				else
+					---@type BossAI
+					local boss = monsterEntity:GetComponent("BossAI")
+					if isvalid(boss) and boss.IsBossDead then
+						defeatedCount = defeatedCount + 1
+					end
 				end
 			end
 		end

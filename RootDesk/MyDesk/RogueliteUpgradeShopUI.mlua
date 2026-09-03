@@ -6,7 +6,6 @@ script RogueliteUpgradeShopUI extends Component
 	property ButtonComponent btnStaminaSpeed = nil
 	property ButtonComponent btnClose = nil
 	property Entity panelRoot = nil
-	property InteractionComponent ShopInteraction = nil
 
 	property Entity balanceTextTarget = nil
 	property Entity healthLevelTextTarget = nil
@@ -39,14 +38,6 @@ script RogueliteUpgradeShopUI extends Component
 			self.panelRoot.Enable = false
 		end
 
-		if isvalid(self.ShopInteraction) then
-			self.ShopInteraction.Entity:ConnectEvent(InteractionEvent, function(event) self:HandleShopInteraction(event) end)
-		end
-	end
-
-	@ExecSpace("ClientOnly")
-	method void HandleShopInteraction(InteractionEvent event)
-		self:Open()
 	end
 
 	@ExecSpace("ClientOnly")
