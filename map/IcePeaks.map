@@ -11980,122 +11980,6 @@
         }
       },
       {
-        "id": "fbc39ee2-118f-466c-8a78-270711563ffc",
-        "path": "/maps/IcePeaks/monster-810",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent",
-        "jsonString": {
-          "name": "monster-810",
-          "path": "/maps/IcePeaks/monster-810",
-          "nameEditable": true,
-          "enable": true,
-          "visible": true,
-          "localize": false,
-          "displayOrder": 12,
-          "pathConstraints": "///",
-          "revision": 1,
-          "origin": {
-            "type": "Model",
-            "entry_id": "MoveMonster",
-            "sub_entity_id": null,
-            "root_entity_id": "fbc39ee2-118f-466c-8a78-270711563ffc",
-            "replaced_model_id": null
-          },
-          "modelId": "movemonster",
-          "@components": [
-            {
-              "@type": "MOD.Core.TransformComponent",
-              "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-              },
-              "Position": {
-                "x": -2.15090942,
-                "y": -7.805001,
-                "z": 999.999
-              },
-              "QuaternionRotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-              },
-              "ZRotation": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.StateAnimationComponent",
-              "ActionSheet": {
-                "move": "2cb7314784a24481a719398c69019cd2",
-                "stand": "6af77eef36674e0a926797664546aa80",
-                "attack": "6fa695ca7dd6431aadc3bb207bb054f8",
-                "attack2": "8813362628764cf98258eb1aadb79e50",
-                "attack3": "aa2aee07562a458f96632d73d43d4187",
-                "hit": "af5fb2a7e2bb4d79933f6dbb11a0e8c8",
-                "die": "992cd8875f4c4912b892002009cd65dd"
-              },
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.SpriteRendererComponent",
-              "ActionSheet": {},
-              "EndFrameIndex": 0,
-              "RenderSetting": 1,
-              "SortingLayer": "MapLayer0",
-              "SpriteRUID": "6af77eef36674e0a926797664546aa80",
-              "StartFrameIndex": 0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.RigidbodyComponent",
-              "MoveVelocity": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "RealMoveVelocity": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.MovementComponent",
-              "InputSpeed": 1.0,
-              "JumpForce": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.AIWanderComponent",
-              "IsLegacy": false,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.StateComponent",
-              "IsLegacy": false,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.HitComponent",
-              "BoxSize": {
-                "x": 2.28,
-                "y": 1.27
-              },
-              "ColliderOffset": {
-                "x": 0.279999971,
-                "y": 0.565
-              },
-              "IsLegacy": false,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.DamageSkinSpawnerComponent",
-              "Enable": true
-            }
-          ],
-          "@version": 1
-        }
-      },
-      {
         "id": "a4b430db-9b79-4325-875c-9866d33c6a9c",
         "path": "/maps/IcePeaks/npc-11",
         "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.StateComponent,MOD.Core.ChatBalloonComponent,MOD.Core.StateAnimationComponent,MOD.Core.NameTagComponent",
@@ -12106,7 +11990,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 13,
+          "displayOrder": 12,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -12204,7 +12088,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 14,
+          "displayOrder": 13,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -12430,7 +12314,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 15,
+          "displayOrder": 14,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -12656,7 +12540,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 16,
+          "displayOrder": 15,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -12882,7 +12766,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 17,
+          "displayOrder": 16,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -13108,7 +12992,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 18,
+          "displayOrder": 17,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -13334,7 +13218,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 19,
+          "displayOrder": 18,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -13560,7 +13444,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 20,
+          "displayOrder": 19,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -13658,7 +13542,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 21,
+          "displayOrder": 20,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -13756,7 +13640,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 22,
+          "displayOrder": 21,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -13854,7 +13738,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 23,
+          "displayOrder": 22,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -13956,7 +13840,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 24,
+          "displayOrder": 23,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -13971,7 +13855,7 @@
             {
               "@type": "MOD.Core.TransformComponent",
               "Position": {
-                "x": -5.552983,
+                "x": -2.54798365,
                 "y": -7.805001,
                 "z": 999.999
               },
@@ -14071,7 +13955,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 25,
+          "displayOrder": 24,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -14163,6 +14047,122 @@
                 "y": 0.0
               },
               "IsLegacy": false,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "efe84768-ac57-4634-b91d-938f7f15096f",
+        "path": "/maps/IcePeaks/monster-810_1",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent",
+        "jsonString": {
+          "name": "monster-810_1",
+          "path": "/maps/IcePeaks/monster-810_1",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 25,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "MoveMonster",
+            "sub_entity_id": null,
+            "root_entity_id": "fbc39ee2-118f-466c-8a78-270711563ffc",
+            "replaced_model_id": null
+          },
+          "modelId": "movemonster",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -6.18392467,
+                "y": -7.805001,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateAnimationComponent",
+              "ActionSheet": {
+                "move": "2cb7314784a24481a719398c69019cd2",
+                "stand": "6af77eef36674e0a926797664546aa80",
+                "attack": "6fa695ca7dd6431aadc3bb207bb054f8",
+                "attack2": "8813362628764cf98258eb1aadb79e50",
+                "attack3": "aa2aee07562a458f96632d73d43d4187",
+                "hit": "af5fb2a7e2bb4d79933f6dbb11a0e8c8",
+                "die": "992cd8875f4c4912b892002009cd65dd"
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "EndFrameIndex": 0,
+              "RenderSetting": 1,
+              "SortingLayer": "MapLayer0",
+              "SpriteRUID": "6af77eef36674e0a926797664546aa80",
+              "StartFrameIndex": 0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.RigidbodyComponent",
+              "MoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "RealMoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.MovementComponent",
+              "InputSpeed": 1.0,
+              "JumpForce": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.AIWanderComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.HitComponent",
+              "BoxSize": {
+                "x": 2.28,
+                "y": 1.27
+              },
+              "ColliderOffset": {
+                "x": 0.279999971,
+                "y": 0.565
+              },
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.DamageSkinSpawnerComponent",
               "Enable": true
             }
           ],
