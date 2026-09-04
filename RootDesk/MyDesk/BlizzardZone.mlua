@@ -9,9 +9,12 @@ script BlizzardZone extends Component
     property number TickInterval = 1.0
 
     -- === Feedback ===
-    property boolean ShowDamagePopup = true
-    property number DamageSkinTweenValue = 3
-    property Vector2 DamagePopupOffset = Vector2(0, 0.5)
+    property string IceHitModelName = "Model_IceHit"
+
+    @MinValue(0.0)
+    property number IceHitDuration = 1.0
+
+    property Vector3 IceHitSpawnOffset = Vector3(0, 0.5, 0)
 
     -- === Detection ===
     property boolean UseTriggerEvents = true
@@ -30,10 +33,14 @@ script BlizzardZone extends Component
     @HideFromInspector
     property any LastTickTimes = nil
 
+    @HideFromInspector
+    property any ActiveIceHitEffects = nil
+
     @ExecSpace("ServerOnly")
     method void OnBeginPlay()
         self.PlayersInZone = {}
         self.LastTickTimes = {}
+        self.ActiveIceHitEffects = {}
         if self.DebugLogs then
             log("BlizzardZone [" .. tostring(self.Entity.Name) .. "] ready")
         end
@@ -157,38 +164,58 @@ script BlizzardZone extends Component
             return
         end
 
-        -- Damage through HitComponent (same pipeline as traps/monster hits)
-        local hitComponent = target:GetComponent("HitComponent")
-        if isvalid(hitComponent) then
-            hitComponent:OnHit(self.Entity, damage, false, "BlizzardZone", 1)
-        end
+        local playerComponent = target:GetComponent("PlayerComponent")
+        if isvalid(playerComponent) then
+            local beforeHp = playerComponent.Hp
+            playerComponent.Hp = math.max(0, beforeHp - damage)
 
-        -- Damage number popup
-        if self.ShowDamagePopup then
-            pcall(function()
-                local skinId = ""
-                local setting = target:GetComponent("DamageSkinSettingComponent")
-                if isvalid(setting) and setting.DamageSkinId ~= nil then
-                    skinId = tostring(setting.DamageSkinId)
-                end
-                _DamageSkinService:Play(
-                    target,
-                    skinId,
-                    0,
-                    {damage},
-                    DamageSkinTweenType.CastFrom(self.DamageSkinTweenValue),
-                    false,
-                    self.DamagePopupOffset,
-                    Vector2(1, 1),
-                    1,
-                    1
-                )
-            end)
+            self:SpawnIceHitEffect(target)
+            if playerComponent.Hp <= 0 and playerComponent:IsDead() == false then
+                playerComponent:ProcessDead(playerComponent.UserId)
+            end
         end
 
         if self.DebugLogs then
             log("BlizzardZone [" .. tostring(self.Entity.Name) .. "] tick damage " .. tostring(damage) .. " -> " .. tostring(target.Name))
         end
+    end
+
+    method void SpawnIceHitEffect(Entity target)
+        if target == nil or isvalid(target) == false then
+            return
+        end
+
+        local modelId = _EntryService:GetModelIdByName(self.IceHitModelName)
+        if modelId == nil or modelId == "" then
+            if self.DebugLogs then
+                log("BlizzardZone: effect model not found: " .. tostring(self.IceHitModelName))
+            end
+            return
+        end
+
+        local transform = target.TransformComponent
+        if isvalid(transform) == false then
+            return
+        end
+
+        local spawnPosition = transform.WorldPosition + self.IceHitSpawnOffset
+        local effect = _SpawnService:SpawnByModelId(modelId, "IceHitEffect", spawnPosition, target.Parent)
+        if isvalid(effect) == false then
+            return
+        end
+
+        effect.Enable = true
+        if isvalid(effect.TransformComponent) then
+            effect.TransformComponent.WorldPosition = spawnPosition
+        end
+
+        self.ActiveIceHitEffects[tostring(effect.Id)] = effect
+        _TimerService:SetTimerOnce(function()
+            if isvalid(effect) then
+                effect:Destroy()
+            end
+            self.ActiveIceHitEffects[tostring(effect.Id)] = nil
+        end, self.IceHitDuration)
     end
 
     -- === Trigger callbacks (direct methods, like MonsterAttackDisableArea) ===

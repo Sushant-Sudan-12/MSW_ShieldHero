@@ -81747,7 +81747,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -81883,7 +81884,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -82026,7 +82028,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -82172,7 +82175,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -82313,7 +82317,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -162740,7 +162745,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 30.0
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1
@@ -162860,7 +162866,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 50.0
+              "SoulsToGive": 50.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -165540,7 +165547,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 50.0
+              "SoulsToGive": 50.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -165707,7 +165715,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 50.0
+              "SoulsToGive": 50.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -165874,7 +165883,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 50.0
+              "SoulsToGive": 50.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -166041,7 +166051,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 50.0
+              "SoulsToGive": 50.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -166208,7 +166219,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 50.0
+              "SoulsToGive": 50.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -166375,7 +166387,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 50.0
+              "SoulsToGive": 50.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -166542,7 +166555,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 50.0
+              "SoulsToGive": 50.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -166737,7 +166751,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 30.0
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1
@@ -166885,7 +166900,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 30.0
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1
@@ -167033,7 +167049,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 30.0
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1
@@ -167181,7 +167198,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 30.0
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1
@@ -167329,7 +167347,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 30.0
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1
@@ -167477,7 +167496,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 30.0
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1
@@ -167625,7 +167645,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 30.0
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1
@@ -167743,7 +167764,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -167889,7 +167911,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -168035,7 +168058,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -168181,7 +168205,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -168327,7 +168352,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -168473,7 +168499,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -168619,7 +168646,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -168765,7 +168793,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -168911,7 +168940,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -169057,7 +169087,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -169203,7 +169234,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -169349,7 +169381,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -169495,7 +169528,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -169641,7 +169675,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -169787,7 +169822,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -169935,7 +169971,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 50.0
+              "SoulsToGive": 50.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -170130,7 +170167,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 30.0
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1
@@ -170278,7 +170316,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 30.0
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1
@@ -170398,7 +170437,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 50.0
+              "SoulsToGive": 50.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -170593,7 +170633,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 30.0
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1
@@ -170711,7 +170752,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -170857,7 +170899,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -171003,7 +171046,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -171179,7 +171223,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 30.0
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1
@@ -171297,7 +171342,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -171443,7 +171489,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -171589,7 +171636,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -171737,7 +171785,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 50.0
+              "SoulsToGive": 50.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -171904,7 +171953,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 50.0
+              "SoulsToGive": 50.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -172099,7 +172149,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 30.0
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1
@@ -172247,7 +172298,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 30.0
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1
@@ -172395,7 +172447,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 30.0
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1
@@ -172513,7 +172566,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -172659,7 +172713,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -172835,7 +172890,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 30.0
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1
@@ -172953,7 +173009,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -173099,7 +173156,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -173243,7 +173301,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -173379,7 +173438,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -173522,7 +173582,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -173665,7 +173726,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -173808,7 +173870,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -173951,7 +174014,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -174094,7 +174158,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -174237,7 +174302,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -174380,7 +174446,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -174523,7 +174590,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -174666,7 +174734,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -174809,7 +174878,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -174952,7 +175022,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -175095,7 +175166,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -175238,7 +175310,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -175381,7 +175454,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -175524,7 +175598,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -175667,7 +175742,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -175810,7 +175886,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -175953,7 +176030,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -176096,7 +176174,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -176238,7 +176317,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -176380,7 +176460,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -176522,7 +176603,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -176664,7 +176746,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -176806,7 +176889,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -176948,7 +177032,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -177090,7 +177175,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -177232,7 +177318,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -177374,7 +177461,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -177516,7 +177604,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -177658,7 +177747,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -177800,7 +177890,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -177942,7 +178033,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -178084,7 +178176,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -178226,7 +178319,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -178368,7 +178462,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -178510,7 +178605,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -178652,7 +178748,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -178794,7 +178891,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -178936,7 +179034,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -179078,7 +179177,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -179220,7 +179320,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -179364,7 +179465,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 50.0
+              "SoulsToGive": 50.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -179529,7 +179631,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -179675,7 +179778,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -179821,7 +179925,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -179967,7 +180072,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -180109,7 +180215,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -180251,7 +180358,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.ExplodingEnemy",
@@ -180393,7 +180501,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -180539,7 +180648,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -180685,7 +180795,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -180831,7 +180942,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 25.0
+              "SoulsToGive": 25.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -180975,7 +181087,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -181109,7 +181222,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -181243,7 +181357,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -181377,7 +181492,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -181511,7 +181627,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -181645,7 +181762,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -181779,7 +181897,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -181913,7 +182032,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -182047,7 +182167,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -182181,7 +182302,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -182315,7 +182437,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -182449,7 +182572,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -182583,7 +182707,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -182717,7 +182842,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -182851,7 +182977,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -182985,7 +183112,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -183119,7 +183247,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -183253,7 +183382,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -183387,7 +183517,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -183521,7 +183652,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -183655,7 +183787,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -183789,7 +183922,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -183923,7 +184057,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -184057,7 +184192,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -184191,7 +184327,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -184325,7 +184462,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -184459,7 +184597,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -184593,7 +184732,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -184727,7 +184867,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -184861,7 +185002,8 @@
             },
             {
               "@type": "script.MonsterSoulReward",
-              "Enable": true
+              "Enable": true,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.RangedEnemy",
@@ -184996,7 +185138,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 20.0
+              "SoulsToGive": 20.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -185140,7 +185283,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -185284,7 +185428,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -185428,7 +185573,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -185572,7 +185718,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -185716,7 +185863,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -185860,7 +186008,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -186004,7 +186153,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -186148,7 +186298,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -186292,7 +186443,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 20.0
+              "SoulsToGive": 20.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -186436,7 +186588,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 20.0
+              "SoulsToGive": 20.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -186580,7 +186733,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 20.0
+              "SoulsToGive": 20.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -186724,7 +186878,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 20.0
+              "SoulsToGive": 20.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -186868,7 +187023,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 20.0
+              "SoulsToGive": 20.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -187012,7 +187168,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 20.0
+              "SoulsToGive": 20.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -187156,7 +187313,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 20.0
+              "SoulsToGive": 20.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -187300,7 +187458,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 20.0
+              "SoulsToGive": 20.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -187444,7 +187603,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 20.0
+              "SoulsToGive": 20.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -187588,7 +187748,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 20.0
+              "SoulsToGive": 20.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -187732,7 +187893,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 20.0
+              "SoulsToGive": 20.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -187876,7 +188038,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 20.0
+              "SoulsToGive": 20.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -188020,7 +188183,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -188164,7 +188328,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 20.0
+              "SoulsToGive": 20.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -188308,7 +188473,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 20.0
+              "SoulsToGive": 20.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -188452,7 +188618,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 20.0
+              "SoulsToGive": 20.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -188596,7 +188763,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -188740,7 +188908,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -188884,7 +189053,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 15.0
+              "SoulsToGive": 15.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "script.MonsterAI",
@@ -189059,7 +189229,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 30.0
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1
@@ -189207,7 +189378,8 @@
             {
               "@type": "script.MonsterSoulReward",
               "Enable": true,
-              "SoulsToGive": 30.0
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1

@@ -70755,7 +70755,7 @@
               "@type": "script.MonsterAI",
               "Enable": true,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 3,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -78666,7 +78666,7 @@
               "PatrolIdleDuration": 3.0,
               "ChaseSpeed": 2.5,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -78821,7 +78821,7 @@
               "PatrolIdleDuration": 3.0,
               "ChaseSpeed": 2.5,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -78973,7 +78973,7 @@
               "@type": "script.MonsterAI",
               "Enable": true,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 3,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -79128,7 +79128,7 @@
               "PatrolIdleDuration": 3.0,
               "ChaseSpeed": 2.5,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -79283,7 +79283,7 @@
               "PatrolIdleDuration": 3.0,
               "ChaseSpeed": 2.5,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -79659,7 +79659,7 @@
               "PatrolIdleDuration": 3.0,
               "ChaseSpeed": 2.5,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -79814,7 +79814,7 @@
               "PatrolIdleDuration": 3.0,
               "ChaseSpeed": 2.5,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -79969,7 +79969,7 @@
               "PatrolIdleDuration": 3.0,
               "ChaseSpeed": 2.5,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -80124,7 +80124,7 @@
               "PatrolIdleDuration": 3.0,
               "ChaseSpeed": 2.5,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -80279,7 +80279,7 @@
               "PatrolIdleDuration": 3.0,
               "ChaseSpeed": 2.5,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -80434,7 +80434,7 @@
               "PatrolIdleDuration": 3.0,
               "ChaseSpeed": 2.5,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -80589,7 +80589,7 @@
               "PatrolIdleDuration": 3.0,
               "ChaseSpeed": 2.5,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -80744,7 +80744,7 @@
               "PatrolIdleDuration": 3.0,
               "ChaseSpeed": 2.5,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -80899,7 +80899,7 @@
               "PatrolIdleDuration": 3.0,
               "ChaseSpeed": 2.5,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -81054,7 +81054,7 @@
               "PatrolIdleDuration": 3.0,
               "ChaseSpeed": 2.5,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -81209,7 +81209,7 @@
               "PatrolIdleDuration": 3.0,
               "ChaseSpeed": 2.5,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -81361,7 +81361,7 @@
               "@type": "script.MonsterAI",
               "Enable": true,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 3,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -81513,7 +81513,7 @@
               "@type": "script.MonsterAI",
               "Enable": true,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 3,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -81665,7 +81665,7 @@
               "@type": "script.MonsterAI",
               "Enable": true,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 3,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -81817,7 +81817,7 @@
               "@type": "script.MonsterAI",
               "Enable": true,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 3,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -81969,7 +81969,7 @@
               "@type": "script.MonsterAI",
               "Enable": true,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 3,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -82121,7 +82121,7 @@
               "@type": "script.MonsterAI",
               "Enable": true,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 3,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -82273,7 +82273,7 @@
               "@type": "script.MonsterAI",
               "Enable": true,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 3,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -82425,7 +82425,7 @@
               "@type": "script.MonsterAI",
               "Enable": true,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 3,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -82577,7 +82577,7 @@
               "@type": "script.MonsterAI",
               "Enable": true,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 3,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -82732,7 +82732,7 @@
               "PatrolIdleDuration": 3.0,
               "ChaseSpeed": 2.5,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -82884,7 +82884,7 @@
               "@type": "script.MonsterAI",
               "Enable": true,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 3,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -83039,7 +83039,7 @@
               "PatrolIdleDuration": 3.0,
               "ChaseSpeed": 2.5,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -83194,7 +83194,7 @@
               "PatrolIdleDuration": 3.0,
               "ChaseSpeed": 2.5,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -83497,7 +83497,7 @@
               "@type": "script.MonsterAI",
               "Enable": true,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 3,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -83649,7 +83649,7 @@
               "@type": "script.MonsterAI",
               "Enable": true,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 3,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -83801,7 +83801,7 @@
               "@type": "script.MonsterAI",
               "Enable": true,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 3,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -85441,7 +85441,7 @@
               "ChaseSpeed": 2.5,
               "DetectionRangeX": 5.0,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -85816,7 +85816,7 @@
               "Enable": true,
               "DetectionRangeX": 5.0,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 3,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -85972,7 +85972,7 @@
               "ChaseSpeed": 2.5,
               "DetectionRangeX": 5.0,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -86128,7 +86128,7 @@
               "ChaseSpeed": 2.5,
               "DetectionRangeX": 5.0,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -86281,7 +86281,7 @@
               "Enable": true,
               "DetectionRangeX": 5.0,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 3,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -87967,7 +87967,7 @@
               "ChaseSpeed": 2.5,
               "DetectionRangeX": 5.0,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -88123,7 +88123,7 @@
               "ChaseSpeed": 2.5,
               "DetectionRangeX": 5.0,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 2,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -88276,7 +88276,7 @@
               "Enable": true,
               "DetectionRangeX": 5.0,
               "AttackRange": 0.8,
-              "AttackHitDelay": 0.0,
+              "AttackHitDelay": 0.3,
               "Damage": 3,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
