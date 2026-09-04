@@ -1,0 +1,474 @@
+@Component
+script IceRockBoss extends AttackComponent
+
+	property string BossDisplayName = "Ice Rock Boss"
+
+	property string BossTag = "IceRockBoss"
+
+	property string RequiredMiniBossTag = "MiniIceBoss"
+
+	@MinValue(1)
+	property integer RequiredMiniBossCount = 4
+
+	@Sync
+	property boolean DamageUnlocked = false
+
+	@Sync
+	property number BossMaxHp = 2100
+
+	@Sync
+	property number BossCurrentHp = 2100
+
+	@Sync
+	property boolean IsBossDead = false
+
+	-- The boss remains stationary and only turns toward the nearest player.
+	property boolean FaceNearestPlayerEnabled = true
+
+	@MinValue(0.1)
+	property number DetectionRangeX = 20.0
+
+	@MinValue(0.1)
+	property number DetectionRangeY = 10.0
+
+	-- 360-degree projectile ring
+	property string ProjectileModelName = "Model_Projectile"
+
+	@MinValue(1)
+	property integer ProjectileCount = 10
+
+	property boolean RandomizeProjectileCount = true
+
+	@MinValue(1)
+	property integer ProjectileCountMin = 12
+
+	@MinValue(1)
+	property integer ProjectileCountMax = 18
+
+	@MinValue(0.0)
+	property number ProjectileRingRotationDegrees = 360.0
+
+	@MinValue(0.0)
+	property number ProjectileAngleJitterDegrees = 5.0
+
+	@MinValue(0)
+	property number ProjectileSpeed = 6.0
+
+	@MinValue(0)
+	property integer ProjectileDamage = 15
+
+	@MinValue(0.1)
+	property number ProjectileLifetime = 3.0
+
+	@MinValue(0.1)
+	property number ProjectileScale = 1.0
+
+	@MinValue(0.1)
+	property number AttackInterval = 3.0
+
+	@MinValue(0.0)
+	property number ProjectileTelegraphDelay = 1.0
+
+	@MinValue(0.0)
+	property number AttackWindup = 0.4
+
+	property Vector2 ProjectileSpawnOffset = Vector2(0, 0)
+
+	property boolean InvertFacingDirection = false
+
+	property boolean DisableNativeWander = true
+
+	property boolean DisableNativeStateAnimation = true
+
+	property boolean EnableHitDamagePopup = true
+
+	property string DamageSkinId = ""
+
+	@MinValue(0.0)
+	property number DamagePopupOffsetY = 0.5
+
+	@MinValue(0.0)
+	property number DeathHideDelay = 2.0
+
+	property boolean DebugLogs = false
+
+	@HideFromInspector
+	property number LastAttackTime = -9999
+
+	@HideFromInspector
+	property number ActiveAttackToken = 0
+
+	@HideFromInspector
+	property boolean IsAttacking = false
+
+	@HideFromInspector
+	property integer DefeatedMiniBossCount = 0
+
+	@HideFromInspector
+	property number PendingDamage = 0
+
+	@ExecSpace("ServerOnly")
+	method void OnBeginPlay()
+		self:EnsureBossTag()
+		self:ResetBossForMapLoad()
+
+		if self.DisableNativeWander then
+			local wander = self.Entity.AIWanderComponent
+			if isvalid(wander) then
+				wander.Enable = false
+			end
+		end
+
+		if self.DisableNativeStateAnimation then
+			local stateAnimation = self.Entity:GetComponent("StateAnimationComponent")
+			if isvalid(stateAnimation) then
+				stateAnimation.Enable = false
+			end
+		end
+
+		self.DamageUnlocked = false
+		self:RefreshDamageLock()
+
+		if self.DebugLogs then
+			log("IceRockBoss ready hp=" .. tostring(self.BossCurrentHp) .. "/" .. tostring(self.BossMaxHp)
+				.. " requiredMiniBosses=" .. tostring(self.RequiredMiniBossCount))
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void ResetBossForMapLoad()
+		self.BossCurrentHp = math.max(0, self.BossMaxHp)
+		self.IsBossDead = false
+		self.ActiveAttackToken = 0
+		self.IsAttacking = false
+		self.LastAttackTime = -9999
+		self.PendingDamage = 0
+	end
+
+	@ExecSpace("ServerOnly")
+	method void ResetBossForRun()
+		self.BossCurrentHp = math.max(0, self.BossMaxHp)
+		self.IsBossDead = false
+		self.DamageUnlocked = false
+		self.ActiveAttackToken = self.ActiveAttackToken + 1
+		self.IsAttacking = false
+		self.LastAttackTime = -9999
+		self.PendingDamage = 0
+		self.Entity:SetVisible(true)
+		self.Entity:SetEnable(true)
+		self:RefreshDamageLock()
+	end
+
+	method void EnsureBossTag()
+		if self.BossTag == nil or self.BossTag == "" then
+			return
+		end
+
+		local tagComponent = self.Entity:GetComponent("TagComponent")
+		if isvalid(tagComponent) == false then
+			tagComponent = self.Entity:AddComponent("TagComponent")
+		end
+
+		if isvalid(tagComponent) then
+			tagComponent:AddTag(self.BossTag)
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void OnUpdate(number delta)
+		if self.IsBossDead then
+			return
+		end
+
+		self:RefreshDamageLock()
+		self:FaceNearestPlayer()
+
+		if self.IsAttacking then
+			return
+		end
+
+		local now = _UtilLogic.ElapsedSeconds
+		if now - self.LastAttackTime >= self.AttackInterval then
+			self:StartProjectileAttack()
+		end
+	end
+
+	method void RefreshDamageLock()
+		local miniBosses = _EntityService:GetEntitiesByTag(self.RequiredMiniBossTag)
+		local defeated = 0
+		local total = 0
+
+		if miniBosses ~= nil then
+			for _, entity in ipairs(miniBosses) do
+				if isvalid(entity) then
+					total = total + 1
+					local monster = entity:GetComponent("Monster")
+					local miniBoss = entity:GetComponent("BossAI")
+					local miniDead = false
+					if isvalid(monster) then
+						miniDead = monster.IsDead
+					elseif isvalid(miniBoss) then
+						miniDead = miniBoss.IsBossDead
+					end
+					if miniDead then
+						defeated = defeated + 1
+					end
+				end
+			end
+		end
+
+		self.DefeatedMiniBossCount = defeated
+		local wasUnlocked = self.DamageUnlocked
+		self.DamageUnlocked = defeated >= self.RequiredMiniBossCount
+
+		if self.DebugLogs and wasUnlocked ~= self.DamageUnlocked then
+			log("IceRockBoss damage lock changed unlocked=" .. tostring(self.DamageUnlocked)
+				.. " defeated=" .. tostring(defeated) .. "/" .. tostring(self.RequiredMiniBossCount)
+				.. " tagged=" .. tostring(total))
+		end
+	end
+
+	method void FaceNearestPlayer()
+		if self.FaceNearestPlayerEnabled == false then
+			return
+		end
+
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) == false then
+			return
+		end
+
+		local info = self:FindNearestPlayer(transform.WorldPosition)
+		if info.Player == nil or info.Distance > self.DetectionRangeX or math.abs(info.DeltaY) > self.DetectionRangeY then
+			return
+		end
+
+		local playerPos = info.Player.TransformComponent.WorldPosition
+		local direction = (playerPos.x >= transform.WorldPosition.x) and 1 or -1
+		self:SetFaceDirection(direction)
+	end
+
+	method void StartProjectileAttack()
+		self.IsAttacking = true
+		self.ActiveAttackToken = self.ActiveAttackToken + 1
+		local token = self.ActiveAttackToken
+		self.LastAttackTime = _UtilLogic.ElapsedSeconds
+
+		local windup = math.max(self.AttackWindup, 0)
+		if windup <= 0 then
+			self:FireProjectileRing(token)
+			self.IsAttacking = false
+			return
+		end
+
+		_TimerService:SetTimerOnce(function()
+			if isvalid(self.Entity) == false or self.ActiveAttackToken ~= token or self.IsBossDead then
+				return
+			end
+			self:FireProjectileRing(token)
+			self.IsAttacking = false
+		end, windup)
+	end
+
+	method void FireProjectileRing(number token)
+		if self.ActiveAttackToken ~= token or self.IsBossDead then
+			return
+		end
+
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) == false then
+			return
+		end
+
+		local modelId = _EntryService:GetModelIdByName(self.ProjectileModelName)
+		if modelId == nil or modelId == "" then
+			log("IceRockBoss ERROR: projectile model not found: " .. tostring(self.ProjectileModelName))
+			return
+		end
+
+		local spawnPos = Vector3(
+			transform.WorldPosition.x + self.ProjectileSpawnOffset.x,
+			transform.WorldPosition.y + self.ProjectileSpawnOffset.y,
+			transform.WorldPosition.z
+		)
+		local count = math.max(1, self.ProjectileCount)
+		if self.RandomizeProjectileCount then
+			local minimumCount = math.max(1, math.floor(self.ProjectileCountMin))
+			local maximumCount = math.max(minimumCount, math.floor(self.ProjectileCountMax))
+			count = minimumCount + math.floor(_UtilLogic:RandomDouble() * (maximumCount - minimumCount + 1))
+		end
+
+		local angleStep = (math.pi * 2) / count
+		local rotationRange = math.max(0, self.ProjectileRingRotationDegrees)
+		local ringRotation = 0
+		if rotationRange > 0 then
+			ringRotation = (_UtilLogic:RandomDouble() - 0.5) * math.rad(rotationRange)
+		end
+		local jitterRange = math.max(0, self.ProjectileAngleJitterDegrees)
+
+		for index = 0, count - 1 do
+			local jitter = 0
+			if jitterRange > 0 then
+				jitter = (_UtilLogic:RandomDouble() - 0.5) * 2 * math.rad(jitterRange)
+			end
+			local angle = ringRotation + (index * angleStep) + jitter
+			self:SpawnProjectile(modelId, spawnPos, math.cos(angle), math.sin(angle))
+		end
+
+		if self.DebugLogs then
+			log("IceRockBoss fired 360 ring count=" .. tostring(count))
+		end
+	end
+
+	method void SpawnProjectile(string modelId, Vector3 spawnPos, number directionX, number directionY)
+		local projectile = _SpawnService:SpawnByModelId(modelId, "IceRockProjectile", spawnPos, self.Entity.Parent)
+		if isvalid(projectile) == false then
+			if self.DebugLogs then
+				log("IceRockBoss ERROR: projectile spawn failed")
+			end
+			return
+		end
+
+		projectile.Enable = true
+		local projectileTransform = projectile.TransformComponent
+		if isvalid(projectileTransform) then
+			projectileTransform.WorldPosition = spawnPos
+			projectileTransform.Scale = Vector3(self.ProjectileScale, self.ProjectileScale, 1)
+			projectileTransform.ZRotation = math.deg(self:Atan2(directionY, directionX))
+		end
+
+		local needle = projectile:GetComponent("NeedleProjectile")
+		if isvalid(needle) then
+			needle.Speed = self.ProjectileSpeed
+			needle.DirectionX = directionX
+			needle.DirectionY = directionY
+			needle.Lifetime = self.ProjectileLifetime
+			needle.LaunchDelay = self.ProjectileTelegraphDelay
+			needle.NeedleDamage = self.ProjectileDamage
+		elseif self.DebugLogs then
+			log("IceRockBoss ERROR: projectile model needs NeedleProjectile component")
+		end
+	end
+
+	method number Atan2(number y, number x)
+		if x > 0 then
+			return math.atan(y / x)
+		elseif x < 0 then
+			if y >= 0 then
+				return math.atan(y / x) + math.pi
+			else
+				return math.atan(y / x) - math.pi
+			end
+		elseif y > 0 then
+			return math.pi / 2
+		elseif y < 0 then
+			return -math.pi / 2
+		end
+		return 0
+	end
+
+	method any FindNearestPlayer(Vector3 myPos)
+		local nearestPlayer = nil
+		local minDistance = 999999
+		local targetDy = 0
+		local users = _UserService.UserEntities
+		if users ~= nil then
+			for _, player in pairs(users) do
+				if isvalid(player) and isvalid(player.PlayerComponent) and isvalid(player.TransformComponent) then
+					local playerPos = player.TransformComponent.WorldPosition
+					local dx = math.abs(playerPos.x - myPos.x)
+					if dx < minDistance then
+						minDistance = dx
+						nearestPlayer = player
+						targetDy = playerPos.y - myPos.y
+					end
+				end
+			end
+		end
+		return {Player = nearestPlayer, Distance = minDistance, DeltaY = targetDy}
+	end
+
+	method void SetFaceDirection(number direction)
+		if direction == 0 then
+			return
+		end
+		local spriteRenderer = self.Entity.SpriteRendererComponent
+		if isvalid(spriteRenderer) then
+			local faceLeft = direction < 0
+			if self.InvertFacingDirection then
+				faceLeft = not faceLeft
+			end
+			spriteRenderer.FlipX = not faceLeft
+		end
+	end
+
+	method integer CalcDamage(Entity attacker, Entity defender, string attackInfo)
+		return math.floor(self.PendingDamage)
+	end
+
+	method boolean IsAttackTarget(Entity defender, string attackInfo)
+		if self.DamageUnlocked == false or isvalid(defender) == false or isvalid(defender.PlayerComponent) == false then
+			return false
+		end
+		return __base:IsAttackTarget(defender, attackInfo)
+	end
+
+	@ExecSpace("ServerOnly")
+	@EventSender("Self")
+	handler HandleHitEvent(HitEvent event)
+		if self.IsBossDead or self.DamageUnlocked == false then
+			return
+		end
+
+		self.BossCurrentHp = math.max(0, self.BossCurrentHp - event.TotalDamage)
+		self:PlayBossHitFeedback(event.TotalDamage)
+		if self.DebugLogs then
+			log("IceRockBoss took " .. tostring(event.TotalDamage) .. " hp=" .. tostring(self.BossCurrentHp))
+		end
+
+		if self.BossCurrentHp <= 0 then
+			self.IsBossDead = true
+			self.ActiveAttackToken = self.ActiveAttackToken + 1
+			self.IsAttacking = false
+			self.Entity:SetVisible(false)
+			self.Entity:SetEnable(false)
+		end
+	end
+
+	method void PlayBossHitFeedback(integer damage)
+		if self.EnableHitDamagePopup == false or damage <= 0 then
+			return
+		end
+
+		pcall(function()
+			local spawner = self.Entity:GetComponent("DamageSkinSpawnerComponent")
+			if isvalid(spawner) == false then
+				self.Entity:AddComponent("DamageSkinSpawnerComponent")
+			end
+
+			local skinId = self.DamageSkinId
+			if skinId == nil then
+				skinId = ""
+			end
+
+			local setting = self.Entity:GetComponent("DamageSkinSettingComponent")
+			if skinId == "" and isvalid(setting) and setting.DamageSkinId ~= nil then
+				skinId = tostring(setting.DamageSkinId)
+			end
+
+			_DamageSkinService:Play(
+				self.Entity,
+				skinId,
+				0,
+				{math.floor(damage)},
+				DamageSkinTweenType.DefaultMini,
+				false,
+				Vector2(0, self.DamagePopupOffsetY),
+				Vector2(1, 1),
+				1,
+				1
+			)
+		end)
+	end
+
+end

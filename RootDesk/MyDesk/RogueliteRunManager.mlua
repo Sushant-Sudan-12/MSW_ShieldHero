@@ -224,6 +224,7 @@ script RogueliteRunManager extends Component
 		if self.ResetMonstersOnDeath then
 			self:ResetAllMonsters()
 		end
+		self:ResetAllBosses()
 
 		-- Respawn + teleport after delay
 		_TimerService:SetTimerOnce(function()
@@ -318,6 +319,41 @@ script RogueliteRunManager extends Component
 
 		if self.DebugLogs then
 			log("RogueliteRunManager: respawned " .. tostring(resetCount) .. " monsters (skipped " .. tostring(skippedCount) .. ")")
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void ResetAllBosses()
+		local resetCount = 0
+		local seen = {}
+
+		local function resetEntities(tag)
+			local entities = _EntityService:GetEntitiesByTag(tag)
+			if entities == nil then
+				return
+			end
+
+			for _, entity in ipairs(entities) do
+				if isvalid(entity) and seen[entity] ~= true then
+					seen[entity] = true
+					local bossAI = entity:GetComponent("BossAI")
+					local iceRockBoss = entity:GetComponent("IceRockBoss")
+					if isvalid(bossAI) then
+						bossAI:ResetBossForRun()
+						resetCount = resetCount + 1
+					elseif isvalid(iceRockBoss) then
+						iceRockBoss:ResetBossForRun()
+						resetCount = resetCount + 1
+					end
+				end
+			end
+		end
+
+		resetEntities("Boss")
+		resetEntities("IceRockBoss")
+
+		if self.DebugLogs then
+			log("RogueliteRunManager: reset " .. tostring(resetCount) .. " bosses to full health")
 		end
 	end
 

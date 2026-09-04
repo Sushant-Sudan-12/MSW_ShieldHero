@@ -1,0 +1,193 @@
+@ExecSpace("Client")
+@Component
+script IceRockHealthBarUI extends Component
+
+	property string BossMapName = "IcePeaks"
+	property boolean RequireMapNameMatch = true
+	property string BossEntityPath = ""
+	property string BossTag = "IceRockBoss"
+
+	property Entity BarRoot = nil
+	property Entity SliderTarget = nil
+	property Entity FillTarget = nil
+	property Entity NameTextTarget = nil
+	property Entity HpTextTarget = nil
+
+	property boolean HideWhenBossDead = true
+	property boolean HideUntilDamageUnlocked = true
+
+	@MinValue(0.1)
+	property number BossSearchInterval = 0.5
+
+	property boolean DebugLogs = false
+
+	@HideFromInspector
+	property any CachedBoss = nil
+
+	@HideFromInspector
+	property number LastSearchTime = -9999
+
+	@HideFromInspector
+	property boolean LastVisibleState = false
+
+	method void OnBeginPlay()
+		self.LastVisibleState = true
+		self:SetBarVisible(false)
+		self:ClearBarValues()
+	end
+
+	method void OnUpdate(number delta)
+		self:Refresh()
+	end
+
+	method void Refresh()
+		if self.RequireMapNameMatch and self:IsInBossMap() == false then
+			self:SetBarVisible(false)
+			return
+		end
+
+		local boss = self:GetBoss()
+		if boss == nil then
+			self:SetBarVisible(false)
+			return
+		end
+
+		if self.HideUntilDamageUnlocked and boss.DamageUnlocked == false then
+			if self.DebugLogs then
+				log("IceRockHealthBarUI: hidden until mini-bosses defeated")
+			end
+			self:SetBarVisible(false)
+			return
+		end
+
+		if self.HideWhenBossDead and boss.IsBossDead then
+			self:SetBarVisible(false)
+			return
+		end
+
+		self:SetBarVisible(true)
+		local maxHp = math.max(1, boss.BossMaxHp)
+		local currentHp = math.max(0, boss.BossCurrentHp)
+		self:WriteRatio(math.max(0, math.min(1, currentHp / maxHp)))
+		self:WriteText(self.NameTextTarget, tostring(boss.BossDisplayName))
+		self:WriteText(self.HpTextTarget, tostring(math.floor(currentHp)) .. "/" .. tostring(math.floor(maxHp)))
+	end
+
+	method boolean IsInBossMap()
+		local player = _UserService.LocalPlayer
+		if isvalid(player) == false then
+			return false
+		end
+		return string.find(tostring(player.Path), self.BossMapName, 1, true) ~= nil
+	end
+
+	method any GetBoss()
+		if isvalid(self.CachedBoss) then
+			local cachedBoss = self.CachedBoss:GetComponent("IceRockBoss")
+			if isvalid(cachedBoss) then
+				return cachedBoss
+			end
+			self.CachedBoss = nil
+		end
+
+		local now = _UtilLogic.ElapsedSeconds
+		if now - self.LastSearchTime < self.BossSearchInterval then
+			return nil
+		end
+		self.LastSearchTime = now
+
+		local bossEntity = self:FindBossEntity()
+		if isvalid(bossEntity) == false then
+			return nil
+		end
+
+		local boss = bossEntity:GetComponent("IceRockBoss")
+		if isvalid(boss) == false then
+			if self.DebugLogs then
+				log("IceRockHealthBarUI: entity found without IceRockBoss: " .. tostring(bossEntity.Path))
+			end
+			return nil
+		end
+
+		self.CachedBoss = bossEntity
+		return boss
+	end
+
+	method any FindBossEntity()
+		if self.BossEntityPath ~= nil and self.BossEntityPath ~= "" then
+			local boss = _EntityService:GetEntityByPath(self.BossEntityPath)
+			if isvalid(boss) then
+				return boss
+			end
+		end
+
+		if self.BossTag ~= nil and self.BossTag ~= "" then
+			local boss = _EntityService:GetEntityByTag(self.BossTag)
+			if isvalid(boss) then
+				return boss
+			end
+		end
+
+		return nil
+	end
+
+	method void SetBarVisible(boolean visible)
+		if self.LastVisibleState == visible then
+			return
+		end
+		self.LastVisibleState = visible
+
+		local root = self.BarRoot
+		if isvalid(root) and root ~= self.Entity then
+			root.Enable = visible
+		else
+			self.Entity:SetVisible(visible)
+		end
+
+		if self.DebugLogs then
+			log("IceRockHealthBarUI visible=" .. tostring(visible))
+		end
+	end
+
+	method void ClearBarValues()
+		self:WriteRatio(0)
+		self:WriteText(self.NameTextTarget, "")
+		self:WriteText(self.HpTextTarget, "")
+	end
+
+	method void WriteRatio(number ratio)
+		local slider = self.SliderTarget
+		if isvalid(slider) == false then
+			slider = self.Entity
+		end
+		if isvalid(slider) and isvalid(slider.SliderComponent) then
+			slider.SliderComponent.Value = ratio
+		end
+
+		local fill = self.FillTarget
+		if isvalid(fill) == false then
+			fill = self.Entity
+		end
+		if isvalid(fill) and isvalid(fill.SpriteGUIRendererComponent) then
+			fill.SpriteGUIRendererComponent.FillAmount = ratio
+		end
+	end
+
+	method void WriteText(Entity target, string value)
+		if isvalid(target) == false then
+			return
+		end
+		if isvalid(target.TextComponent) then
+			target.TextComponent.Text = value
+			return
+		end
+		if isvalid(target.TextGUIRendererComponent) then
+			target.TextGUIRendererComponent.Text = value
+			return
+		end
+		if isvalid(target.TextInputComponent) then
+			target.TextInputComponent.Text = value
+		end
+	end
+
+end

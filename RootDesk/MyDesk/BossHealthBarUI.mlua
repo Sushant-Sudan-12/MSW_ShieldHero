@@ -26,6 +26,8 @@ script BossHealthBarUI extends Component
 
 	property boolean HideWhenBossDead = true
 
+	property boolean HideWhenDamageLocked = true
+
 	@MinValue(0.1)
 	property number BossSearchInterval = 1.0
 
@@ -45,7 +47,10 @@ script BossHealthBarUI extends Component
 
 	method void OnBeginPlay()
 		self.LastVisibleState = true
+		self.CachedBoss = nil
+		self.LastSearchTime = -9999
 		self:SetBarVisible(false)
+		self:ClearBarValues()
 	end
 
 	method void OnUpdate(number delta)
@@ -53,8 +58,8 @@ script BossHealthBarUI extends Component
 	end
 
 	method void Refresh()
-		local bossAI = self:GetBossAI()
-		if isvalid(bossAI) == false then
+		local bossAI = self:GetBossComponent()
+		if bossAI == nil then
 			self:HideWithReason("boss not found")
 			return
 		end
@@ -66,6 +71,11 @@ script BossHealthBarUI extends Component
 
 		if self.HideWhenBossDead and bossAI.IsBossDead then
 			self:HideWithReason("boss dead")
+			return
+		end
+
+		if self.HideWhenDamageLocked and bossAI.DamageUnlocked ~= nil and bossAI.DamageUnlocked == false then
+			self:HideWithReason("boss damage locked")
 			return
 		end
 
@@ -130,6 +140,25 @@ script BossHealthBarUI extends Component
 		return bossAI
 	end
 
+	method any GetBossComponent()
+		local boss = self:FindBossEntity()
+		if isvalid(boss) == false then
+			return nil
+		end
+
+		local bossAI = boss:GetComponent("BossAI")
+		if isvalid(bossAI) then
+			return bossAI
+		end
+
+		local iceRockBoss = boss:GetComponent("IceRockBoss")
+		if isvalid(iceRockBoss) then
+			return iceRockBoss
+		end
+
+		return nil
+	end
+
 	method any FindBossEntity()
 		if self.BossEntityPath ~= nil and self.BossEntityPath ~= "" then
 			local byPath = _EntityService:GetEntityByPath(self.BossEntityPath)
@@ -191,6 +220,12 @@ script BossHealthBarUI extends Component
             log("BossHealthBarUI: visible=" .. tostring(visible))
         end
     end
+
+	method void ClearBarValues()
+		self:WriteRatio(0)
+		self:WriteText(self.NameTextTarget, "")
+		self:WriteText(self.HpTextTarget, "")
+	end
 
 	method void WriteRatio(number ratio)
 		local slider = self.SliderTarget

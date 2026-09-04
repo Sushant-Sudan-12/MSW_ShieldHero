@@ -75,6 +75,12 @@ script RoguelitePortalGate extends Component
 					local boss = monsterEntity:GetComponent("BossAI")
 					if isvalid(boss) and boss.IsBossDead then
 						defeatedCount = defeatedCount + 1
+					else
+						---@type IceRockBoss
+						local iceRockBoss = monsterEntity:GetComponent("IceRockBoss")
+						if isvalid(iceRockBoss) and iceRockBoss.IsBossDead then
+							defeatedCount = defeatedCount + 1
+						end
 					end
 				end
 			end

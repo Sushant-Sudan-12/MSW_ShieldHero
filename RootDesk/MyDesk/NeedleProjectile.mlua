@@ -11,6 +11,9 @@ script NeedleProjectile extends Component
 	@MinValue(0.05)
 	property number Lifetime = 2.5
 
+	@MinValue(0.0)
+	property number LaunchDelay = 0.0
+
 	@MinValue(0)
 	property integer NeedleDamage = 15
 
@@ -41,6 +44,11 @@ script NeedleProjectile extends Component
 
 		-- Move needle
 		local currentPos = transform.WorldPosition
+		local now = _UtilLogic.ElapsedSeconds
+		if now - self.SpawnTime < self.LaunchDelay then
+			return
+		end
+
 		local moveDistance = self.Speed * math.max(delta, 0)
 		transform.WorldPosition = Vector3(
 			currentPos.x + self.DirectionX * moveDistance,
@@ -49,7 +57,6 @@ script NeedleProjectile extends Component
 		)
 
 		-- Hit check
-		local now = _UtilLogic.ElapsedSeconds
 		if now - self.LastHitTime >= self.HitInterval then
 			self.LastHitTime = now
 			self:TryHitPlayers(currentPos)

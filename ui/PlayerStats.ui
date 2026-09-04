@@ -4358,6 +4358,11 @@
               },
               "UIMode": 1,
               "UIVersion": 2,
+              "Position": {
+                "x": 0.0,
+                "y": 455.0,
+                "z": 0.0
+              },
               "QuaternionRotation": {
                 "x": 0.0,
                 "y": 0.0,
@@ -4499,6 +4504,11 @@
               },
               "UIMode": 1,
               "UIVersion": 2,
+              "Position": {
+                "x": 865.0,
+                "y": -55.0,
+                "z": 0.0
+              },
               "QuaternionRotation": {
                 "x": 0.0,
                 "y": 0.0,
@@ -7074,6 +7084,414 @@
                 "DataId": "dfd320e9d5084f88884c5e8aa3101df1"
               },
               "OverrideSorting": false,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "cf17cedd-e775-42c0-9942-c6273b9b8dad",
+        "path": "/ui/PlayerStats/IceHeatlhBar",
+        "componentNames": "MOD.Core.UITransformComponent,script.IceRockHealthBarUI",
+        "jsonString": {
+          "name": "IceHeatlhBar",
+          "path": "/ui/PlayerStats/IceHeatlhBar",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 7,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uiempty",
+            "sub_entity_id": null,
+            "root_entity_id": "3328f2af-3c37-492a-af3d-e9b65809774a",
+            "replaced_model_id": null
+          },
+          "modelId": "uiempty",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 19.9999981,
+                "y": 80.0
+              },
+              "OffsetMin": {
+                "x": -80.0,
+                "y": -19.9999981
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 100.0,
+                "y": 100.0
+              },
+              "UIMode": 1,
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": -30.0000019,
+                "y": 30.0000019
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -30.0000019,
+                "y": 30.0000019,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "script.IceRockHealthBarUI",
+              "Enable": true,
+              "BossEntityPath": "/maps/IcePeaks/Boss",
+              "BarRoot": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "cf17cedd-e775-42c0-9942-c6273b9b8dad",
+                "Version2": false
+              },
+              "SliderTarget": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "5c2efa79-f746-4970-94aa-e686e55eb599",
+                "Version2": false
+              },
+              "FillTarget": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "5c2efa79-f746-4970-94aa-e686e55eb599",
+                "Version2": false
+              },
+              "LastSearchTime": -9999.0,
+              "LastVisibleState": false
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "2ec18614-3ce1-4815-8a63-762be4a288c3",
+        "path": "/ui/PlayerStats/IceHeatlhBar/BossHealth_1",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
+        "jsonString": {
+          "name": "BossHealth_1",
+          "path": "/ui/PlayerStats/IceHeatlhBar/BossHealth_1",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 0,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uisprite",
+            "sub_entity_id": null,
+            "root_entity_id": "1600276f-fcd7-4c2c-9743-28090ff08f59",
+            "replaced_model_id": null
+          },
+          "modelId": "uisprite",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 791.454,
+                "y": 543.668945
+              },
+              "OffsetMin": {
+                "x": -759.7551,
+                "y": 325.569275
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 1551.20911,
+                "y": 218.0997
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 15.8494005,
+                "y": 434.6191
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": 15.8494005,
+                "y": 434.6191,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": -1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "ImageRUID": {
+                "DataId": "140f11458dd244349a760cabdb98062b"
+              },
+              "OverrideSorting": false,
+              "SortingLayer": "MapLayer0",
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "5c2efa79-f746-4970-94aa-e686e55eb599",
+        "path": "/ui/PlayerStats/IceHeatlhBar/HealthBar",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SliderComponent",
+        "jsonString": {
+          "name": "HealthBar",
+          "path": "/ui/PlayerStats/IceHeatlhBar/HealthBar",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 1,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uiempty",
+            "sub_entity_id": null,
+            "root_entity_id": "8c81d716-8b7b-4296-b822-1f4fee0fa0bc",
+            "replaced_model_id": null
+          },
+          "modelId": "uiempty",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 592.1697,
+                "y": 431.646454
+              },
+              "OffsetMin": {
+                "x": -621.9354,
+                "y": 378.973541
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 1214.1051,
+                "y": 52.672905
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": -14.8829,
+                "y": 405.31
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -14.8829,
+                "y": 405.31,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": -1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SliderComponent",
+              "FillRectColor": {
+                "r": 0.1780281,
+                "g": 0.313081563,
+                "b": 0.8066406,
+                "a": 1.0
+              },
+              "FillRectImageRUID": {
+                "DataId": ""
+              },
+              "OverrideSorting": false,
+              "Value": 1.0,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "6e27b75a-8bd1-4c93-8843-2016c121eb9c",
+        "path": "/ui/PlayerStats/IceHeatlhBar/BossHealth",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
+        "jsonString": {
+          "name": "BossHealth",
+          "path": "/ui/PlayerStats/IceHeatlhBar/BossHealth",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 2,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uisprite",
+            "sub_entity_id": null,
+            "root_entity_id": "1600276f-fcd7-4c2c-9743-28090ff08f59",
+            "replaced_model_id": null
+          },
+          "modelId": "uisprite",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 767.096436,
+                "y": 543.668945
+              },
+              "OffsetMin": {
+                "x": -784.1127,
+                "y": 325.569275
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 1551.20911,
+                "y": 218.0997
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": -8.5081,
+                "y": 434.6191
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -8.5081,
+                "y": 434.6191,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": -1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "ImageRUID": {
+                "DataId": "dfd320e9d5084f88884c5e8aa3101df1"
+              },
+              "OverrideSorting": false,
+              "SortingLayer": "MapLayer0",
               "Enable": true
             }
           ],

@@ -164,6 +164,7 @@ script BossAI extends AttackComponent
 	method void OnBeginPlay()
 		self:EnsureBossTag()
 		self:CacheActionSheet()
+		self:ResetBossForMapLoad()
 
 		if self.DisableNativeWander then
 			local wander = self.Entity.AIWanderComponent
@@ -186,12 +187,33 @@ script BossAI extends AttackComponent
 
 		self.Shape = BoxShape(Vector2.zero, Vector2.one, 0)
 
-		self.BossCurrentHp = self.BossMaxHp
-		self.IsBossDead = false
-
 		if self.DebugLogs then
 			log("BossAI [" .. tostring(self.Entity.Name) .. "] ready hp=" .. tostring(self.BossCurrentHp) .. "/" .. tostring(self.BossMaxHp))
 		end
+	end
+
+	method void ResetBossForMapLoad()
+		self.BossCurrentHp = math.max(0, self.BossMaxHp)
+		self.IsBossDead = false
+		self.ActiveAttackToken = 0
+		self.IsBusy = false
+		self.LastMeleeTime = -9999
+		self.LastSkillTime = -9999
+		self.PendingDamage = 0
+	end
+
+	@ExecSpace("ServerOnly")
+	method void ResetBossForRun()
+		self.BossCurrentHp = math.max(0, self.BossMaxHp)
+		self.IsBossDead = false
+		self.ActiveActionToken = self.ActiveActionToken + 1
+		self.IsBusy = false
+		self.LastMeleeTime = -9999
+		self.LastSkillTime = -9999
+		self.PendingDamage = 0
+		self.CurrentActionPlaying = ""
+		self.Entity:SetVisible(true)
+		self.Entity:SetEnable(true)
 	end
 
 	method void EnsureBossTag()
