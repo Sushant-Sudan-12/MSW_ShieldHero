@@ -1,0 +1,393 @@
+@Component
+script CameraShowcaseTrigger extends Component
+
+	-- Camera model asset to spawn. It must contain TransformComponent and CameraComponent.
+	property string CameraModelName = ""
+
+	property Vector3 CameraTargetPosition = Vector3(0, 0, 0)
+
+	@MinValue(0.1)
+	property number MoveToDuration = 1.5
+
+	property boolean UsePoint1 = false
+	property Vector3 Point1Position = Vector3(0, 0, 0)
+
+	property boolean UsePoint2 = false
+	property Vector3 Point2Position = Vector3(0, 0, 0)
+
+	property boolean UsePoint3 = false
+	property Vector3 Point3Position = Vector3(0, 0, 0)
+
+	property boolean UsePoint4 = false
+	property Vector3 Point4Position = Vector3(0, 0, 0)
+
+	@MinValue(0.0)
+	property number HoldDuration = 3.0
+
+	@MinValue(0.1)
+	property number ReturnDuration = 1.5
+
+	@MinValue(30)
+	property number CameraTargetZoom = 100
+
+	property boolean StartOnTriggerEnter = true
+
+	property boolean StartOnInteraction = true
+
+	property boolean TriggerOnce = false
+
+	property boolean HasTriggered = false
+
+	-- Kept for compatibility with older instances.
+	property boolean PlayOnce = false
+
+	property boolean LockPlayerInput = true
+
+	property boolean DebugLogs = false
+
+	@HideFromInspector
+	property boolean IsPlaying = false
+
+	@HideFromInspector
+	property boolean HasPlayed = false
+
+	@HideFromInspector
+	property any ShowcaseCameraEntity = nil
+
+	@HideFromInspector
+	property any PreviousCamera = nil
+
+	@HideFromInspector
+	property number PreviousZoom = 100
+
+	@HideFromInspector
+	property any MoveTweener = nil
+
+	@HideFromInspector
+	property any ReturnTweener = nil
+
+	@HideFromInspector
+	property number ShowcaseToken = 0
+
+	@HideFromInspector
+	property any RoutePoints = nil
+
+	@HideFromInspector
+	property number RouteTotalDistance = 0
+
+	@ExecSpace("ClientOnly")
+	method void OnBeginPlay()
+		self.IsPlaying = false
+	end
+
+	@ExecSpace("ClientOnly")
+	method void OnEnterTriggerBody(TriggerEnterEvent event)
+		if self.StartOnTriggerEnter and self:IsLocalPlayer(event.TriggerBodyEntity) then
+			self:StartShowcase()
+		end
+	end
+
+	@ExecSpace("ClientOnly")
+	method void OnInteraction(Entity target)
+		if self.StartOnInteraction and self:IsLocalPlayer(target) then
+			self:StartShowcase()
+		end
+	end
+
+	@ExecSpace("ClientOnly")
+	method void StartShowcase()
+		if self.IsPlaying then
+			return
+		end
+		if (self.TriggerOnce or self.PlayOnce) and self.HasTriggered then
+			return
+		end
+
+		local player = _UserService.LocalPlayer
+		if isvalid(player) == false then
+			return
+		end
+
+		local camera = _CameraService:GetCurrentCameraComponent()
+		if isvalid(camera) == false then
+			self:Log("No current camera found")
+			return
+		end
+
+		local startPosition = camera.Entity.TransformComponent.WorldPosition
+
+		local modelId = _EntryService:GetModelIdByName(self.CameraModelName)
+		if modelId == nil or modelId == "" then
+			self:Log("Camera model not found: " .. tostring(self.CameraModelName))
+			return
+		end
+
+		local spawnedCamera = _SpawnService:SpawnByModelId(modelId, "ShowcaseCamera", startPosition, self.Entity.Parent)
+		if isvalid(spawnedCamera) == false then
+			self:Log("Camera model spawn failed")
+			return
+		end
+
+		local cameraComponent = spawnedCamera.CameraComponent
+		local cameraTransform = spawnedCamera.TransformComponent
+		if isvalid(cameraComponent) == false or isvalid(cameraTransform) == false then
+			self:Log("Camera model needs CameraComponent and TransformComponent")
+			spawnedCamera:Destroy()
+			return
+		end
+
+		self.IsPlaying = true
+		self.HasTriggered = true
+		self.ShowcaseToken = self.ShowcaseToken + 1
+		local token = self.ShowcaseToken
+		self.ShowcaseCameraEntity = spawnedCamera
+		self.PreviousCamera = camera
+		self.PreviousZoom = _CameraService.currentZoomRatio
+
+		if self.LockPlayerInput then
+			self:SetPlayerLocked(player, true)
+		end
+
+		spawnedCamera.Enable = true
+		cameraTransform.WorldPosition = startPosition
+		_CameraService:SwitchCameraTo(cameraComponent)
+
+		if self.DebugLogs then
+			self:Log("Showcase started: target=" .. tostring(self.CameraTargetPosition.x) .. "," .. tostring(self.CameraTargetPosition.y))
+		end
+
+		self:StartRoute(startPosition, token)
+	end
+
+	@ExecSpace("ClientOnly")
+	method void StartRoute(Vector3 startPosition, number token)
+		if self.IsPlaying == false or self.ShowcaseToken ~= token then
+			return
+		end
+
+		local cameraTransform = self.ShowcaseCameraEntity.TransformComponent
+		if isvalid(cameraTransform) == false then
+			self:FinishShowcase()
+			return
+		end
+
+		self.RoutePoints = {startPosition}
+		if self.UsePoint1 then
+			table.insert(self.RoutePoints, self.Point1Position)
+		end
+		if self.UsePoint2 then
+			table.insert(self.RoutePoints, self.Point2Position)
+		end
+		if self.UsePoint3 then
+			table.insert(self.RoutePoints, self.Point3Position)
+		end
+		if self.UsePoint4 then
+			table.insert(self.RoutePoints, self.Point4Position)
+		end
+		table.insert(self.RoutePoints, self.CameraTargetPosition)
+
+		self.RouteTotalDistance = 0
+		for index = 1, #self.RoutePoints - 1 do
+			local a = self.RoutePoints[index]
+			local b = self.RoutePoints[index + 1]
+			local dx = b.x - a.x
+			local dy = b.y - a.y
+			local dz = b.z - a.z
+			self.RouteTotalDistance = self.RouteTotalDistance + math.sqrt(dx * dx + dy * dy + dz * dz)
+		end
+		local totalDuration = math.max(self.MoveToDuration, 0.1)
+
+		self.MoveTweener = _TweenLogic:PlayTween(
+			Vector3(0, 0, 0),
+			Vector3(totalDuration, 0, 0),
+			totalDuration,
+			EaseType.QuadEaseInOut,
+			function(progress)
+			if isvalid(cameraTransform) and self.ShowcaseToken == token then
+				cameraTransform.WorldPosition = self:GetRoutePosition(progress.x)
+			end
+			end
+		)
+
+		_TimerService:SetTimerOnce(function()
+			if self.ShowcaseToken == token then
+				self:BeginDestination(token)
+			end
+		end, totalDuration)
+	end
+
+	@ExecSpace("ClientOnly")
+	method Vector3 GetRoutePosition(number elapsed)
+		if self.RouteTotalDistance <= 0 then
+			return self.RoutePoints[#self.RoutePoints]
+		end
+
+		local distanceTarget = (math.max(0, elapsed) / math.max(self.MoveToDuration, 0.1)) * self.RouteTotalDistance
+		local remaining = math.min(distanceTarget, self.RouteTotalDistance)
+		for index = 1, #self.RoutePoints - 1 do
+			local startPoint = self.RoutePoints[index]
+			local endPoint = self.RoutePoints[index + 1]
+			local dx = endPoint.x - startPoint.x
+			local dy = endPoint.y - startPoint.y
+			local dz = endPoint.z - startPoint.z
+			local segmentDistance = math.sqrt(dx * dx + dy * dy + dz * dz)
+			if remaining <= segmentDistance then
+				local ratio = 0
+				if segmentDistance > 0 then
+					ratio = remaining / segmentDistance
+				end
+				return Vector3(
+					startPoint.x + ((endPoint.x - startPoint.x) * ratio),
+					startPoint.y + ((endPoint.y - startPoint.y) * ratio),
+					startPoint.z + ((endPoint.z - startPoint.z) * ratio)
+				)
+			end
+			remaining = remaining - segmentDistance
+		end
+		return self.RoutePoints[#self.RoutePoints]
+	end
+
+	@ExecSpace("ClientOnly")
+	method void BeginDestination(number token)
+		if self.IsPlaying == false or self.ShowcaseToken ~= token then
+			return
+		end
+
+		_TimerService:SetTimerOnce(function()
+			if self.ShowcaseToken == token then
+				self:BeginReturn()
+			end
+		end, math.max(self.HoldDuration, 0))
+		_CameraService:ZoomTo(self.CameraTargetZoom, math.max(self.HoldDuration, 0.1))
+	end
+
+	@ExecSpace("ClientOnly")
+	method void BeginReturn()
+		if self.IsPlaying == false then
+			return
+		end
+
+		local cameraEntity = self.ShowcaseCameraEntity
+		if isvalid(cameraEntity) == false then
+			self:FinishShowcase()
+			return
+		end
+
+		local cameraTransform = cameraEntity.TransformComponent
+		if isvalid(cameraTransform) == false then
+			self:FinishShowcase()
+			return
+		end
+
+		local previousCamera = self.PreviousCamera
+		local returnPosition = nil
+		if isvalid(previousCamera) and isvalid(previousCamera.Entity) then
+			returnPosition = previousCamera.Entity.TransformComponent.WorldPosition
+		end
+
+		if returnPosition == nil then
+			self:FinishShowcase()
+			return
+		end
+
+		local startPosition = cameraTransform.WorldPosition
+		local token = self.ShowcaseToken
+		self.ReturnTweener = _TweenLogic:PlayTween(
+			startPosition,
+			returnPosition,
+			self.ReturnDuration,
+			EaseType.QuadEaseInOut,
+			function(value)
+				if isvalid(cameraTransform) and self.ShowcaseToken == token then
+					cameraTransform.WorldPosition = value
+				end
+			end
+		)
+
+		_CameraService:ZoomTo(self.PreviousZoom, self.ReturnDuration)
+		_TimerService:SetTimerOnce(function()
+			if self.ShowcaseToken == token then
+				self:FinishShowcase()
+			end
+		end, math.max(self.ReturnDuration, 0.1))
+	end
+
+	@ExecSpace("ClientOnly")
+	method void SkipShowcase()
+		if self.IsPlaying == false then
+			return
+		end
+
+		self.ShowcaseToken = self.ShowcaseToken + 1
+		self:FinishShowcase()
+	end
+
+	@ExecSpace("ClientOnly")
+	method void FinishShowcase()
+		local player = _UserService.LocalPlayer
+		local previousCamera = self.PreviousCamera
+		if isvalid(previousCamera) then
+			_CameraService:SwitchCameraTo(previousCamera)
+		end
+
+		_CameraService:ZoomTo(self.PreviousZoom, 0.1)
+
+		if self.LockPlayerInput and isvalid(player) then
+			self:SetPlayerLocked(player, false)
+		end
+
+		if isvalid(self.ShowcaseCameraEntity) then
+			self.ShowcaseCameraEntity:Destroy()
+		end
+
+		self.ShowcaseCameraEntity = nil
+		self.PreviousCamera = nil
+		self.IsPlaying = false
+
+		if self.DebugLogs then
+			self:Log("Showcase finished")
+		end
+	end
+
+	method boolean IsLocalPlayer(Entity target)
+		local player = _UserService.LocalPlayer
+		return isvalid(target) and isvalid(player) and target == player
+	end
+
+	method void SetPlayerLocked(Entity player, boolean locked)
+		local controller = player.PlayerControllerComponent
+		if isvalid(controller) then
+			controller.Enable = not locked
+		end
+
+		local soulSystem = player:GetComponent("PlayerSoulSystem")
+		if isvalid(soulSystem) then
+			soulSystem:SetInputLocked(locked)
+		end
+	end
+
+	method void Log(string message)
+		log("CameraShowcaseTrigger [" .. tostring(self.Entity.Name) .. "]: " .. message)
+	end
+
+	@ExecSpace("ClientOnly")
+	@EventSender("Self")
+	handler HandleTriggerEnterEvent(TriggerEnterEvent event)
+		self:OnEnterTriggerBody(event)
+	end
+
+	@ExecSpace("ClientOnly")
+	@EventSender("Self")
+	handler HandleInteractionEnterEvent(InteractionEnterEvent event)
+		self:OnInteraction(event.InteractionEntity)
+	end
+
+	@ExecSpace("ClientOnly")
+	@EventSender("Service", "InputService")
+	handler HandleKeyDownEvent(KeyDownEvent event)
+		if event.key == KeyboardKey.Return then
+			self:SkipShowcase()
+		end
+	end
+
+end

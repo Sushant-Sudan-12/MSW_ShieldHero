@@ -187,6 +187,11 @@ script IceRockBoss extends AttackComponent
 			return
 		end
 
+		local detection = self:FindNearestPlayer(self.Entity.TransformComponent.WorldPosition)
+		if detection.Player == nil or detection.Distance > self.DetectionRangeX or math.abs(detection.DeltaY) > self.DetectionRangeY then
+			return
+		end
+
 		local now = _UtilLogic.ElapsedSeconds
 		if now - self.LastAttackTime >= self.AttackInterval then
 			self:StartProjectileAttack()

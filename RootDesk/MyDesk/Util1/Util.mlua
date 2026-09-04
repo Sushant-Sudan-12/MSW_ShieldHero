@@ -28,4 +28,10 @@ script Util extends Logic
 		return true
 	end
 
+	@ExecSpace("Server")
+	method void DestroyEntity(string entityId, number delay)
+		local entity = _EntityService:GetEntity(entityId)
+		entity:Destroy(delay)
+	end
+
 end

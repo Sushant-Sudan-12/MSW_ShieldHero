@@ -18,6 +18,10 @@ script DialogLogic extends Logic
 
 	@ExecSpace("ClientOnly")
 	method void StartDialog(string dialogId)
+		if isvalid(self.DialogPanel) and self.DialogPanel.ScriptData ~= nil then
+			return
+		end
+
 		local scriptData = _DialogDataLogic:GetFirstScriptData(dialogId)
 		if scriptData == nil then
 			return

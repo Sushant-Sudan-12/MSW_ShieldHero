@@ -1133,7 +1133,7 @@
           },
           "Value": {
             "$type": "MOD.Core.MODVector3, MOD.Core",
-            "x": -15.0,
+            "x": -27.0,
             "y": -2.0,
             "z": 0.0
           }

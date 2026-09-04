@@ -11744,8 +11744,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -7.11611557,
-                "y": 2.51679325,
+                "x": -5.38351631,
+                "y": -13.4893732,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -11838,8 +11838,8 @@
             {
               "@type": "script.IceRockBoss",
               "Enable": true,
-              "DetectionRangeX": 100.0,
-              "DetectionRangeY": 80.0,
+              "DetectionRangeX": 30.0,
+              "DetectionRangeY": 10.0,
               "ProjectileModelName": "Model_IceFire",
               "ProjectileCount": 15,
               "ProjectileSpeed": 6.9,
@@ -11917,7 +11917,7 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -4.53884554,
+                "x": -5.5465703,
                 "y": -13.8,
                 "z": 999.999
               },
@@ -12126,7 +12126,7 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -3.20189667,
+                "x": -2.21178627,
                 "y": -13.805,
                 "z": 999.999
               },
@@ -13573,7 +13573,7 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -13.5083122,
+                "x": -13.41,
                 "y": -3.66444135,
                 "z": 999.999
               },
@@ -14055,6 +14055,115 @@
               "@type": "script.MonsterSoulReward",
               "Enable": true,
               "ProgressRecorded": false
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "a309a5ad-bda4-4f3a-81ac-d08a69deb816",
+        "path": "/maps/IcePeaks/BossSeeCamera",
+        "componentNames": "MOD.Core.TransformComponent,script.CameraShowcaseTrigger,MOD.Core.TriggerComponent",
+        "jsonString": {
+          "name": "BossSeeCamera",
+          "path": "/maps/IcePeaks/BossSeeCamera",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 25,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "mapempty",
+            "sub_entity_id": null,
+            "root_entity_id": "a309a5ad-bda4-4f3a-81ac-d08a69deb816",
+            "replaced_model_id": null
+          },
+          "modelId": "mapempty",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -3.97810173,
+                "y": -13.09906,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Scale": {
+                "x": 2.998035,
+                "y": 2.998035,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "script.CameraShowcaseTrigger",
+              "Enable": true,
+              "CameraModelName": "Model_TowerRevealCamera",
+              "CameraTargetPosition": {
+                "x": -4.0,
+                "y": 2.0,
+                "z": 0.0
+              },
+              "MoveToDuration": 10.0,
+              "UsePoint1": true,
+              "Point1Position": {
+                "x": -13.0,
+                "y": -3.0,
+                "z": 0.0
+              },
+              "UsePoint2": true,
+              "Point2Position": {
+                "x": -13.0,
+                "y": 8.0,
+                "z": 0.0
+              },
+              "UsePoint3": true,
+              "Point3Position": {
+                "x": 6.0,
+                "y": 8.0,
+                "z": 0.0
+              },
+              "UsePoint4": true,
+              "Point4Position": {
+                "x": 6.0,
+                "y": -3.0,
+                "z": 0.0
+              },
+              "ReturnDuration": 3.0,
+              "CameraTargetZoom": 69.0,
+              "TriggerOnce": true,
+              "IsPlaying": false,
+              "HasPlayed": false,
+              "PreviousZoom": 100.0,
+              "ShowcaseToken": 0.0,
+              "RouteTotalDistance": 0.0
+            },
+            {
+              "@type": "MOD.Core.TriggerComponent",
+              "BoxSize": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "ColliderOffset": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "IsLegacy": false,
+              "Enable": true
             }
           ],
           "@version": 1
