@@ -1390,6 +1390,107 @@
         }
       },
       {
+        "id": "04e25bc8-c2a0-4d4b-8d2f-28cf461d50cf",
+        "path": "/ui/PlayerStats/UIMyInfo/Soul_panel",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
+        "jsonString": {
+          "name": "Soul_panel",
+          "path": "/ui/PlayerStats/UIMyInfo/Soul_panel",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 6,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uisprite",
+            "sub_entity_id": null,
+            "root_entity_id": "04e25bc8-c2a0-4d4b-8d2f-28cf461d50cf",
+            "replaced_model_id": null
+          },
+          "modelId": "uisprite",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 100.893867,
+                "y": 111.99099
+              },
+              "OffsetMin": {
+                "x": -180.617676,
+                "y": 46.8014145
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 281.511536,
+                "y": 65.1895752
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": -39.8619,
+                "y": 79.3962
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -39.8619,
+                "y": 79.3962,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "OverrideSorting": false,
+              "Color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 0.5
+              },
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
         "id": "f252a9da-bf6a-4e6e-a854-7ea07eebb13d",
         "path": "/ui/PlayerStats/UIMyInfo/Soul_Counter",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.TextGUIRendererComponent,script.UISoulCounter",
@@ -1400,7 +1501,7 @@
           "enable": true,
           "visible": true,
           "localize": true,
-          "displayOrder": 6,
+          "displayOrder": 7,
           "pathConstraints": "////",
           "revision": 1,
           "origin": {
@@ -1425,12 +1526,12 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": 125.182518,
-                "y": 116.4051
+                "x": 96.51082,
+                "y": 116.405
               },
               "OffsetMin": {
-                "x": -123.274712,
-                "y": 50.5951
+                "x": -151.946411,
+                "y": 50.595
               },
               "Pivot": {
                 "x": 0.5,
@@ -1448,8 +1549,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": 0.9539,
-                "y": 83.5001
+                "x": -27.7178,
+                "y": 83.5
               },
               "Rotation": {
                 "x": 0.0,
@@ -1457,8 +1558,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 0.9539,
-                "y": 83.5001,
+                "x": -27.7178,
+                "y": 83.5,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -4123,15 +4224,21 @@
               "BestFit": false,
               "EnableProfanityFilter": true,
               "FontColor": {
-                "r": 0.0,
-                "g": 0.0,
-                "b": 0.0,
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
                 "a": 1.0
               },
               "FontSize": 40.0,
               "HorizontalAlignment": 2,
               "MaxSize": 50.0,
               "MinSize": 10.0,
+              "OutlineColor": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+              },
               "OverrideSorting": false,
               "Text": "x 1000000",
               "Enable": true

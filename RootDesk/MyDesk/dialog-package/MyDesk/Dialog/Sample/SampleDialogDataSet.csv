@@ -1,9 +1,19 @@
 ﻿DialogId,ScriptId,PortraitRUID,CharacterName,CharacterScript,SelectionScripts,SelectionScriptIds
-Tutorial1,T_1,ef167b7c6e16446495c54912a28927fa,Mage,"The WorldShop is in development, in the meantime use ""K"" to access it.",,
+Tutorial1,T_1,ef167b7c6e16446495c54912a28927fa,Mage,"I can share with you soudl fragments at a price that far exceeds just this worlf of ours, make sure to check my shop",,
 Alighieri,T_5,17ef4e993b3c445597f72aab8abc7d35,Alighieri,Welcome to the town,,
 Alighieri,T_6,17ef4e993b3c445597f72aab8abc7d35,Alighieri,Dont take me for a fool,,
-Trader,T_8,bddcc9c4e33f438fba70b22d8feef09a,Trader,"Caw caw! Come, come! My store in being prepraed in the meantime press ""J"" to access store.",,
-Trader,T_9,bddcc9c4e33f438fba70b22d8feef09a,Trader,"“Caw caw! …Don’t stare at me like that. I know what you’re thinking. No, I wasn’t always a crow.”",,
-Trader,T_10,bddcc9c4e33f438fba70b22d8feef09a,Trader,"“Caw caw! I was a trader once, you know. Then some blasted magical accident went wrong, and—well… feathers, beak, wings. The whole miserable package. Caw caw.”",,
-Lady Maria,T_11,5ba0403847a14322b0a656f442e676bd,Lady Maria,"Oh, wonderful. Another fool who thinks they’re strong enough to enter the tower. Don’t look so pleased with yourself—I haven’t decided if you’re worth my time yet.",Well I am,T_12
-Lady Maria,T_12,5ba0403847a14322b0a656f442e676bd,Lady Maria,"If you’re so determined , enter my father’s tower, then prove you’re not completely useless. There’s a little trial ahead. Finish it, and… maybe I’ll admit you have some potential.",,
+Trader,T_8,bddcc9c4e33f438fba70b22d8feef09a,Trader,"Caw caw! Come, come! My store is here, hope you find things that will be of great use to you adventurer.",What do you have ,T_9
+Trader,T_9,bddcc9c4e33f438fba70b22d8feef09a,Trader,"“Caw caw! …Don’t stare at me like that. I know what you’re thinking. No, I wasn’t always a crow.”",I just asked what you have here?,T_10
+Trader,T_10,bddcc9c4e33f438fba70b22d8feef09a,Trader,"“Caw caw! I was a trader once, you know. Then some blasted magical accident went wrong, and—well… feathers, beak, wings. The whole miserable package. Caw caw.”",Never mind I will see myself,T_14
+Lady Maria,T_11,5ba0403847a14322b0a656f442e676bd,Lady Maria,"Oh, wonderful. Another fool who thinks they’re strong enough to enter the tower. Don’t look so pleased with yourself—I haven’t decided if you’re worth my time yet.",?,T_12
+Lady Maria,T_12,5ba0403847a14322b0a656f442e676bd,Lady Maria,"If you’re so determined , enter my father’s tower, then prove you’re not completely useless. There’s a little trial ahead. Finish it, and… maybe I’ll admit you have some potential. ",What trial?,T_15
+Worthy,T_13,,,Finish the Trial of Mountain while killing atleast 10 enemies only then can you enter the Tower of Worthy,,
+Trader,T_14,bddcc9c4e33f438fba70b22d8feef09a,,So long then,,
+Lady Maria,T_15,5ba0403847a14322b0a656f442e676bd,Lady Maria,You need to finish the trial while killing atleaset 10 enemies to enter the Tower of Worthy,10 Enemies?,T_16
+Lady Maria,T_16,5ba0403847a14322b0a656f442e676bd,Lady Maria,"Scared of measly 10 enemies, what else did I expect from a mere mortal like you",,
+Eagle,T_17,ee45a6966c314a95891abbed4557e156,Eagle,Hey welcome to Ice Peak,Why are you tied,T_18
+Eagle,T_18,ee45a6966c314a95891abbed4557e156,Eagle,"Yes here lies the great IceRockLord, supposiong from your outfit you are here to defeat it, but its not easy",I asked why are you tied?,T_19
+Eagle,T_19,ee45a6966c314a95891abbed4557e156,Eagle,"I the great eagle will assist you, to defeat IceRockBoss you need to defeat the 4 mini IceRockBosses otherwise IceRock boss cannot be damaged","Okay, but WHY ARE YOU TIED?",T_20
+Eagle,T_20,ee45a6966c314a95891abbed4557e156,Eagle,All the 5 rocks themselves dont move but the IceRockBoss will constantly fire projectiles at you so take care,Nevermind,T_21
+Eagle,T_21,ee45a6966c314a95891abbed4557e156,Eagle,"You also have two species protetcing the rock, one of them is very weak and does no damage but it is the other you need to stay wary of, it attacks fast does lots of damage and revives from the dead","Okay, I will ignore that you are tied here",T_22
+Eagle ,T_22,ee45a6966c314a95891abbed4557e156,Eagle,Thank me later,,

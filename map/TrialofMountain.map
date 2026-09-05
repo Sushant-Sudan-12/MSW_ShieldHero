@@ -71571,6 +71571,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 400.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -71725,6 +71726,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -71870,6 +71872,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -72015,6 +72018,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -72160,6 +72164,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -72305,6 +72310,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -72450,6 +72456,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -72595,6 +72602,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -72740,6 +72748,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -72885,6 +72894,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 300.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -72981,7 +72991,7 @@
             {
               "@type": "script.UpgradableObject",
               "Enable": true,
-              "ObjectName": "UpgradeObject6",
+              "ObjectName": "UpgradeObject10",
               "IsUpgraded": false
             }
           ],
@@ -73091,6 +73101,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 400.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -73242,6 +73253,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 400.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -73393,6 +73405,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 400.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -73544,6 +73557,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 400.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -73695,6 +73709,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 400.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -73846,6 +73861,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 400.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -73997,6 +74013,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 400.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -74148,6 +74165,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 400.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -74299,6 +74317,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 400.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -83332,6 +83351,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 400.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -84160,6 +84180,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 400.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -86419,6 +86440,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 400.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -86981,6 +87003,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 400.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
@@ -87798,6 +87821,7 @@
               "@type": "script.Monster",
               "Enable": true,
               "MaxHp": 400.0,
+              "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0
