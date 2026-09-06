@@ -15932,7 +15932,7 @@
       {
         "id": "7fddf4b7-5d35-4c94-b7a7-ec4f0c890454",
         "path": "/maps/StartingArea/TrialofMountain",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.PortalComponent,MOD.Core.TagComponent",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.PortalComponent,MOD.Core.TagComponent,MOD.Core.InteractionComponent",
         "jsonString": {
           "name": "TrialofMountain",
           "path": "/maps/StartingArea/TrialofMountain",
@@ -16018,6 +16018,21 @@
               "Tags": [
                 "MODRespawnArea"
               ],
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.InteractionComponent",
+              "ActionKey": 119,
+              "ActionName": "TRIAL: Kill 10 enemies",
+              "BoxSize": {
+                "x": 1.17,
+                "y": 1.65
+              },
+              "ColliderOffset": {
+                "x": 0.004999995,
+                "y": 0.745
+              },
+              "IsLegacy": false,
               "Enable": true
             }
           ],
