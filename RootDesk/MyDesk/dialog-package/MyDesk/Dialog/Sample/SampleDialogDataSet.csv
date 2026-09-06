@@ -1,5 +1,5 @@
 ﻿DialogId,ScriptId,PortraitRUID,CharacterName,CharacterScript,SelectionScripts,SelectionScriptIds
-Tutorial1,T_1,ef167b7c6e16446495c54912a28927fa,Mage,"I can share with you soul fragments at a price that far exceeds just this world of ours, make sure to check my shop",,
+Tutorial1,T_1,ef167b7c6e16446495c54912a28927fa,Mage,"I can share with you soudl fragments at a price that far exceeds just this worlf of ours, make sure to check my shop",,
 Alighieri,T_5,17ef4e993b3c445597f72aab8abc7d35,Alighieri,Welcome to the town,,
 Alighieri,T_6,17ef4e993b3c445597f72aab8abc7d35,Alighieri,Dont take me for a fool,,
 Trader,T_8,bddcc9c4e33f438fba70b22d8feef09a,Trader,"Caw caw! Come, come! My store is here, hope you find things that will be of great use to you adventurer.",What do you have ,T_9
@@ -11,12 +11,12 @@ Worthy,T_13,,,Finish the Trial of Mountain while killing atleast 10 enemies only
 Trader,T_14,bddcc9c4e33f438fba70b22d8feef09a,,So long then,,
 Lady Maria,T_15,5ba0403847a14322b0a656f442e676bd,Lady Maria,"If you’re so determined , enter my father’s Challenge , prove you’re not completely useless. There’s a little trial ahead. kill atleast 10 enemies Finish it, and… maybe I’ll admit you have some potential.”",10 Enemies?,T_16
 Lady Maria,T_16,5ba0403847a14322b0a656f442e676bd,Lady Maria,What happened? Lost your courage already?,,
-Eagle,T_17,ee45a6966c314a95891abbed4557e156,Eagle,Hey welcome to Ice Peak,Why are you tied,T_18
-Eagle,T_18,ee45a6966c314a95891abbed4557e156,Eagle,"Yes here lies the great IceRockLord, supposiong from your outfit you are here to defeat it, but its not easy",I asked why are you tied?,T_19
-Eagle,T_19,ee45a6966c314a95891abbed4557e156,Eagle,"I the great eagle will assist you, to defeat IceRockBoss you need to defeat the 4 mini IceRockBosses otherwise IceRock boss cannot be damaged","Okay, but WHY ARE YOU TIED?",T_20
-Eagle,T_20,ee45a6966c314a95891abbed4557e156,Eagle,All the 5 rocks themselves dont move but the IceRockBoss will constantly fire projectiles at you so take care,Nevermind,T_21
-Eagle,T_21,ee45a6966c314a95891abbed4557e156,Eagle,"You also have two species protetcing the rock, one of them is very weak and does no damage but it is the other you need to stay wary of, it attacks fast does lots of damage and revives from the dead","Okay, I will ignore that you are tied here",T_22
-Eagle ,T_22,ee45a6966c314a95891abbed4557e156,Eagle,Thank me later,,
+Eagle,T_17,ee45a6966c314a95891abbed4557e156,Eagle,Hey help out a brother will ya ,And who is this brother if i may ask,T_18
+Eagle,T_18,ee45a6966c314a95891abbed4557e156,Eagle,"just one of the fellow raiders ya see , but wait i will tell you how you can get rid of those pesty icebods ",Ok then spill the beans ,T_19
+Eagle,T_19,ee45a6966c314a95891abbed4557e156,Eagle,So  to defeat mama ice  you need to defeat the 4 mini baby ice otherwise other wise you cant hurt mama ice,"Okay, but WHY ARE YOU TIED?",T_20
+Eagle,T_20,ee45a6966c314a95891abbed4557e156,Eagle,it helps me think. All the 5 rocks themselves dont move but the Ice mama will constantly fire projectiles at you so take care,....,T_21
+Eagle,T_21,ee45a6966c314a95891abbed4557e156,Eagle,"You also have two species protetcing the rock, one of them is very weak and does no damage but it is the other you need to stay wary of, it attacks fast does lots of damage and revives from the dead","Okay, stay right here and let me take care of mama",T_22
+Eagle ,T_22,ee45a6966c314a95891abbed4557e156,Eagle,"wait, another thing can you make this ropes little tight? ",NO,
 <<<<<<< Updated upstream,,,,,,
 ,,,,,,
 =======,,,,,,
