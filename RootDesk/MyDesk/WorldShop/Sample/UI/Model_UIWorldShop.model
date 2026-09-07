@@ -78,7 +78,7 @@
           "Value": {
             "$type": "MOD.Core.MODVector2, MOD.Core",
             "x": 114.39444,
-            "y": 176.261169
+            "y": 176.26123
           }
         },
         {
@@ -91,7 +91,7 @@
           "Value": {
             "$type": "MOD.Core.MODVector2, MOD.Core",
             "x": -114.394867,
-            "y": -176.265076
+            "y": -176.265137
           }
         },
         {
@@ -117,7 +117,7 @@
           "Value": {
             "$type": "MOD.Core.MODVector2, MOD.Core",
             "x": 2148.78931,
-            "y": 1432.52625
+            "y": 1432.52637
           }
         },
         {
@@ -730,7 +730,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
                   "x": 1428.78931,
-                  "y": 712.526245
+                  "y": 712.526367
                 }
               },
               {
@@ -3647,8 +3647,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 0.222795963,
-                  "y": 0.02612853
+                  "x": 0.222857,
+                  "y": -21.6565742
                 }
               },
               {
@@ -3660,8 +3660,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 5.4216485,
-                  "y": 6.01831627
+                  "x": 5.42158747,
+                  "y": 6.012128
                 }
               },
               {
@@ -3686,8 +3686,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 1038.522,
-                  "y": 430.962616
+                  "x": 1038.52209,
+                  "y": 409.2861
                 }
               },
               {
@@ -3732,7 +3732,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
                   "x": 0.0127,
-                  "y": 0.0136
+                  "y": -0.0352
                 }
               },
               {
@@ -3759,7 +3759,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
                   "x": 0.0127,
-                  "y": 0.0136,
+                  "y": -0.0352,
                   "z": 0.0
                 }
               },
@@ -4338,8 +4338,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -193.985718,
-                  "y": 169.67688
+                  "x": -194.007965,
+                  "y": 187.492966
                 }
               },
               {
@@ -4351,8 +4351,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -488.280945,
-                  "y": -190.432434
+                  "x": -488.3032,
+                  "y": -197.004074
                 }
               },
               {
@@ -4378,7 +4378,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
                   "x": 294.295227,
-                  "y": 360.1093
+                  "y": 384.49704
                 }
               },
               {
@@ -4422,8 +4422,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -1.5351,
-                  "y": -0.0467
+                  "x": -1.5352,
+                  "y": -0.0214
                 }
               },
               {
@@ -4449,8 +4449,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": -1.5351,
-                  "y": -0.0467,
+                  "x": -1.5352,
+                  "y": -0.0214,
                   "z": 0.0
                 }
               },
@@ -4839,7 +4839,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
                   "x": 0.0,
-                  "y": 0.81024164,
+                  "y": 0.865114033,
                   "z": 0.0
                 }
               },
@@ -4984,7 +4984,7 @@
                   "$type": "MODNativeType",
                   "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
-                "Value": 24
+                "Value": 36
               },
               {
                 "TargetType": "MOD.Core.TextComponent",
@@ -4993,7 +4993,7 @@
                   "$type": "MODNativeType",
                   "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
-                "Value": 24
+                "Value": 36
               },
               {
                 "TargetType": "MOD.Core.TextComponent",
@@ -5070,6 +5070,15 @@
                   "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
                 "Value": true
+              },
+              {
+                "TargetType": "MOD.Core.TextComponent",
+                "Name": "Font",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.TextComponent+FontType, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": 2
               }
             ],
             "EventLinks": [],
@@ -5144,8 +5153,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 71.63267,
-                  "y": 112.198967
+                  "x": 71.96308,
+                  "y": 141.686157
                 }
               },
               {
@@ -5157,8 +5166,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -69.5396652,
-                  "y": -28.9733658
+                  "x": -69.20925,
+                  "y": 0.5138321
                 }
               },
               {
@@ -5170,7 +5179,7 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 0.5,
+                  "x": 0.75,
                   "y": 0.5
                 }
               },
@@ -5214,8 +5223,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 0.00470925,
-                  "y": 0.187257588
+                  "x": 0.165014982,
+                  "y": 0.319949985
                 }
               },
               {
@@ -5241,8 +5250,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": 0.00470925,
-                  "y": 0.187257588,
+                  "x": 0.165014982,
+                  "y": 0.319949985,
                   "z": 0.0
                 }
               },
@@ -5435,7 +5444,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
                   "x": 0.0,
-                  "y": 130.62
+                  "y": 148.848526
                 }
               },
               {
@@ -5448,7 +5457,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
                   "x": 0.0,
-                  "y": 60.6199951
+                  "y": 74.51323
                 }
               },
               {
@@ -5474,7 +5483,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
                   "x": 294.295227,
-                  "y": 70.0
+                  "y": 74.3353
                 }
               },
               {
@@ -5519,7 +5528,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
                   "x": 0.0,
-                  "y": 0.587789953
+                  "y": 0.669818342
                 }
               },
               {
@@ -5546,7 +5555,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
                   "x": 0.0,
-                  "y": -0.222455978,
+                  "y": -0.1953,
                   "z": 0.0
                 }
               },
@@ -5691,7 +5700,7 @@
                   "$type": "MODNativeType",
                   "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
-                "Value": 24
+                "Value": 32
               },
               {
                 "TargetType": "MOD.Core.TextComponent",
@@ -5700,7 +5709,7 @@
                   "$type": "MODNativeType",
                   "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
-                "Value": 24
+                "Value": 32
               },
               {
                 "TargetType": "MOD.Core.TextComponent",
@@ -5749,7 +5758,7 @@
                   "$type": "MODNativeType",
                   "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
-                "Value": "1000 Echo shards"
+                "Value": "Grajb dasihb faib faiuh a"
               },
               {
                 "TargetType": "MOD.Core.TextComponent",
@@ -5777,6 +5786,15 @@
                   "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
                 "Value": true
+              },
+              {
+                "TargetType": "MOD.Core.TextComponent",
+                "Name": "Font",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.TextComponent+FontType, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": 2
               }
             ],
             "EventLinks": [],
@@ -5852,8 +5870,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 71.07111,
-                  "y": -8.115
+                  "x": 71.8,
+                  "y": 11.135
                 }
               },
               {
@@ -5865,8 +5883,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -75.00892,
-                  "y": -60.705
+                  "x": -74.28003,
+                  "y": -41.455
                 }
               },
               {
@@ -5878,7 +5896,7 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 0.5,
+                  "x": 0.75,
                   "y": 0.5
                 }
               },
@@ -5922,8 +5940,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -0.00886005,
-                  "y": -0.154845
+                  "x": 0.158759981,
+                  "y": -0.06822
                 }
               },
               {
@@ -5949,8 +5967,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": -0.00886005,
-                  "y": -0.154845,
+                  "x": 0.158759981,
+                  "y": -0.06822,
                   "z": 0.0
                 }
               },
@@ -6054,7 +6072,7 @@
                   "$type": "MODNativeType",
                   "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
-                "Value": 25
+                "Value": 30
               },
               {
                 "TargetType": "MOD.Core.TextComponent",
@@ -6155,6 +6173,15 @@
                   "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
                 "Value": true
+              },
+              {
+                "TargetType": "MOD.Core.TextComponent",
+                "Name": "Font",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.TextComponent+FontType, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": 2
               }
             ],
             "EventLinks": [],
@@ -6343,7 +6370,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
                   "x": -0.016335,
-                  "y": -0.599465966,
+                  "y": -0.65433836,
                   "z": 0.0
                 }
               },
@@ -6627,7 +6654,7 @@
                   "$type": "MODNativeType",
                   "type": "MOD.Core.TextComponent+FontType, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
                 },
-                "Value": 0
+                "Value": 2
               },
               {
                 "TargetType": "MOD.Core.TextComponent",
@@ -6651,7 +6678,7 @@
                   "$type": "MODNativeType",
                   "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
-                "Value": 24
+                "Value": 32
               },
               {
                 "TargetType": "MOD.Core.TextComponent",
@@ -6714,7 +6741,7 @@
                   "$type": "MODNativeType",
                   "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
-                "Value": 24
+                "Value": 32
               },
               {
                 "TargetType": "MOD.Core.TextComponent",

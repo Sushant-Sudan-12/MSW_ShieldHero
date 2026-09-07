@@ -65,12 +65,15 @@ script RogueliteUpgradeShopUI extends Component
 	end
 
 	method void Open()
-		if isvalid(self.panelRoot) then
-			self.panelRoot.Enable = true
-			self.IsOpen = true
-			self:SetPlayerInputLocked(true)
-			self:UpdateShopTexts()
+		if isvalid(self.panelRoot) == false then
+			log_error("RogueliteUpgradeShopUI Open: panelRoot is invalid")
+			return
 		end
+
+		self.panelRoot.Enable = true
+		self.IsOpen = true
+		self:SetPlayerInputLocked(true)
+		self:UpdateShopTexts()
 	end
 
 	method void Close()

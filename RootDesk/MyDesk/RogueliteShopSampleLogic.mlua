@@ -13,8 +13,15 @@ script RogueliteShopSampleLogic extends Logic
 
 	property boolean StartingAreaOnly = true
 
+	@HideFromInspector
+	property boolean InteractionBound = false
+
+	@HideFromInspector
+	property boolean BindingFailureLogged = false
+
 	@ExecSpace("ClientOnly")
 	method void OnBeginPlay()
+		log("RogueliteShopSampleLogic: OnBeginPlay")
 		self.Root = _EntityService:GetEntityByPath("/ui/DefaultGroup")
 		if isvalid(self.Root) == false then
 			log_error("RogueliteShopSampleLogic: /ui/DefaultGroup not found")
@@ -27,7 +34,7 @@ script RogueliteShopSampleLogic extends Logic
 
 	@ExecSpace("ClientOnly")
 	method void OnUpdate(number delta)
-		if isvalid(self.ShopInteraction) == false then
+		if self.InteractionBound == false then
 			self:BindShopInteraction()
 		end
 	end
@@ -35,6 +42,7 @@ script RogueliteShopSampleLogic extends Logic
 	@ExecSpace("ClientOnly")
 	method void SpawnShop()
 		local modelId = _EntryService:GetModelIdByName(self.ShopModelName)
+		log("RogueliteShopSampleLogic: spawning model=" .. tostring(self.ShopModelName) .. " modelId=" .. tostring(modelId))
 		if modelId == nil or modelId == "" then
 			log_error("RogueliteShopSampleLogic: model not found: " .. tostring(self.ShopModelName))
 			return
@@ -47,29 +55,39 @@ script RogueliteShopSampleLogic extends Logic
 		end
 
 		self.Popup:SetEnable(false)
+		log("RogueliteShopSampleLogic: popup spawned and disabled")
 	end
 
 	@ExecSpace("ClientOnly")
 	method void BindShopInteraction()
-		if isvalid(self.ShopInteraction) then
+		if self.InteractionBound then
 			return
 		end
 
 		local shopEntity = _EntityService:GetEntityByPath("/maps/StartingArea/Model_Shop")
+		log("RogueliteShopSampleLogic: shop lookup=" .. tostring(shopEntity))
 		if isvalid(shopEntity) then
 			self.ShopInteraction = shopEntity.InteractionComponent
 		end
 
 		if isvalid(self.ShopInteraction) then
 			self.ShopInteraction.Entity:ConnectEvent(InteractionEvent, function(event) self:HandleShopInteraction(event) end)
+			self.InteractionBound = true
+			self.BindingFailureLogged = false
+			log("RogueliteShopSampleLogic: interaction listener ready")
+		elseif self.BindingFailureLogged == false then
+			log_error("RogueliteShopSampleLogic: Model_Shop or InteractionComponent not found")
+			self.BindingFailureLogged = true
 		end
 	end
 
 	@ExecSpace("ClientOnly")
 	method void HandleShopInteraction(InteractionEvent event)
+		log("RogueliteShopSampleLogic: interaction received")
 		if self.StartingAreaOnly then
 			local player = _UserService.LocalPlayer
 			if isvalid(player) == false or string.find(tostring(player.Path), "StartingArea", 1, true) == nil then
+				log_error("RogueliteShopSampleLogic: interaction rejected because player is not in StartingArea")
 				return
 			end
 		end
@@ -79,8 +97,10 @@ script RogueliteShopSampleLogic extends Logic
 		end
 
 		if isvalid(self.Popup) then
+			self.Popup:SetEnable(true)
 			local shopUI = self.Popup:GetComponent("RogueliteUpgradeShopUI")
 			if isvalid(shopUI) then
+				log("RogueliteShopSampleLogic: opening shop UI")
 				shopUI:Open()
 			else
 				log_error("RogueliteShopSampleLogic: RogueliteUpgradeShopUI missing from spawned model")

@@ -1,7 +1,7 @@
 {
   "Id": "",
   "GameId": "",
-  "EntryKey": "model://da4eba65-99c5-40b0-a801-b08a97897c94",
+  "EntryKey": "model://5a436844-fddc-472c-a4a9-ad04bcab0f3d",
   "ContentType": "x-mod/model",
   "Content": "",
   "Usage": 0,
@@ -16,7 +16,7 @@
       "Version": 1,
       "Name": "Model_RogueliteShop",
       "BaseModelId": null,
-      "Id": "da4eba65-99c5-40b0-a801-b08a97897c94",
+      "Id": "5a436844-fddc-472c-a4a9-ad04bcab0f3d",
       "Components": [
         "MOD.Core.UITransformComponent",
         "MOD.Core.SpriteGUIRendererComponent",
@@ -77,8 +77,8 @@
           },
           "Value": {
             "$type": "MOD.Core.MODVector2, MOD.Core",
-            "x": 289.901123,
-            "y": 288.729523
+            "x": -10.5811729,
+            "y": -11.1355839
           }
         },
         {
@@ -90,8 +90,8 @@
           },
           "Value": {
             "$type": "MOD.Core.MODVector2, MOD.Core",
-            "x": -310.098877,
-            "y": -311.270477
+            "x": -9.616573,
+            "y": -11.4053593
           }
         },
         {
@@ -116,8 +116,8 @@
           },
           "Value": {
             "$type": "MOD.Core.MODVector2, MOD.Core",
-            "x": 2520.0,
-            "y": 1680.0
+            "x": 1919.0354,
+            "y": 1080.26978
           }
         },
         {
@@ -567,7 +567,7 @@
           "Value": {
             "$type": "MOD.Core.MODComponentRef, MOD.Core",
             "IsRelative": true,
-            "ComponentId": "0fcf1c89-794b-4ece-8cfd-e1d47768a0f2:ButtonComponent",
+            "ComponentId": "20d75830-a487-461c-8573-86ecb22f3d7f:ButtonComponent",
             "UseNested": false
           }
         },
@@ -581,7 +581,7 @@
           "Value": {
             "$type": "MOD.Core.MODComponentRef, MOD.Core",
             "IsRelative": true,
-            "ComponentId": "335d1b95-adb4-4083-ba1e-c7c0d598ed48:ButtonComponent",
+            "ComponentId": "62cb826f-8abe-4558-b47a-3d971825b96c:ButtonComponent",
             "UseNested": false
           }
         },
@@ -595,7 +595,7 @@
           "Value": {
             "$type": "MOD.Core.MODComponentRef, MOD.Core",
             "IsRelative": true,
-            "ComponentId": "4ef613d8-0288-494a-9fb8-ed3de0bc174e:ButtonComponent",
+            "ComponentId": "f386b504-b25e-4566-a952-383c34d5eefd:ButtonComponent",
             "UseNested": false
           }
         },
@@ -609,7 +609,7 @@
           "Value": {
             "$type": "MOD.Core.MODComponentRef, MOD.Core",
             "IsRelative": true,
-            "ComponentId": "2a5f933e-e70e-4403-b082-31e2ddc1c494:ButtonComponent",
+            "ComponentId": "98aca59f-9a4d-45d6-b527-f7543b467037:ButtonComponent",
             "UseNested": false
           }
         },
@@ -624,22 +624,8 @@
             "$type": "MOD.Core.MODEntityRef, MOD.Core",
             "tempEntityId": null,
             "IsRelative": true,
-            "EntityId": "da4eba65-99c5-40b0-a801-b08a97897c94",
+            "EntityId": "5a436844-fddc-472c-a4a9-ad04bcab0f3d",
             "Version2": false
-          }
-        },
-        {
-          "TargetType": "script.RogueliteUpgradeShopUI",
-          "Name": "ShopInteraction",
-          "ValueType": {
-            "$type": "MODNativeType",
-            "type": "MOD.Core.Component.MODComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
-          },
-          "Value": {
-            "$type": "MOD.Core.MODComponentRef, MOD.Core",
-            "IsRelative": false,
-            "ComponentId": "2a88d0f3-04ab-4c95-a028-6ec47ee87e58:InteractionComponent",
-            "UseNested": false
           }
         },
         {
@@ -653,7 +639,7 @@
             "$type": "MOD.Core.MODEntityRef, MOD.Core",
             "tempEntityId": null,
             "IsRelative": true,
-            "EntityId": "fd3559f9-cc1e-441a-8f40-f7848bd3ca8f",
+            "EntityId": "0de9f80d-6b64-4f2e-9cdc-fa890f850909",
             "Version2": false
           }
         },
@@ -668,7 +654,7 @@
             "$type": "MOD.Core.MODEntityRef, MOD.Core",
             "tempEntityId": null,
             "IsRelative": true,
-            "EntityId": "a47edd36-2daf-438f-97b7-547c3a74362b",
+            "EntityId": "8cfdacb9-5e87-4bd1-b799-db2bb57a700c",
             "Version2": false
           }
         },
@@ -683,7 +669,7 @@
             "$type": "MOD.Core.MODEntityRef, MOD.Core",
             "tempEntityId": null,
             "IsRelative": true,
-            "EntityId": "749765f8-1fb8-413f-a954-1182b8b04b80",
+            "EntityId": "e17e0d0c-3d8a-4fd4-b9f6-36fe38a58249",
             "Version2": false
           }
         },
@@ -698,7 +684,7 @@
             "$type": "MOD.Core.MODEntityRef, MOD.Core",
             "tempEntityId": null,
             "IsRelative": true,
-            "EntityId": "2100fc42-4cb7-4d5d-b46c-c6b96f30a275",
+            "EntityId": "020da06c-e73b-45f3-971c-8bb8355c2e61",
             "Version2": false
           }
         },
@@ -713,7 +699,7 @@
             "$type": "MOD.Core.MODEntityRef, MOD.Core",
             "tempEntityId": null,
             "IsRelative": true,
-            "EntityId": "9fdf9f01-573a-47a5-8d22-08e64f90519b",
+            "EntityId": "883dc943-9308-4f32-af23-05793b3ccf2e",
             "Version2": false
           }
         },
@@ -728,7 +714,7 @@
             "$type": "MOD.Core.MODEntityRef, MOD.Core",
             "tempEntityId": null,
             "IsRelative": true,
-            "EntityId": "fc8ca871-0e33-43e2-9f07-bf0e3b69657e",
+            "EntityId": "71610707-b256-47b9-8c05-f13fb1945921",
             "Version2": false
           }
         },
@@ -743,7 +729,7 @@
             "$type": "MOD.Core.MODEntityRef, MOD.Core",
             "tempEntityId": null,
             "IsRelative": true,
-            "EntityId": "70fb456f-8653-4a7c-9fce-a18ed887e5fd",
+            "EntityId": "3619612e-9921-46c6-8885-cd2cadbf9040",
             "Version2": false
           }
         },
@@ -789,15 +775,6 @@
           "Value": -999.0
         },
         {
-          "TargetType": "script.RogueliteUpgradeShopUI",
-          "Name": "InteractionBound",
-          "ValueType": {
-            "$type": "MODNativeType",
-            "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-          },
-          "Value": false
-        },
-        {
           "TargetType": "MOD.Core.MODEntity",
           "Name": "Enable",
           "ValueType": {
@@ -819,14 +796,14 @@
       "EventLinks": [],
       "Children": [
         {
-          "Id": "2bc83f9f-617d-44de-858d-38aa3f941a66",
-          "ParentId": "da4eba65-99c5-40b0-a801-b08a97897c94",
+          "Id": "f0e8bda8-4b72-4d12-8d97-0d593e59464c",
+          "ParentId": "5a436844-fddc-472c-a4a9-ad04bcab0f3d",
           "Name": "Panel",
           "Model": {
             "Version": 1,
             "Name": "Panel",
             "BaseModelId": null,
-            "Id": "2bc83f9f-617d-44de-858d-38aa3f941a66",
+            "Id": "f0e8bda8-4b72-4d12-8d97-0d593e59464c",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent"
@@ -886,8 +863,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -360.0,
-                  "y": -360.0
+                  "x": -27.8580933,
+                  "y": -45.9791527
                 }
               },
               {
@@ -899,8 +876,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 360.0,
-                  "y": 360.0
+                  "x": 72.5792847,
+                  "y": 62.1087379
                 }
               },
               {
@@ -925,8 +902,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 1800.0,
-                  "y": 960.0
+                  "x": 1818.598,
+                  "y": 972.1819
                 }
               },
               {
@@ -970,8 +947,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 0.0,
-                  "y": 0.0
+                  "x": 22.3605957,
+                  "y": 8.064793
                 }
               },
               {
@@ -997,8 +974,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": 0.0,
-                  "y": 0.0,
+                  "x": 22.3605957,
+                  "y": 8.064819,
                   "z": 0.0
                 }
               },
@@ -1381,14 +1358,14 @@
           }
         },
         {
-          "Id": "b2468ea6-b2c4-4fd4-869a-9dc8d4e4ec64",
-          "ParentId": "2bc83f9f-617d-44de-858d-38aa3f941a66",
+          "Id": "23b92d4d-5fd8-49b9-8c7b-dfb8b56307fe",
+          "ParentId": "f0e8bda8-4b72-4d12-8d97-0d593e59464c",
           "Name": "Title",
           "Model": {
             "Version": 1,
             "Name": "Title",
             "BaseModelId": null,
-            "Id": "b2468ea6-b2c4-4fd4-869a-9dc8d4e4ec64",
+            "Id": "23b92d4d-5fd8-49b9-8c7b-dfb8b56307fe",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent"
@@ -1487,7 +1464,7 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 1750.0,
+                  "x": 1768.598,
                   "y": 110.0
                 }
               },
@@ -1546,7 +1523,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
                   "x": 0.0,
-                  "y": 455.0,
+                  "y": 461.090942,
                   "z": 0.0
                 }
               },
@@ -1661,14 +1638,14 @@
           }
         },
         {
-          "Id": "31006fad-3fed-4357-9ce0-b7eb7c71c958",
-          "ParentId": "b2468ea6-b2c4-4fd4-869a-9dc8d4e4ec64",
+          "Id": "635f594f-185b-4ba9-8bed-d847b493b9b1",
+          "ParentId": "23b92d4d-5fd8-49b9-8c7b-dfb8b56307fe",
           "Name": "Text_Title",
           "Model": {
             "Version": 1,
             "Name": "Text_Title",
             "BaseModelId": null,
-            "Id": "31006fad-3fed-4357-9ce0-b7eb7c71c958",
+            "Id": "635f594f-185b-4ba9-8bed-d847b493b9b1",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -2130,14 +2107,14 @@
           }
         },
         {
-          "Id": "2a5f933e-e70e-4403-b082-31e2ddc1c494",
-          "ParentId": "b2468ea6-b2c4-4fd4-869a-9dc8d4e4ec64",
+          "Id": "98aca59f-9a4d-45d6-b527-f7543b467037",
+          "ParentId": "23b92d4d-5fd8-49b9-8c7b-dfb8b56307fe",
           "Name": "Btn_Exit",
           "Model": {
             "Version": 1,
             "Name": "Btn_Exit",
             "BaseModelId": null,
-            "Id": "2a5f933e-e70e-4403-b082-31e2ddc1c494",
+            "Id": "98aca59f-9a4d-45d6-b527-f7543b467037",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -2295,7 +2272,7 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": 865.0,
+                  "x": 874.299,
                   "y": -55.0,
                   "z": 0.0
                 }
@@ -2505,14 +2482,14 @@
           }
         },
         {
-          "Id": "e6fc96b3-1fc5-4e0f-a0d6-adb5b1234ee4",
-          "ParentId": "2bc83f9f-617d-44de-858d-38aa3f941a66",
+          "Id": "1ad7f339-98f1-48f8-9692-526b27375dbd",
+          "ParentId": "f0e8bda8-4b72-4d12-8d97-0d593e59464c",
           "Name": "Tabs",
           "Model": {
             "Version": 1,
             "Name": "Tabs",
             "BaseModelId": null,
-            "Id": "e6fc96b3-1fc5-4e0f-a0d6-adb5b1234ee4",
+            "Id": "1ad7f339-98f1-48f8-9692-526b27375dbd",
             "Components": [
               "MOD.Core.UITransformComponent"
             ],
@@ -2642,7 +2619,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
                   "x": -715.8623,
-                  "y": -55.5288
+                  "y": -55.52881
                 }
               },
               {
@@ -2669,7 +2646,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
                   "x": -715.8623,
-                  "y": -55.5288,
+                  "y": -55.52881,
                   "z": 0.0
                 }
               },
@@ -2730,14 +2707,14 @@
           }
         },
         {
-          "Id": "583ec691-e8c1-4e3b-be7e-732b00011e01",
-          "ParentId": "e6fc96b3-1fc5-4e0f-a0d6-adb5b1234ee4",
+          "Id": "423a0532-45f2-4634-8521-23d802651211",
+          "ParentId": "1ad7f339-98f1-48f8-9692-526b27375dbd",
           "Name": "Btn_Item",
           "Model": {
             "Version": 1,
             "Name": "Btn_Item",
             "BaseModelId": null,
-            "Id": "583ec691-e8c1-4e3b-be7e-732b00011e01",
+            "Id": "423a0532-45f2-4634-8521-23d802651211",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -3477,14 +3454,14 @@
           }
         },
         {
-          "Id": "8b541ded-4bde-4483-9fab-b742180fa514",
-          "ParentId": "2bc83f9f-617d-44de-858d-38aa3f941a66",
+          "Id": "79c1364f-39a3-4dd8-8bef-894360995360",
+          "ParentId": "f0e8bda8-4b72-4d12-8d97-0d593e59464c",
           "Name": "Main",
           "Model": {
             "Version": 1,
             "Name": "Main",
             "BaseModelId": null,
-            "Id": "8b541ded-4bde-4483-9fab-b742180fa514",
+            "Id": "79c1364f-39a3-4dd8-8bef-894360995360",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent"
@@ -3628,8 +3605,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 136.5189,
-                  "y": -55.2819
+                  "x": 136.518921,
+                  "y": -55.28189
                 }
               },
               {
@@ -3655,8 +3632,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": 136.5189,
-                  "y": -55.2819,
+                  "x": 136.518921,
+                  "y": -55.28189,
                   "z": 0.0
                 }
               },
@@ -3803,14 +3780,14 @@
           }
         },
         {
-          "Id": "03ffff18-4fd8-4e31-bb1a-4efa145bda9c",
-          "ParentId": "8b541ded-4bde-4483-9fab-b742180fa514",
+          "Id": "258f7521-68f0-4eb5-9b31-0c4179caa239",
+          "ParentId": "79c1364f-39a3-4dd8-8bef-894360995360",
           "Name": "ItemPanel",
           "Model": {
             "Version": 1,
             "Name": "ItemPanel",
             "BaseModelId": null,
-            "Id": "03ffff18-4fd8-4e31-bb1a-4efa145bda9c",
+            "Id": "258f7521-68f0-4eb5-9b31-0c4179caa239",
             "Components": [
               "MOD.Core.UITransformComponent"
             ],
@@ -4056,14 +4033,14 @@
           }
         },
         {
-          "Id": "cad92e9d-7020-4aa4-b84b-41eea8f623d1",
-          "ParentId": "03ffff18-4fd8-4e31-bb1a-4efa145bda9c",
+          "Id": "39c2662b-1ffa-4781-92b3-4ce4e70a04d6",
+          "ParentId": "258f7521-68f0-4eb5-9b31-0c4179caa239",
           "Name": "GridView",
           "Model": {
             "Version": 1,
             "Name": "GridView",
             "BaseModelId": null,
-            "Id": "cad92e9d-7020-4aa4-b84b-41eea8f623d1",
+            "Id": "39c2662b-1ffa-4781-92b3-4ce4e70a04d6",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -4208,8 +4185,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -5.555556,
-                  "y": 2.6
+                  "x": -5.555542,
+                  "y": 2.600006
                 }
               },
               {
@@ -4235,8 +4212,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": -5.555556,
-                  "y": 2.6,
+                  "x": -5.555542,
+                  "y": 2.600006,
                   "z": 0.0
                 }
               },
@@ -4451,14 +4428,14 @@
           }
         },
         {
-          "Id": "fd3559f9-cc1e-441a-8f40-f7848bd3ca8f",
-          "ParentId": "03ffff18-4fd8-4e31-bb1a-4efa145bda9c",
+          "Id": "0de9f80d-6b64-4f2e-9cdc-fa890f850909",
+          "ParentId": "258f7521-68f0-4eb5-9b31-0c4179caa239",
           "Name": "Balance",
           "Model": {
             "Version": 1,
             "Name": "Balance",
             "BaseModelId": null,
-            "Id": "fd3559f9-cc1e-441a-8f40-f7848bd3ca8f",
+            "Id": "0de9f80d-6b64-4f2e-9cdc-fa890f850909",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -4519,8 +4496,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -5.555542,
-                  "y": 6.484985E-05
+                  "x": 23.28125,
+                  "y": -1.4864502
                 }
               },
               {
@@ -4532,8 +4509,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 1034.85217,
-                  "y": -67.99205
+                  "x": 1063.689,
+                  "y": -69.47857
                 }
               },
               {
@@ -4603,8 +4580,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 514.6483,
-                  "y": 6.484985E-05
+                  "x": 543.4851,
+                  "y": -1.4864502
                 }
               },
               {
@@ -4630,8 +4607,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": 514.6483,
-                  "y": 375.000061,
+                  "x": 543.4851,
+                  "y": 373.51355,
                   "z": 0.0
                 }
               },
@@ -4647,7 +4624,7 @@
                   "x": 0.0,
                   "y": 0.0,
                   "z": 0.0,
-                  "w": -1.0
+                  "w": 1.0
                 }
               },
               {
@@ -4878,14 +4855,14 @@
           }
         },
         {
-          "Id": "3b2cd6e4-972d-4218-8921-8f0cad93c89e",
-          "ParentId": "03ffff18-4fd8-4e31-bb1a-4efa145bda9c",
+          "Id": "cd670988-cf13-4cbd-85ce-6394034af7e0",
+          "ParentId": "258f7521-68f0-4eb5-9b31-0c4179caa239",
           "Name": "Attack",
           "Model": {
             "Version": 1,
             "Name": "Attack",
             "BaseModelId": null,
-            "Id": "3b2cd6e4-972d-4218-8921-8f0cad93c89e",
+            "Id": "cd670988-cf13-4cbd-85ce-6394034af7e0",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent"
@@ -4945,8 +4922,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -262.2107,
-                  "y": 304.408569
+                  "x": -260.70166,
+                  "y": 287.057556
                 }
               },
               {
@@ -4958,8 +4935,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -638.4297,
-                  "y": -134.51355
+                  "x": -611.246338,
+                  "y": -215.47113
                 }
               },
               {
@@ -4984,8 +4961,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 376.218964,
-                  "y": 438.922119
+                  "x": 350.5447,
+                  "y": 502.5287
                 }
               },
               {
@@ -5029,8 +5006,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -450.3202,
-                  "y": 84.9475
+                  "x": -435.974,
+                  "y": 35.7932053
                 }
               },
               {
@@ -5056,8 +5033,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": -450.3202,
-                  "y": 84.9475,
+                  "x": -435.974,
+                  "y": 35.7932053,
                   "z": 0.0
                 }
               },
@@ -5177,14 +5154,313 @@
           }
         },
         {
-          "Id": "785ab5db-6816-4f08-81bb-750ed3ddba1b",
-          "ParentId": "3b2cd6e4-972d-4218-8921-8f0cad93c89e",
+          "Id": "66636c19-4889-4074-93d3-77f5e6b81ce5",
+          "ParentId": "cd670988-cf13-4cbd-85ce-6394034af7e0",
+          "Name": "UISprite_1",
+          "Model": {
+            "Version": 1,
+            "Name": "UISprite_1",
+            "BaseModelId": null,
+            "Id": "66636c19-4889-4074-93d3-77f5e6b81ce5",
+            "Components": [
+              "MOD.Core.UITransformComponent",
+              "MOD.Core.SpriteGUIRendererComponent"
+            ],
+            "Properties": [],
+            "Values": [
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "AlignmentOption",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.AlignmentType, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": 0
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "AnchorsMax",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": 0.5,
+                  "y": 0.5
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "AnchorsMin",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": 0.5,
+                  "y": 0.5
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "MobileOnly",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": false
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "OffsetMax",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": 239.2317,
+                  "y": 369.488983
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "OffsetMin",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": -241.722519,
+                  "y": -82.34497
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "Pivot",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": 0.5,
+                  "y": 0.5
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "RectSize",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": 480.954224,
+                  "y": 451.833954
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "UIMode",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.UIModeType, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": 1
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "UIScale",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector3, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector3, MOD.Core",
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "UIVersion",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": 2
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "anchoredPosition",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": -1.2454071,
+                  "y": 143.572
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "Rotation",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector3, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector3, MOD.Core",
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "Position",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector3, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector3, MOD.Core",
+                  "x": -1.2454071,
+                  "y": 143.572,
+                  "z": 0.0
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "QuaternionRotation",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODQuaternion, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODQuaternion, MOD.Core",
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "Scale",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector3, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector3, MOD.Core",
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "ZRotation",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": 0.0
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "Enable",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": true
+              },
+              {
+                "TargetType": "MOD.Core.SpriteGUIRendererComponent",
+                "Name": "ImageRUID",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODDataRef, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODDataRef, MOD.Core",
+                  "DataId": "831ba87b53354843bdbfd9269e1174d7"
+                }
+              },
+              {
+                "TargetType": "MOD.Core.SpriteGUIRendererComponent",
+                "Name": "OverrideSorting",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": false
+              },
+              {
+                "TargetType": "MOD.Core.SpriteGUIRendererComponent",
+                "Name": "Color",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODColor, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODColor, MOD.Core",
+                  "r": 1.0,
+                  "g": 1.0,
+                  "b": 1.0,
+                  "a": 1.0
+                }
+              },
+              {
+                "TargetType": "MOD.Core.SpriteGUIRendererComponent",
+                "Name": "Enable",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": true
+              },
+              {
+                "TargetType": "MOD.Core.MODEntity",
+                "Name": "Enable",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": true
+              },
+              {
+                "TargetType": "MOD.Core.MODEntity",
+                "Name": "Visible",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": true
+              }
+            ],
+            "EventLinks": [],
+            "Children": []
+          }
+        },
+        {
+          "Id": "b8347c09-1d83-4862-a468-76111aa2846b",
+          "ParentId": "cd670988-cf13-4cbd-85ce-6394034af7e0",
           "Name": "Text_Name",
           "Model": {
             "Version": 1,
             "Name": "Text_Name",
             "BaseModelId": null,
-            "Id": "785ab5db-6816-4f08-81bb-750ed3ddba1b",
+            "Id": "b8347c09-1d83-4862-a468-76111aa2846b",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -5246,7 +5522,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
                   "x": -8.503094,
-                  "y": -21.4062042
+                  "y": -52.4299965
                 }
               },
               {
@@ -5259,7 +5535,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
                   "x": -8.503094,
-                  "y": -89.39832
+                  "y": -120.422119
                 }
               },
               {
@@ -5284,7 +5560,7 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 376.218964,
+                  "x": 350.5447,
                   "y": 67.99212
                 }
               },
@@ -5330,7 +5606,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
                   "x": -8.503094,
-                  "y": -21.4062042
+                  "y": -52.4299965
                 }
               },
               {
@@ -5357,7 +5633,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
                   "x": -8.503098,
-                  "y": 198.054855,
+                  "y": 198.834351,
                   "z": 0.0
                 }
               },
@@ -5604,14 +5880,14 @@
           }
         },
         {
-          "Id": "14b60906-f47a-4edc-97d6-a299f10b719b",
-          "ParentId": "3b2cd6e4-972d-4218-8921-8f0cad93c89e",
+          "Id": "bd54fae0-b007-43f8-a38a-e82ee320f9cf",
+          "ParentId": "cd670988-cf13-4cbd-85ce-6394034af7e0",
           "Name": "Sprite_Icon",
           "Model": {
             "Version": 1,
             "Name": "Sprite_Icon",
             "BaseModelId": null,
-            "Id": "14b60906-f47a-4edc-97d6-a299f10b719b",
+            "Id": "bd54fae0-b007-43f8-a38a-e82ee320f9cf",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent"
@@ -5672,7 +5948,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
                   "x": 79.73042,
-                  "y": 154.310028
+                  "y": 169.152527
                 }
               },
               {
@@ -5685,7 +5961,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
                   "x": -95.45462,
-                  "y": -20.8750229
+                  "y": -6.032524
                 }
               },
               {
@@ -5741,8 +6017,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -7.8621,
-                  "y": 66.7175
+                  "x": -7.86209869,
+                  "y": 81.56
                 }
               },
               {
@@ -5768,8 +6044,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": -7.8621,
-                  "y": 66.7175,
+                  "x": -7.86209869,
+                  "y": 81.56,
                   "z": 0.0
                 }
               },
@@ -5893,14 +6169,14 @@
           }
         },
         {
-          "Id": "271d824a-f4dc-4f5b-87bb-949833e4ddf7",
-          "ParentId": "3b2cd6e4-972d-4218-8921-8f0cad93c89e",
+          "Id": "999198a0-2c20-4809-8f68-76adaceb006d",
+          "ParentId": "cd670988-cf13-4cbd-85ce-6394034af7e0",
           "Name": "Text_Desc",
           "Model": {
             "Version": 1,
             "Name": "Text_Desc",
             "BaseModelId": null,
-            "Id": "271d824a-f4dc-4f5b-87bb-949833e4ddf7",
+            "Id": "999198a0-2c20-4809-8f68-76adaceb006d",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -5961,8 +6237,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 3.2393,
-                  "y": 157.193161
+                  "x": 3.23939443,
+                  "y": 155.38945
                 }
               },
               {
@@ -5974,8 +6250,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 3.2393,
-                  "y": 87.19316
+                  "x": 3.23939443,
+                  "y": 85.38945
                 }
               },
               {
@@ -6000,7 +6276,7 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 376.218964,
+                  "x": 350.5447,
                   "y": 70.0
                 }
               },
@@ -6045,8 +6321,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 3.2393,
-                  "y": 157.193161
+                  "x": 3.23939443,
+                  "y": 155.38945
                 }
               },
               {
@@ -6072,8 +6348,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": 3.23930359,
-                  "y": -62.2679,
+                  "x": 3.23939514,
+                  "y": -95.87489,
                   "z": 0.0
                 }
               },
@@ -6320,14 +6596,14 @@
           }
         },
         {
-          "Id": "9fdf9f01-573a-47a5-8d22-08e64f90519b",
-          "ParentId": "3b2cd6e4-972d-4218-8921-8f0cad93c89e",
+          "Id": "883dc943-9308-4f32-af23-05793b3ccf2e",
+          "ParentId": "cd670988-cf13-4cbd-85ce-6394034af7e0",
           "Name": "Text_Price",
           "Model": {
             "Version": 1,
             "Name": "Text_Price",
             "BaseModelId": null,
-            "Id": "9fdf9f01-573a-47a5-8d22-08e64f90519b",
+            "Id": "883dc943-9308-4f32-af23-05793b3ccf2e",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -6388,8 +6664,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 71.07111,
-                  "y": -8.115
+                  "x": 68.85001,
+                  "y": -43.2850037
                 }
               },
               {
@@ -6401,8 +6677,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -75.00892,
-                  "y": -60.705
+                  "x": -77.23002,
+                  "y": -95.875
                 }
               },
               {
@@ -6458,8 +6734,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -1.9689,
-                  "y": -34.41
+                  "x": -4.19000244,
+                  "y": -69.58
                 }
               },
               {
@@ -6485,8 +6761,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": -1.9689,
-                  "y": -34.41,
+                  "x": -4.19000244,
+                  "y": -69.58,
                   "z": 0.0
                 }
               },
@@ -6707,14 +6983,14 @@
           }
         },
         {
-          "Id": "335d1b95-adb4-4083-ba1e-c7c0d598ed48",
-          "ParentId": "3b2cd6e4-972d-4218-8921-8f0cad93c89e",
+          "Id": "62cb826f-8abe-4558-b47a-3d971825b96c",
+          "ParentId": "cd670988-cf13-4cbd-85ce-6394034af7e0",
           "Name": "Btn_Purchase",
           "Model": {
             "Version": 1,
             "Name": "Btn_Purchase",
             "BaseModelId": null,
-            "Id": "335d1b95-adb4-4083-ba1e-c7c0d598ed48",
+            "Id": "62cb826f-8abe-4558-b47a-3d971825b96c",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -6776,7 +7052,7 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 95.50918,
+                  "x": 88.26048,
                   "y": 82.25452
                 }
               },
@@ -6789,7 +7065,7 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -81.63178,
+                  "x": -88.88048,
                   "y": 13.5140038
                 }
               },
@@ -6860,7 +7136,7 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 6.9387,
+                  "x": -0.309997559,
                   "y": 47.8842621
                 }
               },
@@ -6887,8 +7163,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": 6.9387,
-                  "y": -171.5768,
+                  "x": -0.309997559,
+                  "y": -203.380081,
                   "z": 0.0
                 }
               },
@@ -7445,14 +7721,14 @@
           }
         },
         {
-          "Id": "2100fc42-4cb7-4d5d-b46c-c6b96f30a275",
-          "ParentId": "3b2cd6e4-972d-4218-8921-8f0cad93c89e",
+          "Id": "020da06c-e73b-45f3-971c-8bb8355c2e61",
+          "ParentId": "cd670988-cf13-4cbd-85ce-6394034af7e0",
           "Name": "Text_Name_1",
           "Model": {
             "Version": 1,
             "Name": "Text_Name_1",
             "BaseModelId": null,
-            "Id": "2100fc42-4cb7-4d5d-b46c-c6b96f30a275",
+            "Id": "020da06c-e73b-45f3-971c-8bb8355c2e61",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -7513,8 +7789,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -263.118469,
-                  "y": -107.5533
+                  "x": -155.8482,
+                  "y": -224.09906
                 }
               },
               {
@@ -7526,8 +7802,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 39.8575,
-                  "y": -175.54541
+                  "x": 147.7222,
+                  "y": -291.09906
                 }
               },
               {
@@ -7552,8 +7828,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 73.24298,
-                  "y": 67.99212
+                  "x": 46.9743042,
+                  "y": 67.0
                 }
               },
               {
@@ -7597,8 +7873,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -111.630493,
-                  "y": -107.5533
+                  "x": -4.06300354,
+                  "y": -224.09906
                 }
               },
               {
@@ -7624,8 +7900,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": -111.630508,
-                  "y": 111.907761,
+                  "x": -4.06300354,
+                  "y": 27.1652832,
                   "z": 0.0
                 }
               },
@@ -7746,7 +8022,7 @@
                   "$type": "MODNativeType",
                   "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
-                "Value": false
+                "Value": true
               },
               {
                 "TargetType": "MOD.Core.TextComponent",
@@ -7779,7 +8055,7 @@
                   "$type": "MODNativeType",
                   "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
-                "Value": 50
+                "Value": 69
               },
               {
                 "TargetType": "MOD.Core.TextComponent",
@@ -7788,7 +8064,7 @@
                   "$type": "MODNativeType",
                   "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
-                "Value": 50
+                "Value": 69
               },
               {
                 "TargetType": "MOD.Core.TextComponent",
@@ -7872,14 +8148,14 @@
           }
         },
         {
-          "Id": "278e00e4-f49f-4d3a-ad1f-0268fbbe63ef",
-          "ParentId": "03ffff18-4fd8-4e31-bb1a-4efa145bda9c",
+          "Id": "ff2589bc-ef15-46d0-b453-59accb37bbbb",
+          "ParentId": "258f7521-68f0-4eb5-9b31-0c4179caa239",
           "Name": "Health",
           "Model": {
             "Version": 1,
             "Name": "Health",
             "BaseModelId": null,
-            "Id": "278e00e4-f49f-4d3a-ad1f-0268fbbe63ef",
+            "Id": "ff2589bc-ef15-46d0-b453-59accb37bbbb",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent"
@@ -7939,8 +8215,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 177.3139,
-                  "y": 312.293823
+                  "x": 155.653351,
+                  "y": 274.136353
                 }
               },
               {
@@ -7952,8 +8228,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -206.2221,
-                  "y": -135.164825
+                  "x": -196.742157,
+                  "y": -216.357178
                 }
               },
               {
@@ -7978,8 +8254,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 383.536,
-                  "y": 447.458649
+                  "x": 352.3955,
+                  "y": 490.49353
                 }
               },
               {
@@ -8023,8 +8299,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -14.4541,
-                  "y": 88.5645
+                  "x": -20.5444031,
+                  "y": 28.8895874
                 }
               },
               {
@@ -8050,8 +8326,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": -14.4541,
-                  "y": 88.5645,
+                  "x": -20.5444031,
+                  "y": 28.8895874,
                   "z": 0.0
                 }
               },
@@ -8171,14 +8447,14 @@
           }
         },
         {
-          "Id": "68e38e98-4841-48d2-81fb-11d5b62906fc",
-          "ParentId": "278e00e4-f49f-4d3a-ad1f-0268fbbe63ef",
+          "Id": "a2e5c320-d2ad-4ec5-b788-8969293c43a3",
+          "ParentId": "ff2589bc-ef15-46d0-b453-59accb37bbbb",
           "Name": "Text_Name",
           "Model": {
             "Version": 1,
             "Name": "Text_Name",
             "BaseModelId": null,
-            "Id": "68e38e98-4841-48d2-81fb-11d5b62906fc",
+            "Id": "a2e5c320-d2ad-4ec5-b788-8969293c43a3",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -8239,8 +8515,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 0.000104188919,
-                  "y": -20.78817
+                  "x": -9.986419E-05,
+                  "y": -44.34406
                 }
               },
               {
@@ -8252,8 +8528,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 0.000104188919,
-                  "y": -88.78029
+                  "x": -9.986419E-05,
+                  "y": -112.336182
                 }
               },
               {
@@ -8278,7 +8554,7 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 383.536,
+                  "x": 352.3955,
                   "y": 67.99212
                 }
               },
@@ -8323,8 +8599,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 0.000104188919,
-                  "y": -20.78817
+                  "x": -9.986419E-05,
+                  "y": -44.34406
                 }
               },
               {
@@ -8350,8 +8626,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": 0.000106811523,
-                  "y": 202.941162,
+                  "x": -0.000106811523,
+                  "y": 200.90271,
                   "z": 0.0
                 }
               },
@@ -8598,14 +8874,14 @@
           }
         },
         {
-          "Id": "e444b9bf-ef62-4942-a200-6fe9415f50de",
-          "ParentId": "278e00e4-f49f-4d3a-ad1f-0268fbbe63ef",
+          "Id": "47212f59-b26e-4821-b9ec-ffbb070c061d",
+          "ParentId": "ff2589bc-ef15-46d0-b453-59accb37bbbb",
           "Name": "Sprite_Icon",
           "Model": {
             "Version": 1,
             "Name": "Sprite_Icon",
             "BaseModelId": null,
-            "Id": "e444b9bf-ef62-4942-a200-6fe9415f50de",
+            "Id": "47212f59-b26e-4821-b9ec-ffbb070c061d",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent"
@@ -8666,7 +8942,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
                   "x": 93.49746,
-                  "y": 149.939957
+                  "y": 171.660965
                 }
               },
               {
@@ -8679,7 +8955,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
                   "x": -90.595665,
-                  "y": -34.1531639
+                  "y": -12.4321594
                 }
               },
               {
@@ -8735,8 +9011,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 1.4509,
-                  "y": 57.8934
+                  "x": 1.45089722,
+                  "y": 79.6144
                 }
               },
               {
@@ -8762,8 +9038,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": 1.4509,
-                  "y": 57.8934,
+                  "x": 1.45089722,
+                  "y": 79.6144,
                   "z": 0.0
                 }
               },
@@ -8896,14 +9172,14 @@
           }
         },
         {
-          "Id": "ce2d27c7-9450-4b8b-8720-cd6d32b8a1fd",
-          "ParentId": "278e00e4-f49f-4d3a-ad1f-0268fbbe63ef",
+          "Id": "8fbe4e88-04c1-45f5-82e6-ad276e12f909",
+          "ParentId": "ff2589bc-ef15-46d0-b453-59accb37bbbb",
           "Name": "Text_Desc",
           "Model": {
             "Version": 1,
             "Name": "Text_Desc",
             "BaseModelId": null,
-            "Id": "ce2d27c7-9450-4b8b-8720-cd6d32b8a1fd",
+            "Id": "8fbe4e88-04c1-45f5-82e6-ad276e12f909",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -8964,8 +9240,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 0.0,
-                  "y": 157.844421
+                  "x": -0.000205960459,
+                  "y": 156.27536
                 }
               },
               {
@@ -8977,8 +9253,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 0.0,
-                  "y": 87.84442
+                  "x": -0.000205960459,
+                  "y": 86.27536
                 }
               },
               {
@@ -9003,7 +9279,7 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 383.536,
+                  "x": 352.3955,
                   "y": 70.0
                 }
               },
@@ -9048,8 +9324,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 0.0,
-                  "y": 157.844421
+                  "x": -0.000205960459,
+                  "y": 156.27536
                 }
               },
               {
@@ -9075,8 +9351,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": 0.0,
-                  "y": -65.8849,
+                  "x": -0.000198364258,
+                  "y": -88.971405,
                   "z": 0.0
                 }
               },
@@ -9323,14 +9599,14 @@
           }
         },
         {
-          "Id": "749765f8-1fb8-413f-a954-1182b8b04b80",
-          "ParentId": "278e00e4-f49f-4d3a-ad1f-0268fbbe63ef",
+          "Id": "e17e0d0c-3d8a-4fd4-b9f6-36fe38a58249",
+          "ParentId": "ff2589bc-ef15-46d0-b453-59accb37bbbb",
           "Name": "Text_Price",
           "Model": {
             "Version": 1,
             "Name": "Text_Price",
             "BaseModelId": null,
-            "Id": "749765f8-1fb8-413f-a954-1182b8b04b80",
+            "Id": "e17e0d0c-3d8a-4fd4-b9f6-36fe38a58249",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -9391,8 +9667,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 71.07111,
-                  "y": -8.115
+                  "x": 77.09002,
+                  "y": -41.3550034
                 }
               },
               {
@@ -9404,8 +9680,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -75.00892,
-                  "y": -60.705
+                  "x": -68.99001,
+                  "y": -93.945
                 }
               },
               {
@@ -9461,8 +9737,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -1.9689,
-                  "y": -34.41
+                  "x": 4.050003,
+                  "y": -67.65
                 }
               },
               {
@@ -9488,8 +9764,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": -1.9689,
-                  "y": -34.41,
+                  "x": 4.050003,
+                  "y": -67.65,
                   "z": 0.0
                 }
               },
@@ -9719,14 +9995,14 @@
           }
         },
         {
-          "Id": "0fcf1c89-794b-4ece-8cfd-e1d47768a0f2",
-          "ParentId": "278e00e4-f49f-4d3a-ad1f-0268fbbe63ef",
+          "Id": "20d75830-a487-461c-8573-86ecb22f3d7f",
+          "ParentId": "ff2589bc-ef15-46d0-b453-59accb37bbbb",
           "Name": "Btn_Purchase",
           "Model": {
             "Version": 1,
             "Name": "Btn_Purchase",
             "BaseModelId": null,
-            "Id": "0fcf1c89-794b-4ece-8cfd-e1d47768a0f2",
+            "Id": "20d75830-a487-461c-8573-86ecb22f3d7f",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -9788,8 +10064,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 84.17158,
-                  "y": 82.90578
+                  "x": 93.64048,
+                  "y": 84.14908
                 }
               },
               {
@@ -9801,8 +10077,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -92.96938,
-                  "y": 14.1652641
+                  "x": -83.50048,
+                  "y": 15.4085655
                 }
               },
               {
@@ -9872,8 +10148,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -4.3989,
-                  "y": 48.5355225
+                  "x": 5.06999969,
+                  "y": 49.7788239
                 }
               },
               {
@@ -9899,8 +10175,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": -4.3989,
-                  "y": -175.1938,
+                  "x": 5.06999969,
+                  "y": -195.467941,
                   "z": 0.0
                 }
               },
@@ -10457,14 +10733,14 @@
           }
         },
         {
-          "Id": "a47edd36-2daf-438f-97b7-547c3a74362b",
-          "ParentId": "278e00e4-f49f-4d3a-ad1f-0268fbbe63ef",
+          "Id": "8cfdacb9-5e87-4bd1-b799-db2bb57a700c",
+          "ParentId": "ff2589bc-ef15-46d0-b453-59accb37bbbb",
           "Name": "Text_Name_2",
           "Model": {
             "Version": 1,
             "Name": "Text_Name_2",
             "BaseModelId": null,
-            "Id": "a47edd36-2daf-438f-97b7-547c3a74362b",
+            "Id": "8cfdacb9-5e87-4bd1-b799-db2bb57a700c",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -10525,8 +10801,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -248.272217,
-                  "y": -120.207062
+                  "x": -146.016891,
+                  "y": -220.0592
                 }
               },
               {
@@ -10538,8 +10814,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 54.7037735,
-                  "y": -188.199188
+                  "x": 156.959091,
+                  "y": -288.051331
                 }
               },
               {
@@ -10564,7 +10840,7 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 80.56003,
+                  "x": 49.4195251,
                   "y": 67.99212
                 }
               },
@@ -10609,8 +10885,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -96.78422,
-                  "y": -120.207062
+                  "x": 5.4711,
+                  "y": -220.0592
                 }
               },
               {
@@ -10636,8 +10912,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": -96.78421,
-                  "y": 103.522263,
+                  "x": 5.4711,
+                  "y": 25.187561,
                   "z": 0.0
                 }
               },
@@ -10758,7 +11034,7 @@
                   "$type": "MODNativeType",
                   "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
-                "Value": false
+                "Value": true
               },
               {
                 "TargetType": "MOD.Core.TextComponent",
@@ -10791,7 +11067,7 @@
                   "$type": "MODNativeType",
                   "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
-                "Value": 50
+                "Value": 69
               },
               {
                 "TargetType": "MOD.Core.TextComponent",
@@ -10800,7 +11076,7 @@
                   "$type": "MODNativeType",
                   "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
-                "Value": 50
+                "Value": 69
               },
               {
                 "TargetType": "MOD.Core.TextComponent",
@@ -10884,14 +11160,14 @@
           }
         },
         {
-          "Id": "1a9d0ef8-3768-49f5-8743-eac0b34e0136",
-          "ParentId": "03ffff18-4fd8-4e31-bb1a-4efa145bda9c",
-          "Name": "Stamina",
+          "Id": "76cd8647-c231-4beb-82b5-79e26c6a0c57",
+          "ParentId": "ff2589bc-ef15-46d0-b453-59accb37bbbb",
+          "Name": "UISprite",
           "Model": {
             "Version": 1,
-            "Name": "Stamina",
+            "Name": "UISprite",
             "BaseModelId": null,
-            "Id": "1a9d0ef8-3768-49f5-8743-eac0b34e0136",
+            "Id": "76cd8647-c231-4beb-82b5-79e26c6a0c57",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent"
@@ -10951,8 +11227,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 607.0707,
-                  "y": 308.514465
+                  "x": 237.423111,
+                  "y": 344.623779
                 }
               },
               {
@@ -10964,8 +11240,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 221.133759,
-                  "y": -141.745255
+                  "x": -243.531113,
+                  "y": -107.210175
                 }
               },
               {
@@ -10990,8 +11266,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 385.9369,
-                  "y": 450.2597
+                  "x": 480.954224,
+                  "y": 451.833954
                 }
               },
               {
@@ -11035,8 +11311,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 414.1022,
-                  "y": 83.3846
+                  "x": -3.05400085,
+                  "y": 118.7068
                 }
               },
               {
@@ -11062,8 +11338,307 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": 414.1022,
-                  "y": 83.3846,
+                  "x": -3.05400085,
+                  "y": 118.7068,
+                  "z": 0.0
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "QuaternionRotation",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODQuaternion, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODQuaternion, MOD.Core",
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "Scale",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector3, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector3, MOD.Core",
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "ZRotation",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": 0.0
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "Enable",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": true
+              },
+              {
+                "TargetType": "MOD.Core.SpriteGUIRendererComponent",
+                "Name": "ImageRUID",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODDataRef, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODDataRef, MOD.Core",
+                  "DataId": "7210faff02c244099dd405741ca82bd5"
+                }
+              },
+              {
+                "TargetType": "MOD.Core.SpriteGUIRendererComponent",
+                "Name": "OverrideSorting",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": false
+              },
+              {
+                "TargetType": "MOD.Core.SpriteGUIRendererComponent",
+                "Name": "Color",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODColor, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODColor, MOD.Core",
+                  "r": 1.0,
+                  "g": 1.0,
+                  "b": 1.0,
+                  "a": 1.0
+                }
+              },
+              {
+                "TargetType": "MOD.Core.SpriteGUIRendererComponent",
+                "Name": "Enable",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": true
+              },
+              {
+                "TargetType": "MOD.Core.MODEntity",
+                "Name": "Enable",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": true
+              },
+              {
+                "TargetType": "MOD.Core.MODEntity",
+                "Name": "Visible",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": true
+              }
+            ],
+            "EventLinks": [],
+            "Children": []
+          }
+        },
+        {
+          "Id": "39f69b5e-3710-47d3-b73c-c0ad87847a00",
+          "ParentId": "258f7521-68f0-4eb5-9b31-0c4179caa239",
+          "Name": "Stamina",
+          "Model": {
+            "Version": 1,
+            "Name": "Stamina",
+            "BaseModelId": null,
+            "Id": "39f69b5e-3710-47d3-b73c-c0ad87847a00",
+            "Components": [
+              "MOD.Core.UITransformComponent",
+              "MOD.Core.SpriteGUIRendererComponent"
+            ],
+            "Properties": [],
+            "Values": [
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "AlignmentOption",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.AlignmentType, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": 0
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "AnchorsMax",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": 0.5,
+                  "y": 0.5
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "AnchorsMin",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": 0.5,
+                  "y": 0.5
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "MobileOnly",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": false
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "OffsetMax",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": 565.3265,
+                  "y": 281.0492
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "OffsetMin",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": 214.860733,
+                  "y": -217.77298
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "Pivot",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": 0.5,
+                  "y": 0.5
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "RectSize",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": 350.465729,
+                  "y": 498.822174
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "UIMode",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.UIModeType, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": 1
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "UIScale",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector3, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector3, MOD.Core",
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "UIVersion",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": 2
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "anchoredPosition",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": 390.0936,
+                  "y": 31.6381073
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "Rotation",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector3, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector3, MOD.Core",
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "Position",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector3, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector3, MOD.Core",
+                  "x": 390.0936,
+                  "y": 31.6381073,
                   "z": 0.0
                 }
               },
@@ -11192,14 +11767,322 @@
           }
         },
         {
-          "Id": "21110158-a443-42ca-bf1e-08ee68f24269",
-          "ParentId": "1a9d0ef8-3768-49f5-8743-eac0b34e0136",
+          "Id": "5c88fa47-2d36-43f5-9f0c-309446ddaad2",
+          "ParentId": "39f69b5e-3710-47d3-b73c-c0ad87847a00",
+          "Name": "UISprite_1",
+          "Model": {
+            "Version": 1,
+            "Name": "UISprite_1",
+            "BaseModelId": null,
+            "Id": "5c88fa47-2d36-43f5-9f0c-309446ddaad2",
+            "Components": [
+              "MOD.Core.UITransformComponent",
+              "MOD.Core.SpriteGUIRendererComponent"
+            ],
+            "Properties": [],
+            "Values": [
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "AlignmentOption",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.AlignmentType, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": 0
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "AnchorsMax",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": 0.5,
+                  "y": 0.5
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "AnchorsMin",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": 0.5,
+                  "y": 0.5
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "MobileOnly",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": false
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "OffsetMax",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": 238.0184,
+                  "y": 346.09198
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "OffsetMin",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": -241.214417,
+                  "y": -105.741974
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "Pivot",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": 0.5,
+                  "y": 0.5
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "RectSize",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": 479.232819,
+                  "y": 451.833954
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "UIMode",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.UIModeType, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": 1
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "UIScale",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector3, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector3, MOD.Core",
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "UIVersion",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": 2
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "anchoredPosition",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector2, MOD.Core",
+                  "x": -1.5980072,
+                  "y": 120.175
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "Rotation",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector3, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector3, MOD.Core",
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "Position",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector3, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector3, MOD.Core",
+                  "x": -1.5980072,
+                  "y": 120.175,
+                  "z": 0.0
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "QuaternionRotation",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODQuaternion, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODQuaternion, MOD.Core",
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "Scale",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODVector3, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODVector3, MOD.Core",
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "ZRotation",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": 0.0
+              },
+              {
+                "TargetType": "MOD.Core.UITransformComponent",
+                "Name": "Enable",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": true
+              },
+              {
+                "TargetType": "MOD.Core.SpriteGUIRendererComponent",
+                "Name": "ImageRUID",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODDataRef, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODDataRef, MOD.Core",
+                  "DataId": "7e7867eb74d1446da19f7e2502b5ee88"
+                }
+              },
+              {
+                "TargetType": "MOD.Core.SpriteGUIRendererComponent",
+                "Name": "OverrideSorting",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": false
+              },
+              {
+                "TargetType": "MOD.Core.SpriteGUIRendererComponent",
+                "Name": "SortingLayer",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": "MapLayer0"
+              },
+              {
+                "TargetType": "MOD.Core.SpriteGUIRendererComponent",
+                "Name": "Color",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "MOD.Core.MODColor, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+                },
+                "Value": {
+                  "$type": "MOD.Core.MODColor, MOD.Core",
+                  "r": 1.0,
+                  "g": 1.0,
+                  "b": 1.0,
+                  "a": 1.0
+                }
+              },
+              {
+                "TargetType": "MOD.Core.SpriteGUIRendererComponent",
+                "Name": "Enable",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": true
+              },
+              {
+                "TargetType": "MOD.Core.MODEntity",
+                "Name": "Enable",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": true
+              },
+              {
+                "TargetType": "MOD.Core.MODEntity",
+                "Name": "Visible",
+                "ValueType": {
+                  "$type": "MODNativeType",
+                  "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                },
+                "Value": true
+              }
+            ],
+            "EventLinks": [],
+            "Children": []
+          }
+        },
+        {
+          "Id": "44a6cf9f-8aeb-46c4-9966-53edcea44a88",
+          "ParentId": "39f69b5e-3710-47d3-b73c-c0ad87847a00",
           "Name": "Text_Name",
           "Model": {
             "Version": 1,
             "Name": "Text_Name",
             "BaseModelId": null,
-            "Id": "21110158-a443-42ca-bf1e-08ee68f24269",
+            "Id": "44a6cf9f-8aeb-46c4-9966-53edcea44a88",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -11261,7 +12144,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
                   "x": -1.90734863E-06,
-                  "y": -17.0089
+                  "y": -49.09
                 }
               },
               {
@@ -11274,7 +12157,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
                   "x": -1.90734863E-06,
-                  "y": -85.00102
+                  "y": -117.082123
                 }
               },
               {
@@ -11299,7 +12182,7 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 385.9369,
+                  "x": 350.465729,
                   "y": 67.99212
                 }
               },
@@ -11345,7 +12228,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
                   "x": -1.90734863E-06,
-                  "y": -17.0089
+                  "y": -49.09
                 }
               },
               {
@@ -11372,7 +12255,7 @@
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
                   "x": 0.0,
-                  "y": 208.120956,
+                  "y": 200.321091,
                   "z": 0.0
                 }
               },
@@ -11619,14 +12502,14 @@
           }
         },
         {
-          "Id": "5dff3a4a-1ca3-4a3d-b41a-aab6e4c6d137",
-          "ParentId": "1a9d0ef8-3768-49f5-8743-eac0b34e0136",
+          "Id": "af29dc98-689c-4ae3-9d0d-fa9074f458a8",
+          "ParentId": "39f69b5e-3710-47d3-b73c-c0ad87847a00",
           "Name": "Sprite_Icon",
           "Model": {
             "Version": 1,
             "Name": "Sprite_Icon",
             "BaseModelId": null,
-            "Id": "5dff3a4a-1ca3-4a3d-b41a-aab6e4c6d137",
+            "Id": "af29dc98-689c-4ae3-9d0d-fa9074f458a8",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent"
@@ -11686,8 +12569,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 89.03042,
-                  "y": 151.880615
+                  "x": 96.2211151,
+                  "y": 175.006927
                 }
               },
               {
@@ -11699,8 +12582,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -91.82342,
-                  "y": -28.973217
+                  "x": -84.63272,
+                  "y": -5.846916
                 }
               },
               {
@@ -11756,8 +12639,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -1.3965,
-                  "y": 61.4537
+                  "x": 5.794197,
+                  "y": 84.58
                 }
               },
               {
@@ -11783,8 +12666,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": -1.3965,
-                  "y": 61.4537,
+                  "x": 5.794197,
+                  "y": 84.58,
                   "z": 0.0
                 }
               },
@@ -11917,14 +12800,14 @@
           }
         },
         {
-          "Id": "0af87a07-cdb3-41b5-9091-6dcfdcebd392",
-          "ParentId": "1a9d0ef8-3768-49f5-8743-eac0b34e0136",
+          "Id": "96e519c8-8a11-4a11-8d30-858ab916d059",
+          "ParentId": "39f69b5e-3710-47d3-b73c-c0ad87847a00",
           "Name": "Text_Desc",
           "Model": {
             "Version": 1,
             "Name": "Text_Desc",
             "BaseModelId": null,
-            "Id": "0af87a07-cdb3-41b5-9091-6dcfdcebd392",
+            "Id": "96e519c8-8a11-4a11-8d30-858ab916d059",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -11985,8 +12868,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 0.0,
-                  "y": 164.424744
+                  "x": -2.23779368,
+                  "y": 153.751984
                 }
               },
               {
@@ -11998,8 +12881,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 0.0,
-                  "y": 94.42474
+                  "x": -2.23779368,
+                  "y": 83.75198
                 }
               },
               {
@@ -12024,7 +12907,7 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 385.9369,
+                  "x": 350.465729,
                   "y": 70.0
                 }
               },
@@ -12069,8 +12952,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 0.0,
-                  "y": 164.424744
+                  "x": -2.23779368,
+                  "y": 153.751984
                 }
               },
               {
@@ -12096,8 +12979,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": 0.0,
-                  "y": -60.70511,
+                  "x": -2.237793,
+                  "y": -95.6591,
                   "z": 0.0
                 }
               },
@@ -12344,14 +13227,14 @@
           }
         },
         {
-          "Id": "70fb456f-8653-4a7c-9fce-a18ed887e5fd",
-          "ParentId": "1a9d0ef8-3768-49f5-8743-eac0b34e0136",
+          "Id": "3619612e-9921-46c6-8885-cd2cadbf9040",
+          "ParentId": "39f69b5e-3710-47d3-b73c-c0ad87847a00",
           "Name": "Text_Price",
           "Model": {
             "Version": 1,
             "Name": "Text_Price",
             "BaseModelId": null,
-            "Id": "70fb456f-8653-4a7c-9fce-a18ed887e5fd",
+            "Id": "3619612e-9921-46c6-8885-cd2cadbf9040",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -12412,8 +13295,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 71.07111,
-                  "y": -8.115
+                  "x": 74.47002,
+                  "y": -48.915
                 }
               },
               {
@@ -12425,8 +13308,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -75.00892,
-                  "y": -60.705
+                  "x": -71.6100159,
+                  "y": -101.505
                 }
               },
               {
@@ -12482,8 +13365,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -1.9689,
-                  "y": -34.41
+                  "x": 1.43000031,
+                  "y": -75.21
                 }
               },
               {
@@ -12509,8 +13392,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": -1.9689,
-                  "y": -34.41,
+                  "x": 1.43000031,
+                  "y": -75.21,
                   "z": 0.0
                 }
               },
@@ -12740,14 +13623,14 @@
           }
         },
         {
-          "Id": "4ef613d8-0288-494a-9fb8-ed3de0bc174e",
-          "ParentId": "1a9d0ef8-3768-49f5-8743-eac0b34e0136",
+          "Id": "f386b504-b25e-4566-a952-383c34d5eefd",
+          "ParentId": "39f69b5e-3710-47d3-b73c-c0ad87847a00",
           "Name": "Btn_Purchase",
           "Model": {
             "Version": 1,
             "Name": "Btn_Purchase",
             "BaseModelId": null,
-            "Id": "4ef613d8-0288-494a-9fb8-ed3de0bc174e",
+            "Id": "f386b504-b25e-4566-a952-383c34d5eefd",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -12893,7 +13776,7 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -4.399,
+                  "x": -4.399002,
                   "y": 55.11595
                 }
               },
@@ -12920,8 +13803,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": -4.399,
-                  "y": -170.0139,
+                  "x": -4.399002,
+                  "y": -194.295135,
                   "z": 0.0
                 }
               },
@@ -13478,14 +14361,14 @@
           }
         },
         {
-          "Id": "fc8ca871-0e33-43e2-9f07-bf0e3b69657e",
-          "ParentId": "1a9d0ef8-3768-49f5-8743-eac0b34e0136",
+          "Id": "71610707-b256-47b9-8c05-f13fb1945921",
+          "ParentId": "39f69b5e-3710-47d3-b73c-c0ad87847a00",
           "Name": "Text_Name_1",
           "Model": {
             "Version": 1,
             "Name": "Text_Name_1",
             "BaseModelId": null,
-            "Id": "fc8ca871-0e33-43e2-9f07-bf0e3b69657e",
+            "Id": "71610707-b256-47b9-8c05-f13fb1945921",
             "Components": [
               "MOD.Core.UITransformComponent",
               "MOD.Core.SpriteGUIRendererComponent",
@@ -13546,8 +14429,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -242.278992,
-                  "y": -125.731293
+                  "x": -151.045074,
+                  "y": -228.889984
                 }
               },
               {
@@ -13559,8 +14442,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 60.69696,
-                  "y": -193.723419
+                  "x": 151.930878,
+                  "y": -296.8821
                 }
               },
               {
@@ -13585,7 +14468,7 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": 82.96094,
+                  "x": 47.4897766,
                   "y": 67.99212
                 }
               },
@@ -13630,8 +14513,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector2, MOD.Core",
-                  "x": -90.7910156,
-                  "y": -125.731293
+                  "x": 0.4429016,
+                  "y": -228.889984
                 }
               },
               {
@@ -13657,8 +14540,8 @@
                 },
                 "Value": {
                   "$type": "MOD.Core.MODVector3, MOD.Core",
-                  "x": -90.7910156,
-                  "y": 99.39856,
+                  "x": 0.4429016,
+                  "y": 20.5211029,
                   "z": 0.0
                 }
               },
@@ -13779,7 +14662,7 @@
                   "$type": "MODNativeType",
                   "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
-                "Value": false
+                "Value": true
               },
               {
                 "TargetType": "MOD.Core.TextComponent",
@@ -13812,7 +14695,7 @@
                   "$type": "MODNativeType",
                   "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
-                "Value": 50
+                "Value": 69
               },
               {
                 "TargetType": "MOD.Core.TextComponent",
@@ -13821,7 +14704,7 @@
                   "$type": "MODNativeType",
                   "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 },
-                "Value": 50
+                "Value": 69
               },
               {
                 "TargetType": "MOD.Core.TextComponent",

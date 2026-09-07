@@ -1,4 +1,4 @@
 ﻿703139b1c474463b8ddfffd1ec8b5e65,SubWorldID,Category,Name,Desc,IconRUID,Price,RewardFunction,RewardArgs,PurchaseLimit,StartDate,EndDate,Order
-GFK2584AE,SubWorldProductId,0,Soul shard(x3),Grants 3000 Echo Shards,8279ed60570446fd8cdd55f76fac9b58,250,GrantEchoShards,Amount:3000,5,,,1
-BKXOC6K71,SubWorldProductId_1,0,Soul shard(x10),Grants 10000 Echo Shards,3703806e734f491ebeeaa939e0a811bc,800,GrantEchoShards,Amount:10000,3,,,2
-Y9VGXCJCJ,SubWorldProductId_SoulShard,0,Soul Shard,Grants 1000 Echo Shards,92ed896337844c5c982e548bac31ec56,100,GrantEchoShards,Amount:1000,10,,,0
+GFK2584AE,SubWorldProductId,0,Soul shard(x3),Grants 3000 Soul Fragments,2407559308b54dbb867a65ab274abc98,250,GrantEchoShards,Amount:3000,10,,,1
+BKXOC6K71,SubWorldProductId_1,0,Soul shard(x10),Grants 10000 Soul Fragments,8335625ef2d246bcb142081b48d42c32,800,GrantEchoShards,Amount:10000,10,,,2
+Y9VGXCJCJ,SubWorldProductId_SoulShard,0,Soul Shard,Grants 1000 Soul Fragments,96e4f88f75f54fa0b5591659fa96c868,100,GrantEchoShards,Amount:1000,10,,,0
