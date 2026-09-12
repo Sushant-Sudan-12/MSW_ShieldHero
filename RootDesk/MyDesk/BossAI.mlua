@@ -115,6 +115,31 @@ script BossAI extends AttackComponent
 
 	property Vector2 SkillSpawnOffset = Vector2(0, 0.5)
 
+	-- === Combat Sounds (3 slots) ===
+	property string AttackSoundRUID = ""
+
+	@MinValue(0.0)
+	property number AttackSoundVolume = 1
+
+	@MinValue(0.0)
+	property number AttackSoundPitch = 1
+
+	property string HitSoundRUID = ""
+
+	@MinValue(0.0)
+	property number HitSoundVolume = 1
+
+	@MinValue(0.0)
+	property number HitSoundPitch = 1
+
+	property string DeathSoundRUID = ""
+
+	@MinValue(0.0)
+	property number DeathSoundVolume = 1
+
+	@MinValue(0.0)
+	property number DeathSoundPitch = 1
+
 	-- === Movement / reaction action names ===
 	property string StandActionName = "stand"
 	property string MoveActionName = "move"
@@ -123,6 +148,12 @@ script BossAI extends AttackComponent
 
 	@MinValue(0.0)
 	property number HitStaggerDuration = 0.2
+
+	-- Lets the boss punish players who stand in melee range and spam attacks, instead of looking stunned.
+	property boolean RetaliateWhenHitUpClose = true
+
+	@MinValue(0.0)
+	property number RetaliationCooldown = 0.8
 
 	@MinValue(0.0)
 	property number DeathHideDelay = 2.0
@@ -141,6 +172,9 @@ script BossAI extends AttackComponent
 
 	@HideFromInspector
 	property number LastSkillTime = -9999
+
+	@HideFromInspector
+	property number LastRetaliationTime = -9999
 
 	@HideFromInspector
 	property number ActiveActionToken = 0
@@ -199,6 +233,7 @@ script BossAI extends AttackComponent
 		self.IsBusy = false
 		self.LastMeleeTime = -9999
 		self.LastSkillTime = -9999
+		self.LastRetaliationTime = -9999
 		self.PendingDamage = 0
 	end
 
@@ -210,6 +245,7 @@ script BossAI extends AttackComponent
 		self.IsBusy = false
 		self.LastMeleeTime = -9999
 		self.LastSkillTime = -9999
+		self.LastRetaliationTime = -9999
 		self.PendingDamage = 0
 		self.CurrentActionPlaying = ""
 		self.Entity:SetVisible(true)
@@ -347,6 +383,7 @@ script BossAI extends AttackComponent
 
 		self:SetVelocityX(0)
 		self:PlayAction(actionName)
+		self:PlayBossSound(self.AttackSoundRUID, self.AttackSoundVolume, self.AttackSoundPitch)
 
 		if self.DebugLogs then
 			log("BossAI melee=" .. tostring(actionName) .. " damage=" .. tostring(damage))
@@ -408,6 +445,7 @@ script BossAI extends AttackComponent
 
 		self:SetVelocityX(0)
 		self:PlayAction(self.SkillActionName)
+		self:PlayBossSound(self.AttackSoundRUID, self.AttackSoundVolume, self.AttackSoundPitch)
 
 		local windup = math.max(self.SkillWindup, 0)
 		if windup <= 0 then
@@ -561,6 +599,27 @@ script BossAI extends AttackComponent
 		end
 	end
 
+	method void PlayBossSound(string ruid, number volume, number pitch)
+		if ruid == nil or ruid == "" then
+			return
+		end
+
+		local sound = self.Entity.SoundComponent
+		if isvalid(sound) == false then
+			sound = self.Entity:AddComponent("SoundComponent")
+		end
+		if isvalid(sound) == false then
+			return
+		end
+
+		sound.AudioClipRUID = ruid
+		sound.Volume = math.max(0, math.min(1, volume))
+		sound.Pitch = math.max(0, math.min(3, pitch))
+		sound.Loop = false
+		sound.Bgm = false
+		sound:PlaySyncedSound()
+	end
+
 	method void SetFaceDirection(number dirX)
 		if dirX == 0 then
 			return
@@ -703,6 +762,7 @@ script BossAI extends AttackComponent
 		self:SetVelocityX(0)
 		self.CurrentActionPlaying = ""
 		self:PlayAction(self.DieActionName)
+		self:PlayBossSound(self.DeathSoundRUID, self.DeathSoundVolume, self.DeathSoundPitch)
 
 		_TimerService:SetTimerOnce(function()
 			if isvalid(self.Entity) == false then
@@ -721,6 +781,7 @@ script BossAI extends AttackComponent
 		end
 
 		self.BossCurrentHp = math.max(0, self.BossCurrentHp - event.TotalDamage)
+		self:PlayBossSound(self.HitSoundRUID, self.HitSoundVolume, self.HitSoundPitch)
 
 		if self.DebugLogs then
 			log("BossAI took " .. tostring(event.TotalDamage) .. " hp=" .. tostring(self.BossCurrentHp))
@@ -728,6 +789,15 @@ script BossAI extends AttackComponent
 
 		if self.BossCurrentHp <= 0 then
 			self:KillBoss()
+			return
+		end
+
+		-- Punish players camping in melee range instead of playing a stagger that looks like a stunlock.
+		if self:TryRetaliate() then
+			return
+		end
+
+		if self.IsBusy then
 			return
 		end
 
@@ -740,6 +810,41 @@ script BossAI extends AttackComponent
 			end
 			self.CurrentActionPlaying = ""
 		end, self.HitStaggerDuration)
+	end
+
+	@ExecSpace("ServerOnly")
+	method boolean TryRetaliate()
+		if self.RetaliateWhenHitUpClose == false or self.IsBusy or self.IsBossDead then
+			return false
+		end
+
+		local now = _UtilLogic.ElapsedSeconds
+		if now - self.LastRetaliationTime < self.RetaliationCooldown then
+			return false
+		end
+
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) == false then
+			return false
+		end
+
+		local playerInfo = self:FindNearestPlayer(transform.WorldPosition)
+		local nearestPlayer = playerInfo.Player
+		if nearestPlayer == nil then
+			return false
+		end
+
+		local meleeRange = math.max(self.Attack1Range, self.Attack2Range)
+		if playerInfo.Distance > meleeRange or math.abs(playerInfo.DeltaY) > self.DetectionRangeY then
+			return false
+		end
+
+		local playerPos = nearestPlayer.TransformComponent.WorldPosition
+		local dirX = (playerPos.x >= transform.WorldPosition.x) and 1 or -1
+
+		self.LastRetaliationTime = now
+		self:StartMeleeAttack(dirX)
+		return true
 	end
 
 end

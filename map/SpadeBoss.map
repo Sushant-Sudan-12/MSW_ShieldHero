@@ -16,7 +16,7 @@
       {
         "id": "e309ada0-4fa8-470f-9056-56470f601a69",
         "path": "/maps/SpadeBoss",
-        "componentNames": "MOD.Core.MapComponent,MOD.Core.FootholdComponent",
+        "componentNames": "MOD.Core.MapComponent,MOD.Core.FootholdComponent,MOD.Core.SoundComponent",
         "jsonString": {
           "name": "SpadeBoss",
           "path": "/maps/SpadeBoss",
@@ -3079,6 +3079,15 @@
                   }
                 ]
               },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SoundComponent",
+              "AudioClipRUID": "1393158a130547bb87175094b227861f",
+              "Bgm": true,
+              "Loop": true,
+              "PlayOnEnable": true,
+              "Volume": 0.5,
               "Enable": true
             }
           ],
@@ -10005,8 +10014,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 2.07218456,
-                "y": -9.282164,
+                "x": 2.73211956,
+                "y": -12.488451,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -10538,10 +10547,15 @@
               "Attack2Damage": 25,
               "SkillProjectileModelName": "Model_FlamethrowerSharp",
               "SkillSpikeDamage": 30,
+              "AttackSoundRUID": "00fa9652f55b4a899b9cc74c4d5667ed",
+              "HitSoundRUID": "b9996b70f08c44299adcec7801dbaffa",
+              "HitStaggerDuration": 0.6,
+              "RetaliationCooldown": 0.8,
               "AIState": "IDLE",
               "IsBusy": false,
               "LastMeleeTime": -9999.0,
               "LastSkillTime": -9999.0,
+              "LastRetaliationTime": -9999.0,
               "ActiveActionToken": 0.0,
               "NextMeleeIndex": 1,
               "PendingDamage": 0,

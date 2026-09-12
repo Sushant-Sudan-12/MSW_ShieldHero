@@ -167,6 +167,13 @@ script MonsterAI extends AttackComponent
 			end
 		end
 
+		-- Pre-create SoundComponent so the very first attack sound isn't swallowed
+		if self.AttackSoundRUID ~= nil and self.AttackSoundRUID ~= "" then
+			if isvalid(self.Entity.SoundComponent) == false then
+				self.Entity:AddComponent("SoundComponent")
+			end
+		end
+
 		-- Disable native StateAnimationComponent so it doesn't overwrite our custom sprite animations
 		if self.DisableNativeStateAnimation then
 			local stateAnim = self.Entity:GetComponent("StateAnimationComponent")

@@ -16,7 +16,7 @@
       {
         "id": "c36b84fc-b59e-4c5a-9e51-468e2736d5f4",
         "path": "/maps/IcePeaks",
-        "componentNames": "MOD.Core.MapComponent,MOD.Core.FootholdComponent",
+        "componentNames": "MOD.Core.MapComponent,MOD.Core.FootholdComponent,MOD.Core.SoundComponent",
         "jsonString": {
           "name": "IcePeaks",
           "path": "/maps/IcePeaks",
@@ -6644,6 +6644,15 @@
                   }
                 ]
               },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SoundComponent",
+              "AudioClipRUID": "55117072498b4e6bafcfe45da29cd1f8",
+              "Bgm": true,
+              "Loop": true,
+              "PlayOnEnable": true,
+              "Volume": 0.5,
               "Enable": true
             }
           ],
@@ -14324,6 +14333,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundDelay": 1.0,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
