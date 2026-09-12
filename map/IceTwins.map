@@ -8507,6 +8507,7 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -8524,6 +8525,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 0.899999738,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 275,
                     "PreviousFootholdId": 273,
                     "groupID": 62,
@@ -8547,6 +8551,7 @@
                     "EndPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -8564,6 +8569,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": -1.35,
+>>>>>>> parent of b795673 (ice)
                       "y": -7.28000069
                     },
                     "Variance": {
@@ -8596,6 +8604,7 @@
                     "EndPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -8613,6 +8622,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": -0.109999985,
+>>>>>>> parent of b795673 (ice)
                       "y": -7.28000069
                     },
                     "Variance": {
@@ -8639,6 +8651,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 276,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -8678,6 +8691,14 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 8.209999,
+                      "y": -3.68000031
+                    },
+                    "EndPoint": {
+                      "x": 9.449999,
+                      "y": -3.68000031
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -8717,6 +8738,7 @@
                     "EndPoint": {
                       "x": 10.3499994,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -8732,6 +8754,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": -3.68000031
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -8771,6 +8796,7 @@
                     "EndPoint": {
                       "x": 11.249999,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -8786,6 +8812,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": -3.68000031
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -8811,6 +8840,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 279,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -8850,6 +8880,14 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 11.249999,
+                      "y": -3.68000031
+                    },
+                    "EndPoint": {
+                      "x": 12.1499987,
+                      "y": -3.68000031
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -8889,6 +8927,7 @@
                     "EndPoint": {
                       "x": 13.3899994,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -8904,6 +8943,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": -3.68000031
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -8943,6 +8985,7 @@
                     "EndPoint": {
                       "x": 15.19,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -8958,6 +9001,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 2.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -8997,6 +9043,7 @@
                     "EndPoint": {
                       "x": -8.55,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -9012,6 +9059,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 1.12000012
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -9037,6 +9087,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 283,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -9076,6 +9127,14 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": -8.550001,
+                      "y": 1.12000012
+                    },
+                    "EndPoint": {
+                      "x": -7.65000057,
+                      "y": 1.12000012
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -9115,6 +9174,7 @@
                     "EndPoint": {
                       "x": -6.75,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -9130,6 +9190,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 1.12000012
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -9169,6 +9232,7 @@
                     "EndPoint": {
                       "x": -5.85,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -9184,6 +9248,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 1.12000012
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -9223,8 +9290,12 @@
                     "EndPoint": {
                       "x": -4.95,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": 1.12
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": 1.12000012
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": 1.12000012
 >>>>>>> parent of b795673 (ice)
@@ -9267,8 +9338,12 @@
                     "EndPoint": {
                       "x": -4.05,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": 1.12
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": 1.12000012
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": 1.12000012
 >>>>>>> parent of b795673 (ice)
@@ -9311,8 +9386,12 @@
                     "EndPoint": {
                       "x": -3.14999986,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": 1.12
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": 1.12000012
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": 1.12000012
 >>>>>>> parent of b795673 (ice)
@@ -9355,8 +9434,12 @@
                     "EndPoint": {
                       "x": -2.24999976,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": 1.12
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": 1.12000012
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": 1.12000012
 >>>>>>> parent of b795673 (ice)
@@ -9369,12 +9452,16 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 1.23999977,
                     "NextFootholdId": 291,
                     "PreviousFootholdId": 650,
                     "groupID": 65,
 =======
                     "Length": 1.23999989,
+=======
+                    "Length": 1.23999977,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.23999977,
 >>>>>>> parent of b795673 (ice)
@@ -9397,6 +9484,7 @@
                     "Id": 290,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -9.79,
                       "y": 1.12
                     },
@@ -9415,6 +9503,14 @@
                       "x": -1.01,
                       "y": 1.12000012
 >>>>>>> parent of b795673 (ice)
+=======
+                      "x": -2.24999976,
+                      "y": 1.12000012
+                    },
+                    "EndPoint": {
+                      "x": -1.01,
+                      "y": 1.12000012
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -9424,10 +9520,14 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 0.9000006,
 =======
                     "Length": 0.340000153,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                    "Length": 0.3399992,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 0.3399992,
 >>>>>>> parent of b795673 (ice)
@@ -9449,6 +9549,7 @@
                     "Id": 291,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -8.55,
                       "y": 1.12
                     },
@@ -9468,6 +9569,14 @@
                       "x": -8.550001,
                       "y": 1.72000015
 >>>>>>> parent of b795673 (ice)
+=======
+                      "x": -8.89,
+                      "y": 1.72000015
+                    },
+                    "EndPoint": {
+                      "x": -8.550001,
+                      "y": 1.72000015
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -9477,10 +9586,14 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 0.8999996,
 =======
                     "Length": 1.081666,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                    "Length": 1.08166623,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.08166623,
 >>>>>>> parent of b795673 (ice)
@@ -9501,6 +9614,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 292,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                       "x": -7.64999962,
@@ -9541,6 +9655,22 @@
 =======
                     "Length": 1.0816654,
 >>>>>>> parent of b795673 (ice)
+=======
+                      "x": -8.550001,
+                      "y": 1.72000015
+                    },
+                    "EndPoint": {
+                      "x": -7.65,
+                      "y": 2.32000017
+                    },
+                    "Variance": {
+                      "x": 0.8320506,
+                      "y": 0.5546998
+                    }
+                  },
+                  {
+                    "Length": 1.0816654,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 294,
                     "PreviousFootholdId": 292,
                     "groupID": 65,
@@ -9560,10 +9690,14 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -6.74999952,
                       "y": 1.12
 =======
                       "x": -7.64999962,
+=======
+                      "x": -7.65,
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": -7.65,
 >>>>>>> parent of b795673 (ice)
@@ -9577,12 +9711,17 @@
                     "Variance": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 1.0,
                       "y": 0.0
 =======
                       "x": 0.8320502,
                       "y": 0.554700255
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "x": 0.8320504,
+                      "y": 0.5547001
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": 0.8320504,
                       "y": 0.5547001
@@ -10184,12 +10323,16 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 0.680000067,
                     "NextFootholdId": 657,
                     "PreviousFootholdId": 656,
                     "groupID": 67,
 =======
                     "Length": 1.58000088,
+=======
+                    "Length": 1.57999992,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.57999992,
 >>>>>>> parent of b795673 (ice)
@@ -10212,6 +10355,7 @@
                     "Id": 304,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -4.39,
                       "y": 3.52000022
                     },
@@ -10227,6 +10371,14 @@
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
                       "y": 3.52000022
 =======
+                      "x": 11.5899992,
+                      "y": 3.52
+>>>>>>> parent of b795673 (ice)
+=======
+                      "x": 10.0099993,
+                      "y": 3.52
+                    },
+                    "EndPoint": {
                       "x": 11.5899992,
                       "y": 3.52
 >>>>>>> parent of b795673 (ice)
@@ -10679,6 +10831,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -10698,6 +10851,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.0816648,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 312,
                     "PreviousFootholdId": 310,
                     "groupID": 78,
@@ -10730,6 +10886,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -10749,6 +10906,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 0.9000015,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 313,
                     "PreviousFootholdId": 311,
                     "groupID": 78,
@@ -10843,6 +11003,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -10862,6 +11023,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.24000168,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 316,
                     "PreviousFootholdId": 660,
                     "groupID": 79,
@@ -10956,6 +11120,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -10975,6 +11140,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.08166528,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 319,
                     "PreviousFootholdId": 317,
                     "groupID": 79,
@@ -11007,6 +11175,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -11026,6 +11195,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.0816648,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 320,
                     "PreviousFootholdId": 318,
                     "groupID": 79,
@@ -11395,6 +11567,7 @@
                     "EndPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -11443,6 +11616,18 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 10.3499994,
+                      "y": 8.920001
+                    },
+                    "Variance": {
+                      "x": 0.8320504,
+                      "y": -0.554699957
+                    }
+                  },
+                  {
+                    "Length": 0.8999996,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 332,
                     "PreviousFootholdId": 690,
                     "groupID": 79,
@@ -11462,6 +11647,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -11470,6 +11656,9 @@
 =======
                       "x": 10.3499985,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "x": 10.3499994,
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": 10.3499994,
 >>>>>>> parent of b795673 (ice)
@@ -11487,10 +11676,14 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 1.08166361,
                     "NextFootholdId": 333,
 =======
                     "Length": 1.23999977,
+=======
+                    "Length": 1.24000072,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.24000072,
 >>>>>>> parent of b795673 (ice)
@@ -11514,10 +11707,14 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 4.05000162,
 =======
                       "x": 11.25,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "x": 11.249999,
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": 11.249999,
 >>>>>>> parent of b795673 (ice)
@@ -11535,12 +11732,16 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 1.08166528,
                     "NextFootholdId": 334,
                     "PreviousFootholdId": 332,
                     "groupID": 79,
 =======
                     "Length": 1.58,
+=======
+                    "Length": 1.57999969,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.57999969,
 >>>>>>> parent of b795673 (ice)
@@ -11564,6 +11765,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 4.95,
                       "y": 9.52
                     },
@@ -11578,6 +11780,14 @@
                       "x": -1.00999987,
                       "y": 7.72000027
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "x": -2.58999968,
+                      "y": 7.72
+                    },
+                    "EndPoint": {
+                      "x": -1.01,
+                      "y": 7.72
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": -2.58999968,
                       "y": 7.72
@@ -11626,12 +11836,16 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 0.9000001,
                     "NextFootholdId": 336,
                     "PreviousFootholdId": 334,
                     "groupID": 79,
 =======
                     "Length": 1.58,
+=======
+                    "Length": 1.57999969,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.57999969,
 >>>>>>> parent of b795673 (ice)
@@ -11655,6 +11869,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 6.75,
                       "y": 10.1200008
                     },
@@ -11669,6 +11884,14 @@
                       "x": -1.00999987,
                       "y": 9.52
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "x": -2.58999968,
+                      "y": 9.520001
+                    },
+                    "EndPoint": {
+                      "x": -1.01,
+                      "y": 9.520001
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": -2.58999968,
                       "y": 9.520001
@@ -11716,8 +11939,12 @@
                     "EndPoint": {
                       "x": -4.95,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": 10.72
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": 10.7200012
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": 10.7200012
 >>>>>>> parent of b795673 (ice)
@@ -11730,10 +11957,14 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 0.9000006,
 =======
                     "Length": 0.900001049,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                    "Length": 0.8999996,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 0.8999996,
 >>>>>>> parent of b795673 (ice)
@@ -11755,6 +11986,7 @@
                     "Id": 337,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 8.549999,
                       "y": 9.52
                     },
@@ -11774,6 +12006,14 @@
                       "x": -4.05,
                       "y": 10.7200012
 >>>>>>> parent of b795673 (ice)
+=======
+                      "x": -4.95,
+                      "y": 10.7200012
+                    },
+                    "EndPoint": {
+                      "x": -4.05,
+                      "y": 10.7200012
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -11783,10 +12023,14 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 1.081664,
 =======
                     "Length": 1.0816642,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                    "Length": 1.08166587,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.08166587,
 >>>>>>> parent of b795673 (ice)
@@ -11809,12 +12053,17 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 9.45,
                       "y": 9.52
 =======
                       "x": -4.04999876,
                       "y": 10.72
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "x": -4.05,
+                      "y": 10.7200012
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": -4.05,
                       "y": 10.7200012
@@ -11831,8 +12080,12 @@
 =======
                       "x": 0.8320502,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": -0.554700255
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": -0.5547003
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": -0.5547003
 >>>>>>> parent of b795673 (ice)
@@ -12500,6 +12753,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -12515,6 +12769,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.23999977,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 352,
                     "PreviousFootholdId": 350,
                     "groupID": 84,
@@ -12537,6 +12794,7 @@
 =======
                       "x": -11.59,
                       "y": 12.5200014
+<<<<<<< HEAD
                     },
                     "EndPoint": {
 <<<<<<< HEAD
@@ -12550,6 +12808,12 @@
                     "EndPoint": {
                       "x": -2.24999976,
                       "y": 13.1200008
+=======
+                    },
+                    "EndPoint": {
+                      "x": -10.35,
+                      "y": 12.52
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
 <<<<<<< HEAD
@@ -12558,8 +12822,12 @@
 =======
                       "x": 1.0,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": 0.0
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": -7.690923E-07
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": -7.690923E-07
 >>>>>>> parent of b795673 (ice)
@@ -12586,6 +12854,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -2.24999976,
                       "y": 13.1200008
                     },
@@ -12594,6 +12863,9 @@
                       "y": 13.7200012
 =======
                       "x": -10.3499994,
+=======
+                      "x": -10.35,
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": -10.35,
 >>>>>>> parent of b795673 (ice)
@@ -12612,10 +12884,14 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 0.3399999,
                     "NextFootholdId": 703,
 =======
                     "Length": 1.08166528,
+=======
+                    "Length": 1.0816642,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.0816642,
 >>>>>>> parent of b795673 (ice)
@@ -12637,6 +12913,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 353,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                       "x": -1.34999979,
@@ -12676,6 +12953,22 @@
 =======
                     "Length": 1.08166647,
 >>>>>>> parent of b795673 (ice)
+=======
+                      "x": -9.450001,
+                      "y": 11.92
+                    },
+                    "EndPoint": {
+                      "x": -8.550001,
+                      "y": 11.3200016
+                    },
+                    "Variance": {
+                      "x": 0.83205086,
+                      "y": -0.554699361
+                    }
+                  },
+                  {
+                    "Length": 1.08166647,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 355,
                     "PreviousFootholdId": 708,
                     "groupID": 85,
@@ -12693,6 +12986,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 354,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                       "x": -9.79,
@@ -12714,14 +13008,25 @@
 >>>>>>> parent of b795673 (ice)
                     },
                     "EndPoint": {
+=======
+                      "x": -8.550001,
+                      "y": 11.3200016
+                    },
+                    "EndPoint": {
+>>>>>>> parent of b795673 (ice)
                       "x": -7.65,
                       "y": 10.7200012
                     },
                     "Variance": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 0.8320511,
                       "y": -0.554698944
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "x": 0.832050443,
+                      "y": -0.5547
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": 0.832050443,
                       "y": -0.5547
@@ -12749,10 +13054,14 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -9.45,
                       "y": 13.1200008
 =======
                       "x": -7.64999962,
+=======
+                      "x": -7.65,
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": -7.65,
 >>>>>>> parent of b795673 (ice)
@@ -12764,6 +13073,7 @@
                       "y": 13.7200012
                     },
                     "Variance": {
+<<<<<<< HEAD
 <<<<<<< HEAD
                       "x": 0.83205,
 <<<<<<< HEAD
@@ -12782,6 +13092,13 @@
                     }
                   },
                   {
+=======
+                      "x": 0.8320502,
+                      "y": -0.554700434
+                    }
+                  },
+                  {
+>>>>>>> parent of b795673 (ice)
                     "Length": 0.340000629,
                     "NextFootholdId": 676,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
@@ -12807,10 +13124,14 @@
                     "EndPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -7.64999962,
                       "y": 14.32
 =======
                       "x": -6.41,
+=======
+                      "x": -6.40999937,
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": -6.40999937,
 >>>>>>> parent of b795673 (ice)
@@ -13193,6 +13514,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -13212,6 +13534,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.23999977,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 361,
                     "PreviousFootholdId": 688,
                     "groupID": 89,
@@ -13244,6 +13569,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -13263,6 +13589,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.24000072,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 687,
                     "PreviousFootholdId": 360,
                     "groupID": 89,
@@ -13326,6 +13655,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -13345,6 +13675,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.0816648,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 364,
                     "PreviousFootholdId": 362,
                     "groupID": 90,
@@ -13709,6 +14042,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -13721,6 +14055,9 @@
                       "y": 16.7200012
 =======
                       "x": 4.95,
+=======
+                      "x": 4.95000029,
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": 4.95000029,
 >>>>>>> parent of b795673 (ice)
@@ -13739,10 +14076,14 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 1.08166552,
 =======
                     "Length": 1.08166564,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                    "Length": 1.0816642,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.0816642,
 >>>>>>> parent of b795673 (ice)
@@ -13765,6 +14106,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -2.24999976,
                       "y": 16.7200012
                     },
@@ -13780,6 +14122,9 @@
 =======
                       "x": 5.85,
 >>>>>>> parent of b795673 (ice)
+=======
+                      "x": 5.85,
+>>>>>>> parent of b795673 (ice)
                       "y": 21.52
                     },
                     "EndPoint": {
@@ -13788,9 +14133,14 @@
                     },
                     "Variance": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 0.8320502,
                       "y": -0.554700434
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "x": 0.83205086,
+                      "y": -0.554699361
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": 0.83205086,
                       "y": -0.554699361
@@ -13822,8 +14172,12 @@
 =======
                       "x": 6.74999952,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": 20.92
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": 20.920002
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": 20.920002
 >>>>>>> parent of b795673 (ice)
@@ -14378,6 +14732,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -14393,6 +14748,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.0816642,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 387,
                     "PreviousFootholdId": 385,
                     "groupID": 94,
@@ -14410,6 +14768,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 386,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -14462,6 +14821,18 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 8.549999,
+                      "y": 20.920002
+                    },
+                    "EndPoint": {
+                      "x": 9.449999,
+                      "y": 21.52
+                    },
+                    "Variance": {
+                      "x": 0.83205086,
+                      "y": 0.554699361
+>>>>>>> parent of b795673 (ice)
                     }
                   },
                   {
@@ -14485,6 +14856,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -14502,6 +14874,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 9.449999,
+>>>>>>> parent of b795673 (ice)
                       "y": 21.52
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
                     },
@@ -14510,6 +14885,7 @@
                       "y": 18.52
                     },
                     "Variance": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -14549,6 +14925,14 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 0.832050264,
+                      "y": 0.5547002
+                    }
+                  },
+                  {
+                    "Length": 1.08166528,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 389,
                     "PreviousFootholdId": 387,
                     "groupID": 94,
@@ -14572,6 +14956,7 @@
                     "EndPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -14593,6 +14978,10 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 11.249999,
+                      "y": 22.7200012
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 0.83205086,
@@ -14600,6 +14989,7 @@
                     }
                   },
                   {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -14619,6 +15009,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 0.8999996,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 390,
                     "PreviousFootholdId": 388,
                     "groupID": 94,
@@ -14636,6 +15029,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 389,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -14675,6 +15069,14 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 11.249999,
+                      "y": 22.7200012
+                    },
+                    "EndPoint": {
+                      "x": 12.1499987,
+                      "y": 22.7200012
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 0.832050264,
@@ -14707,6 +15109,7 @@
                     "EndPoint": {
                       "x": 12.15,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": 16.7200012
 =======
                       "x": 12.15,
@@ -14715,10 +15118,13 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of b795673 (ice)
                       "y": 22.7200012
                     },
                     "EndPoint": {
                       "x": 13.3899994,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
@@ -14735,6 +15141,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 22.7200012
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 0.83205,
@@ -14742,6 +15151,7 @@
                     }
                   },
                   {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -14761,6 +15171,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 0.340000153,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 392,
                     "PreviousFootholdId": 390,
                     "groupID": 94,
@@ -14778,6 +15191,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 391,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -14810,6 +15224,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 19.0099983,
+>>>>>>> parent of b795673 (ice)
                       "y": 17.92
                     },
                     "EndPoint": {
@@ -14843,6 +15260,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 13.0499992,
                       "y": 16.12
                     },
@@ -14867,10 +15285,17 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 19.3499985,
+                      "y": 17.920002
+                    },
+                    "EndPoint": {
+>>>>>>> parent of b795673 (ice)
                       "x": 20.249996199999998,
                       "y": 18.52
                     },
                     "Variance": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
@@ -14907,6 +15332,14 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 0.832050264,
+                      "y": 0.5547002
+                    }
+                  },
+                  {
+                    "Length": 0.340003967,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 719,
                     "PreviousFootholdId": 392,
                     "groupID": 97,
@@ -14927,6 +15360,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -14944,6 +15378,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 20.249996199999998,
+>>>>>>> parent of b795673 (ice)
                       "y": 18.52
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
                     },
@@ -14989,8 +15426,12 @@
                     "EndPoint": {
                       "x": 19.35,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": -3.68
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": -3.68000031
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": -3.68000031
 >>>>>>> parent of b795673 (ice)
@@ -15033,8 +15474,12 @@
                     "EndPoint": {
                       "x": 20.25,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": -3.68
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": -3.68000031
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": -3.68000031
 >>>>>>> parent of b795673 (ice)
@@ -15077,8 +15522,12 @@
                     "EndPoint": {
                       "x": 21.15,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": -3.68
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": -3.68000031
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": -3.68000031
 >>>>>>> parent of b795673 (ice)
@@ -15121,8 +15570,12 @@
                     "EndPoint": {
                       "x": 22.05,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": -3.68
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": -3.68000031
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": -3.68000031
 >>>>>>> parent of b795673 (ice)
@@ -15153,6 +15606,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 12.15,
                       "y": 22.72
                     },
@@ -15167,6 +15621,14 @@
                       "x": 22.95,
                       "y": -3.68
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "x": 22.0499973,
+                      "y": -3.68000031
+                    },
+                    "EndPoint": {
+                      "x": 22.9499989,
+                      "y": -3.68000031
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": 22.0499973,
                       "y": -3.68000031
@@ -15214,8 +15676,12 @@
                     "EndPoint": {
                       "x": 23.85,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": -3.68
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": -3.68000031
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": -3.68000031
 >>>>>>> parent of b795673 (ice)
@@ -15228,10 +15694,14 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 1.08166683,
                     "NextFootholdId": 401,
 =======
                     "Length": 1.24000168,
+=======
+                    "Length": 1.23999977,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.23999977,
 >>>>>>> parent of b795673 (ice)
@@ -15254,6 +15724,7 @@
                     "Id": 400,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 19.3499985,
                       "y": 17.92
                     },
@@ -15273,6 +15744,14 @@
                       "x": 25.0899982,
                       "y": -3.68000031
 >>>>>>> parent of b795673 (ice)
+=======
+                      "x": 23.8499985,
+                      "y": -3.68000031
+                    },
+                    "EndPoint": {
+                      "x": 25.0899982,
+                      "y": -3.68000031
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 0.8320506,
@@ -15282,12 +15761,16 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 0.340000153,
                     "NextFootholdId": 747,
                     "PreviousFootholdId": 400,
                     "groupID": 96,
 =======
                     "Length": 1.58000016,
+=======
+                    "Length": 1.57999969,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.57999969,
 >>>>>>> parent of b795673 (ice)
@@ -15311,10 +15794,14 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 20.25,
                       "y": 18.52
 =======
                       "x": 3.7099998,
+=======
+                      "x": 3.71000028,
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": 3.71000028,
 >>>>>>> parent of b795673 (ice)
@@ -15656,6 +16143,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -15671,6 +16159,8 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of b795673 (ice)
                     "Length": 1.57999945,
                     "NextFootholdId": 729,
                     "PreviousFootholdId": 728,
@@ -15727,6 +16217,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 11.8099995,
                       "y": 26.32
                     },
@@ -15735,6 +16226,9 @@
                       "y": 26.32
 =======
                       "x": 7.30999947,
+=======
+                      "x": 7.31,
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": 7.31,
 >>>>>>> parent of b795673 (ice)
@@ -15771,6 +16265,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 10.0099993,
                       "y": 26.32
 =======
@@ -15781,11 +16276,14 @@
                     "EndPoint": {
                       "x": 11.59,
 =======
+=======
+>>>>>>> parent of b795673 (ice)
                       "x": 11.8099995,
                       "y": 26.3200016
                     },
                     "EndPoint": {
                       "x": 13.3899994,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
@@ -15802,6 +16300,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 26.3200016
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -15809,6 +16310,7 @@
                     }
                   },
                   {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -15829,6 +16331,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.57999992,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 734,
                     "PreviousFootholdId": 733,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
@@ -15958,6 +16463,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -15977,6 +16483,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.24000072,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 735,
                     "PreviousFootholdId": 409,
                     "groupID": 105,
@@ -16133,6 +16642,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -16152,6 +16662,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 0.340002775,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 416,
                     "PreviousFootholdId": 742,
                     "groupID": 107,
@@ -16215,6 +16728,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -16234,6 +16748,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.08166564,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 418,
                     "PreviousFootholdId": 416,
                     "groupID": 107,
@@ -16266,6 +16783,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -16285,6 +16803,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 0.340000153,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 740,
                     "PreviousFootholdId": 417,
                     "groupID": 107,
@@ -16340,6 +16861,7 @@
                     "EndPoint": {
                       "x": 7.64999962,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -16356,6 +16878,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 29.3200016
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -16383,6 +16908,7 @@
                     "StartPoint": {
                       "x": 7.65,
                       "y": 29.3200016
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -16397,6 +16923,12 @@
                       "x": 8.889999,
                       "y": 29.3200016
 >>>>>>> parent of b795673 (ice)
+=======
+                    },
+                    "EndPoint": {
+                      "x": 8.889999,
+                      "y": 29.3200016
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -16406,12 +16938,16 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 1.24000025,
                     "NextFootholdId": 772,
                     "PreviousFootholdId": 427,
                     "groupID": 107,
 =======
                     "Length": 1.23999977,
+=======
+                    "Length": 1.24000025,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.24000025,
 >>>>>>> parent of b795673 (ice)
@@ -16736,8 +17272,12 @@
                     "EndPoint": {
                       "x": 21.49,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": 19.72
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": 19.7200012
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": 19.7200012
 >>>>>>> parent of b795673 (ice)
@@ -16748,6 +17288,7 @@
                     }
                   },
                   {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                     "Length": 1.23999977,
@@ -16764,6 +17305,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.57999992,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 753,
                     "PreviousFootholdId": 752,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
@@ -16816,6 +17360,7 @@
                     "Id": 430,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -16831,6 +17376,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 19.0099983,
+>>>>>>> parent of b795673 (ice)
                       "y": 21.52
                     },
                     "EndPoint": {
@@ -17303,9 +17851,14 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                       "x": -13.3899994,
                       "y": 22.72
+=======
+                      "x": -13.39,
+                      "y": 22.7200012
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": -13.39,
                       "y": 22.7200012
@@ -17321,11 +17874,14 @@
                     }
                   },
                   {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of b795673 (ice)
                     "Length": 1.23999953,
                     "NextFootholdId": 444,
                     "PreviousFootholdId": 797,
@@ -17345,6 +17901,7 @@
                     "Id": 443,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -17360,6 +17917,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 2.81000018,
+>>>>>>> parent of b795673 (ice)
                       "y": -7.28000069
                     },
                     "EndPoint": {
@@ -17966,8 +18526,12 @@
                     "EndPoint": {
                       "x": -3.14999986,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": 38.3200035
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": 38.32
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": 38.32
 >>>>>>> parent of b795673 (ice)
@@ -18010,8 +18574,12 @@
                     "EndPoint": {
                       "x": -2.24999976,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": 38.3200035
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": 38.32
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": 38.32
 >>>>>>> parent of b795673 (ice)
@@ -18024,10 +18592,14 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 1.23999977,
                     "NextFootholdId": 827,
 =======
                     "Length": 1.23999989,
+=======
+                    "Length": 1.23999977,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.23999977,
 >>>>>>> parent of b795673 (ice)
@@ -18050,6 +18622,7 @@
                     "Id": 464,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 8.55,
                       "y": 34.1200027
                     },
@@ -18066,6 +18639,14 @@
                       "y": 38.3200035
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
 =======
+                      "x": -1.01,
+                      "y": 38.32
+>>>>>>> parent of b795673 (ice)
+=======
+                      "x": -2.24999976,
+                      "y": 38.32
+                    },
+                    "EndPoint": {
                       "x": -1.01,
                       "y": 38.32
 >>>>>>> parent of b795673 (ice)
@@ -18850,6 +19431,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -12.49,
                       "y": 32.3200035
 =======
@@ -18860,11 +19442,14 @@
                     "EndPoint": {
                       "x": -11.25,
 =======
+=======
+>>>>>>> parent of b795673 (ice)
                       "x": -4.95,
                       "y": 32.32
                     },
                     "EndPoint": {
                       "x": -4.05,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
@@ -18881,6 +19466,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 32.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -18908,6 +19496,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -11.249999,
                       "y": 32.3200035
 =======
@@ -18918,11 +19507,14 @@
                     "EndPoint": {
                       "x": -10.3499994,
 =======
+=======
+>>>>>>> parent of b795673 (ice)
                       "x": -4.05,
                       "y": 32.32
                     },
                     "EndPoint": {
                       "x": -3.14999986,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
@@ -18939,6 +19531,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 32.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -18966,6 +19561,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -10.3499994,
                       "y": 32.3200035
 =======
@@ -18976,11 +19572,14 @@
                     "EndPoint": {
                       "x": -9.45,
 =======
+=======
+>>>>>>> parent of b795673 (ice)
                       "x": -3.14999986,
                       "y": 32.32
                     },
                     "EndPoint": {
                       "x": -2.24999976,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
@@ -18997,6 +19596,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 32.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -19004,6 +19606,7 @@
                     }
                   },
                   {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -19023,6 +19626,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.23999977,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 804,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
                     "PreviousFootholdId": 483,
@@ -19041,6 +19647,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 484,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                       "x": -9.45,
@@ -19072,6 +19679,14 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": -2.24999976,
+                      "y": 32.32
+                    },
+                    "EndPoint": {
+                      "x": -1.01,
+                      "y": 32.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -19111,6 +19726,7 @@
                     "EndPoint": {
                       "x": -11.25,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -19126,6 +19742,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 35.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -19151,6 +19770,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 486,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -19190,6 +19810,14 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": -11.25,
+                      "y": 35.32
+                    },
+                    "EndPoint": {
+                      "x": -10.35,
+                      "y": 35.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -19215,6 +19843,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 487,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -19254,6 +19883,14 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": -10.35,
+                      "y": 35.32
+                    },
+                    "EndPoint": {
+                      "x": -9.450001,
+                      "y": 35.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -19293,6 +19930,7 @@
                     "EndPoint": {
                       "x": -8.55,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -19308,6 +19946,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 35.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -19333,6 +19974,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 489,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -19372,6 +20014,14 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": -8.550001,
+                      "y": 35.32
+                    },
+                    "EndPoint": {
+                      "x": -7.65000057,
+                      "y": 35.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -19411,6 +20061,7 @@
                     "EndPoint": {
                       "x": -6.75,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -19426,6 +20077,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 35.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -19465,6 +20119,7 @@
                     "EndPoint": {
                       "x": -5.85,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -19480,6 +20135,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 35.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -19519,6 +20177,7 @@
                     "EndPoint": {
                       "x": -4.95,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -19534,6 +20193,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 35.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -19561,6 +20223,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -12.49,
                       "y": 35.3200035
 =======
@@ -19571,11 +20234,14 @@
                     "EndPoint": {
                       "x": -11.25,
 =======
+=======
+>>>>>>> parent of b795673 (ice)
                       "x": -4.95,
                       "y": 35.32
                     },
                     "EndPoint": {
                       "x": -4.05,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
@@ -19592,6 +20258,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 35.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -19619,6 +20288,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -11.249999,
                       "y": 35.3200035
 =======
@@ -19629,11 +20299,14 @@
                     "EndPoint": {
                       "x": -10.3499994,
 =======
+=======
+>>>>>>> parent of b795673 (ice)
                       "x": -4.05,
                       "y": 35.32
                     },
                     "EndPoint": {
                       "x": -3.14999986,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
@@ -19650,6 +20323,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 35.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -19676,8 +20352,13 @@
                     "Id": 495,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -10.3499994,
                       "y": 35.3200035
+=======
+                      "x": -3.14999986,
+                      "y": 35.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "EndPoint": {
                       "x": -9.45,
@@ -19688,8 +20369,12 @@
                     "EndPoint": {
                       "x": -2.24999976,
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
                       "y": 35.3200035
+=======
+                      "y": 35.32
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": 35.32
 >>>>>>> parent of b795673 (ice)
@@ -19702,10 +20387,14 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 0.8999996,
                     "NextFootholdId": 497,
 =======
                     "Length": 1.23999989,
+=======
+                    "Length": 1.23999977,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.23999977,
 >>>>>>> parent of b795673 (ice)
@@ -19728,6 +20417,7 @@
                     "Id": 496,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -9.45,
                       "y": 35.3200035
                     },
@@ -19746,6 +20436,14 @@
                       "x": -1.01,
                       "y": 35.32
 >>>>>>> parent of b795673 (ice)
+=======
+                      "x": -2.24999976,
+                      "y": 35.32
+                    },
+                    "EndPoint": {
+                      "x": -1.01,
+                      "y": 35.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -19755,10 +20453,14 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 0.9000006,
 =======
                     "Length": 0.340005875,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                    "Length": 0.340000153,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 0.340000153,
 >>>>>>> parent of b795673 (ice)
@@ -19780,6 +20482,7 @@
                     "Id": 497,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -8.55,
                       "y": 35.3200035
                     },
@@ -19798,6 +20501,14 @@
                       "x": 23.8499985,
                       "y": 35.32
 >>>>>>> parent of b795673 (ice)
+=======
+                      "x": 23.5099983,
+                      "y": 35.32
+                    },
+                    "EndPoint": {
+                      "x": 23.8499985,
+                      "y": 35.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -19807,10 +20518,14 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 0.8999996,
 =======
                     "Length": 1.081659,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                    "Length": 1.08166575,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.08166575,
 >>>>>>> parent of b795673 (ice)
@@ -19833,11 +20548,16 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -7.64999962,
 =======
                       "x": 23.8500042,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
                       "y": 35.3200035
+=======
+                      "x": 23.8499985,
+                      "y": 35.32
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": 23.8499985,
                       "y": 35.32
@@ -19848,6 +20568,7 @@
                       "y": 35.3200035
                     },
                     "Variance": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                       "x": 1.0,
@@ -19864,6 +20585,14 @@
                   {
                     "Length": 1.0816648,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "x": 0.8320514,
+                      "y": 0.5546986
+                    }
+                  },
+                  {
+                    "Length": 1.08166265,
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": 0.8320514,
                       "y": 0.5546986
@@ -19894,6 +20623,7 @@
                     },
                     "EndPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -5.85,
                       "y": 35.3200035
                     },
@@ -19910,6 +20640,14 @@
                       "y": 0.55470264
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
 =======
+                      "x": 0.832050264,
+                      "y": 0.5547002
+>>>>>>> parent of b795673 (ice)
+=======
+                      "x": 25.6499977,
+                      "y": 36.5199966
+                    },
+                    "Variance": {
                       "x": 0.832050264,
                       "y": 0.5547002
 >>>>>>> parent of b795673 (ice)
@@ -19948,8 +20686,12 @@
                     "EndPoint": {
                       "x": 26.55,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": 37.1200027
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": 37.12
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": 37.12
 >>>>>>> parent of b795673 (ice)
@@ -19962,10 +20704,14 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 0.8999996,
 =======
                     "Length": 1.08166575,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                    "Length": 1.08166635,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.08166635,
 >>>>>>> parent of b795673 (ice)
@@ -19986,6 +20732,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 501,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
                       "x": -4.95,
                       "y": 35.3200035
@@ -20021,6 +20768,22 @@
 =======
                     "Length": 0.9000015,
 >>>>>>> parent of b795673 (ice)
+=======
+                      "x": 26.55,
+                      "y": 37.12
+                    },
+                    "EndPoint": {
+                      "x": 27.4499989,
+                      "y": 37.72
+                    },
+                    "Variance": {
+                      "x": 0.8320492,
+                      "y": 0.5547018
+                    }
+                  },
+                  {
+                    "Length": 0.9000015,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 503,
                     "PreviousFootholdId": 501,
                     "groupID": 123,
@@ -20040,10 +20803,14 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -4.05,
                       "y": 35.3200035
 =======
                       "x": 27.45,
+=======
+                      "x": 27.4499989,
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": 27.4499989,
 >>>>>>> parent of b795673 (ice)
@@ -20444,6 +21211,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -20463,6 +21231,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.24000359,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 817,
                     "PreviousFootholdId": 505,
                     "groupID": 125,
@@ -20619,6 +21390,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -20638,6 +21410,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.08165729,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 512,
                     "PreviousFootholdId": 510,
                     "groupID": 126,
@@ -20978,6 +21753,7 @@
                     "EndPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -20995,6 +21771,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 19.6899986,
+>>>>>>> parent of b795673 (ice)
                       "y": 40.1200027
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
                     },
@@ -21004,6 +21783,7 @@
                     }
                   },
                   {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -21025,6 +21805,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.58000088,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 827,
                     "PreviousFootholdId": 828,
                     "groupID": 128,
@@ -21043,6 +21826,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 522,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -21071,6 +21855,14 @@
                       "x": 12.49,
                       "y": 41.32
 >>>>>>> parent of b795673 (ice)
+=======
+                      "x": 10.9099989,
+                      "y": 41.32
+                    },
+                    "EndPoint": {
+                      "x": 12.49,
+                      "y": 41.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -21080,12 +21872,16 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 1.08165944,
                     "NextFootholdId": 524,
                     "PreviousFootholdId": 522,
                     "groupID": 125,
 =======
                     "Length": 1.57999992,
+=======
+                    "Length": 1.58000088,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.58000088,
 >>>>>>> parent of b795673 (ice)
@@ -21109,10 +21905,14 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 20.2500038,
                       "y": 38.920002
 =======
                       "x": 8.21,
+=======
+                      "x": 8.209999,
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": 8.209999,
 >>>>>>> parent of b795673 (ice)
@@ -21161,8 +21961,12 @@
                     "EndPoint": {
                       "x": 7.09,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": 41.3200035
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": 41.32
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": 41.32
 >>>>>>> parent of b795673 (ice)
@@ -21514,8 +22318,13 @@
                     "Id": 535,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 8.21,
                       "y": 44.3200035
+=======
+                      "x": 4.60999966,
+                      "y": 44.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "EndPoint": {
                       "x": 9.79,
@@ -21526,8 +22335,12 @@
                     "EndPoint": {
                       "x": 5.29,
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
                       "y": 44.3200035
+=======
+                      "y": 44.32
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": 44.32
 >>>>>>> parent of b795673 (ice)
@@ -21538,6 +22351,7 @@
                     }
                   },
                   {
+<<<<<<< HEAD
 <<<<<<< HEAD
                     "Length": 1.57999992,
 <<<<<<< HEAD
@@ -21553,6 +22367,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.58000088,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 838,
                     "PreviousFootholdId": 837,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
@@ -21573,6 +22390,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -21591,6 +22409,10 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 8.209999,
+                      "y": 44.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "EndPoint": {
                       "x": 9.79,
@@ -21621,6 +22443,7 @@
                     "Id": 528,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -21636,6 +22459,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 10.9099989,
+>>>>>>> parent of b795673 (ice)
                       "y": 44.920002
                     },
                     "EndPoint": {
@@ -21742,6 +22568,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -21757,6 +22584,8 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of b795673 (ice)
                     "Length": 1.58000088,
                     "NextFootholdId": 848,
                     "PreviousFootholdId": 847,
@@ -21814,10 +22643,14 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 10.91,
                       "y": 47.3200035
 =======
                       "x": 8.21,
+=======
+                      "x": 8.209999,
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": 8.209999,
 >>>>>>> parent of b795673 (ice)
@@ -21836,6 +22669,7 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 0.6799998,
                     "NextFootholdId": 880,
                     "PreviousFootholdId": 879,
@@ -21850,6 +22684,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.58000088,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 850,
                     "PreviousFootholdId": 849,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
@@ -21868,6 +22705,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 542,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -21907,6 +22745,14 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 10.9099989,
+                      "y": 47.32
+                    },
+                    "EndPoint": {
+                      "x": 12.49,
+                      "y": 47.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -21914,6 +22760,7 @@
                     }
                   },
                   {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -21934,6 +22781,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 0.6800003,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 852,
                     "PreviousFootholdId": 851,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
@@ -22303,6 +23153,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -22311,6 +23162,9 @@
                       "y": 49.72
 =======
                       "x": 11.249999,
+=======
+                      "x": 11.2499933,
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": 11.2499933,
 >>>>>>> parent of b795673 (ice)
@@ -22329,12 +23183,16 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 0.8999996,
                     "NextFootholdId": 547,
                     "PreviousFootholdId": 545,
                     "groupID": 140,
 =======
                     "Length": 1.58000088,
+=======
+                    "Length": 1.57999945,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.57999945,
 >>>>>>> parent of b795673 (ice)
@@ -22358,6 +23216,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 8.55,
                       "y": 49.720005
                     },
@@ -22366,6 +23225,9 @@
                       "y": 49.720005
 =======
                       "x": 7.30999947,
+=======
+                      "x": 7.31,
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": 7.31,
 >>>>>>> parent of b795673 (ice)
@@ -22384,10 +23246,14 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 0.8999996,
 =======
                     "Length": 1.24,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                    "Length": 1.24000573,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.24000573,
 >>>>>>> parent of b795673 (ice)
@@ -22410,6 +23276,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 9.45,
                       "y": 49.720005
                     },
@@ -22418,6 +23285,9 @@
                       "y": 49.720005
 =======
                       "x": 3.7099998,
+=======
+                      "x": 3.71000028,
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": 3.71000028,
 >>>>>>> parent of b795673 (ice)
@@ -22436,10 +23306,14 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 0.8999996,
 =======
                     "Length": 1.08166635,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                    "Length": 1.08165944,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.08165944,
 >>>>>>> parent of b795673 (ice)
@@ -22460,6 +23334,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 548,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                       "x": 10.3499994,
@@ -22494,6 +23369,21 @@
                     }
                   },
                   {
+=======
+                      "x": 4.950006,
+                      "y": 50.920002
+                    },
+                    "EndPoint": {
+                      "x": 5.85,
+                      "y": 51.52
+                    },
+                    "Variance": {
+                      "x": 0.832049251,
+                      "y": 0.554701865
+                    }
+                  },
+                  {
+>>>>>>> parent of b795673 (ice)
                     "Length": 0.340000153,
                     "NextFootholdId": 860,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
@@ -22513,6 +23403,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 549,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                       "x": 11.25,
@@ -22872,6 +23763,13 @@
                     },
                     "EndPoint": {
                       "x": 6.19,
+=======
+                      "x": 5.85,
+                      "y": 51.52
+                    },
+                    "EndPoint": {
+                      "x": 6.19,
+>>>>>>> parent of b795673 (ice)
                       "y": 51.52
                     },
                     "Variance": {
@@ -22898,9 +23796,12 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 550,
                     "StartPoint": {
+<<<<<<< HEAD
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of b795673 (ice)
                       "x": 3.71000028,
                       "y": 53.920002
                     },
@@ -22946,6 +23847,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -22960,6 +23862,8 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of b795673 (ice)
                     "Length": 0.340005875,
                     "NextFootholdId": 862,
                     "PreviousFootholdId": 551,
@@ -23086,6 +23990,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -23105,6 +24010,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 0.559999466,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 557,
                     "PreviousFootholdId": 870,
                     "groupID": 147,
@@ -23230,6 +24138,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -23249,6 +24158,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.24,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 868,
                     "PreviousFootholdId": 559,
                     "groupID": 147,
@@ -23343,6 +24255,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -23362,6 +24275,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 0.340000629,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 870,
                     "PreviousFootholdId": 562,
                     "groupID": 147,
@@ -23394,6 +24310,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -23413,6 +24330,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.24000072,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 565,
                     "PreviousFootholdId": 872,
                     "groupID": 147,
@@ -23476,6 +24396,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -23495,6 +24416,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.23999953,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 567,
                     "PreviousFootholdId": 873,
                     "groupID": 148,
@@ -23527,6 +24451,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -23546,6 +24471,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.23999977,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 874,
                     "PreviousFootholdId": 566,
                     "groupID": 148,
@@ -23878,8 +24806,13 @@
                     "Id": 577,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -12.49,
                       "y": 51.5200043
+=======
+                      "x": -4.95,
+                      "y": 51.52
+>>>>>>> parent of b795673 (ice)
                     },
                     "EndPoint": {
                       "x": -11.25,
@@ -23890,8 +24823,12 @@
                     "EndPoint": {
                       "x": -4.05,
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
                       "y": 51.5200043
+=======
+                      "y": 51.52
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": 51.52
 >>>>>>> parent of b795673 (ice)
@@ -23921,8 +24858,13 @@
                     "Id": 578,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -11.249999,
                       "y": 51.5200043
+=======
+                      "x": -4.05,
+                      "y": 51.52
+>>>>>>> parent of b795673 (ice)
                     },
                     "EndPoint": {
                       "x": -10.3499994,
@@ -23933,8 +24875,12 @@
                     "EndPoint": {
                       "x": -3.14999986,
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
                       "y": 51.5200043
+=======
+                      "y": 51.52
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": 51.52
 >>>>>>> parent of b795673 (ice)
@@ -23964,8 +24910,13 @@
                     "Id": 579,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -10.3499994,
                       "y": 51.5200043
+=======
+                      "x": -3.14999986,
+                      "y": 51.52
+>>>>>>> parent of b795673 (ice)
                     },
                     "EndPoint": {
                       "x": -9.45,
@@ -23976,8 +24927,12 @@
                     "EndPoint": {
                       "x": -2.24999976,
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
                       "y": 51.5200043
+=======
+                      "y": 51.52
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": 51.52
 >>>>>>> parent of b795673 (ice)
@@ -23990,10 +24945,14 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 0.8999996,
                     "NextFootholdId": 581,
 =======
                     "Length": 1.23999989,
+=======
+                    "Length": 1.23999977,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.23999977,
 >>>>>>> parent of b795673 (ice)
@@ -24016,6 +24975,7 @@
                     "Id": 580,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -9.45,
                       "y": 51.5200043
                     },
@@ -24031,6 +24991,14 @@
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
                       "y": 51.5200043
 =======
+                      "x": -1.01,
+                      "y": 51.52
+>>>>>>> parent of b795673 (ice)
+=======
+                      "x": -2.24999976,
+                      "y": 51.52
+                    },
+                    "EndPoint": {
                       "x": -1.01,
                       "y": 51.52
 >>>>>>> parent of b795673 (ice)
@@ -24073,8 +25041,12 @@
                     "EndPoint": {
                       "x": -5.50999975,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": 61.720005
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": 61.72
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": 61.72
 >>>>>>> parent of b795673 (ice)
@@ -24874,6 +25846,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -24889,6 +25862,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.23999977,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 599,
                     "PreviousFootholdId": 597,
                     "groupID": 155,
@@ -24912,6 +25888,7 @@
                     "EndPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -24929,6 +25906,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": -7.65000057,
+>>>>>>> parent of b795673 (ice)
                       "y": 67.12
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
                     },
@@ -24938,6 +25918,7 @@
                     }
                   },
                   {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
@@ -24956,6 +25937,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.24000025,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 902,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
                     "PreviousFootholdId": 598,
@@ -24980,6 +25964,7 @@
                     "EndPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -24997,6 +25982,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": -6.40999937,
+>>>>>>> parent of b795673 (ice)
                       "y": 67.12
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
                     },
@@ -25038,6 +26026,7 @@
                     "EndPoint": {
                       "x": 6.74999952,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -25053,6 +26042,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 1.72000015
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -25060,6 +26052,7 @@
                     }
                   },
                   {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -25079,6 +26072,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.24000025,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 904,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
                     "PreviousFootholdId": 600,
@@ -25097,6 +26093,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 601,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                       "x": 4.95,
@@ -25129,6 +26126,14 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 6.75,
+                      "y": 1.72000015
+                    },
+                    "EndPoint": {
+                      "x": 7.99000025,
+                      "y": 1.72000015
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 0.83205086,
@@ -25168,6 +26173,7 @@
                     "EndPoint": {
                       "x": 6.74999952,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -25183,6 +26189,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": -0.679999948
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 0.8320511,
@@ -25209,6 +26218,7 @@
                     "Id": 603,
                     "StartPoint": {
                       "x": 6.75,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -25244,6 +26254,13 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": -0.679999948
+                    },
+                    "EndPoint": {
+                      "x": 7.64999962,
+                      "y": -0.679999948
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 0.832049251,
@@ -25251,6 +26268,7 @@
                     }
                   },
                   {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -25270,6 +26288,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 1.23999929,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 905,
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
                     "PreviousFootholdId": 603,
@@ -25288,6 +26309,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 604,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
                       "x": 7.649994,
                       "y": 63.5200043
@@ -25308,6 +26330,14 @@
                       "x": 8.889999,
                       "y": -0.679999948
 >>>>>>> parent of b795673 (ice)
+=======
+                      "x": 7.65,
+                      "y": -0.679999948
+                    },
+                    "EndPoint": {
+                      "x": 8.889999,
+                      "y": -0.679999948
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 1.0,
@@ -25317,12 +26347,16 @@
                   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "Length": 0.6800003,
                     "NextFootholdId": 929,
                     "PreviousFootholdId": 928,
                     "groupID": 157,
 =======
                     "Length": 1.57999969,
+=======
+                    "Length": 1.57999992,
+>>>>>>> parent of b795673 (ice)
 =======
                     "Length": 1.57999992,
 >>>>>>> parent of b795673 (ice)
@@ -25345,6 +26379,7 @@
                     "Id": 605,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -5.29,
                       "y": 67.72
                     },
@@ -25361,6 +26396,14 @@
                       "y": 60.5200043
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
 =======
+                      "x": -1.90999985,
+                      "y": 60.52
+>>>>>>> parent of b795673 (ice)
+=======
+                      "x": -3.48999977,
+                      "y": 60.52
+                    },
+                    "EndPoint": {
                       "x": -1.90999985,
                       "y": 60.52
 >>>>>>> parent of b795673 (ice)
@@ -25708,6 +26751,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -6.19,
                       "y": 65.32001
                     },
@@ -25722,6 +26766,14 @@
                       "x": -6.41,
                       "y": 61.720005
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "x": -7.08999968,
+                      "y": 61.72
+                    },
+                    "EndPoint": {
+                      "x": -6.40999937,
+                      "y": 61.72
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": -7.08999968,
                       "y": 61.72
@@ -25789,6 +26841,7 @@
                     "Id": 609,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -25804,6 +26857,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 8.209999,
+>>>>>>> parent of b795673 (ice)
                       "y": 62.920002
                     },
                     "EndPoint": {
@@ -25879,6 +26935,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -25894,6 +26951,8 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of b795673 (ice)
                     "Length": 1.24000072,
                     "NextFootholdId": 915,
                     "PreviousFootholdId": 611,
@@ -25950,10 +27009,14 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -20.59,
                       "y": -7.28000069
 =======
                       "x": 11.25,
+=======
+                      "x": 11.249999,
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": 11.249999,
 >>>>>>> parent of b795673 (ice)
@@ -25988,6 +27051,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 622,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                       "x": -19.35,
@@ -26666,6 +27730,13 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 14.289999,
+                      "y": -7.28000069
+                    },
+                    "EndPoint": {
+                      "x": 14.289999,
+>>>>>>> parent of b795673 (ice)
                       "y": -8.1
                     },
                     "Variance": {
@@ -26822,6 +27893,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -26859,6 +27931,14 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 8.209999,
+                      "y": -3.90000033
+                    },
+                    "EndPoint": {
+                      "x": 8.209999,
+                      "y": -3.68000031
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 0.0,
@@ -26960,6 +28040,7 @@
                     "EndPoint": {
                       "x": 14.5099993,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -26975,6 +28056,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 2.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 0.0,
@@ -27297,6 +28381,7 @@
                     "EndPoint": {
                       "x": -4.39,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -27313,6 +28398,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 3.52
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 0.0,
@@ -27805,6 +28893,7 @@
                     "StartPoint": {
                       "x": 10.0099993,
                       "y": 3.3
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -27816,6 +28905,12 @@
                       "y": 3.52000022
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
 =======
+                      "y": 3.52
+>>>>>>> parent of b795673 (ice)
+=======
+                    },
+                    "EndPoint": {
+                      "x": 10.0099993,
                       "y": 3.52
 >>>>>>> parent of b795673 (ice)
                     },
@@ -29011,6 +30106,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -29030,6 +30126,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 3.71000028,
+>>>>>>> parent of b795673 (ice)
                       "y": 8.700001
                     },
                     "EndPoint": {
@@ -29096,6 +30195,7 @@
                     },
                     "EndPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -29114,6 +30214,10 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": -2.58999968,
+                      "y": 7.72
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 0.0,
@@ -30497,6 +31601,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -30512,6 +31617,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": -10.01,
+>>>>>>> parent of b795673 (ice)
                       "y": 18.52
                     },
                     "EndPoint": {
@@ -30543,6 +31651,7 @@
                     "Id": 702,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -30558,6 +31667,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 3.71000028,
+>>>>>>> parent of b795673 (ice)
                       "y": 21.9000015
                     },
                     "EndPoint": {
@@ -31087,6 +32199,7 @@
                     "Id": 718,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -31102,6 +32215,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 19.0099983,
+>>>>>>> parent of b795673 (ice)
                       "y": 17.7
                     },
                     "EndPoint": {
@@ -31262,6 +32378,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -31280,6 +32397,10 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 25.0899982,
+                      "y": -3.68000031
+>>>>>>> parent of b795673 (ice)
                     },
                     "EndPoint": {
                       "x": 25.0899982,
@@ -31310,6 +32431,7 @@
                     "Id": 722,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -31325,6 +32447,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 3.71000028,
+>>>>>>> parent of b795673 (ice)
                       "y": 25.5000019
                     },
                     "EndPoint": {
@@ -32504,6 +33629,7 @@
                     "EndPoint": {
                       "x": 21.71,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -32519,6 +33645,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 22.7200012
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 0.0,
@@ -32616,6 +33745,7 @@
                     "Id": 782,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 19.01,
 <<<<<<< HEAD
                       "y": 21.3000011
@@ -32630,6 +33760,12 @@
                       "y": 23.1
                     },
                     "EndPoint": {
+=======
+                      "x": 19.0099983,
+                      "y": 23.1
+                    },
+                    "EndPoint": {
+>>>>>>> parent of b795673 (ice)
                       "x": 19.0099983,
                       "y": 23.32
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
@@ -33781,6 +34917,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -33802,6 +34939,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": -12.71,
+>>>>>>> parent of b795673 (ice)
                       "y": 14.7000008
                     },
                     "EndPoint": {
@@ -33834,6 +34974,7 @@
                     "Id": 792,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -33871,6 +35012,14 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": -13.39,
+                      "y": 13.500001
+                    },
+                    "EndPoint": {
+                      "x": -13.39,
+                      "y": 14.1000013
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 0.0,
@@ -33897,6 +35046,7 @@
                     "Id": 793,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -33934,6 +35084,14 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": -12.71,
+                      "y": 14.1000013
+                    },
+                    "EndPoint": {
+                      "x": -12.71,
+                      "y": 13.500001
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 0.0,
@@ -33960,6 +35118,7 @@
                     "Id": 794,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -33978,6 +35137,12 @@
                       "y": 12.9000006
                     },
                     "EndPoint": {
+=======
+                      "x": -13.39,
+                      "y": 12.9000006
+                    },
+                    "EndPoint": {
+>>>>>>> parent of b795673 (ice)
                       "x": -13.39,
                       "y": 13.500001
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
@@ -34007,6 +35172,7 @@
                     "Id": 795,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -12.7099991,
 <<<<<<< HEAD
                       "y": 21.9
@@ -34021,6 +35187,12 @@
                       "y": 13.500001
                     },
                     "EndPoint": {
+=======
+                      "x": -12.71,
+                      "y": 13.500001
+                    },
+                    "EndPoint": {
+>>>>>>> parent of b795673 (ice)
                       "x": -12.71,
                       "y": 12.9000006
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
@@ -34051,6 +35223,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -13.3899994,
                       "y": 20.7
                     },
@@ -34059,6 +35232,9 @@
                       "y": 21.3
 =======
                       "x": -0.109999955,
+=======
+                      "x": -0.109999985,
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": -0.109999985,
 >>>>>>> parent of b795673 (ice)
@@ -34093,6 +35269,7 @@
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
                     "Id": 797,
                     "StartPoint": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                       "x": -12.7099991,
@@ -35093,10 +36270,13 @@
                     "Id": 825,
                     "StartPoint": {
                       "x": 2.81,
+=======
+                      "x": 2.81000018,
+>>>>>>> parent of b795673 (ice)
                       "y": -8.1
                     },
                     "EndPoint": {
-                      "x": 2.81,
+                      "x": 2.81000018,
                       "y": -7.28000069
                     },
                     "Variance": {
@@ -35410,12 +36590,21 @@
                     "Id": 827,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 9.79,
                       "y": 34.1200027
                     },
                     "EndPoint": {
                       "x": 9.79,
                       "y": 33.9
+=======
+                      "x": -1.01,
+                      "y": 38.32
+                    },
+                    "EndPoint": {
+                      "x": -1.01,
+                      "y": 37.5
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": -1.01,
                       "y": 38.32
@@ -35457,6 +36646,7 @@
                     "EndPoint": {
                       "x": -7.08999968,
                       "y": 38.32
+<<<<<<< HEAD
                     },
                     "Variance": {
                       "x": 0.0,
@@ -35489,6 +36679,8 @@
                     "EndPoint": {
                       "x": 3.7099998,
                       "y": 38.3200035
+=======
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 0.0,
@@ -35745,6 +36937,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
                     "Length": 0.8200016,
@@ -35757,6 +36950,8 @@
                     "NextFootholdId": 481,
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of b795673 (ice)
                     "Length": 0.8199978,
                     "NextFootholdId": 473,
 >>>>>>> parent of b795673 (ice)
@@ -35812,9 +37007,12 @@
                     },
                     "EndPoint": {
                       "x": -12.49,
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of b795673 (ice)
                       "y": 32.32
                     },
                     "Variance": {
@@ -35846,9 +37044,12 @@
                     },
                     "EndPoint": {
                       "x": -12.49,
+<<<<<<< HEAD
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of b795673 (ice)
                       "y": 35.32
                     },
                     "Variance": {
@@ -37152,10 +38353,13 @@
                     "Id": 852,
                     "StartPoint": {
                       "x": 7.99000025,
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of b795673 (ice)
                       "y": 46.72
                     },
                     "EndPoint": {
@@ -38281,6 +39485,7 @@
                     "Id": 858,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -38296,6 +39501,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 7.31,
+>>>>>>> parent of b795673 (ice)
                       "y": 51.9
                     },
                     "EndPoint": {
@@ -38452,7 +39660,42 @@
                       "inertiaOption": 0
                     },
                     "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
+<<<<<<< HEAD
                     "Id": 890,
+=======
+                    "Id": 861,
+                    "StartPoint": {
+                      "x": 3.71000028,
+                      "y": 50.7
+                    },
+                    "EndPoint": {
+                      "x": 3.71000028,
+                      "y": 50.920002
+                    },
+                    "Variance": {
+                      "x": 0.0,
+                      "y": 1.0
+                    }
+                  },
+                  {
+                    "Length": 0.220001221,
+                    "NextFootholdId": 0,
+                    "PreviousFootholdId": 552,
+                    "groupID": 145,
+                    "layer": 2,
+                    "sortingLayerName": "MapLayer3",
+                    "attribute": {
+                      "walk": 1.0,
+                      "force": 0.0,
+                      "drag": 1.0,
+                      "isBlockVertical": false,
+                      "isDynamic": false,
+                      "isCustomFoothold": false,
+                      "inertiaOption": 0
+                    },
+                    "OwnerId": "af69c097-8398-4786-87ec-5839ea5de0e4",
+                    "Id": 862,
+>>>>>>> parent of b795673 (ice)
                     "StartPoint": {
                       "x": 6.19,
                       "y": 53.3200035
@@ -38720,6 +39963,7 @@
                   },
                   {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -38739,6 +39983,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                    "Length": 0.6000004,
+>>>>>>> parent of b795673 (ice)
                     "NextFootholdId": 556,
                     "PreviousFootholdId": 563,
                     "groupID": 147,
@@ -38852,6 +40099,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -38867,6 +40115,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": -10.6900005,
+>>>>>>> parent of b795673 (ice)
                       "y": 21.9000015
                     },
                     "EndPoint": {
@@ -38898,6 +40149,7 @@
                     "Id": 873,
                     "StartPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -38913,6 +40165,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 3.71000028,
+>>>>>>> parent of b795673 (ice)
                       "y": 59.1000023
                     },
                     "EndPoint": {
@@ -40231,6 +41486,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": 8.89,
                       "y": -0.680000067
                     },
@@ -40244,6 +41500,12 @@
 >>>>>>> parent of b795673 (ice)
                     },
                     "EndPoint": {
+=======
+                      "x": 7.99000025,
+                      "y": 1.72000015
+                    },
+                    "EndPoint": {
+>>>>>>> parent of b795673 (ice)
                       "x": 7.99000025,
                       "y": 1.50000012
                     },
@@ -40276,6 +41538,7 @@
                     },
                     "EndPoint": {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -40291,6 +41554,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 8.889999,
+>>>>>>> parent of b795673 (ice)
                       "y": -1.50000012
                     },
                     "Variance": {
@@ -40299,6 +41565,7 @@
                     }
                   },
                   {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
@@ -40313,6 +41580,8 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of b795673 (ice)
                     "Length": 0.8200002,
                     "NextFootholdId": 600,
 >>>>>>> parent of b795673 (ice)
@@ -40373,10 +41642,14 @@
                       "x": 5.50999975,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "y": -0.680000067
 =======
                       "y": 1.72
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "y": 1.72000015
+>>>>>>> parent of b795673 (ice)
 =======
                       "y": 1.72000015
 >>>>>>> parent of b795673 (ice)
@@ -40419,6 +41692,7 @@
                     "EndPoint": {
                       "x": 5.50999975,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -40434,6 +41708,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": -0.679999948
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 0.0,
@@ -40620,6 +41897,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       "x": -6.19,
                       "y": 65.1000061
                     },
@@ -40634,6 +41912,14 @@
                       "x": -7.09,
                       "y": 61.720005
 >>>>>>> b795673102c0e0cd6d63dd65bb0c4e8fa28c5750
+=======
+                      "x": -7.08999968,
+                      "y": 61.5
+                    },
+                    "EndPoint": {
+                      "x": -7.08999968,
+                      "y": 61.72
+>>>>>>> parent of b795673 (ice)
 =======
                       "x": -7.08999968,
                       "y": 61.5
@@ -40716,6 +42002,7 @@
                     "EndPoint": {
                       "x": -6.19,
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -40731,6 +42018,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "y": 65.32
+>>>>>>> parent of b795673 (ice)
                     },
                     "Variance": {
                       "x": 0.0,
@@ -40820,6 +42110,7 @@
                     "StartPoint": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -40841,6 +42132,9 @@
 >>>>>>> parent of b795673 (ice)
 =======
 >>>>>>> Stashed changes
+=======
+                      "x": 8.209999,
+>>>>>>> parent of b795673 (ice)
                       "y": 62.7
                     },
                     "EndPoint": {
