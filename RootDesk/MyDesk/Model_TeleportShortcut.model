@@ -18,8 +18,7 @@
       "BaseModelId": null,
       "Id": "77bcc203-2c81-4514-9069-9f441b21df59",
       "Components": [
-        "MOD.Core.TransformComponent",
-        "script.SceneTeleportShortcuts"
+        "MOD.Core.TransformComponent"
       ],
       "Properties": [],
       "Values": [
