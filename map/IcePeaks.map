@@ -13945,6 +13945,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -14315,6 +14316,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -14445,6 +14447,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -14575,6 +14578,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -14705,6 +14709,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -14835,6 +14840,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -14965,6 +14971,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -15095,6 +15102,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -15225,6 +15233,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -15355,6 +15364,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -15485,6 +15495,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -15615,6 +15626,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -15745,6 +15757,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -15875,6 +15888,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -16005,6 +16019,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -16135,6 +16150,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -16265,6 +16281,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -16395,6 +16412,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -16525,6 +16543,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -16655,6 +16674,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -16785,6 +16805,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "AttackSoundRUID": "494ee9628fe348d4a3169c1bf6882f34",
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
