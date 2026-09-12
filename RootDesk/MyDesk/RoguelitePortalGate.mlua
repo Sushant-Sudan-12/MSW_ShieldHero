@@ -12,6 +12,14 @@ script RoguelitePortalGate extends Component
 
 	property boolean UnlockWhenAllTaggedMonstersDefeated = true
 
+	property boolean PersistUnlockAcrossRuns = true
+
+	property string PersistentUnlockStorageName = "RoguelitePortalUnlocks"
+
+	property string PersistentUnlockId = ""
+
+	property boolean ResetPersistentUnlock = false
+
 	property boolean UnlockOverride = false
 
 	@HideFromInspector
@@ -19,6 +27,12 @@ script RoguelitePortalGate extends Component
 
 	@HideFromInspector
 	property boolean FoundRequiredMonster = false
+
+	@HideFromInspector
+	property boolean PersistentUnlockLoaded = false
+
+	@HideFromInspector
+	property boolean PersistentUnlockStored = false
 
 	@ExecSpace("ServerOnly")
 	method void OnBeginPlay()
@@ -28,38 +42,75 @@ script RoguelitePortalGate extends Component
 
 		self.IsUnlocked = false
 		self:ApplyPortalState()
+		self:LoadPersistentUnlockState()
 	end
 
 	@ExecSpace("ServerOnly")
 	method void OnUpdate(number delta)
+		if self.ResetPersistentUnlock then
+			self:ClearPersistentUnlock()
+			self.ResetPersistentUnlock = false
+			self.IsUnlocked = false
+			self:ApplyPortalState()
+			return
+		end
+
+		if self.PersistUnlockAcrossRuns and self.PersistentUnlockLoaded == false then
+			self:LoadPersistentUnlockState()
+			return
+		end
+
+		if self.PersistUnlockAcrossRuns and self.PersistentUnlockStored then
+			self:UnlockPortal(false)
+			return
+		end
+
+		local unlockConditionMet = self:IsUnlockConditionMet()
 		if self.IsUnlocked then
+			if self.PersistUnlockAcrossRuns == false and unlockConditionMet == false then
+				self.IsUnlocked = false
+				self:ApplyPortalState()
+			end
 			return
 		end
 
 		if self.UnlockOverride then
-			self:UnlockPortal()
+			self:UnlockPortal(false)
 			return
 		end
+
+		if unlockConditionMet then
+			self:UnlockPortal(self.PersistUnlockAcrossRuns)
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method boolean IsUnlockConditionMet()
 
 		if self.UnlockWhenAllTaggedMonstersDefeated == false then
 			if self.RequiredProgressId == "" then
-				return
+				return false
 			end
 		end
 
-		local player = _UserService.LocalPlayer
-		if self.RequiredProgressId ~= "" and isvalid(player) then
-			---@type RogueliteRunManager
-			local runManager = player:GetComponent("RogueliteRunManager")
-			if isvalid(runManager) and runManager:GetDefeatProgress(self.RequiredProgressId) >= self.RequiredDefeatedCount then
-				self:UnlockPortal()
+		if self.PersistUnlockAcrossRuns and self.RequiredProgressId ~= "" then
+			local users = _UserService.UserEntities
+			if users ~= nil then
+				for _, player in pairs(users) do
+					if isvalid(player) then
+						---@type RogueliteRunManager
+						local runManager = player:GetComponent("RogueliteRunManager")
+						if isvalid(runManager) and runManager:GetDefeatProgress(self.RequiredProgressId) >= self.RequiredDefeatedCount then
+							return true
+						end
+					end
 			end
-			return
+			end
 		end
 
 		local monsters = _EntityService:GetEntitiesByTag(self.RequiredMonsterTag)
 		if monsters == nil then
-			return
+			return false
 		end
 
 		local defeatedCount = 0
@@ -86,19 +137,20 @@ script RoguelitePortalGate extends Component
 			end
 		end
 
-		if self.FoundRequiredMonster and defeatedCount >= self.RequiredDefeatedCount then
-			self:UnlockPortal()
-		end
+		return self.FoundRequiredMonster and defeatedCount >= self.RequiredDefeatedCount
 	end
 
 	@ExecSpace("ServerOnly")
-	method void UnlockPortal()
+	method void UnlockPortal(boolean savePersistentUnlock)
 		if self.IsUnlocked then
 			return
 		end
 
 		self.IsUnlocked = true
 		self:ApplyPortalState()
+		if savePersistentUnlock then
+			self:SavePersistentUnlockForAllPlayers()
+		end
 	end
 
 	@ExecSpace("ServerOnly")
@@ -106,6 +158,80 @@ script RoguelitePortalGate extends Component
 		if isvalid(self.Portal) then
 			self.Portal.Enable = self.IsUnlocked
 		end
+	end
+
+	method string GetPersistentUnlockKey()
+		if self.PersistentUnlockId ~= nil and self.PersistentUnlockId ~= "" then
+			return self.PersistentUnlockId
+		end
+
+		if self.RequiredProgressId ~= nil and self.RequiredProgressId ~= "" then
+			return "PortalUnlock:" .. self.RequiredProgressId
+		end
+
+		if self.RequiredMonsterTag ~= nil and self.RequiredMonsterTag ~= "" then
+			return "PortalUnlock:" .. self.RequiredMonsterTag
+		end
+
+		return "PortalUnlock:" .. tostring(self.Entity.Path)
+	end
+
+	@ExecSpace("ServerOnly")
+	method void LoadPersistentUnlockState()
+		if self.PersistUnlockAcrossRuns == false then
+			return
+		end
+
+		local storage = _DataStorageService:GetGlobalDataStorage(self.PersistentUnlockStorageName)
+		if storage == nil then
+			return
+		end
+
+		local err, value = storage:GetAndWait(self:GetPersistentUnlockKey())
+		self.PersistentUnlockStored = err == 0 and value == "true"
+		self.PersistentUnlockLoaded = true
+		if self.PersistentUnlockStored then
+			self:UnlockPortal(false)
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method boolean IsPersistentUnlockSetForAnyPlayer()
+		if self.PersistentUnlockLoaded == false then
+			self:LoadPersistentUnlockState()
+		end
+
+		return self.PersistentUnlockStored
+	end
+
+	@ExecSpace("ServerOnly")
+	method void SavePersistentUnlockForAllPlayers()
+		local storage = _DataStorageService:GetGlobalDataStorage(self.PersistentUnlockStorageName)
+		if storage == nil then
+			return
+		end
+
+		local err = storage:SetAndWait(self:GetPersistentUnlockKey(), "true")
+		if err == 0 then
+			self.PersistentUnlockStored = true
+			self.PersistentUnlockLoaded = true
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void ClearPersistentUnlock()
+		local storage = _DataStorageService:GetGlobalDataStorage(self.PersistentUnlockStorageName)
+		if storage ~= nil then
+			storage:DeleteAndWait(self:GetPersistentUnlockKey())
+		end
+
+		self.PersistentUnlockStored = false
+		self.PersistentUnlockLoaded = true
+	end
+
+	@ExecSpace("ServerOnly")
+	method void ClearPersistentUnlockForAllPlayers()
+		self:ClearPersistentUnlock()
 	end
 
 end

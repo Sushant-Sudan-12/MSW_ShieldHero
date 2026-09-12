@@ -35,6 +35,10 @@ script RogueliteRunManager extends Component
 
 	property table DefeatProgress = {}
 
+	property string PersistentFlagStorageKey = "RoguelitePersistentFlags"
+
+	property table PersistentFlags = {}
+
 	-- === Permanent Echo Shard Upgrades (persist across deaths/sessions) ===
 	property string EchoUpgradeStorageKey = "EchoUpgrades"
 
@@ -96,6 +100,7 @@ script RogueliteRunManager extends Component
 				self:RefreshSoulBankBalance(uid)
 				self:LoadPermanentUpgrades(uid)
 				self:LoadDefeatProgress(uid)
+				self:LoadPersistentFlags(uid)
 			end
 		end
 
@@ -142,6 +147,35 @@ script RogueliteRunManager extends Component
 	end
 
 	@ExecSpace("ServerOnly")
+	method boolean IsPersistentFlagSet(string flagId)
+		if flagId == nil or flagId == "" then
+			return false
+		end
+
+		return self.PersistentFlags[flagId] == true
+	end
+
+	@ExecSpace("ServerOnly")
+	method void SetPersistentFlag(string flagId, boolean value)
+		if flagId == nil or flagId == "" then
+			return
+		end
+
+		local playerComponent = self.Entity:GetComponent("PlayerComponent")
+		if isvalid(playerComponent) == false then
+			return
+		end
+
+		self.PersistentFlags[flagId] = value
+		local storage = _DataStorageService:GetUserDataStorage(playerComponent.UserId)
+		if storage ~= nil then
+			local payload = {}
+			payload[self.PersistentFlagStorageKey] = _HttpService:JSONEncode(self.PersistentFlags)
+			storage:BatchSetAndWait(payload)
+		end
+	end
+
+	@ExecSpace("ServerOnly")
 	method void LoadDefeatProgress(string userId)
 		if userId == nil or userId == "" then
 			return
@@ -157,6 +191,26 @@ script RogueliteRunManager extends Component
 			local ok, data = pcall(function() return _HttpService:JSONDecode(value) end)
 			if ok and type(data) == "table" then
 				self.DefeatProgress = data
+			end
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void LoadPersistentFlags(string userId)
+		if userId == nil or userId == "" then
+			return
+		end
+
+		local storage = _DataStorageService:GetUserDataStorage(userId)
+		if storage == nil then
+			return
+		end
+
+		local err, value = storage:GetAndWait(self.PersistentFlagStorageKey)
+		if err == 0 and value ~= nil and value ~= "" then
+			local ok, data = pcall(function() return _HttpService:JSONDecode(value) end)
+			if ok and type(data) == "table" then
+				self.PersistentFlags = data
 			end
 		end
 	end
@@ -253,6 +307,7 @@ script RogueliteRunManager extends Component
 		self.PermanentParryWindowLevel = 1
 		self.SoulBankBalance = 0
 		self.DefeatProgress = {}
+		self.PersistentFlags = {}
 
 		local payload = {}
 		payload[self.SoulBankStorageKey] = tostring(0)
@@ -260,6 +315,7 @@ script RogueliteRunManager extends Component
 			Health = 1, Attack = 1, StaminaSpeed = 1, ShieldThrowDistance = 1, ParryWindow = 1,
 		})
 		payload[self.DefeatProgressStorageKey] = _HttpService:JSONEncode({})
+		payload[self.PersistentFlagStorageKey] = _HttpService:JSONEncode({})
 		storage:BatchSetAndWait(payload)
 
 		self:ApplyAllPermanentUpgrades()

@@ -67,6 +67,13 @@ script RogueliteShopSampleLogic extends Logic
 		local shopEntity = _EntityService:GetEntityByPath("/maps/StartingArea/Model_Shop")
 		log("RogueliteShopSampleLogic: shop lookup=" .. tostring(shopEntity))
 		if isvalid(shopEntity) then
+			local shopTrigger = shopEntity:GetComponent("RogueliteShopInteractionTrigger")
+			if isvalid(shopTrigger) then
+				self.InteractionBound = true
+				log("RogueliteShopSampleLogic: model-attached trigger found; sample logic will not bind")
+				return
+			end
+
 			self.ShopInteraction = shopEntity.InteractionComponent
 		end
 

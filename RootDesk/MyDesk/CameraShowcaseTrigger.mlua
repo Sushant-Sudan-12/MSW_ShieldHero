@@ -38,6 +38,14 @@ script CameraShowcaseTrigger extends Component
 
 	property boolean HasTriggered = false
 
+	property boolean PersistOnceGlobally = false
+
+	property string PersistentStorageName = "RogueliteCameraShowcase"
+
+	property string PersistentStateKey = ""
+
+	property boolean ResetPersistentState = false
+
 	-- Kept for compatibility with older instances.
 	property boolean PlayOnce = false
 
@@ -50,6 +58,14 @@ script CameraShowcaseTrigger extends Component
 
 	@HideFromInspector
 	property boolean HasPlayed = false
+
+	@Sync
+	@HideFromInspector
+	property boolean PersistentStateLoaded = false
+
+	@Sync
+	@HideFromInspector
+	property boolean PersistentHasTriggered = false
 
 	@HideFromInspector
 	property any ShowcaseCameraEntity = nil
@@ -78,6 +94,26 @@ script CameraShowcaseTrigger extends Component
 	@ExecSpace("ClientOnly")
 	method void OnBeginPlay()
 		self.IsPlaying = false
+		if self.PersistOnceGlobally then
+			self:LoadPersistentState()
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void OnUpdate(number delta)
+		if self.PersistOnceGlobally == false then
+			return
+		end
+
+		if self.ResetPersistentState then
+			self:ResetStoredPersistentState()
+			self.ResetPersistentState = false
+			return
+		end
+
+		if self.PersistentStateLoaded == false then
+			self:LoadPersistentState()
+		end
 	end
 
 	@ExecSpace("ClientOnly")
@@ -98,6 +134,15 @@ script CameraShowcaseTrigger extends Component
 	method void StartShowcase()
 		if self.IsPlaying then
 			return
+		end
+		if self.PersistOnceGlobally then
+			if self.PersistentStateLoaded == false then
+				self:LoadPersistentState()
+				return
+			end
+			if self.PersistentHasTriggered then
+				return
+			end
 		end
 		if (self.TriggerOnce or self.PlayOnce) and self.HasTriggered then
 			return
@@ -138,6 +183,10 @@ script CameraShowcaseTrigger extends Component
 
 		self.IsPlaying = true
 		self.HasTriggered = true
+		if self.PersistOnceGlobally then
+			self.PersistentHasTriggered = true
+			self:SavePersistentState(true)
+		end
 		self.ShowcaseToken = self.ShowcaseToken + 1
 		local token = self.ShowcaseToken
 		self.ShowcaseCameraEntity = spawnedCamera
@@ -363,6 +412,69 @@ script CameraShowcaseTrigger extends Component
 		local soulSystem = player:GetComponent("PlayerSoulSystem")
 		if isvalid(soulSystem) then
 			soulSystem:SetInputLocked(locked)
+		end
+	end
+
+	method string GetPersistentKey()
+		if self.PersistentStateKey ~= nil and self.PersistentStateKey ~= "" then
+			return self.PersistentStateKey
+		end
+
+		return "CameraShowcaseTrigger:" .. tostring(self.Entity.Path)
+	end
+
+	@ExecSpace("Server")
+	method void LoadPersistentState()
+		if self.PersistOnceGlobally == false then
+			return
+		end
+
+		local storage = _DataStorageService:GetGlobalDataStorage(self.PersistentStorageName)
+		if storage == nil then
+			return
+		end
+
+		local err, value = storage:GetAndWait(self:GetPersistentKey())
+		self.PersistentHasTriggered = err == 0 and value == "true"
+		self.PersistentStateLoaded = true
+		if self.PersistentHasTriggered then
+			self.HasTriggered = true
+		end
+	end
+
+	@ExecSpace("Server")
+	method void SavePersistentState(boolean triggered)
+		if self.PersistOnceGlobally == false then
+			return
+		end
+
+		local storage = _DataStorageService:GetGlobalDataStorage(self.PersistentStorageName)
+		if storage == nil then
+			return
+		end
+
+		local value = "false"
+		if triggered then
+			value = "true"
+		end
+
+		storage:SetAndWait(self:GetPersistentKey(), value)
+		self.PersistentHasTriggered = triggered
+		self.PersistentStateLoaded = true
+	end
+
+	@ExecSpace("Server")
+	method void ResetStoredPersistentState()
+		local storage = _DataStorageService:GetGlobalDataStorage(self.PersistentStorageName)
+		if storage ~= nil then
+			storage:DeleteAndWait(self:GetPersistentKey())
+		end
+
+		self.PersistentHasTriggered = false
+		self.PersistentStateLoaded = true
+		self.HasTriggered = false
+		if self.DebugLogs then
+			self:Log("Persistent state reset")
 		end
 	end
 

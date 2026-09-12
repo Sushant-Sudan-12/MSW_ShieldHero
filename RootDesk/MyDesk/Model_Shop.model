@@ -20,7 +20,8 @@
       "Components": [
         "MOD.Core.TransformComponent",
         "MOD.Core.SpriteRendererComponent",
-        "MOD.Core.InteractionComponent"
+        "MOD.Core.InteractionComponent",
+        "script.RogueliteShopInteractionTrigger"
       ],
       "Properties": [],
       "Values": [
@@ -228,6 +229,15 @@
         },
         {
           "TargetType": "MOD.Core.InteractionComponent",
+          "Name": "Enable",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": true
+        },
+        {
+          "TargetType": "script.RogueliteShopInteractionTrigger",
           "Name": "Enable",
           "ValueType": {
             "$type": "MODNativeType",

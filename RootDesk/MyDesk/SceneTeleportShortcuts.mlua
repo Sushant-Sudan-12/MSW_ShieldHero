@@ -1,0 +1,59 @@
+@Component
+script SceneTeleportShortcuts extends Component
+
+	-- Map name to teleport to when the matching number key is pressed. Leave blank to disable that key.
+	property string Scene3MapName = ""
+	property string Scene4MapName = ""
+	property string Scene5MapName = ""
+	property string Scene6MapName = ""
+	property string Scene7MapName = ""
+	property string Scene8MapName = ""
+	property string Scene9MapName = ""
+
+	property boolean DebugLogs = false
+
+	@ExecSpace("ClientOnly")
+	@EventSender("Service", "InputService")
+	handler HandleKeyDownEvent(KeyDownEvent event)
+		if event.key == KeyboardKey.Alpha3 then
+			self:TeleportToScene(self.Scene3MapName)
+		elseif event.key == KeyboardKey.Alpha4 then
+			self:TeleportToScene(self.Scene4MapName)
+		elseif event.key == KeyboardKey.Alpha5 then
+			self:TeleportToScene(self.Scene5MapName)
+		elseif event.key == KeyboardKey.Alpha6 then
+			self:TeleportToScene(self.Scene6MapName)
+		elseif event.key == KeyboardKey.Alpha7 then
+			self:TeleportToScene(self.Scene7MapName)
+		elseif event.key == KeyboardKey.Alpha8 then
+			self:TeleportToScene(self.Scene8MapName)
+		elseif event.key == KeyboardKey.Alpha9 then
+			self:TeleportToScene(self.Scene9MapName)
+		end
+	end
+
+	@ExecSpace("ClientOnly")
+	method void TeleportToScene(string mapName)
+		if mapName == nil or mapName == "" then
+			return
+		end
+
+		self:RequestTeleport(mapName)
+
+		if self.DebugLogs then
+			log("SceneTeleportShortcuts: requested teleport to map=" .. tostring(mapName))
+		end
+	end
+
+	-- TeleportToMapPosition is ServerOnly now, so this RPC hop resolves the caller via senderUserId.
+	@ExecSpace("Server")
+	method void RequestTeleport(string mapName)
+		local userEntity = _UserService:GetUserEntityByUserId(senderUserId)
+		if isvalid(userEntity) == false then
+			return
+		end
+
+		_TeleportService:TeleportToMapPosition(userEntity, Vector3(0, 0, 0), mapName)
+	end
+
+end

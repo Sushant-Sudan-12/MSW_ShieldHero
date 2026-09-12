@@ -1,0 +1,105 @@
+@Component
+script RogueliteShopInteractionTrigger extends Component
+
+	property InteractionComponent Interaction = nil
+
+	property string RogueliteShopUIPath = "/ui/DefaultGroup/RogueliteShop"
+
+	property string RogueliteShopModelName = "Model_RogueliteShop"
+
+	property string RogueliteShopEntityName = "RogueliteShop"
+
+	@HideFromInspector
+	property Entity RogueliteShopUI = nil
+
+	@HideFromInspector
+	property boolean InteractionBound = false
+
+	property boolean StartingAreaOnly = true
+
+	@ExecSpace("ClientOnly")
+	method void OnBeginPlay()
+		self:BindInteraction()
+	end
+
+	@ExecSpace("ClientOnly")
+	method void OnUpdate(number delta)
+		if self.InteractionBound == false then
+			self:BindInteraction()
+		end
+	end
+
+	@ExecSpace("ClientOnly")
+	method void BindInteraction()
+		if isvalid(self.Interaction) == false then
+			self.Interaction = self.Entity.InteractionComponent
+		end
+
+		if isvalid(self.Interaction) and self.InteractionBound == false then
+			self.Interaction.Entity:ConnectEvent(InteractionEvent, function(event) self:HandleInteraction(event) end)
+			self.InteractionBound = true
+			log("RogueliteShopInteractionTrigger: interaction listener ready")
+		end
+	end
+
+	@ExecSpace("ClientOnly")
+	method void HandleInteraction(InteractionEvent event)
+		log("RogueliteShopInteractionTrigger: interaction received")
+		if self.StartingAreaOnly then
+			local player = _UserService.LocalPlayer
+			if isvalid(player) == false or string.find(tostring(player.Path), "StartingArea", 1, true) == nil then
+				return
+			end
+		end
+
+		local shopEntity = self.RogueliteShopUI
+		if isvalid(shopEntity) == false then
+			shopEntity = _EntityService:GetEntityByPath(self.RogueliteShopUIPath)
+			if isvalid(shopEntity) then
+				self.RogueliteShopUI = shopEntity
+			end
+		end
+
+		if isvalid(shopEntity) == false then
+			local uiRoot = _EntityService:GetEntityByPath("/ui/DefaultGroup")
+			local modelId = _EntryService:GetModelIdByName(self.RogueliteShopModelName)
+			log("RogueliteShopInteractionTrigger: uiRoot=" .. tostring(uiRoot) .. " modelId=" .. tostring(modelId))
+			if isvalid(uiRoot) == false then
+				log_error("RogueliteShopInteractionTrigger: /ui/DefaultGroup not found")
+			elseif modelId == nil or modelId == "" then
+				log_error("RogueliteShopInteractionTrigger: model not found: " .. tostring(self.RogueliteShopModelName))
+			else
+				shopEntity = _SpawnService:SpawnByModelId(modelId, self.RogueliteShopEntityName, Vector3.zero, uiRoot)
+				if isvalid(shopEntity) then
+					self.RogueliteShopUI = shopEntity
+					log("RogueliteShopInteractionTrigger: RogueliteShop spawned")
+				else
+					log_error("RogueliteShopInteractionTrigger: SpawnByModelId returned invalid entity")
+				end
+			end
+		end
+
+		if isvalid(shopEntity) == false then
+			log_error("RogueliteShopInteractionTrigger: could not find or spawn " .. tostring(self.RogueliteShopModelName))
+			return
+		end
+
+		shopEntity:SetEnable(true)
+
+		local shopUI = shopEntity:GetComponent("RogueliteUpgradeShopUI")
+		if isvalid(shopUI) == false then
+			log_error("RogueliteShopInteractionTrigger: RogueliteUpgradeShopUI component not found")
+			return
+		end
+
+		shopUI:Open()
+	end
+
+	@ExecSpace("ClientOnly")
+	method void OnDestroy()
+		self.RogueliteShopUI = nil
+		self.Interaction = nil
+		self.InteractionBound = false
+	end
+
+end
