@@ -221,6 +221,13 @@ script BossAI extends AttackComponent
 
 		self.Shape = BoxShape(Vector2.zero, Vector2.one, 0)
 
+		-- Pre-create SoundComponent so the very first attack/hit/death sound isn't swallowed
+		if (self.AttackSoundRUID ~= nil and self.AttackSoundRUID ~= "") or (self.HitSoundRUID ~= nil and self.HitSoundRUID ~= "") or (self.DeathSoundRUID ~= nil and self.DeathSoundRUID ~= "") then
+			if isvalid(self.Entity.SoundComponent) == false then
+				self.Entity:AddComponent("SoundComponent")
+			end
+		end
+
 		if self.DebugLogs then
 			log("BossAI [" .. tostring(self.Entity.Name) .. "] ready hp=" .. tostring(self.BossCurrentHp) .. "/" .. tostring(self.BossMaxHp))
 		end

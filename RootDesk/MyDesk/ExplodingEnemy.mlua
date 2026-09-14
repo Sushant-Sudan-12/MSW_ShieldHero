@@ -158,6 +158,13 @@ script ExplodingEnemy extends AttackComponent
 		if isvalid(rigidbody) then
 			rigidbody.IsolatedMove = self.UseRigidbodyIsolatedMove
 		end
+
+		-- Pre-create SoundComponent so the very first charge/explosion sound isn't swallowed
+		if (self.ChargeSoundRUID ~= nil and self.ChargeSoundRUID ~= "") or (self.ExplosionSoundRUID ~= nil and self.ExplosionSoundRUID ~= "") then
+			if isvalid(self.Entity.SoundComponent) == false then
+				self.Entity:AddComponent("SoundComponent")
+			end
+		end
 	end
 
 	@ExecSpace("ServerOnly")

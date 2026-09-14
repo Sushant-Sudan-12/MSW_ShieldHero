@@ -136,6 +136,13 @@ script RangedEnemy extends Component
 			end
 		end
 
+		-- Pre-create SoundComponent so the very first attack sound isn't swallowed
+		if self.AttackSoundRUID ~= nil and self.AttackSoundRUID ~= "" then
+			if isvalid(self.Entity.SoundComponent) == false then
+				self.Entity:AddComponent("SoundComponent")
+			end
+		end
+
 		if self.DebugLogs then
 			local monster = self.Entity:GetComponent("Monster")
 			log("RangedEnemy [" .. tostring(self.Entity.Name) .. "] Ready. Monster=" .. tostring(isvalid(monster))

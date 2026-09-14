@@ -104,7 +104,10 @@ script RogueliteRunManager extends Component
 			end
 		end
 
-		-- If this is a fresh spawn right after death reset, verify run state is default
+		-- Diagnostic only: this used to force-reset here, but OnBeginPlay re-fires on any
+		-- teleport/map-load (not just a real death respawn), which was wiping live run
+		-- currency (e.g. TotalSouls) for no reason. Actual death resets happen in
+		-- HandlePlayerDeath -> ResetPlayerRunState / RespawnPlayerAtStart.
 		_TimerService:SetTimerOnce(function()
 			if isvalid(self.Entity) == false then
 				return
@@ -113,10 +116,6 @@ script RogueliteRunManager extends Component
 			local pc = self.Entity:GetComponent("PlayerComponent")
 			if isvalid(ss) and isvalid(pc) then
 				log("RUNRESET-SPAWN check: souls=" .. tostring(ss.TotalSouls) .. " H=" .. tostring(ss.HealthLevel) .. " maxHp=" .. tostring(pc.MaxHp))
-				if ss.HealthLevel > 1 or ss.StaminaLevel > 1 or ss.AttackLevel > 1 or ss.TotalSouls > 0 then
-					log("RUNRESET-SPAWN WARNING: spawned with non-default run state, forcing reset")
-					ss:ResetRunUpgrades()
-				end
 			end
 		end, 0.5)
 	end

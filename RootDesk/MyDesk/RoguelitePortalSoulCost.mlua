@@ -1,0 +1,106 @@
+@Component
+script RoguelitePortalSoulCost extends Component
+
+	property PortalComponent Portal = nil
+
+	-- Fragments required, checked against PlayerSoulSystem.TotalSouls (this run only, resets on death/run reset)
+	@MinValue(0)
+	property integer SoulFragmentCost = 100
+
+	-- How close a player must stand to the portal to pay/enter
+	@MinValue(0.1)
+	property number EntryRadius = 2.0
+
+	-- How long the portal stays open after payment, long enough to walk through
+	@MinValue(0.1)
+	property number OpenDuration = 1.5
+
+	property boolean DebugLogs = false
+
+	@HideFromInspector
+	property boolean IsOpen = false
+
+	@HideFromInspector
+	property number OpenUntilTime = -9999
+
+	@ExecSpace("ServerOnly")
+	method void OnBeginPlay()
+		if isvalid(self.Portal) == false then
+			self.Portal = self.Entity.PortalComponent
+		end
+
+		self.IsOpen = false
+		self:SetPortalEnabled(false)
+	end
+
+	@ExecSpace("ServerOnly")
+	method void OnUpdate(number delta)
+		local now = _UtilLogic.ElapsedSeconds
+
+		if self.IsOpen then
+			if now >= self.OpenUntilTime then
+				self.IsOpen = false
+				self:SetPortalEnabled(false)
+			end
+			return
+		end
+
+		local soulSystem = self:FindPayingPlayerNearby()
+		if isvalid(soulSystem) == false then
+			return
+		end
+
+		soulSystem.TotalSouls = soulSystem.TotalSouls - self.SoulFragmentCost
+		self.IsOpen = true
+		self.OpenUntilTime = now + self.OpenDuration
+		self:SetPortalEnabled(true)
+
+		if self.DebugLogs then
+			log("RoguelitePortalSoulCost: charged " .. tostring(self.SoulFragmentCost) .. " fragments, opening for " .. tostring(self.OpenDuration) .. "s")
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method any FindPayingPlayerNearby()
+		if self.SoulFragmentCost <= 0 then
+			return nil
+		end
+
+		local portalTransform = self.Entity.TransformComponent
+		if isvalid(portalTransform) == false then
+			return nil
+		end
+
+		local portalPos = portalTransform.WorldPosition
+
+		local users = _UserService.UserEntities
+		if users == nil then
+			return nil
+		end
+
+		for _, player in pairs(users) do
+			if isvalid(player) and isvalid(player.TransformComponent) then
+				local playerPos = player.TransformComponent.WorldPosition
+				local dx = playerPos.x - portalPos.x
+				local dy = playerPos.y - portalPos.y
+				if math.sqrt(dx * dx + dy * dy) <= self.EntryRadius then
+					---@type PlayerSoulSystem
+					local soulSystem = player:GetComponent("PlayerSoulSystem")
+					if isvalid(soulSystem) and soulSystem.TotalSouls >= self.SoulFragmentCost then
+						return soulSystem
+					end
+				end
+			end
+		end
+
+		return nil
+	end
+
+	@ExecSpace("ServerOnly")
+	method void SetPortalEnabled(boolean enabled)
+		if isvalid(self.Portal) then
+			self.Portal.Enable = enabled
+		end
+	end
+
+end
