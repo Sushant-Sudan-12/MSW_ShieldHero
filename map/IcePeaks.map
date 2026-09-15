@@ -11791,11 +11791,11 @@
       },
       {
         "id": "5338d07e-9dda-424c-a2e2-16f009475a72",
-        "path": "/maps/IcePeaks/monster-212",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,script.IceRockBoss,MOD.Core.HitComponent,MOD.Core.StateComponent,MOD.Core.TagComponent,MOD.Core.DamageSkinSpawnerComponent",
+        "path": "/maps/IcePeaks/Boss",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,script.IceRockBoss,MOD.Core.HitComponent,MOD.Core.StateComponent,MOD.Core.TagComponent,MOD.Core.DamageSkinSpawnerComponent,script.BossDefeatUpgradeRewardUI",
         "jsonString": {
-          "name": "monster-212",
-          "path": "/maps/IcePeaks/monster-212",
+          "name": "Boss",
+          "path": "/maps/IcePeaks/Boss",
           "nameEditable": true,
           "enable": true,
           "visible": true,
@@ -11813,9 +11813,9 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -4.325719,
-                "y": 2.35,
-                "z": 999.999
+                "x": -4.30968666,
+                "y": 2.32170916,
+                "z": 0.0
               },
               "QuaternionRotation": {
                 "x": 0.0,
@@ -11856,11 +11856,54 @@
               "ProjectileLifetime": 7.0,
               "ProjectileScale": 0.69,
               "AttackInterval": 5.0,
+              "BossFightAttackInterval": 3.5,
+              "BossFightBgmRUID": "6af77eef36674e0a926797664546aa80",
+              "BossFightBgmVolume": 0.5,
+              "ProjectileFireSoundRUID": "806a4108aecd4be191031eef045e4eb3",
+              "ProjectileFireSoundVolume": 0.6,
+              "PhaseLocation1": {
+                "x": -12.5,
+                "y": 8.4,
+                "z": 0.0
+              },
+              "PhaseLocation2": {
+                "x": 4.0,
+                "y": 8.4,
+                "z": 0.0
+              },
+              "PhaseLocation3": {
+                "x": 4.0,
+                "y": -3.7,
+                "z": 0.0
+              },
+              "PhaseLocation4": {
+                "x": -12.5,
+                "y": -3.7,
+                "z": 0.0
+              },
+              "CenterSpawnLocation": {
+                "x": -4.5,
+                "y": 2.35,
+                "z": 0.0
+              },
               "LastAttackTime": -9999.0,
               "ActiveAttackToken": 0.0,
               "IsAttacking": false,
               "DefeatedMiniBossCount": 0,
-              "PendingDamage": 0.0
+              "PendingDamage": 0.0,
+              "BossFightStarted": false,
+              "SpawnPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "NextPhaseThresholdPercent": 50,
+              "PhaseRelocationCount": 0,
+              "PhaseLocation1Used": false,
+              "PhaseLocation2Used": false,
+              "PhaseLocation3Used": false,
+              "PhaseLocation4Used": false,
+              "CenterRelocationDone": false
             },
             {
               "@type": "MOD.Core.HitComponent",
@@ -11884,13 +11927,36 @@
               "@type": "MOD.Core.TagComponent",
               "Tags": [
                 "IceRockBoss",
-                "Monster"
+                "Monster",
+                "Boss"
               ],
               "Enable": true
             },
             {
               "@type": "MOD.Core.DamageSkinSpawnerComponent",
               "Enable": true
+            },
+            {
+              "@type": "script.BossDefeatUpgradeRewardUI",
+              "Enable": true,
+              "VictoryPanel": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "295a1286-eea8-467a-8c88-a4dc1c0b37b9",
+                "Version2": false
+              },
+              "RewardUpgradeUI": {
+                "IsRelative": false,
+                "ComponentId": "a17a2a27-1a96-4d34-beca-8421f74c3d9a:UpgradeUIAbility",
+                "UseNested": false
+              },
+              "VictoryBgmRUID": "1974e263b5644b679b4bee6c1df33692",
+              "VictoryBgmVolume": 0.5,
+              "RewardShownForCurrentDefeat": false,
+              "RewardActive": false,
+              "RewardPending": false,
+              "RewardToken": 0.0,
+              "LastSearchTime": -9999.0
             }
           ],
           "@version": 1
@@ -19073,7 +19139,7 @@
       {
         "id": "0231bd94-11a9-4b8b-a62e-a92d2d913c4f",
         "path": "/maps/IcePeaks/Enter_1",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.PortalComponent,MOD.Core.TagComponent,script.RoguelitePortalGate",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.PortalComponent,MOD.Core.TagComponent,script.RoguelitePortalGate,MOD.Core.InteractionComponent",
         "jsonString": {
           "name": "Enter_1",
           "path": "/maps/IcePeaks/Enter_1",
@@ -19101,8 +19167,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -4.15281725,
-                "y": 2.38,
+                "x": -5.53926134,
+                "y": -13.8482914,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -19162,6 +19228,21 @@
               "FoundRequiredMonster": false,
               "PersistentUnlockLoaded": false,
               "PersistentUnlockStored": false
+            },
+            {
+              "@type": "MOD.Core.InteractionComponent",
+              "ActionKey": 119,
+              "ActionName": "Defeat the boss",
+              "BoxSize": {
+                "x": 0.460618734,
+                "y": 0.887547
+              },
+              "ColliderOffset": {
+                "x": -0.0342540741,
+                "y": 0.383842
+              },
+              "IsLegacy": false,
+              "Enable": true
             }
           ],
           "@version": 1

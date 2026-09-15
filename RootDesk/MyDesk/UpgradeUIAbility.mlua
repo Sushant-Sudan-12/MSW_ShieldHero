@@ -11,6 +11,9 @@ script UpgradeUIAbility extends Component
     property Entity attackLevelTextTarget = nil
 
     @HideFromInspector
+    property BossDefeatUpgradeRewardUI BossRewardUI = nil
+
+    @HideFromInspector
     property boolean IsOpen = false
 
     @HideFromInspector
@@ -360,6 +363,10 @@ script UpgradeUIAbility extends Component
 
         log("UpgradeUIAbility ApplyUpgrade: closing panel for type=" .. tostring(upgradeType))
         self:Close()
+        if isvalid(self.BossRewardUI) then
+            self.BossRewardUI:CloseReward()
+            self.BossRewardUI = nil
+        end
         self:ClearActiveObject()
     end
 

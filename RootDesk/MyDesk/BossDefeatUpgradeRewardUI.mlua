@@ -1,0 +1,190 @@
+@ExecSpace("Client")
+@Component
+script BossDefeatUpgradeRewardUI extends Component
+
+	property string BossEntityPath = ""
+
+	property string BossTag = "Boss"
+
+	property Entity VictoryPanel = nil
+
+	property UpgradeUIAbility RewardUpgradeUI = nil
+
+	@MinValue(0.0)
+	property number RewardDelaySeconds = 2.5
+
+	property string VictoryBgmRUID = ""
+
+	@MinValue(0.0)
+	property number VictoryBgmVolume = 1
+
+	property boolean HideVictoryPanelOnBeginPlay = true
+
+	property boolean DebugLogs = false
+
+	@HideFromInspector
+	property any CachedBossEntity = nil
+
+	@HideFromInspector
+	property boolean RewardShownForCurrentDefeat = false
+
+	@HideFromInspector
+	property boolean RewardActive = false
+
+	@HideFromInspector
+	property boolean RewardPending = false
+
+	@HideFromInspector
+	property number RewardToken = 0
+
+	@HideFromInspector
+	property number LastSearchTime = -9999
+
+	@MinValue(0.1)
+	property number BossSearchInterval = 0.5
+
+	method void OnBeginPlay()
+		if self.HideVictoryPanelOnBeginPlay then
+			self:SetVictoryPanelVisible(false)
+		end
+	end
+
+	method void OnUpdate(number delta)
+		local boss = self:GetBossComponent()
+		if boss == nil then
+			return
+		end
+
+		if boss.IsBossDead == false then
+			self.RewardShownForCurrentDefeat = false
+			self.RewardPending = false
+			return
+		end
+
+		if self.RewardPending then
+			return
+		end
+
+		if self.RewardActive then
+			if isvalid(self.RewardUpgradeUI) == false or self.RewardUpgradeUI.IsOpen == false then
+				self:SetVictoryPanelVisible(false)
+				self.RewardActive = false
+			end
+			return
+		end
+
+		if self.RewardShownForCurrentDefeat then
+			return
+		end
+
+		self:ScheduleReward()
+	end
+
+	method void ScheduleReward()
+		self.RewardShownForCurrentDefeat = true
+		self.RewardPending = true
+		self.RewardToken = self.RewardToken + 1
+		local token = self.RewardToken
+
+		self:PlayVictoryBgm()
+
+		_TimerService:SetTimerOnce(function()
+			if isvalid(self.Entity) == false or self.RewardToken ~= token then
+				return
+			end
+
+			self.RewardPending = false
+			self:OpenReward()
+		end, math.max(0, self.RewardDelaySeconds))
+	end
+
+	method void OpenReward()
+		if isvalid(self.RewardUpgradeUI) == false then
+			if self.DebugLogs then
+				log("BossDefeatUpgradeRewardUI: RewardUpgradeUI missing")
+			end
+			return
+		end
+
+		self.RewardActive = true
+		self:SetVictoryPanelVisible(true)
+		self.RewardUpgradeUI.BossRewardUI = self
+		self.RewardUpgradeUI:Open()
+
+		if self.DebugLogs then
+			log("BossDefeatUpgradeRewardUI: opened boss reward")
+		end
+	end
+
+	method void CloseReward()
+		self:SetVictoryPanelVisible(false)
+		self.RewardActive = false
+		self.RewardPending = false
+	end
+
+	method void PlayVictoryBgm()
+		if self.VictoryBgmRUID == nil or self.VictoryBgmRUID == "" then
+			return
+		end
+
+		_SoundService:PlayBGM(self.VictoryBgmRUID, math.max(0, math.min(1, self.VictoryBgmVolume)))
+	end
+
+	method any GetBossComponent()
+		local bossEntity = self:FindBossEntity()
+		if isvalid(bossEntity) == false then
+			return nil
+		end
+
+		local bossAI = bossEntity:GetComponent("BossAI")
+		if isvalid(bossAI) then
+			return bossAI
+		end
+
+		local iceRockBoss = bossEntity:GetComponent("IceRockBoss")
+		if isvalid(iceRockBoss) then
+			return iceRockBoss
+		end
+
+		return nil
+	end
+
+	method any FindBossEntity()
+		if isvalid(self.CachedBossEntity) then
+			return self.CachedBossEntity
+		end
+
+		local now = _UtilLogic.ElapsedSeconds
+		if now - self.LastSearchTime < self.BossSearchInterval then
+			return nil
+		end
+		self.LastSearchTime = now
+
+		if self.BossEntityPath ~= nil and self.BossEntityPath ~= "" then
+			local byPath = _EntityService:GetEntityByPath(self.BossEntityPath)
+			if isvalid(byPath) then
+				self.CachedBossEntity = byPath
+				return byPath
+			end
+		end
+
+		if self.BossTag ~= nil and self.BossTag ~= "" then
+			local byTag = _EntityService:GetEntityByTag(self.BossTag)
+			if isvalid(byTag) then
+				self.CachedBossEntity = byTag
+				return byTag
+			end
+		end
+
+		return nil
+	end
+
+	method void SetVictoryPanelVisible(boolean visible)
+		if isvalid(self.VictoryPanel) and self.VictoryPanel ~= self.Entity then
+			self.VictoryPanel.Enable = visible
+		elseif isvalid(self.VictoryPanel) then
+			self.VictoryPanel:SetVisible(visible)
+		end
+	end
+
+end

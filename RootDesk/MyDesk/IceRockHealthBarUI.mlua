@@ -16,6 +16,11 @@ script IceRockHealthBarUI extends Component
 	property boolean HideWhenBossDead = true
 	property boolean HideUntilDamageUnlocked = true
 
+	property string BossFightBgmRUID = ""
+
+	@MinValue(0.0)
+	property number BossFightBgmVolume = 1
+
 	@MinValue(0.1)
 	property number BossSearchInterval = 0.5
 
@@ -30,8 +35,12 @@ script IceRockHealthBarUI extends Component
 	@HideFromInspector
 	property boolean LastVisibleState = false
 
+	@HideFromInspector
+	property boolean BossFightBgmPlayed = false
+
 	method void OnBeginPlay()
 		self.LastVisibleState = true
+		self.BossFightBgmPlayed = false
 		self:SetBarVisible(false)
 		self:ClearBarValues()
 	end
@@ -56,6 +65,7 @@ script IceRockHealthBarUI extends Component
 			if self.DebugLogs then
 				log("IceRockHealthBarUI: hidden until mini-bosses defeated")
 			end
+			self.BossFightBgmPlayed = false
 			self:SetBarVisible(false)
 			return
 		end
@@ -66,6 +76,7 @@ script IceRockHealthBarUI extends Component
 		end
 
 		self:SetBarVisible(true)
+		self:PlayBossFightBgmOnce()
 		local maxHp = math.max(1, boss.BossMaxHp)
 		local currentHp = math.max(0, boss.BossCurrentHp)
 		self:WriteRatio(math.max(0, math.min(1, currentHp / maxHp)))
@@ -147,6 +158,19 @@ script IceRockHealthBarUI extends Component
 		if self.DebugLogs then
 			log("IceRockHealthBarUI visible=" .. tostring(visible))
 		end
+	end
+
+	method void PlayBossFightBgmOnce()
+		if self.BossFightBgmPlayed then
+			return
+		end
+
+		if self.BossFightBgmRUID == nil or self.BossFightBgmRUID == "" then
+			return
+		end
+
+		self.BossFightBgmPlayed = true
+		_SoundService:PlayBGM(self.BossFightBgmRUID, math.max(0, math.min(1, self.BossFightBgmVolume)))
 	end
 
 	method void ClearBarValues()

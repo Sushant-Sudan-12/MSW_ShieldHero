@@ -19,7 +19,7 @@ script MonsterAI extends AttackComponent
 	property number DetectionRangeX = 4.5
 
 	@MinValue(0)
-	property number DetectionRangeY = 2.0
+	property number DetectionRangeY = 0.5
 
 	@MinValue(0)
 	property number LoseAggroDistance = 7.0

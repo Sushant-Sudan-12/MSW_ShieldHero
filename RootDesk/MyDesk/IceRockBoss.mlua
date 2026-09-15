@@ -66,6 +66,12 @@ script IceRockBoss extends AttackComponent
 	@MinValue(0.1)
 	property number AttackInterval = 3.0
 
+	@MinValue(0.1)
+	property number BossFightAttackInterval = 1.8
+
+	@MinValue(0.1)
+	property number BossFightProjectileSpeedMultiplier = 1.25
+
 	@MinValue(0.0)
 	property number ProjectileTelegraphDelay = 1.0
 
@@ -73,6 +79,52 @@ script IceRockBoss extends AttackComponent
 	property number AttackWindup = 0.4
 
 	property Vector2 ProjectileSpawnOffset = Vector2(0, 0)
+
+	property string BossFightBgmRUID = ""
+
+	@MinValue(0.0)
+	property number BossFightBgmVolume = 1
+
+	property string ProjectileFireSoundRUID = ""
+
+	@MinValue(0.0)
+	property number ProjectileFireSoundVolume = 1
+
+	@MinValue(0.0)
+	property number ProjectileFireSoundPitch = 1
+
+	property boolean EnablePhaseRelocation = true
+
+	@MinValue(1)
+	property integer PhaseThreshold1Percent = 75
+
+	@MinValue(1)
+	property integer PhaseThreshold2Percent = 60
+
+	@MinValue(1)
+	property integer PhaseThreshold3Percent = 45
+
+	@MinValue(1)
+	property integer PhaseThreshold4Percent = 30
+
+	@MinValue(1)
+	property integer CenterReturnThresholdPercent = 15
+
+	property Vector3 PhaseLocation1 = Vector3(0, 0, 0)
+
+	property Vector3 PhaseLocation2 = Vector3(0, 0, 0)
+
+	property Vector3 PhaseLocation3 = Vector3(0, 0, 0)
+
+	property Vector3 PhaseLocation4 = Vector3(0, 0, 0)
+
+	property Vector3 CenterSpawnLocation = Vector3(0, 0, 0)
+
+	property boolean ReturnToSpawnOnDeath = true
+
+	property boolean KillTaggedMonstersOnDeath = true
+
+	property string KillOnDeathMonsterTag = "Monster"
 
 	property boolean InvertFacingDirection = false
 
@@ -107,10 +159,45 @@ script IceRockBoss extends AttackComponent
 	@HideFromInspector
 	property number PendingDamage = 0
 
+	@HideFromInspector
+	property boolean BossFightStarted = false
+
+	@HideFromInspector
+	property Vector3 SpawnPosition = Vector3(0, 0, 0)
+
+	@HideFromInspector
+	property integer NextPhaseThresholdPercent = 50
+
+	@HideFromInspector
+	property integer PhaseRelocationCount = 0
+
+	@HideFromInspector
+	property boolean PhaseLocation1Used = false
+
+	@HideFromInspector
+	property boolean PhaseLocation2Used = false
+
+	@HideFromInspector
+	property boolean PhaseLocation3Used = false
+
+	@HideFromInspector
+	property boolean PhaseLocation4Used = false
+
+	@HideFromInspector
+	property boolean CenterRelocationDone = false
+
 	@ExecSpace("ServerOnly")
 	method void OnBeginPlay()
 		self:EnsureBossTag()
 		self:ResetBossForMapLoad()
+
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) then
+			self.SpawnPosition = transform.WorldPosition
+			if self.CenterSpawnLocation.x == 0 and self.CenterSpawnLocation.y == 0 and self.CenterSpawnLocation.z == 0 then
+				self.CenterSpawnLocation = transform.WorldPosition
+			end
+		end
 
 		if self.DisableNativeWander then
 			local wander = self.Entity.AIWanderComponent
@@ -143,6 +230,8 @@ script IceRockBoss extends AttackComponent
 		self.IsAttacking = false
 		self.LastAttackTime = -9999
 		self.PendingDamage = 0
+		self.BossFightStarted = false
+		self:ResetPhaseRelocations()
 	end
 
 	@ExecSpace("ServerOnly")
@@ -154,9 +243,25 @@ script IceRockBoss extends AttackComponent
 		self.IsAttacking = false
 		self.LastAttackTime = -9999
 		self.PendingDamage = 0
+		self.BossFightStarted = false
+		self:ResetPhaseRelocations()
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) then
+			transform.WorldPosition = self.SpawnPosition
+		end
 		self.Entity:SetVisible(true)
 		self.Entity:SetEnable(true)
 		self:RefreshDamageLock()
+	end
+
+	method void ResetPhaseRelocations()
+		self.NextPhaseThresholdPercent = self.PhaseThreshold1Percent
+		self.PhaseRelocationCount = 0
+		self.PhaseLocation1Used = false
+		self.PhaseLocation2Used = false
+		self.PhaseLocation3Used = false
+		self.PhaseLocation4Used = false
+		self.CenterRelocationDone = false
 	end
 
 	method void EnsureBossTag()
@@ -182,6 +287,7 @@ script IceRockBoss extends AttackComponent
 
 		self:RefreshDamageLock()
 		self:FaceNearestPlayer()
+		self:UpdatePhaseRelocation()
 
 		if self.IsAttacking then
 			return
@@ -193,7 +299,7 @@ script IceRockBoss extends AttackComponent
 		end
 
 		local now = _UtilLogic.ElapsedSeconds
-		if now - self.LastAttackTime >= self.AttackInterval then
+		if now - self.LastAttackTime >= self:GetCurrentAttackInterval() then
 			self:StartProjectileAttack()
 		end
 	end
@@ -225,11 +331,150 @@ script IceRockBoss extends AttackComponent
 		self.DefeatedMiniBossCount = defeated
 		local wasUnlocked = self.DamageUnlocked
 		self.DamageUnlocked = defeated >= self.RequiredMiniBossCount
+		if self.DamageUnlocked and wasUnlocked == false then
+			self:StartBossFight()
+		end
 
 		if self.DebugLogs and wasUnlocked ~= self.DamageUnlocked then
 			log("IceRockBoss damage lock changed unlocked=" .. tostring(self.DamageUnlocked)
 				.. " defeated=" .. tostring(defeated) .. "/" .. tostring(self.RequiredMiniBossCount)
 				.. " tagged=" .. tostring(total))
+		end
+	end
+
+	method void StartBossFight()
+		if self.BossFightStarted then
+			return
+		end
+
+		self.BossFightStarted = true
+		self:MulticastPlayBossFightBgm()
+		if self.DebugLogs then
+			log("IceRockBoss boss fight started")
+		end
+	end
+
+	method number GetCurrentAttackInterval()
+		if self.BossFightStarted then
+			return math.max(0.1, self.BossFightAttackInterval)
+		end
+
+		return math.max(0.1, self.AttackInterval)
+	end
+
+	method number GetCurrentProjectileSpeed()
+		local speed = math.max(0, self.ProjectileSpeed)
+		if self.BossFightStarted then
+			speed = speed * math.max(0.1, self.BossFightProjectileSpeedMultiplier)
+		end
+
+		return speed
+	end
+
+	method void UpdatePhaseRelocation()
+		if self.EnablePhaseRelocation == false or self.BossFightStarted == false or self.IsBossDead then
+			return
+		end
+
+		local hpPercent = self:GetHpRatio() * 100
+		if self.CenterRelocationDone == false and hpPercent <= self.CenterReturnThresholdPercent then
+			self.CenterRelocationDone = true
+			self:MoveToCenterSpawnLocation()
+			return
+		end
+
+		if self.PhaseRelocationCount >= 4 then
+			return
+		end
+
+		if hpPercent > self.NextPhaseThresholdPercent then
+			return
+		end
+
+		local nextLocation = self:GetRandomUnusedPhaseLocation()
+		if nextLocation ~= nil then
+			self:MoveToPhaseLocation(nextLocation)
+		end
+
+		self.PhaseRelocationCount = self.PhaseRelocationCount + 1
+		self.NextPhaseThresholdPercent = self:GetPhaseThresholdByIndex(self.PhaseRelocationCount + 1)
+	end
+
+	method integer GetPhaseThresholdByIndex(integer index)
+		if index == 1 then
+			return self.PhaseThreshold1Percent
+		elseif index == 2 then
+			return self.PhaseThreshold2Percent
+		elseif index == 3 then
+			return self.PhaseThreshold3Percent
+		elseif index == 4 then
+			return self.PhaseThreshold4Percent
+		end
+
+		return 0
+	end
+
+	method Vector3 GetRandomUnusedPhaseLocation()
+		local choices = {}
+		if self.PhaseLocation1Used == false then
+			table.insert(choices, 1)
+		end
+		if self.PhaseLocation2Used == false then
+			table.insert(choices, 2)
+		end
+		if self.PhaseLocation3Used == false then
+			table.insert(choices, 3)
+		end
+		if self.PhaseLocation4Used == false then
+			table.insert(choices, 4)
+		end
+
+		if #choices <= 0 then
+			return nil
+		end
+
+		local choiceIndex = 1 + math.floor(_UtilLogic:RandomDouble() * #choices)
+		local choice = choices[choiceIndex]
+		if choice == 1 then
+			self.PhaseLocation1Used = true
+			return self.PhaseLocation1
+		elseif choice == 2 then
+			self.PhaseLocation2Used = true
+			return self.PhaseLocation2
+		elseif choice == 3 then
+			self.PhaseLocation3Used = true
+			return self.PhaseLocation3
+		else
+			self.PhaseLocation4Used = true
+			return self.PhaseLocation4
+		end
+	end
+
+	method void MoveToPhaseLocation(Vector3 position)
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) == false then
+			return
+		end
+
+		transform.WorldPosition = position
+		self.ActiveAttackToken = self.ActiveAttackToken + 1
+		self.IsAttacking = false
+		if self.DebugLogs then
+			log("IceRockBoss moved to phase location " .. tostring(self.PhaseRelocationCount + 1))
+		end
+	end
+
+	method void MoveToCenterSpawnLocation()
+		local transform = self.Entity.TransformComponent
+		if isvalid(transform) == false then
+			return
+		end
+
+		transform.WorldPosition = self.CenterSpawnLocation
+		self.ActiveAttackToken = self.ActiveAttackToken + 1
+		self.IsAttacking = false
+		if self.DebugLogs then
+			log("IceRockBoss moved to center spawn location")
 		end
 	end
 
@@ -279,6 +524,8 @@ script IceRockBoss extends AttackComponent
 		if self.ActiveAttackToken ~= token or self.IsBossDead then
 			return
 		end
+
+		self:MulticastPlayProjectileFireSound()
 
 		local transform = self.Entity.TransformComponent
 		if isvalid(transform) == false then
@@ -344,7 +591,7 @@ script IceRockBoss extends AttackComponent
 
 		local needle = projectile:GetComponent("NeedleProjectile")
 		if isvalid(needle) then
-			needle.Speed = self.ProjectileSpeed
+			needle.Speed = self:GetCurrentProjectileSpeed()
 			needle.DirectionX = directionX
 			needle.DirectionY = directionY
 			needle.Lifetime = self.ProjectileLifetime
@@ -393,6 +640,14 @@ script IceRockBoss extends AttackComponent
 		return {Player = nearestPlayer, Distance = minDistance, DeltaY = targetDy}
 	end
 
+	method number GetHpRatio()
+		if self.BossMaxHp <= 0 then
+			return 0
+		end
+
+		return math.max(0, math.min(1, self.BossCurrentHp / self.BossMaxHp))
+	end
+
 	method void SetFaceDirection(number direction)
 		if direction == 0 then
 			return
@@ -404,6 +659,32 @@ script IceRockBoss extends AttackComponent
 				faceLeft = not faceLeft
 			end
 			spriteRenderer.FlipX = not faceLeft
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void KillTaggedMonsters()
+		if self.KillTaggedMonstersOnDeath == false or self.KillOnDeathMonsterTag == nil or self.KillOnDeathMonsterTag == "" then
+			return
+		end
+
+		local monsters = _EntityService:GetEntitiesByTag(self.KillOnDeathMonsterTag)
+		if monsters == nil then
+			return
+		end
+
+		for _, entity in ipairs(monsters) do
+			if isvalid(entity) and entity ~= self.Entity then
+				local monster = entity:GetComponent("Monster")
+				if isvalid(monster) and monster.IsDead == false then
+					monster:Dead()
+				else
+					local boss = entity:GetComponent("BossAI")
+					if isvalid(boss) and boss.IsBossDead == false then
+						boss:KillBoss()
+					end
+				end
+			end
 		end
 	end
 
@@ -435,8 +716,18 @@ script IceRockBoss extends AttackComponent
 			self.IsBossDead = true
 			self.ActiveAttackToken = self.ActiveAttackToken + 1
 			self.IsAttacking = false
-			self.Entity:SetVisible(false)
-			self.Entity:SetEnable(false)
+			self:KillTaggedMonsters()
+			if self.ReturnToSpawnOnDeath then
+				self:MoveToCenterSpawnLocation()
+			end
+
+			_TimerService:SetTimerOnce(function()
+				if isvalid(self.Entity) == false then
+					return
+				end
+				self.Entity:SetVisible(false)
+				self.Entity:SetEnable(false)
+			end, self.DeathHideDelay)
 		end
 	end
 
@@ -474,6 +765,24 @@ script IceRockBoss extends AttackComponent
 				1
 			)
 		end)
+	end
+
+	@ExecSpace("Multicast")
+	method void MulticastPlayBossFightBgm()
+		if self.BossFightBgmRUID == nil or self.BossFightBgmRUID == "" then
+			return
+		end
+
+		_SoundService:PlayBGM(self.BossFightBgmRUID, math.max(0, math.min(1, self.BossFightBgmVolume)))
+	end
+
+	@ExecSpace("Multicast")
+	method void MulticastPlayProjectileFireSound()
+		if self.ProjectileFireSoundRUID == nil or self.ProjectileFireSoundRUID == "" then
+			return
+		end
+
+		_SoundService:PlaySound(self.ProjectileFireSoundRUID, math.max(0, math.min(1, self.ProjectileFireSoundVolume)))
 	end
 
 end

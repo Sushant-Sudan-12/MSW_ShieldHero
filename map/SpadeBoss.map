@@ -3087,7 +3087,7 @@
               "Bgm": true,
               "Loop": true,
               "PlayOnEnable": true,
-              "Volume": 0.5,
+              "Volume": 0.3,
               "Enable": true
             }
           ],
@@ -10447,7 +10447,7 @@
       {
         "id": "8776607c-ca16-46cb-b74c-e35d26dd5fd0",
         "path": "/maps/SpadeBoss/Boss",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.HitComponent,MOD.Core.MovementComponent,MOD.Core.DamageSkinSpawnerComponent,script.BossAI,MOD.Core.TagComponent,script.MonsterSoulReward",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.HitComponent,MOD.Core.MovementComponent,MOD.Core.DamageSkinSpawnerComponent,script.BossAI,MOD.Core.TagComponent,script.MonsterSoulReward,script.BossDefeatUpgradeRewardUI",
         "jsonString": {
           "name": "Boss",
           "path": "/maps/SpadeBoss/Boss",
@@ -10468,7 +10468,7 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -0.384161234,
+                "x": -0.416404963,
                 "y": -2.47500014,
                 "z": 999.999
               },
@@ -10574,6 +10574,28 @@
               "Enable": true,
               "DefeatProgressId": "SpadeBoss",
               "ProgressRecorded": false
+            },
+            {
+              "@type": "script.BossDefeatUpgradeRewardUI",
+              "Enable": true,
+              "VictoryPanel": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "295a1286-eea8-467a-8c88-a4dc1c0b37b9",
+                "Version2": false
+              },
+              "RewardUpgradeUI": {
+                "IsRelative": false,
+                "ComponentId": "a17a2a27-1a96-4d34-beca-8421f74c3d9a:UpgradeUIAbility",
+                "UseNested": false
+              },
+              "VictoryBgmRUID": "1974e263b5644b679b4bee6c1df33692",
+              "VictoryBgmVolume": 0.3,
+              "RewardShownForCurrentDefeat": false,
+              "RewardActive": false,
+              "RewardPending": false,
+              "RewardToken": 0.0,
+              "LastSearchTime": -9999.0
             }
           ],
           "@version": 1
@@ -10863,6 +10885,384 @@
             {
               "@type": "script.SceneTeleportShortcuts",
               "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "d86b1d4f-730b-447a-b5bc-05914cec03b9",
+        "path": "/maps/SpadeBoss/Model_HellFireEnemy_1",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAI,MOD.Core.TagComponent,script.MonsterSoulReward",
+        "jsonString": {
+          "name": "Model_HellFireEnemy_1",
+          "path": "/maps/SpadeBoss/Model_HellFireEnemy_1",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 16,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "9736b5bc-6235-4442-bf36-66b409df3b43",
+            "sub_entity_id": null,
+            "root_entity_id": "38acbb8c-a303-481c-ac03-87ce7b9ba38d",
+            "replaced_model_id": null
+          },
+          "modelId": "9736b5bc-6235-4442-bf36-66b409df3b43",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Position": {
+                "x": 7.1520834,
+                "y": -2.475,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateAnimationComponent",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "RenderSetting": 1,
+              "SortingLayer": "MapLayer0",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.RigidbodyComponent",
+              "MoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "RealMoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.HitComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.DamageSkinSpawnerComponent",
+              "Enable": true
+            },
+            {
+              "@type": "script.Monster",
+              "Enable": true,
+              "MaxHp": 250.0,
+              "RespawnOn": true,
+              "IsDead": false,
+              "RespawnDelay": 4.0,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
+            },
+            {
+              "@type": "script.MonsterAI",
+              "Enable": true,
+              "PatrolIdleDuration": 3.0,
+              "ChaseSpeed": 2.0,
+              "DetectionRangeX": 5.0,
+              "Damage": 25,
+              "AIState": "PATROL_WALK",
+              "SpawnPosition": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "PatrolDirection": 1.0,
+              "PatrolIdleTimer": 0.0,
+              "LastAttackTime": 0.0,
+              "IsAttacking": false,
+              "SpriteSize": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "PositionOffset": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "CurrentActionPlaying": "",
+              "OriginalSpriteRUID": "",
+              "ActiveAttackToken": 0.0
+            },
+            {
+              "@type": "MOD.Core.TagComponent",
+              "Enable": true
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true,
+              "ProgressRecorded": false
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "e0095e9b-2249-40ac-a0d9-fc7fe99fb74b",
+        "path": "/maps/SpadeBoss/Model_HellFireEnemy_2",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAI,MOD.Core.TagComponent,script.MonsterSoulReward",
+        "jsonString": {
+          "name": "Model_HellFireEnemy_2",
+          "path": "/maps/SpadeBoss/Model_HellFireEnemy_2",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 17,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "9736b5bc-6235-4442-bf36-66b409df3b43",
+            "sub_entity_id": null,
+            "root_entity_id": "38acbb8c-a303-481c-ac03-87ce7b9ba38d",
+            "replaced_model_id": null
+          },
+          "modelId": "9736b5bc-6235-4442-bf36-66b409df3b43",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Position": {
+                "x": 0.06734562,
+                "y": -2.475,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateAnimationComponent",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "RenderSetting": 1,
+              "SortingLayer": "MapLayer0",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.RigidbodyComponent",
+              "MoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "RealMoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.HitComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.DamageSkinSpawnerComponent",
+              "Enable": true
+            },
+            {
+              "@type": "script.Monster",
+              "Enable": true,
+              "MaxHp": 250.0,
+              "RespawnOn": true,
+              "IsDead": false,
+              "RespawnDelay": 4.0,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
+            },
+            {
+              "@type": "script.MonsterAI",
+              "Enable": true,
+              "PatrolIdleDuration": 3.0,
+              "ChaseSpeed": 2.0,
+              "DetectionRangeX": 5.0,
+              "Damage": 25,
+              "AIState": "PATROL_WALK",
+              "SpawnPosition": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "PatrolDirection": 1.0,
+              "PatrolIdleTimer": 0.0,
+              "LastAttackTime": 0.0,
+              "IsAttacking": false,
+              "SpriteSize": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "PositionOffset": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "CurrentActionPlaying": "",
+              "OriginalSpriteRUID": "",
+              "ActiveAttackToken": 0.0
+            },
+            {
+              "@type": "MOD.Core.TagComponent",
+              "Enable": true
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true,
+              "ProgressRecorded": false
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "11feab7f-9138-4b50-91da-9cdafbe29c8b",
+        "path": "/maps/SpadeBoss/Model_HellFireEnemy_3",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAI,MOD.Core.TagComponent,script.MonsterSoulReward",
+        "jsonString": {
+          "name": "Model_HellFireEnemy_3",
+          "path": "/maps/SpadeBoss/Model_HellFireEnemy_3",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 18,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "9736b5bc-6235-4442-bf36-66b409df3b43",
+            "sub_entity_id": null,
+            "root_entity_id": "38acbb8c-a303-481c-ac03-87ce7b9ba38d",
+            "replaced_model_id": null
+          },
+          "modelId": "9736b5bc-6235-4442-bf36-66b409df3b43",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Position": {
+                "x": -7.168613,
+                "y": -2.475,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateAnimationComponent",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "RenderSetting": 1,
+              "SortingLayer": "MapLayer0",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.RigidbodyComponent",
+              "MoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "RealMoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.HitComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.DamageSkinSpawnerComponent",
+              "Enable": true
+            },
+            {
+              "@type": "script.Monster",
+              "Enable": true,
+              "MaxHp": 250.0,
+              "RespawnOn": true,
+              "IsDead": false,
+              "RespawnDelay": 4.0,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0
+            },
+            {
+              "@type": "script.MonsterAI",
+              "Enable": true,
+              "PatrolIdleDuration": 3.0,
+              "ChaseSpeed": 2.0,
+              "DetectionRangeX": 5.0,
+              "Damage": 25,
+              "AIState": "PATROL_WALK",
+              "SpawnPosition": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "PatrolDirection": 1.0,
+              "PatrolIdleTimer": 0.0,
+              "LastAttackTime": 0.0,
+              "IsAttacking": false,
+              "SpriteSize": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "PositionOffset": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "CurrentActionPlaying": "",
+              "OriginalSpriteRUID": "",
+              "ActiveAttackToken": 0.0
+            },
+            {
+              "@type": "MOD.Core.TagComponent",
+              "Enable": true
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true,
+              "ProgressRecorded": false
             }
           ],
           "@version": 1

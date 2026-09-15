@@ -1,7 +1,7 @@
 {
   "Id": "",
   "GameId": "",
-  "EntryKey": "model://16d75e9c-8aeb-4117-bd7a-4adc8284d53d",
+  "EntryKey": "model://9736b5bc-6235-4442-bf36-66b409df3b43",
   "ContentType": "x-mod/model",
   "Content": "",
   "Usage": 0,
@@ -14,9 +14,9 @@
     "Use": "Json",
     "Json": {
       "Version": 1,
-      "Name": "Model_Owl",
+      "Name": "Model_HellFireEnemy",
       "BaseModelId": null,
-      "Id": "16d75e9c-8aeb-4117-bd7a-4adc8284d53d",
+      "Id": "9736b5bc-6235-4442-bf36-66b409df3b43",
       "Components": [
         "MOD.Core.TransformComponent",
         "MOD.Core.StateAnimationComponent",
@@ -27,6 +27,7 @@
         "MOD.Core.DamageSkinSpawnerComponent",
         "script.Monster",
         "script.MonsterAI",
+        "MOD.Core.TagComponent",
         "script.MonsterSoulReward"
       ],
       "Properties": [],
@@ -54,9 +55,9 @@
           },
           "Value": {
             "$type": "MOD.Core.MODVector3, MOD.Core",
-            "x": 23.0259075,
-            "y": -3.60500026,
-            "z": 999.999
+            "x": 27.8200836,
+            "y": 7.19499969,
+            "z": 999.998047
           }
         },
         {
@@ -101,11 +102,11 @@
           },
           "Value": {
             "$type": "MOD.Core.MODSyncDictionary`2[[System.String, mscorlib],[System.String, mscorlib]], MOD.Core",
-            "stand": "73fbc0704ed94220a53fa67c16b584ed",
-            "move": "fa362dc8ced6470b80b2c13ac338f596",
-            "attack": "72d52b4243e84cbb897981e05482e411",
-            "hit": "6512b8978c8d421eaff5f64680368bb1",
-            "die": "0497ee4aa58445e8b58153eb4d44e869"
+            "stand": "715e92f63c094e738af4cb0658572416",
+            "move": "abddc0f5b70c4068bb80c9d37d2f01be",
+            "attack": "5b977d4275f74e5380219ed595d033a8",
+            "hit": "2e18cc0f11514ebca75607d66bcd49da",
+            "die": "994c3d529d3d45e0973f6b3f74c26499"
           }
         },
         {
@@ -171,7 +172,7 @@
             "$type": "MODNativeType",
             "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
           },
-          "Value": "fa362dc8ced6470b80b2c13ac338f596"
+          "Value": "abddc0f5b70c4068bb80c9d37d2f01be"
         },
         {
           "TargetType": "MOD.Core.SpriteRendererComponent",
@@ -253,8 +254,8 @@
           },
           "Value": {
             "$type": "MOD.Core.MODVector2, MOD.Core",
-            "x": 0.89,
-            "y": 0.7
+            "x": 1.83,
+            "y": 2.71
           }
         },
         {
@@ -266,8 +267,8 @@
           },
           "Value": {
             "$type": "MOD.Core.MODVector2, MOD.Core",
-            "x": 0.0550000072,
-            "y": 0.539999962
+            "x": 0.11500001,
+            "y": 1.135
           }
         },
         {
@@ -308,15 +309,6 @@
         },
         {
           "TargetType": "script.Monster",
-          "Name": "MaxHp",
-          "ValueType": {
-            "$type": "MODNativeType",
-            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-          },
-          "Value": 300.0
-        },
-        {
-          "TargetType": "script.Monster",
           "Name": "IsDead",
           "ValueType": {
             "$type": "MODNativeType",
@@ -353,16 +345,7 @@
         },
         {
           "TargetType": "script.MonsterAI",
-          "Name": "AttackRange",
-          "ValueType": {
-            "$type": "MODNativeType",
-            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-          },
-          "Value": 0.6
-        },
-        {
-          "TargetType": "script.MonsterAI",
-          "Name": "AttackHitDelay",
+          "Name": "PatrolSpeed",
           "ValueType": {
             "$type": "MODNativeType",
             "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
@@ -371,12 +354,93 @@
         },
         {
           "TargetType": "script.MonsterAI",
+          "Name": "PatrolDistance",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 2.0
+        },
+        {
+          "TargetType": "script.MonsterAI",
+          "Name": "DetectionRangeX",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 3.0
+        },
+        {
+          "TargetType": "script.MonsterAI",
+          "Name": "DetectionRangeY",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 1.0
+        },
+        {
+          "TargetType": "script.MonsterAI",
+          "Name": "LoseAggroDistance",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 5.0
+        },
+        {
+          "TargetType": "script.MonsterAI",
+          "Name": "AttackRange",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 1.5
+        },
+        {
+          "TargetType": "script.MonsterAI",
+          "Name": "AttackInterval",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 2.0
+        },
+        {
+          "TargetType": "script.MonsterAI",
+          "Name": "AttackHitDelay",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 0.8
+        },
+        {
+          "TargetType": "script.MonsterAI",
           "Name": "AttackDuration",
           "ValueType": {
             "$type": "MODNativeType",
             "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
           },
-          "Value": 1.2
+          "Value": 2.0
+        },
+        {
+          "TargetType": "script.MonsterAI",
+          "Name": "AttackSoundRUID",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": "9b2fdbb88e484bceaa1bf3ff3fa8d1dd"
+        },
+        {
+          "TargetType": "script.MonsterAI",
+          "Name": "AttackSoundDelay",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 0.8
         },
         {
           "TargetType": "script.MonsterAI",
@@ -385,7 +449,25 @@
             "$type": "MODNativeType",
             "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
           },
-          "Value": 1.4
+          "Value": 3.0
+        },
+        {
+          "TargetType": "script.MonsterAI",
+          "Name": "AttackBoxHeight",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 1.2
+        },
+        {
+          "TargetType": "script.MonsterAI",
+          "Name": "AttackBoxOffsetX",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 0.0
         },
         {
           "TargetType": "script.MonsterAI",
@@ -394,7 +476,7 @@
             "$type": "MODNativeType",
             "type": "System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
           },
-          "Value": 35
+          "Value": 50
         },
         {
           "TargetType": "script.MonsterAI",
@@ -403,7 +485,7 @@
             "$type": "MODNativeType",
             "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
           },
-          "Value": 3.0
+          "Value": 4.0
         },
         {
           "TargetType": "script.MonsterAI",
@@ -517,6 +599,29 @@
           "Value": 0.0
         },
         {
+          "TargetType": "MOD.Core.TagComponent",
+          "Name": "Tags",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "MOD.Core.MODSyncList`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+          },
+          "Value": {
+            "$type": "MOD.Core.MODSyncList`1[[System.String, mscorlib]], MOD.Core",
+            "$values": [
+              "Monster"
+            ]
+          }
+        },
+        {
+          "TargetType": "MOD.Core.TagComponent",
+          "Name": "Enable",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": true
+        },
+        {
           "TargetType": "script.MonsterSoulReward",
           "Name": "Enable",
           "ValueType": {
@@ -524,6 +629,15 @@
             "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
           },
           "Value": true
+        },
+        {
+          "TargetType": "script.MonsterSoulReward",
+          "Name": "SoulsToGive",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 45.0
         },
         {
           "TargetType": "script.MonsterSoulReward",
@@ -551,87 +665,6 @@
             "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
           },
           "Value": true
-        },
-        {
-          "TargetType": "script.MonsterAI",
-          "Name": "PatrolSpeed",
-          "ValueType": {
-            "$type": "MODNativeType",
-            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-          },
-          "Value": 2.0
-        },
-        {
-          "TargetType": "script.MonsterAI",
-          "Name": "PatrolDistance",
-          "ValueType": {
-            "$type": "MODNativeType",
-            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-          },
-          "Value": 5.0
-        },
-        {
-          "TargetType": "script.MonsterAI",
-          "Name": "ChaseSpeed",
-          "ValueType": {
-            "$type": "MODNativeType",
-            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-          },
-          "Value": 3.0
-        },
-        {
-          "TargetType": "script.MonsterAI",
-          "Name": "DetectionRangeX",
-          "ValueType": {
-            "$type": "MODNativeType",
-            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-          },
-          "Value": 7.0
-        },
-        {
-          "TargetType": "script.MonsterAI",
-          "Name": "LoseAggroDistance",
-          "ValueType": {
-            "$type": "MODNativeType",
-            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-          },
-          "Value": 9.0
-        },
-        {
-          "TargetType": "script.MonsterAI",
-          "Name": "AttackSoundRUID",
-          "ValueType": {
-            "$type": "MODNativeType",
-            "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-          },
-          "Value": "494ee9628fe348d4a3169c1bf6882f34"
-        },
-        {
-          "TargetType": "script.MonsterAI",
-          "Name": "AttackSoundVolume",
-          "ValueType": {
-            "$type": "MODNativeType",
-            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-          },
-          "Value": 0.3
-        },
-        {
-          "TargetType": "script.MonsterAI",
-          "Name": "DetectionRangeY",
-          "ValueType": {
-            "$type": "MODNativeType",
-            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-          },
-          "Value": 0.5
-        },
-        {
-          "TargetType": "script.Monster",
-          "Name": "RespawnDelay",
-          "ValueType": {
-            "$type": "MODNativeType",
-            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-          },
-          "Value": 12.0
         }
       ],
       "EventLinks": [],

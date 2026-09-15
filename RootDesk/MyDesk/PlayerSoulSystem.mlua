@@ -179,6 +179,10 @@ script PlayerSoulSystem extends Component
 			beforeMaxHp = beforePlayerComponent.MaxHp
 			beforeHp = beforePlayerComponent.Hp
 		end
+		local beforeHpRatio = 1
+		if beforeMaxHp > 0 then
+			beforeHpRatio = math.max(0, math.min(1, beforeHp / beforeMaxHp))
+		end
 
 		self.HealthLevel = self.HealthLevel + 1
 
@@ -194,7 +198,7 @@ script PlayerSoulSystem extends Component
 			newMaxHp = 1
 		end
 		playerComponent.MaxHp = newMaxHp
-		playerComponent.Hp = newMaxHp
+		playerComponent.Hp = math.floor(newMaxHp * beforeHpRatio)
 
 		log("PlayerSoulSystem IncreaseHealth: level " .. tostring(beforeLevel) .. " -> " .. tostring(self.HealthLevel)
 			.. " maxHp " .. tostring(beforeMaxHp) .. " -> " .. tostring(playerComponent.MaxHp)
@@ -205,8 +209,12 @@ script PlayerSoulSystem extends Component
 		local beforeLevel = self.StaminaLevel
 		local beforeCurrent = self.CurrentStamina
 		local beforeMax = self:GetMaxStamina()
+		local beforeStaminaRatio = 1
+		if beforeMax > 0 then
+			beforeStaminaRatio = math.max(0, math.min(1, beforeCurrent / beforeMax))
+		end
 		self.StaminaLevel = self.StaminaLevel + 1
-		self.CurrentStamina = self:GetMaxStamina()
+		self.CurrentStamina = self:GetMaxStamina() * beforeStaminaRatio
 		log("PlayerSoulSystem IncreaseStamina: level " .. tostring(beforeLevel) .. " -> " .. tostring(self.StaminaLevel)
 			.. " max " .. tostring(beforeMax) .. " -> " .. tostring(self:GetMaxStamina())
 			.. " current " .. tostring(beforeCurrent) .. " -> " .. tostring(self.CurrentStamina))

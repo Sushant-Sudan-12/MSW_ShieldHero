@@ -158,6 +158,10 @@ script BossAI extends AttackComponent
 	@MinValue(0.0)
 	property number DeathHideDelay = 2.0
 
+	property boolean KillTaggedMonstersOnDeath = true
+
+	property string KillOnDeathMonsterTag = "Monster"
+
 	property boolean DebugLogs = false
 
 	-- === Internal ===
@@ -757,6 +761,32 @@ script BossAI extends AttackComponent
 	end
 
 	@ExecSpace("ServerOnly")
+	method void KillTaggedMonsters()
+		if self.KillTaggedMonstersOnDeath == false or self.KillOnDeathMonsterTag == nil or self.KillOnDeathMonsterTag == "" then
+			return
+		end
+
+		local monsters = _EntityService:GetEntitiesByTag(self.KillOnDeathMonsterTag)
+		if monsters == nil then
+			return
+		end
+
+		for _, entity in ipairs(monsters) do
+			if isvalid(entity) and entity ~= self.Entity then
+				local monster = entity:GetComponent("Monster")
+				if isvalid(monster) and monster.IsDead == false then
+					monster:Dead()
+				else
+					local boss = entity:GetComponent("BossAI")
+					if isvalid(boss) and boss.IsBossDead == false then
+						boss:KillBoss()
+					end
+				end
+			end
+		end
+	end
+
+	@ExecSpace("ServerOnly")
 	method void KillBoss()
 		if self.IsBossDead then
 			return
@@ -770,6 +800,7 @@ script BossAI extends AttackComponent
 		self.CurrentActionPlaying = ""
 		self:PlayAction(self.DieActionName)
 		self:PlayBossSound(self.DeathSoundRUID, self.DeathSoundVolume, self.DeathSoundPitch)
+		self:KillTaggedMonsters()
 
 		_TimerService:SetTimerOnce(function()
 			if isvalid(self.Entity) == false then
