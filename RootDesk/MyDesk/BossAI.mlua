@@ -774,8 +774,11 @@ script BossAI extends AttackComponent
 		for _, entity in ipairs(monsters) do
 			if isvalid(entity) and entity ~= self.Entity then
 				local monster = entity:GetComponent("Monster")
-				if isvalid(monster) and monster.IsDead == false then
-					monster:Dead()
+				if isvalid(monster) then
+					monster:PreventRespawn()
+					if monster.IsDead == false then
+						monster:Dead()
+					end
 				else
 					local boss = entity:GetComponent("BossAI")
 					if isvalid(boss) and boss.IsBossDead == false then

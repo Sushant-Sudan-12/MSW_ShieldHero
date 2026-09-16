@@ -32,6 +32,9 @@ script Monster extends Component
 	@HideFromInspector
 	property number ParryStunRecoverTimerId = 0
 
+	@HideFromInspector
+	property number RespawnToken = 0
+
 	method void OnBeginPlay()
 		self.Hp = self.MaxHp
 	end
@@ -114,6 +117,12 @@ script Monster extends Component
 	end
 
 	@ExecSpace("ServerOnly")
+	method void PreventRespawn()
+		self.RespawnOn = false
+		self.RespawnToken = self.RespawnToken + 1
+	end
+
+	@ExecSpace("ServerOnly")
 	@EventSender("Self")
 	handler HandleHitEvent(HitEvent event)
 		-- Parameters
@@ -133,7 +142,13 @@ script Monster extends Component
 		end
 		
 		self:Dead()
-		local timerFunc = function() self:Respawn() end
+		self.RespawnToken = self.RespawnToken + 1
+		local respawnToken = self.RespawnToken
+		local timerFunc = function()
+			if self.RespawnToken == respawnToken then
+				self:Respawn()
+			end
+		end
 		
 		if self.RespawnOn then
 			_TimerService:SetTimerOnce(timerFunc, self.RespawnDelay)

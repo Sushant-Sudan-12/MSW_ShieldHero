@@ -1,0 +1,33 @@
+{
+  "Id": "",
+  "GameId": "",
+  "EntryKey": "codeblock://fdebf7e0-4b82-4fbc-acfa-b21a752d8058",
+  "ContentType": "x-mod/codeblock",
+  "Content": "",
+  "Usage": 0,
+  "UsePublish": 1,
+  "UseService": 0,
+  "CoreVersion": "26.7.0.0",
+  "StudioVersion": "0.1.0.0",
+  "DynamicLoading": 0,
+  "ContentProto": {
+    "Use": "Json",
+    "Json": {
+      "CoreVersion": {
+        "Major": 0,
+        "Minor": 2
+      },
+      "ScriptVersion": {
+        "Major": 1,
+        "Minor": 1
+      },
+      "Description": "",
+      "Id": "fdebf7e0-4b82-4fbc-acfa-b21a752d8058",
+      "Language": 1,
+      "Name": "PlayerKeyBindings",
+      "Type": 1,
+      "Source": 0,
+      "Target": null
+    }
+  }
+}

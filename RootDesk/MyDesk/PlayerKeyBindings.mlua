@@ -1,0 +1,63 @@
+@Component
+script PlayerKeyBindings extends Component
+
+	property string ShieldThrowKey = "Q"
+
+	property string ShieldParryKey = "Mouse1"
+
+	property string ShieldParryAltKey = "P"
+
+	property string AttackKey = "None"
+
+	property string JumpKey = "None"
+
+	@ExecSpace("ClientOnly")
+	method void OnBeginPlay()
+		self:ApplyAllBindings()
+	end
+
+	method void ApplyAllBindings()
+		local playerController = self.Entity.PlayerControllerComponent
+		if isvalid(playerController) == false then
+			log("PlayerKeyBindings: PlayerControllerComponent missing")
+			return
+		end
+		
+		self:ApplyBinding(playerController, self.ShieldThrowKey, "ShieldThrow")
+		self:ApplyBinding(playerController, self.ShieldParryKey, "SampleParryStart")
+		self:ApplyBinding(playerController, self.AttackKey, "Attack")
+		self:ApplyBinding(playerController, self.JumpKey, "Jump")
+		
+		-- Additive alt key: does not clear the main key already set above.
+		local altKey = self:ResolveKey(self.ShieldParryAltKey)
+		if altKey ~= nil then
+			playerController:SetActionKey(altKey, "SampleParryStart")
+		end
+	end
+
+	method any ResolveKey(string keyName)
+		if keyName == nil or keyName == "" or keyName == "None" then
+			return nil
+		end
+		
+		local key = KeyboardKey.CastFrom(keyName)
+		if key == nil or key == KeyboardKey.None then
+			log("PlayerKeyBindings: unrecognized key name '" .. tostring(keyName) .. "'")
+			return nil
+		end
+		
+		return key
+	end
+
+	method void ApplyBinding(PlayerControllerComponent controller, string keyName, string actionName)
+		local key = self:ResolveKey(keyName)
+		if key == nil then
+			return
+		end
+		
+		controller:RemoveAllActionKeyByActionName(actionName)
+		controller:SetActionKey(key, actionName)
+		log("PlayerKeyBindings bound " .. tostring(actionName) .. " -> " .. tostring(keyName))
+	end
+
+end
