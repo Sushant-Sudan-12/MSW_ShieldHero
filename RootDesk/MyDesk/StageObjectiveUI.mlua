@@ -65,6 +65,13 @@ script StageObjectiveUI extends Component
 
 	property string ClockBossText = "Defeat the Clock Boss"
 
+	property string CustomMapList = ""
+
+	-- === Text Colors ===
+	property Color IncompleteColor = Color(1, 1, 1, 1)
+
+	property Color CompletedColor = Color(0.2, 0.9, 0.2, 1)
+
 	-- === Objective Background Theme Settings ===
 	-- Option 1: Direct RUIDs on Background Renderer / PanelRoot / self.Entity
 	property string MountainObjectiveBgRUID = ""
@@ -98,10 +105,14 @@ script StageObjectiveUI extends Component
 	@HideFromInspector
 	property string LastAppliedTheme = ""
 
+	@HideFromInspector
+	property boolean LastCompletedState = false
+
 	method void OnBeginPlay()
 		self.LastVisibleState = true
 		self.LastRenderedText = ""
 		self.LastAppliedTheme = ""
+		self.LastCompletedState = false
 		self:Refresh()
 	end
 
@@ -145,7 +156,67 @@ script StageObjectiveUI extends Component
 		return count
 	end
 
+	method boolean IsBossDefeated(string tag, string path)
+		if path ~= nil and path ~= "" then
+			local bossEntity = _EntityService:GetEntityByPath(path)
+			if isvalid(bossEntity) then
+				---@type BossAI
+				local bossAI = bossEntity:GetComponent("BossAI")
+				if isvalid(bossAI) and (bossAI.IsBossDead or bossAI.BossCurrentHp <= 0) then
+					return true
+				end
+				---@type IceRockBoss
+				local iceRockBoss = bossEntity:GetComponent("IceRockBoss")
+				if isvalid(iceRockBoss) and (iceRockBoss.IsBossDead or iceRockBoss.BossCurrentHp <= 0) then
+					return true
+				end
+				---@type Monster
+				local monster = bossEntity:GetComponent("Monster")
+				if isvalid(monster) and (monster.IsDead or monster.Hp <= 0) then
+					return true
+				end
+			end
+		end
+
+		if tag ~= nil and tag ~= "" then
+			local entities = _EntityService:GetEntitiesByTag(tag)
+			if entities ~= nil and #entities > 0 then
+				for _, entity in ipairs(entities) do
+					if isvalid(entity) and isvalid(entity:GetComponent("PlayerComponent")) == false then
+						---@type BossAI
+						local bossAI = entity:GetComponent("BossAI")
+						if isvalid(bossAI) and (bossAI.IsBossDead or bossAI.BossCurrentHp <= 0) then
+							return true
+						end
+						---@type IceRockBoss
+						local iceRockBoss = entity:GetComponent("IceRockBoss")
+						if isvalid(iceRockBoss) and (iceRockBoss.IsBossDead or iceRockBoss.BossCurrentHp <= 0) then
+							return true
+						end
+						---@type Monster
+						local monster = entity:GetComponent("Monster")
+						if isvalid(monster) and (monster.IsDead or monster.Hp <= 0) then
+							return true
+						end
+					end
+				end
+			end
+
+			if self:CountDefeatedByTag(tag) > 0 then
+				return true
+			end
+		end
+
+		return false
+	end
+
 	method string GetMapObjectiveText(string mapPath)
+		local player = _UserService.LocalPlayer
+		local text, _, _ = self:GetMapObjectiveInfo(mapPath, player)
+		return text
+	end
+
+	method any GetMapObjectiveInfo(string mapPath, Entity player)
 		local lowerPath = string.lower(mapPath)
 
 		-- 1. Trial of Mountain
@@ -155,62 +226,82 @@ script StageObjectiveUI extends Component
 			local fullText = line1
 
 			local hasSecondary = self.ShowSecondary and (self.SecondaryTag ~= nil and self.SecondaryTag ~= "") and (self.SecondaryRequiredCount ~= nil and self.SecondaryRequiredCount > 0)
+			local secondaryDefeated = 0
 			if hasSecondary then
-				local secondaryDefeated = self:CountDefeatedByTag(self.SecondaryTag)
+				secondaryDefeated = self:CountDefeatedByTag(self.SecondaryTag)
 				local line2 = tostring(self.SecondaryLabel) .. " " .. tostring(secondaryDefeated) .. "/" .. tostring(self.SecondaryRequiredCount)
 				fullText = fullText .. "\n" .. line2
 			end
 
 			local isPrimaryComplete = primaryDefeated >= self.PrimaryRequiredCount
-			local isSecondaryComplete = hasSecondary == false or self:CountDefeatedByTag(self.SecondaryTag) >= self.SecondaryRequiredCount
-			if isPrimaryComplete and isSecondaryComplete and self.CompleteSuffix ~= nil and self.CompleteSuffix ~= "" then
+			local isSecondaryComplete = (hasSecondary == false) or (secondaryDefeated >= self.SecondaryRequiredCount)
+			local isAllComplete = isPrimaryComplete and isSecondaryComplete
+
+			if isAllComplete and self.CompleteSuffix ~= nil and self.CompleteSuffix ~= "" then
 				fullText = fullText .. "\n" .. tostring(self.CompleteSuffix)
 			end
 
-			return fullText
+			return fullText, isAllComplete, false
 		end
 
 		-- 2. SandMap
 		if string.find(lowerPath, "sandmap", 1, true) ~= nil then
-			local player = _UserService.LocalPlayer
 			local soulSystem = isvalid(player) and player:GetComponent("PlayerSoulSystem") or nil
 			local souls = isvalid(soulSystem) and math.floor(soulSystem.TotalSouls) or 0
+			local isCompleted = (souls >= 300)
 			local baseText = self.SandMapText ~= "" and self.SandMapText or "Collect 300 souls and reach the portal"
 			if self.ShowSandMapSoulCount then
-				return baseText .. "\nSouls: " .. tostring(souls) .. "/300"
+				return baseText .. "\nSouls: " .. tostring(souls) .. "/300", isCompleted, false
 			end
-			return baseText
+			return baseText, isCompleted, false
 		end
 
 		-- 3. IceTwins (Climb to the Peak)
 		if string.find(lowerPath, "icetwins", 1, true) ~= nil then
-			return self.IceTwinsText ~= "" and self.IceTwinsText or "Reach the peak"
+			local baseText = self.IceTwinsText ~= "" and self.IceTwinsText or "Reach the peak"
+			return baseText, false, false
 		end
 
 		-- 4. IcePeaks / IceRock (Ice Rock Boss Fight)
 		if string.find(lowerPath, "icepeaks", 1, true) ~= nil or string.find(lowerPath, "icerock", 1, true) ~= nil then
+			local bossDefeated = self:IsBossDefeated(self.IceRockBossTag, nil)
+			if bossDefeated then
+				return "", true, true
+			end
+
 			local miniBossCount = self:CountDefeatedByTag(self.IceRockMiniBossTag)
 			local bossEntity = _EntityService:GetEntityByTag(self.IceRockBossTag)
 			local iceRockBoss = isvalid(bossEntity) and bossEntity:GetComponent("IceRockBoss") or nil
 			local damageUnlocked = (isvalid(iceRockBoss) and iceRockBoss.DamageUnlocked) or miniBossCount >= self.IceRockRequiredMiniBossCount
 
 			if damageUnlocked then
-				return self.IceRockBossText ~= "" and self.IceRockBossText or "Defeat the boss"
+				local bossText = self.IceRockBossText ~= "" and self.IceRockBossText or "Defeat the boss"
+				return bossText, false, false
 			else
 				local preText = self.IceRockPreBossText ~= "" and self.IceRockPreBossText or "Defeat the 4 mini bosses"
 				local bossText = self.IceRockBossText ~= "" and self.IceRockBossText or "Defeat the boss"
-				return preText .. " (" .. tostring(miniBossCount) .. "/" .. tostring(self.IceRockRequiredMiniBossCount) .. ")\n" .. bossText
+				return preText .. " (" .. tostring(miniBossCount) .. "/" .. tostring(self.IceRockRequiredMiniBossCount) .. ")\n" .. bossText, false, false
 			end
 		end
 
 		-- 5. SpadeBoss
 		if string.find(lowerPath, "spadeboss", 1, true) ~= nil then
-			return self.SpadeBossText ~= "" and self.SpadeBossText or "Defeat the Spade Boss"
+			local bossDefeated = self:IsBossDefeated("SpadeBoss", "/maps/SpadeBoss/Boss")
+			if bossDefeated then
+				return "", true, true
+			end
+			local baseText = self.SpadeBossText ~= "" and self.SpadeBossText or "Defeat the Spade Boss"
+			return baseText, false, false
 		end
 
 		-- 6. ClockBoss
 		if string.find(lowerPath, "clockboss", 1, true) ~= nil then
-			return self.ClockBossText ~= "" and self.ClockBossText or "Defeat the Clock Boss"
+			local bossDefeated = self:IsBossDefeated("ClockBoss", nil) or self:IsBossDefeated("Boss", nil)
+			if bossDefeated then
+				return "", true, true
+			end
+			local baseText = self.ClockBossText ~= "" and self.ClockBossText or "Defeat the Clock Boss"
+			return baseText, false, false
 		end
 
 		-- 7. Custom Map List lookup
@@ -218,7 +309,7 @@ script StageObjectiveUI extends Component
 			for entry in string.gmatch(self.CustomMapList, "([^;]+)") do
 				local mapKey, mapGoal = string.match(entry, "^%s*([^:]+)%s*:%s*(.+)%s*$")
 				if mapKey and mapGoal and string.find(lowerPath, string.lower(mapKey), 1, true) ~= nil then
-					return mapGoal
+					return mapGoal, false, false
 				end
 			end
 		end
@@ -226,12 +317,12 @@ script StageObjectiveUI extends Component
 		-- 8. Hub maps (StartingArea, Tower, safezone1)
 		if string.find(lowerPath, "startingarea", 1, true) ~= nil or string.find(lowerPath, "tower", 1, true) ~= nil or string.find(lowerPath, "safezone", 1, true) ~= nil then
 			if self.HideInHubMaps then
-				return ""
+				return "", false, true
 			end
-			return self.HubMapText
+			return self.HubMapText, false, false
 		end
 
-		return ""
+		return "", false, false
 	end
 
 	method void Refresh()
@@ -245,17 +336,20 @@ script StageObjectiveUI extends Component
 		local theme = self:GetCurrentMapTheme(path)
 
 		if self.EnableMultiMapObjectives then
-			local objectiveText = self:GetMapObjectiveText(path)
-			if objectiveText == "" then
+			local objectiveText, isCompleted, hidePanel = self:GetMapObjectiveInfo(path, player)
+			if hidePanel or objectiveText == "" or (self.HideWhenComplete and isCompleted) then
 				self:SetPanelVisible(false)
 				return
 			end
 
 			self:SetPanelVisible(true)
 			self:UpdateBackgroundTheme(theme)
-			if objectiveText ~= self.LastRenderedText then
+
+			local targetColor = isCompleted and self.CompletedColor or self.IncompleteColor
+			if objectiveText ~= self.LastRenderedText or isCompleted ~= self.LastCompletedState then
 				self.LastRenderedText = objectiveText
-				self:WriteText(self.TextTarget, objectiveText)
+				self.LastCompletedState = isCompleted
+				self:WriteText(self.TextTarget, objectiveText, targetColor)
 			end
 			return
 		end
@@ -298,9 +392,11 @@ script StageObjectiveUI extends Component
 			fullText = fullText .. "\n" .. tostring(self.CompleteSuffix)
 		end
 
-		if fullText ~= self.LastRenderedText then
+		local targetColor = isAllComplete and self.CompletedColor or self.IncompleteColor
+		if fullText ~= self.LastRenderedText or isAllComplete ~= self.LastCompletedState then
 			self.LastRenderedText = fullText
-			self:WriteText(self.TextTarget, fullText)
+			self.LastCompletedState = isAllComplete
+			self:WriteText(self.TextTarget, fullText, targetColor)
 		end
 	end
 
@@ -432,7 +528,7 @@ script StageObjectiveUI extends Component
 		end
 	end
 
-	method void WriteText(Entity target, string value)
+	method void WriteText(Entity target, string value, Color fontColor)
 		local resolvedTarget = target
 		if isvalid(resolvedTarget) == false then
 			resolvedTarget = self.Entity
@@ -442,13 +538,17 @@ script StageObjectiveUI extends Component
 			return
 		end
 
+		local colorToApply = fontColor or self.IncompleteColor
+
 		if isvalid(resolvedTarget.TextComponent) then
 			resolvedTarget.TextComponent.Text = value
+			resolvedTarget.TextComponent.FontColor = colorToApply
 			return
 		end
 
 		if isvalid(resolvedTarget.TextGUIRendererComponent) then
 			resolvedTarget.TextGUIRendererComponent.Text = value
+			resolvedTarget.TextGUIRendererComponent.FontColor = colorToApply
 			return
 		end
 
@@ -460,12 +560,14 @@ script StageObjectiveUI extends Component
 		local textChild = resolvedTarget:GetFirstChildComponentByTypeName("TextComponent", true)
 		if isvalid(textChild) then
 			textChild.Text = value
+			textChild.FontColor = colorToApply
 			return
 		end
 
 		local textGuiChild = resolvedTarget:GetFirstChildComponentByTypeName("TextGUIRendererComponent", true)
 		if isvalid(textGuiChild) then
 			textGuiChild.Text = value
+			textGuiChild.FontColor = colorToApply
 			return
 		end
 

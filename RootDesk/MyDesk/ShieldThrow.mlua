@@ -182,6 +182,16 @@ script ShieldThrow extends Component
 			return
 		end
 
+		local projAttack = spawned:GetComponent("ProjectileAttack")
+		if isvalid(projAttack) then
+			projAttack.OwnerEntity = self.Entity
+		end
+
+		local playerComponent = self.Entity:GetComponent("PlayerComponent")
+		if isvalid(playerComponent) and playerComponent.UserId ~= nil and playerComponent.UserId ~= "" then
+			pcall(function() spawned.OwnerId = playerComponent.UserId end)
+		end
+
 		self.ActiveProjectile = spawned
 		spawned.Enable = true
 		spawned.TransformComponent.WorldPosition = startPosition

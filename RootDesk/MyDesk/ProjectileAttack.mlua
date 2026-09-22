@@ -13,6 +13,9 @@ script ProjectileAttack extends AttackComponent
     @HideFromInspector
     property number LastHitTime = -9999
 
+    @HideFromInspector
+    property Entity OwnerEntity = nil
+
     @ExecSpace("ServerOnly")
     method void OnBeginPlay()
         self.Shape = BoxShape(Vector2.zero, Vector2(0.6, 0.6), 0)
@@ -60,7 +63,20 @@ script ProjectileAttack extends AttackComponent
                 return 0
             end
         end
-        return self.Damage
+
+        local damage = self.Damage
+        if isvalid(self.OwnerEntity) then
+            local soulSystem = self.OwnerEntity:GetComponent("PlayerSoulSystem")
+            if isvalid(soulSystem) then
+                damage = math.floor(damage * soulSystem:GetAttackMultiplier())
+            end
+        end
+
+        if damage < 1 then
+            damage = 1
+        end
+
+        return damage
     end
 
 end

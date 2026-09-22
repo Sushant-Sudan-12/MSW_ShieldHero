@@ -40163,7 +40163,7 @@
               "Bgm": true,
               "Loop": true,
               "PlayOnEnable": true,
-              "Volume": 0.69,
+              "Volume": 0.3,
               "Enable": true
             }
           ],

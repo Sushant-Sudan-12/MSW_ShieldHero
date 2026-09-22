@@ -126,6 +126,11 @@ script Monster extends Component
 		if stateComponent then
 			stateComponent:ChangeState("IDLE")
 		end
+
+		local soulReward = self.Entity:GetComponent("MonsterSoulReward")
+		if isvalid(soulReward) then
+			soulReward.ProgressRecorded = false
+		end
 	end
 
 	@ExecSpace("ServerOnly")
@@ -154,6 +159,11 @@ script Monster extends Component
 		local stateComponent = self.Entity.StateComponent
 		if isvalid(stateComponent) then
 			stateComponent:ChangeState("IDLE")
+		end
+
+		local soulReward = self.Entity:GetComponent("MonsterSoulReward")
+		if isvalid(soulReward) then
+			soulReward.ProgressRecorded = false
 		end
 	end
 

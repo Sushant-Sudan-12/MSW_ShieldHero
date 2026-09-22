@@ -10,11 +10,24 @@ script MonsterSoulReward extends Component
 	property boolean ProgressRecorded = false
 
 	method Entity FindSoulOwner(Entity attacker)
+		if isvalid(attacker) == false then
+			return nil
+		end
+
 		local current = attacker
 		while isvalid(current) do
 			if isvalid(current:GetComponent("PlayerSoulSystem")) then
 				return current
 			end
+
+			local projAttack = current:GetComponent("ProjectileAttack")
+			if isvalid(projAttack) and isvalid(projAttack.OwnerEntity) then
+				local owner = projAttack.OwnerEntity
+				if isvalid(owner) and isvalid(owner:GetComponent("PlayerSoulSystem")) then
+					return owner
+				end
+			end
+
 			current = current.Parent
 		end
 
@@ -60,7 +73,7 @@ script MonsterSoulReward extends Component
 			return
 		end
 
-		if monsterComponent.Hp > 0 then
+		if monsterComponent.Hp > 0 and (monsterComponent.Hp - event.TotalDamage) > 0 then
 			return
 		end
 

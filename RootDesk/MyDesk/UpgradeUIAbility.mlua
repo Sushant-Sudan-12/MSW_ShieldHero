@@ -68,8 +68,9 @@ script UpgradeUIAbility extends Component
 
     @ExecSpace("ClientOnly")
     method void OnUpdate(number delta)
+        self:UpdateUpgradeTexts()
+
         if self.IsOpen then
-            self:UpdateUpgradeTexts()
             self:TryCompletePendingUpgrade()
         end
     end
@@ -380,28 +381,29 @@ script UpgradeUIAbility extends Component
     end
 
     method void UpdateUpgradeTexts()
+        local rebinded = false
         if self:HasMissingTextTargets() then
             self:BindDefaultLevelTextTargets()
+            rebinded = true
         end
 
         local soulSystem = self:GetPlayerSoulSystem()
         if isvalid(soulSystem) == false then
-            log("UpgradeUIAbility UpdateUpgradeTexts: soulSystem invalid")
             return
         end
 
         local h = math.floor(soulSystem.HealthLevel)
         local s = math.floor(soulSystem.StaminaLevel)
         local a = math.floor(soulSystem.AttackLevel)
-        if h ~= self.LastLoggedHealthLevel or s ~= self.LastLoggedStaminaLevel or a ~= self.LastLoggedAttackLevel then
+        if rebinded or h ~= self.LastLoggedHealthLevel or s ~= self.LastLoggedStaminaLevel or a ~= self.LastLoggedAttackLevel then
             self.LastLoggedHealthLevel = h
             self.LastLoggedStaminaLevel = s
             self.LastLoggedAttackLevel = a
-        end
 
-        self:WriteLevelText(self.healthLevelTextTarget, soulSystem.HealthLevel)
-        self:WriteLevelText(self.staminaLevelTextTarget, soulSystem.StaminaLevel)
-        self:WriteLevelText(self.attackLevelTextTarget, soulSystem.AttackLevel)
+            self:WriteLevelText(self.healthLevelTextTarget, soulSystem.HealthLevel)
+            self:WriteLevelText(self.staminaLevelTextTarget, soulSystem.StaminaLevel)
+            self:WriteLevelText(self.attackLevelTextTarget, soulSystem.AttackLevel)
+        end
     end
 
     method void WriteLevelText(Entity textTarget, number value)

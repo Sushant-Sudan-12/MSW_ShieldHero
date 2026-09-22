@@ -277,7 +277,10 @@
                 "Version2": false
               },
               "LastLoggedHealthText": "",
-              "LastLoggedStaminaText": ""
+              "LastLoggedStaminaText": "",
+              "LastLoggedHealthLevel": "",
+              "LastLoggedStaminaLevel": "",
+              "LastLoggedAttackLevel": ""
             }
           ],
           "@version": 1
@@ -2748,32 +2751,13 @@
             {
               "@type": "script.StageObjectiveUI",
               "Enable": true,
-              "PanelRoot": {
-                "tempEntityId": null,
-                "IsRelative": false,
-                "EntityId": "3347e76f-49c6-4f06-95c0-76d154062ce4",
-                "Version2": false
-              },
-              "TextTarget": {
-                "tempEntityId": null,
-                "IsRelative": false,
-                "EntityId": "dac87124-7e86-42f8-a130-3b95926e6128",
-                "Version2": false
-              },
-              "SandMapText": "Collect atleast 300 souls",
-              "ShowSandMapSoulCount": false,
               "MountainObjectiveBgRUID": "e75db3b5e0f34d0c96bbc9646b8de2ff",
               "SandMapObjectiveBgRUID": "023c3274e9a1489fb8dde29455e11350",
               "IceMapObjectiveBgRUID": "3c02512821e04825a1bb2e4e9001afe0",
-              "BackgroundRendererEntity": {
-                "tempEntityId": null,
-                "IsRelative": false,
-                "EntityId": "3347e76f-49c6-4f06-95c0-76d154062ce4",
-                "Version2": false
-              },
               "LastVisibleState": true,
               "LastRenderedText": "",
-              "LastAppliedTheme": ""
+              "LastAppliedTheme": "",
+              "LastCompletedState": false
             }
           ],
           "@version": 1
