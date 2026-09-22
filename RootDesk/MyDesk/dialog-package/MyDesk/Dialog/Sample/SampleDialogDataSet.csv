@@ -5,11 +5,11 @@ Alighieri,T_6,17ef4e993b3c445597f72aab8abc7d35,Alighieri,"Once you enter it you 
 Trader,T_8,bddcc9c4e33f438fba70b22d8feef09a,Trader,"Caw caw! Come, come! My store is here, hope you find things that will be of great use to you adventurer.",What do you have ,T_9
 Trader,T_9,bddcc9c4e33f438fba70b22d8feef09a,Trader,"“Caw caw! …Don’t stare at me like that. I know what you’re thinking. No, I wasn’t always a crow.”",I just asked what you have here?,T_10
 Trader,T_10,bddcc9c4e33f438fba70b22d8feef09a,Trader,"“Caw caw! I was a trader once, you know. Then some blasted magical accident went wrong, and—well… feathers, beak, wings. The whole miserable package. Caw caw.”",Never mind I will see myself,T_14
-Lady Maria,T_11,5ba0403847a14322b0a656f442e676bd,Lady Maria,"Oh, wonderful. Another fool who thinks they’re strong enough to enter the tower. Don’t look so pleased with yourself—I haven’t decided if you’re worth my time yet.",what is Challenge | I Don't have time for this  ,T_12|T_16
+Lady Maria,T_11,5ba0403847a14322b0a656f442e676bd,Lady Maria,"Oh, wonderful. Another fool who thinks they’re strong enough to enter the tower. Don’t look so pleased with yourself—I haven’t decided if you’re worth my time yet.",What Challenge | I Don't have time for this  ,T_12|T_16
 Lady Maria,T_12,5ba0403847a14322b0a656f442e676bd,Lady Maria,for challengers to test themself before risking their life a My father  created a challenge,,T_15
 Worthy,T_13,,,Finish the Trial of Mountain while killing atleast 10 enemies only then can you enter the Tower of Worthy,,
 Trader,T_14,bddcc9c4e33f438fba70b22d8feef09a,,So long then,,
-Lady Maria,T_15,5ba0403847a14322b0a656f442e676bd,Lady Maria,"If you’re so determined , enter my father’s Challenge , prove you’re not completely useless. There’s a little trial ahead. kill atleast 10 enemies Finish it, and… maybe I’ll admit you have some potential.”",10 Enemies?,T_16
+Lady Maria,T_15,5ba0403847a14322b0a656f442e676bd,Lady Maria,"If you’re so determined , enter my father’s Challenge , prove you’re not completely useless. There’s a little trial ahead. Finish it, and… maybe I’ll admit you have some potential.”",10 Enemies?,T_16
 Lady Maria,T_16,5ba0403847a14322b0a656f442e676bd,Lady Maria,What happened? Lost your courage already?,,
 Eagle,T_17,ee45a6966c314a95891abbed4557e156,Eagle,Hey help out a brother will ya ,And who is this brother if i may ask,T_18
 Eagle,T_18,ee45a6966c314a95891abbed4557e156,Eagle,"just one of the fellow raiders ya see , but wait i will tell you how you can get rid of those pesty icebods ",Ok then spill the beans ,T_19
@@ -22,4 +22,6 @@ Eagle ,T_22,ee45a6966c314a95891abbed4557e156,Eagle,"wait, another thing can you 
 =======,,,,,,
 Lady Maria,T_31,5ba0403847a14322b0a656f442e676bd,Lady Maria,,,T_12
 >>>>>>> Stashed changes,,,,,,
-,,,,,,
+Eagle2,T_32,ee45a6966c314a95891abbed4557e156,Eagle,"I hear no voice, did you defeat it?",Yes,T_33
+Eagle2,T_33,ee45a6966c314a95891abbed4557e156,Eagle,"Saves my energy for the dark lord waiting at the top, anyways before you leave tighten my rope",,
+Lady Maria1,T_34,5ba0403847a14322b0a656f442e676bd,Lady Maria,"You seem to have somehow finish the trial, lets see if you can survive the Tower.",,

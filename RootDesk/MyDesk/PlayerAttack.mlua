@@ -48,6 +48,13 @@ script PlayerAttack extends AttackComponent
 	end
 
 	method integer CalcDamage(Entity attacker, Entity defender, string attackInfo)
+		if isvalid(defender) then
+			local iceRockBoss = defender:GetComponent("IceRockBoss")
+			if isvalid(iceRockBoss) and iceRockBoss.DamageUnlocked == false then
+				return 0
+			end
+		end
+
 		local soulSystem = self.Entity:GetComponent("PlayerSoulSystem")
 		if isvalid(soulSystem) == false then
 			return self.BaseDamage
@@ -61,6 +68,12 @@ script PlayerAttack extends AttackComponent
 	end
 
 	method boolean CalcCritical(Entity attacker, Entity defender, string attackInfo)
+		if isvalid(defender) then
+			local iceRockBoss = defender:GetComponent("IceRockBoss")
+			if isvalid(iceRockBoss) and iceRockBoss.DamageUnlocked == false then
+				return false
+			end
+		end
 		return _UtilLogic:RandomDouble() < 0.3
 	end
 

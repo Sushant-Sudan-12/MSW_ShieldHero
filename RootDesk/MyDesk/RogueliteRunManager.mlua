@@ -78,8 +78,19 @@ script RogueliteRunManager extends Component
 	@Sync
 	property integer PermanentParryWindowLevel = 1
 
+	-- === Hub Map Auto-Banking Settings ===
+	property string HubMapNames = "StartingArea,Tower"
+
+	property boolean AutoBankOnHubReturn = true
+
 	@HideFromInspector
 	property boolean WasDead = false
+
+	@HideFromInspector
+	property boolean WasInHub = true
+
+	@HideFromInspector
+	property string LastKnownMapPath = ""
 
 	method void OnBeginPlay()
 		-- Client: register I key for soul bank print
@@ -92,6 +103,10 @@ script RogueliteRunManager extends Component
 			log("RogueliteRunManager ready on " .. tostring(self.Entity.Name))
 		end
 
+		local initialPath = string.lower(tostring(self.Entity.Path))
+		self.WasInHub = self:IsMapPathHub(initialPath)
+		self.LastKnownMapPath = initialPath
+
 		-- Load persisted bank balance into synced property
 		local playerComponent = self.Entity:GetComponent("PlayerComponent")
 		if isvalid(playerComponent) then
@@ -103,6 +118,16 @@ script RogueliteRunManager extends Component
 				self:LoadPersistentFlags(uid)
 			end
 		end
+
+		-- Check if spawned into hub with unbanked souls (e.g. map teleport/return)
+		_TimerService:SetTimerOnce(function()
+			if isvalid(self.Entity) and self.AutoBankOnHubReturn then
+				local pc = self.Entity:GetComponent("PlayerComponent")
+				if isvalid(pc) and self:IsMapPathHub(string.lower(tostring(self.Entity.Path))) then
+					self:BankRunSoulsAndNotify(self.Entity, pc)
+				end
+			end
+		end, 0.6)
 
 		-- Diagnostic only: this used to force-reset here, but OnBeginPlay re-fires on any
 		-- teleport/map-load (not just a real death respawn), which was wiping live run
@@ -228,6 +253,96 @@ script RogueliteRunManager extends Component
 		elseif isDead == false and self.WasDead then
 			self.WasDead = false
 		end
+
+		-- Check map transitions and auto-bank souls when returning alive to hub
+		if isDead == false and self.AutoBankOnHubReturn then
+			self:CheckHubReturnAutoBank(self.Entity, playerComponent)
+		end
+	end
+
+	method boolean IsMapPathHub(string mapPath)
+		if mapPath == nil or mapPath == "" then
+			return false
+		end
+		local lowerPath = string.lower(mapPath)
+		if self.HubMapNames ~= nil and self.HubMapNames ~= "" then
+			for hubName in string.gmatch(self.HubMapNames, "([^,]+)") do
+				local trimmed = string.match(hubName, "^%s*(.-)%s*$")
+				if trimmed ~= "" and string.find(lowerPath, string.lower(trimmed), 1, true) ~= nil then
+					return true
+				end
+			end
+		end
+		return false
+	end
+
+	@ExecSpace("ServerOnly")
+	method void CheckHubReturnAutoBank(Entity player, any playerComponent)
+		local currentPath = string.lower(tostring(player.Path))
+		local isInHub = self:IsMapPathHub(currentPath)
+
+		if isInHub and self.WasInHub == false then
+			self.WasInHub = true
+			self:BankRunSoulsAndNotify(player, playerComponent)
+		elseif isInHub == false and self.WasInHub then
+			self.WasInHub = false
+		end
+
+		self.LastKnownMapPath = currentPath
+	end
+
+	@ExecSpace("ServerOnly")
+	method void BankRunSoulsAndNotify(Entity player, any playerComponent)
+		local soulSystem = player:GetComponent("PlayerSoulSystem")
+		if isvalid(soulSystem) == false then
+			return
+		end
+
+		local soulsToBank = math.floor(soulSystem.TotalSouls)
+		if soulsToBank > 0 then
+			self:DepositToSoulBank(playerComponent.UserId, soulsToBank)
+			soulSystem.TotalSouls = 0
+			self:ShowSoulGainNotification(soulsToBank)
+			log("RogueliteRunManager: Auto-banked " .. tostring(soulsToBank) .. " souls on returning to hub for " .. tostring(playerComponent.UserId))
+		end
+	end
+
+	@ExecSpace("Client")
+	method void ShowSoulGainNotification(number amount)
+		if amount == nil or amount <= 0 then
+			return
+		end
+
+		local textMsg = "+" .. tostring(math.floor(amount)) .. " Soul Fragments"
+
+		-- 1. Global toast
+		pcall(function()
+			if _UIToast ~= nil and _UIToast.ShowMessage ~= nil then
+				_UIToast:ShowMessage(textMsg)
+			end
+		end)
+
+		-- 2. Popup components on local player or tagged entities
+		pcall(function()
+			local popup = self.Entity:GetComponent("UISoulGainPopup")
+			if isvalid(popup) then
+				popup:ShowSoulGain(amount)
+			end
+		end)
+
+		pcall(function()
+			local popups = _EntityService:GetEntitiesByTag("SoulGainPopup")
+			if popups ~= nil then
+				for _, popupEntity in ipairs(popups) do
+					if isvalid(popupEntity) then
+						local popup = popupEntity:GetComponent("UISoulGainPopup")
+						if isvalid(popup) then
+							popup:ShowSoulGain(amount)
+						end
+					end
+				end
+			end
+		end)
 	end
 
 	@ExecSpace("ServerOnly")

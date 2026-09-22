@@ -1,0 +1,485 @@
+@Component
+script TrialGateInteraction extends Component
+
+	property InteractionComponent Interaction = nil
+
+	property PortalComponent Portal = nil
+
+	property Entity PortalGateEntity = nil
+
+	property string PortalGateTag = "PortalGate"
+
+	-- === Trial Requirements ===
+	property string RequiredMonsterTag = "TrialOfMountainMonster"
+
+	@MinValue(1)
+	property integer RequiredDefeatedCount = 25
+
+	property string SecondaryMonsterTag = "TreeBoss"
+
+	@MinValue(0)
+	property integer SecondaryRequiredDefeatedCount = 1
+
+	property string RequiredProgressId = ""
+
+	property string SecondaryRequiredProgressId = ""
+
+	-- === Interaction Prompts ===
+	property string PreTrialText = "TAKE THE TRIAL"
+
+	property string PostTrialText = "TRIAL COMPLETED: TRY AGAIN"
+
+	-- === NPC Swapping Settings ===
+	property boolean EnableNPCSwap = true
+
+	property Entity PreTrialNPCEntity = nil
+
+	property Entity PostTrialNPCEntity = nil
+
+	property string PreTrialNPCTag = "PreTrialNPC"
+
+	property string PostTrialNPCTag = "PostTrialNPC"
+
+	property string PreTrialNPCName = "PreTrialNPC"
+
+	property string PostTrialNPCName = "PostTrialNPC"
+
+	property string PreTrialNPCPath = ""
+
+	property string PostTrialNPCPath = ""
+
+	-- === Persistence & Reset Settings ===
+	property boolean PersistCompletionAcrossRuns = true
+
+	property string PersistentStorageName = "RogueliteTrialProgress"
+
+	property string PersistentCompletionKey = "TrialCompleted:TrialOfMountain"
+
+	property boolean ResetPersistentCompletion = false
+
+	property boolean DebugLogs = false
+
+	@Sync
+	property boolean IsTrialCompleted = false
+
+	@Sync
+	property string CurrentInteractionText = "TAKE THE TRIAL"
+
+	@HideFromInspector
+	property boolean InteractionBound = false
+
+	@HideFromInspector
+	property number LastCheckTime = 0
+
+	@HideFromInspector
+	property boolean PersistentLoaded = false
+
+	@HideFromInspector
+	property boolean PersistentStored = false
+
+	@ExecSpace("ServerOnly")
+	method void OnBeginPlay()
+		self:ResolveComponents()
+		self:LoadPersistentCompletionState()
+		self:CheckTrialStatus()
+		self:ApplyInteractionState()
+		self:MulticastApplyNPCStates(self.IsTrialCompleted)
+
+		_TimerService:SetTimerOnce(function()
+			if isvalid(self.Entity) then
+				self:MulticastApplyNPCStates(self.IsTrialCompleted)
+			end
+		end, 0.3)
+	end
+
+	@ExecSpace("ServerOnly")
+	method void OnUpdate(number delta)
+		if self.ResetPersistentCompletion then
+			self.ResetPersistentCompletion = false
+			self:ResetTrialCompletion()
+			return
+		end
+
+		if self.PersistCompletionAcrossRuns and self.PersistentLoaded == false then
+			self:LoadPersistentCompletionState()
+			return
+		end
+
+		local now = _UtilLogic.ElapsedSeconds
+		if now - self.LastCheckTime >= 0.5 then
+			self.LastCheckTime = now
+
+			local wasCompleted = self.IsTrialCompleted
+			self:CheckTrialStatus()
+			self:ApplyInteractionState()
+
+			if self.IsTrialCompleted and wasCompleted == false then
+				if self.PersistCompletionAcrossRuns then
+					self:SavePersistentCompletion()
+				end
+				self:MulticastApplyNPCStates(true)
+			end
+		end
+	end
+
+	method void ResolveComponents()
+		if isvalid(self.Interaction) == false then
+			self.Interaction = self.Entity.InteractionComponent
+			if isvalid(self.Interaction) == false then
+				self.Interaction = self.Entity:GetFirstChildComponentByTypeName("InteractionComponent", true)
+			end
+		end
+
+		if isvalid(self.Portal) == false then
+			self.Portal = self.Entity.PortalComponent
+			if isvalid(self.Portal) == false then
+				self.Portal = self.Entity:GetFirstChildComponentByTypeName("PortalComponent", true)
+			end
+		end
+
+		if isvalid(self.PortalGateEntity) == false then
+			local byTag = _EntityService:GetEntityByTag(self.PortalGateTag)
+			if isvalid(byTag) then
+				self.PortalGateEntity = byTag
+			end
+		end
+	end
+
+	method void CheckTrialStatus()
+		-- 1. If persistent storage says completed, keep it completed
+		if self.PersistentStored then
+			self.IsTrialCompleted = true
+			return
+		end
+
+		-- 2. Check direct RoguelitePortalGate if linked
+		if isvalid(self.PortalGateEntity) then
+			local gate = self.PortalGateEntity:GetComponent("RoguelitePortalGate")
+			if isvalid(gate) and gate.IsUnlocked then
+				self.IsTrialCompleted = true
+				return
+			end
+		end
+
+		-- 3. Check scene RoguelitePortalGate instances
+		local gates = _EntityService:GetEntitiesByTag(self.PortalGateTag)
+		if gates ~= nil then
+			for _, gateEntity in ipairs(gates) do
+				if isvalid(gateEntity) then
+					local gateComp = gateEntity:GetComponent("RoguelitePortalGate")
+					if isvalid(gateComp) and gateComp.IsUnlocked then
+						self.IsTrialCompleted = true
+						return
+					end
+				end
+			end
+		end
+
+		-- 4. Check player run manager progress
+		local users = _UserService.UserEntities
+		if users ~= nil then
+			for _, player in pairs(users) do
+				if isvalid(player) then
+					local runManager = player:GetComponent("RogueliteRunManager")
+					if isvalid(runManager) then
+						local primaryMet = false
+						local progId = self.RequiredProgressId ~= "" and self.RequiredProgressId or self.RequiredMonsterTag
+						if progId ~= "" and runManager:GetDefeatProgress(progId) >= self.RequiredDefeatedCount then
+							primaryMet = true
+						end
+
+						local secondaryMet = true
+						local secProgId = self.SecondaryRequiredProgressId ~= "" and self.SecondaryRequiredProgressId or self.SecondaryMonsterTag
+						if (secProgId ~= "") and (self.SecondaryRequiredDefeatedCount > 0) then
+							secondaryMet = runManager:GetDefeatProgress(secProgId) >= self.SecondaryRequiredDefeatedCount
+						end
+
+						if primaryMet and secondaryMet then
+							self.IsTrialCompleted = true
+							return
+						end
+					end
+				end
+			end
+		end
+
+		-- 5. Check live defeated monsters in scene if present
+		local primaryDefeated = self:CountDefeatedByTag(self.RequiredMonsterTag)
+		local secDefeated = (self.SecondaryMonsterTag ~= "" and self.SecondaryRequiredDefeatedCount > 0)
+			and self:CountDefeatedByTag(self.SecondaryMonsterTag) or 0
+
+		local livePrimaryMet = (self.RequiredMonsterTag ~= "") and (primaryDefeated >= self.RequiredDefeatedCount)
+		local liveSecMet = (self.SecondaryMonsterTag == "" or self.SecondaryRequiredDefeatedCount <= 0) or (secDefeated >= self.SecondaryRequiredDefeatedCount)
+
+		if livePrimaryMet and liveSecMet then
+			self.IsTrialCompleted = true
+			return
+		end
+	end
+
+	method integer CountDefeatedByTag(string tag)
+		if tag == nil or tag == "" then
+			return 0
+		end
+
+		local entities = _EntityService:GetEntitiesByTag(tag)
+		if entities == nil then
+			return 0
+		end
+
+		local count = 0
+		for _, entity in ipairs(entities) do
+			if isvalid(entity) and isvalid(entity:GetComponent("PlayerComponent")) == false then
+				local monster = entity:GetComponent("Monster")
+				if isvalid(monster) and (monster.IsDead or monster.Hp <= 0) then
+					count = count + 1
+				else
+					local boss = entity:GetComponent("BossAI")
+					if isvalid(boss) and (boss.IsBossDead or boss.BossCurrentHp <= 0) then
+						count = count + 1
+					else
+						local iceRock = entity:GetComponent("IceRockBoss")
+						if isvalid(iceRock) and (iceRock.IsBossDead or iceRock.BossCurrentHp <= 0) then
+							count = count + 1
+						end
+					end
+				end
+			end
+		end
+
+		return count
+	end
+
+	method void ApplyInteractionState()
+		local textToDisplay = self.IsTrialCompleted and self.PostTrialText or self.PreTrialText
+		self.CurrentInteractionText = textToDisplay
+
+		if isvalid(self.Interaction) then
+			self.Interaction.ActionName = textToDisplay
+			self.Interaction.ShowActionInfo = true
+		end
+
+		-- Portal is always kept accessible before and after trial
+		if isvalid(self.Portal) then
+			self.Portal.Enable = true
+		end
+
+		self:WriteTextToChild(textToDisplay)
+
+		if self.DebugLogs then
+			log("TrialGateInteraction: text='" .. textToDisplay .. "' completed=" .. tostring(self.IsTrialCompleted))
+		end
+	end
+
+	method void WriteTextToChild(string value)
+		local textComp = self.Entity:GetComponent("TextComponent")
+		if isvalid(textComp) then
+			textComp.Text = value
+			return
+		end
+
+		local textGui = self.Entity:GetComponent("TextGUIRendererComponent")
+		if isvalid(textGui) then
+			textGui.Text = value
+			return
+		end
+
+		local childText = self.Entity:GetFirstChildComponentByTypeName("TextComponent", true)
+		if isvalid(childText) then
+			childText.Text = value
+			return
+		end
+
+		local childTextGui = self.Entity:GetFirstChildComponentByTypeName("TextGUIRendererComponent", true)
+		if isvalid(childTextGui) then
+			childTextGui.Text = value
+			return
+		end
+	end
+
+	-- === NPC Swapping Implementation ===
+
+	method Entity ResolvePreTrialNPC()
+		if isvalid(self.PreTrialNPCEntity) then
+			return self.PreTrialNPCEntity
+		end
+
+		if self.PreTrialNPCPath ~= nil and self.PreTrialNPCPath ~= "" then
+			local byPath = _EntityService:GetEntityByPath(self.PreTrialNPCPath)
+			if isvalid(byPath) then
+				return byPath
+			end
+		end
+
+		if self.PreTrialNPCTag ~= nil and self.PreTrialNPCTag ~= "" then
+			local byTag = _EntityService:GetEntityByTag(self.PreTrialNPCTag)
+			if isvalid(byTag) then
+				return byTag
+			end
+		end
+
+		if self.PreTrialNPCName ~= nil and self.PreTrialNPCName ~= "" then
+			local byName = _EntityService:GetEntityByName(self.PreTrialNPCName)
+			if isvalid(byName) then
+				return byName
+			end
+		end
+
+		return nil
+	end
+
+	method Entity ResolvePostTrialNPC()
+		if isvalid(self.PostTrialNPCEntity) then
+			return self.PostTrialNPCEntity
+		end
+
+		if self.PostTrialNPCPath ~= nil and self.PostTrialNPCPath ~= "" then
+			local byPath = _EntityService:GetEntityByPath(self.PostTrialNPCPath)
+			if isvalid(byPath) then
+				return byPath
+			end
+		end
+
+		if self.PostTrialNPCTag ~= nil and self.PostTrialNPCTag ~= "" then
+			local byTag = _EntityService:GetEntityByTag(self.PostTrialNPCTag)
+			if isvalid(byTag) then
+				return byTag
+			end
+		end
+
+		if self.PostTrialNPCName ~= nil and self.PostTrialNPCName ~= "" then
+			local byName = _EntityService:GetEntityByName(self.PostTrialNPCName)
+			if isvalid(byName) then
+				return byName
+			end
+		end
+
+		return nil
+	end
+
+	@ExecSpace("Multicast")
+	method void MulticastApplyNPCStates(boolean completed)
+		self:ApplyNPCStates(completed)
+	end
+
+	method void ApplyNPCStates(boolean completed)
+		if self.EnableNPCSwap == false then
+			return
+		end
+
+		local preNPC = self:ResolvePreTrialNPC()
+		local postNPC = self:ResolvePostTrialNPC()
+
+		if completed == false then
+			if isvalid(preNPC) then
+				preNPC.Enable = true
+				preNPC:SetVisible(true)
+				preNPC:SetEnable(true)
+			end
+
+			if isvalid(postNPC) then
+				postNPC.Enable = false
+				postNPC:SetVisible(false)
+				postNPC:SetEnable(false)
+			end
+		else
+			if isvalid(preNPC) then
+				preNPC.Enable = false
+				preNPC:SetVisible(false)
+				preNPC:SetEnable(false)
+			end
+
+			if isvalid(postNPC) then
+				postNPC.Enable = true
+				postNPC:SetVisible(true)
+				postNPC:SetEnable(true)
+			end
+		end
+
+		if self.DebugLogs then
+			log("TrialGateInteraction: NPC states updated completed=" .. tostring(completed)
+				.. " preNPC=" .. tostring(preNPC) .. " postNPC=" .. tostring(postNPC))
+		end
+	end
+
+	-- === Persistent Storage & Console Methods ===
+
+	method string GetPersistentKey()
+		if self.PersistentCompletionKey ~= nil and self.PersistentCompletionKey ~= "" then
+			return self.PersistentCompletionKey
+		end
+
+		return "TrialCompleted:" .. tostring(self.RequiredMonsterTag)
+	end
+
+	@ExecSpace("ServerOnly")
+	method void LoadPersistentCompletionState()
+		if self.PersistCompletionAcrossRuns == false then
+			return
+		end
+
+		local storage = _DataStorageService:GetGlobalDataStorage(self.PersistentStorageName)
+		if storage == nil then
+			return
+		end
+
+		local err, value = storage:GetAndWait(self:GetPersistentKey())
+		self.PersistentStored = (err == 0 and value == "true")
+		self.PersistentLoaded = true
+
+		if self.PersistentStored then
+			self.IsTrialCompleted = true
+			self:ApplyInteractionState()
+		end
+
+		if self.DebugLogs then
+			log("TrialGateInteraction: Loaded persistent completion=" .. tostring(self.PersistentStored))
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void SavePersistentCompletion()
+		local storage = _DataStorageService:GetGlobalDataStorage(self.PersistentStorageName)
+		if storage == nil then
+			return
+		end
+
+		local err = storage:SetAndWait(self:GetPersistentKey(), "true")
+		if err == 0 then
+			self.PersistentStored = true
+			self.PersistentLoaded = true
+			if self.DebugLogs then
+				log("TrialGateInteraction: Saved persistent completion key=" .. self:GetPersistentKey())
+			end
+		end
+	end
+
+	--- Call from console or script to reset trial completion back to pre-trial state
+	@ExecSpace("ServerOnly")
+	method void ResetTrialCompletion()
+		local storage = _DataStorageService:GetGlobalDataStorage(self.PersistentStorageName)
+		if storage ~= nil then
+			storage:DeleteAndWait(self:GetPersistentKey())
+		end
+
+		self.PersistentStored = false
+		self.PersistentLoaded = true
+		self.IsTrialCompleted = false
+		self:ApplyInteractionState()
+		self:MulticastApplyNPCStates(false)
+
+		log("TrialGateInteraction: ResetTrialCompletion executed - reverted to pre-trial state.")
+	end
+
+	--- Call from console or script to manually mark trial as completed
+	@ExecSpace("ServerOnly")
+	method void MarkTrialCompleted()
+		self:SavePersistentCompletion()
+		self.IsTrialCompleted = true
+		self:ApplyInteractionState()
+		self:MulticastApplyNPCStates(true)
+
+		log("TrialGateInteraction: MarkTrialCompleted executed - set to completed state.")
+	end
+
+end

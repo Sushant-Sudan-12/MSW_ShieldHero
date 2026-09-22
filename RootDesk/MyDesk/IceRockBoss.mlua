@@ -22,6 +22,65 @@ script IceRockBoss extends AttackComponent
 	@Sync
 	property boolean IsBossDead = false
 
+	-- === Reveal Cutscene Settings (Triggers upon defeating 4 mini-bosses) ===
+	property boolean EnableRevealCutscene = true
+
+	property string CutsceneCameraModelName = "Model_TowerRevealCamera"
+
+	@MinValue(0.1)
+	property number CutsceneMoveDuration = 0.8
+
+	@MinValue(0.1)
+	property number CutsceneHoldDuration = 1.0
+
+	@MinValue(0.1)
+	property number CutsceneReturnDuration = 0.8
+
+	@MinValue(30)
+	property number CutsceneZoom = 80.0
+
+	@MinValue(0.0)
+	property number ScreenShakeIntensity = 0.35
+
+	@MinValue(0.1)
+	property number ScreenShakeDuration = 0.8
+
+	property boolean DisableEnemiesDuringCutscene = true
+
+	@MinValue(0.0)
+	property number PostCutsceneGracePeriod = 2.5
+
+	@HideFromInspector
+	property boolean CutscenePlayed = false
+
+	@HideFromInspector
+	property boolean AttackPaused = false
+
+	@HideFromInspector
+	property number CutsceneToken = 0
+
+	-- === NPC Swapping Settings ===
+	property boolean EnableNPCSwap = true
+
+	property Entity PreBossNPCEntity = nil
+
+	property Entity PostBossNPCEntity = nil
+
+	-- Legacy property kept for compatibility
+	property Entity PostMiniBossNPCEntity = nil
+
+	property string PreBossNPCPath = ""
+
+	property string PostBossNPCPath = ""
+
+	property string PreBossNPCTag = "PreBossNPC"
+
+	property string PostBossNPCTag = "PostBossNPC"
+
+	property string PreBossNPCName = "PreBossNPC"
+
+	property string PostBossNPCName = "PostBossNPC"
+
 	-- The boss remains stationary and only turns toward the nearest player.
 	property boolean FaceNearestPlayerEnabled = true
 
@@ -215,6 +274,26 @@ script IceRockBoss extends AttackComponent
 
 		self.DamageUnlocked = false
 		self:RefreshDamageLock()
+		self:MulticastApplyNPCStates(self.IsBossDead)
+
+		local preloadList = {}
+		if self.ProjectileFireSoundRUID ~= nil and self.ProjectileFireSoundRUID ~= "" then
+			table.insert(preloadList, self.ProjectileFireSoundRUID)
+		end
+		if self.BossFightBgmRUID ~= nil and self.BossFightBgmRUID ~= "" then
+			table.insert(preloadList, self.BossFightBgmRUID)
+		end
+		if #preloadList > 0 then
+			pcall(function()
+				_ResourceService:PreloadAsync(preloadList, nil)
+			end)
+		end
+
+		_TimerService:SetTimerOnce(function()
+			if isvalid(self.Entity) then
+				self:MulticastApplyNPCStates(self.IsBossDead)
+			end
+		end, 0.3)
 
 		if self.DebugLogs then
 			log("IceRockBoss ready hp=" .. tostring(self.BossCurrentHp) .. "/" .. tostring(self.BossMaxHp)
@@ -239,6 +318,8 @@ script IceRockBoss extends AttackComponent
 		self.BossCurrentHp = math.max(0, self.BossMaxHp)
 		self.IsBossDead = false
 		self.DamageUnlocked = false
+		self.CutscenePlayed = false
+		self.AttackPaused = false
 		self.ActiveAttackToken = self.ActiveAttackToken + 1
 		self.IsAttacking = false
 		self.LastAttackTime = -9999
@@ -251,6 +332,7 @@ script IceRockBoss extends AttackComponent
 		end
 		self.Entity:SetVisible(true)
 		self.Entity:SetEnable(true)
+		self:MulticastApplyNPCStates(false)
 		self:RefreshDamageLock()
 	end
 
@@ -281,7 +363,7 @@ script IceRockBoss extends AttackComponent
 
 	@ExecSpace("ServerOnly")
 	method void OnUpdate(number delta)
-		if self.IsBossDead then
+		if self.IsBossDead or self.AttackPaused then
 			return
 		end
 
@@ -348,10 +430,312 @@ script IceRockBoss extends AttackComponent
 		end
 
 		self.BossFightStarted = true
-		self:MulticastPlayBossFightBgm()
+
+		if self.EnableRevealCutscene and self.CutscenePlayed == false then
+			self.CutscenePlayed = true
+			self:TriggerBossRevealCutscene()
+		else
+			self:MulticastPlayBossFightBgm()
+		end
+
 		if self.DebugLogs then
 			log("IceRockBoss boss fight started")
 		end
+	end
+
+	method Entity ResolvePreBossNPC()
+		if isvalid(self.PreBossNPCEntity) then
+			return self.PreBossNPCEntity
+		end
+
+		if self.PreBossNPCPath ~= nil and self.PreBossNPCPath ~= "" then
+			local byPath = _EntityService:GetEntityByPath(self.PreBossNPCPath)
+			if isvalid(byPath) then
+				return byPath
+			end
+		end
+
+		if self.PreBossNPCTag ~= nil and self.PreBossNPCTag ~= "" then
+			local byTag = _EntityService:GetEntityByTag(self.PreBossNPCTag)
+			if isvalid(byTag) then
+				return byTag
+			end
+		end
+
+		if self.PreBossNPCName ~= nil and self.PreBossNPCName ~= "" then
+			local byName = _EntityService:GetEntityByName(self.PreBossNPCName)
+			if isvalid(byName) then
+				return byName
+			end
+		end
+
+		return nil
+	end
+
+	method Entity ResolvePostBossNPC()
+		if isvalid(self.PostBossNPCEntity) then
+			return self.PostBossNPCEntity
+		end
+
+		if isvalid(self.PostMiniBossNPCEntity) then
+			return self.PostMiniBossNPCEntity
+		end
+
+		if self.PostBossNPCPath ~= nil and self.PostBossNPCPath ~= "" then
+			local byPath = _EntityService:GetEntityByPath(self.PostBossNPCPath)
+			if isvalid(byPath) then
+				return byPath
+			end
+		end
+
+		if self.PostBossNPCTag ~= nil and self.PostBossNPCTag ~= "" then
+			local byTag = _EntityService:GetEntityByTag(self.PostBossNPCTag)
+			if isvalid(byTag) then
+				return byTag
+			end
+		end
+
+		if self.PostBossNPCName ~= nil and self.PostBossNPCName ~= "" then
+			local byName = _EntityService:GetEntityByName(self.PostBossNPCName)
+			if isvalid(byName) then
+				return byName
+			end
+		end
+
+		return nil
+	end
+
+	@ExecSpace("Multicast")
+	method void MulticastApplyNPCStates(boolean bossDefeated)
+		self:ApplyNPCStates(bossDefeated)
+	end
+
+	method void ApplyNPCStates(boolean bossDefeated)
+		if self.EnableNPCSwap == false then
+			return
+		end
+
+		local preNPC = self:ResolvePreBossNPC()
+		local postNPC = self:ResolvePostBossNPC()
+
+		if bossDefeated == false then
+			if isvalid(preNPC) then
+				preNPC.Enable = true
+				preNPC:SetVisible(true)
+				preNPC:SetEnable(true)
+			end
+
+			if isvalid(postNPC) then
+				postNPC.Enable = false
+				postNPC:SetVisible(false)
+				postNPC:SetEnable(false)
+			end
+		else
+			if isvalid(preNPC) then
+				preNPC.Enable = false
+				preNPC:SetVisible(false)
+				preNPC:SetEnable(false)
+			end
+
+			if isvalid(postNPC) then
+				postNPC.Enable = true
+				postNPC:SetVisible(true)
+				postNPC:SetEnable(true)
+			end
+		end
+
+		if self.DebugLogs then
+			log("IceRockBoss NPC states updated: bossDefeated=" .. tostring(bossDefeated)
+				.. " preNPC=" .. tostring(preNPC) .. " postNPC=" .. tostring(postNPC))
+		end
+	end
+
+	@ExecSpace("ServerOnly")
+	method void TriggerBossRevealCutscene()
+		self.AttackPaused = true
+		if self.DisableEnemiesDuringCutscene then
+			self:DisableAllMapEnemies(true)
+		end
+
+		self:PlayBossRevealCutscene()
+
+		local cameraDuration = math.max(0.5, self.CutsceneMoveDuration + self.CutsceneHoldDuration + self.CutsceneReturnDuration + 0.1)
+		local totalDuration = cameraDuration + math.max(0, self.PostCutsceneGracePeriod)
+		self.CutsceneToken = self.CutsceneToken + 1
+		local token = self.CutsceneToken
+
+		local self_ref = self
+		_TimerService:SetTimerOnce(function()
+			if isvalid(self_ref.Entity) and self_ref.CutsceneToken == token then
+				self_ref.AttackPaused = false
+				if self_ref.DisableEnemiesDuringCutscene then
+					self_ref:DisableAllMapEnemies(false)
+				end
+				self_ref:MulticastPlayBossFightBgm()
+				if self_ref.DebugLogs then
+					log("IceRockBoss reveal cutscene & grace period concluded; enemies re-enabled")
+				end
+			end
+		end, totalDuration)
+	end
+
+	@ExecSpace("ServerOnly")
+	method void DisableAllMapEnemies(boolean disable)
+		local tags = {"Monster", "MiniIceBoss", "HellFireEnemy", "Owl", "Porcupine", "BeetRootEnemy"}
+		local processed = {}
+
+		for _, tag in ipairs(tags) do
+			local entities = _EntityService:GetEntitiesByTag(tag)
+			if entities ~= nil then
+				for _, entity in ipairs(entities) do
+					if isvalid(entity) and processed[entity] == nil and entity ~= self.Entity then
+						processed[entity] = true
+						if isvalid(entity:GetComponent("PlayerComponent")) == false then
+							local monsterAttack = entity:GetComponent("MonsterAttack")
+							if isvalid(monsterAttack) then
+								monsterAttack.Enable = not disable
+							end
+
+							local monsterMelee = entity:GetComponent("MonsterMeleeAttack")
+							if isvalid(monsterMelee) then
+								monsterMelee.Enable = not disable
+							end
+
+							local monsterAI = entity:GetComponent("MonsterAI")
+							if isvalid(monsterAI) then
+								monsterAI.Enable = not disable
+							end
+
+							local bossAI = entity:GetComponent("BossAI")
+							if isvalid(bossAI) then
+								bossAI.Enable = not disable
+							end
+
+							local ranged = entity:GetComponent("RangedEnemy")
+							if isvalid(ranged) then
+								ranged.Enable = not disable
+							end
+
+							local exploding = entity:GetComponent("ExplodingEnemy")
+							if isvalid(exploding) then
+								exploding.Enable = not disable
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+
+	@ExecSpace("Client")
+	method void PlayBossRevealCutscene()
+		local player = _UserService.LocalPlayer
+		if isvalid(player) == false then
+			return
+		end
+
+		local camera = _CameraService:GetCurrentCameraComponent()
+		if isvalid(camera) == false then
+			return
+		end
+
+		local playerController = player.PlayerControllerComponent
+		if isvalid(playerController) then
+			playerController.Enable = false
+		end
+		local soulSystem = player:GetComponent("PlayerSoulSystem")
+		if isvalid(soulSystem) then
+			soulSystem:SetInputLocked(true)
+		end
+
+		local startPosition = camera.Entity.TransformComponent.WorldPosition
+		local startZoom = _CameraService.currentZoomRatio
+		local bossPosition = self.Entity.TransformComponent.WorldPosition
+
+		local spawnedCamera = nil
+		local modelId = _EntryService:GetModelIdByName(self.CutsceneCameraModelName)
+		if modelId ~= nil and modelId ~= "" then
+			spawnedCamera = _SpawnService:SpawnByModelId(modelId, "BossRevealCamera", startPosition, self.Entity.Parent)
+		end
+
+		local activeCameraComp = camera
+		local cameraTransform = camera.Entity.TransformComponent
+		if isvalid(spawnedCamera) and isvalid(spawnedCamera.CameraComponent) and isvalid(spawnedCamera.TransformComponent) then
+			activeCameraComp = spawnedCamera.CameraComponent
+			cameraTransform = spawnedCamera.TransformComponent
+			spawnedCamera.Enable = true
+			_CameraService:SwitchCameraTo(activeCameraComp)
+		end
+
+		local moveDuration = math.max(0.1, self.CutsceneMoveDuration)
+		local holdDuration = math.max(0.1, self.CutsceneHoldDuration)
+		local returnDuration = math.max(0.1, self.CutsceneReturnDuration)
+
+		-- 1. Pan to boss
+		_TweenLogic:PlayTween(
+			startPosition,
+			bossPosition,
+			moveDuration,
+			EaseType.QuadEaseInOut,
+			function(val)
+				if isvalid(cameraTransform) then
+					cameraTransform.WorldPosition = val
+				end
+			end
+		)
+		_CameraService:ZoomTo(self.CutsceneZoom, moveDuration)
+
+		local self_ref = self
+		-- 2. Hold at boss + Screen Shake
+		_TimerService:SetTimerOnce(function()
+			if isvalid(activeCameraComp) then
+				pcall(function()
+					activeCameraComp:ShakeCamera(self_ref.ScreenShakeIntensity, self_ref.ScreenShakeDuration)
+				end)
+			end
+
+			-- 3. Return to player
+			_TimerService:SetTimerOnce(function()
+				local returnTarget = startPosition
+				if isvalid(player) and isvalid(player.TransformComponent) then
+					returnTarget = player.TransformComponent.WorldPosition
+				end
+
+				if isvalid(cameraTransform) then
+					_TweenLogic:PlayTween(
+						cameraTransform.WorldPosition,
+						returnTarget,
+						returnDuration,
+						EaseType.QuadEaseInOut,
+						function(val)
+							if isvalid(cameraTransform) then
+								cameraTransform.WorldPosition = val
+							end
+						end
+					)
+				end
+				_CameraService:ZoomTo(startZoom, returnDuration)
+
+				-- 4. Cleanup & restore controls
+				_TimerService:SetTimerOnce(function()
+					if isvalid(camera) then
+						_CameraService:SwitchCameraTo(camera)
+					end
+					_CameraService:ZoomTo(startZoom, 0.1)
+
+					if isvalid(playerController) then
+						playerController.Enable = true
+					end
+					if isvalid(soulSystem) then
+						soulSystem:SetInputLocked(false)
+					end
+
+					if isvalid(spawnedCamera) then
+						spawnedCamera:Destroy()
+					end
+				end, returnDuration + 0.05)
+			end, holdDuration)
+		end, moveDuration)
 	end
 
 	method number GetCurrentAttackInterval()
@@ -703,9 +1087,41 @@ script IceRockBoss extends AttackComponent
 	end
 
 	@ExecSpace("ServerOnly")
+	method void KillBoss()
+		if self.IsBossDead then
+			return
+		end
+
+		self.IsBossDead = true
+		self.BossCurrentHp = 0
+		self.ActiveAttackToken = self.ActiveAttackToken + 1
+		self.IsAttacking = false
+		self:KillTaggedMonsters()
+		self:MulticastApplyNPCStates(true)
+		if self.ReturnToSpawnOnDeath then
+			self:MoveToCenterSpawnLocation()
+		end
+
+		_TimerService:SetTimerOnce(function()
+			if isvalid(self.Entity) == false then
+				return
+			end
+			self.Entity:SetVisible(false)
+			self.Entity:SetEnable(false)
+		end, self.DeathHideDelay)
+	end
+
+	@ExecSpace("ServerOnly")
 	@EventSender("Self")
 	handler HandleHitEvent(HitEvent event)
-		if self.IsBossDead or self.DamageUnlocked == false then
+		if self.IsBossDead then
+			return
+		end
+
+		if self.DamageUnlocked == false or event.TotalDamage <= 0 then
+			if self.DebugLogs then
+				log("IceRockBoss hit while locked or 0 damage (hp=" .. tostring(self.BossCurrentHp) .. ")")
+			end
 			return
 		end
 
@@ -716,21 +1132,7 @@ script IceRockBoss extends AttackComponent
 		end
 
 		if self.BossCurrentHp <= 0 then
-			self.IsBossDead = true
-			self.ActiveAttackToken = self.ActiveAttackToken + 1
-			self.IsAttacking = false
-			self:KillTaggedMonsters()
-			if self.ReturnToSpawnOnDeath then
-				self:MoveToCenterSpawnLocation()
-			end
-
-			_TimerService:SetTimerOnce(function()
-				if isvalid(self.Entity) == false then
-					return
-				end
-				self.Entity:SetVisible(false)
-				self.Entity:SetEnable(false)
-			end, self.DeathHideDelay)
+			self:KillBoss()
 		end
 	end
 

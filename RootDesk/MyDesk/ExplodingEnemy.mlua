@@ -159,11 +159,30 @@ script ExplodingEnemy extends AttackComponent
 			rigidbody.IsolatedMove = self.UseRigidbodyIsolatedMove
 		end
 
-		-- Pre-create SoundComponent so the very first charge/explosion sound isn't swallowed
-		if (self.ChargeSoundRUID ~= nil and self.ChargeSoundRUID ~= "") or (self.ExplosionSoundRUID ~= nil and self.ExplosionSoundRUID ~= "") then
-			if isvalid(self.Entity.SoundComponent) == false then
-				self.Entity:AddComponent("SoundComponent")
+		-- Preload and pre-configure SoundComponent so the very first charge/explosion sound isn't swallowed
+		local preloadList = {}
+		if self.ChargeSoundRUID ~= nil and self.ChargeSoundRUID ~= "" then
+			table.insert(preloadList, self.ChargeSoundRUID)
+		end
+		if self.ExplosionSoundRUID ~= nil and self.ExplosionSoundRUID ~= "" then
+			table.insert(preloadList, self.ExplosionSoundRUID)
+		end
+
+		if #preloadList > 0 then
+			local sound = self.Entity.SoundComponent
+			if isvalid(sound) == false then
+				sound = self.Entity:AddComponent("SoundComponent")
 			end
+			if isvalid(sound) then
+				sound.AudioClipRUID = preloadList[1]
+				sound.Volume = math.max(0, math.min(1, self.SoundVolume))
+				sound.Pitch = math.max(0, math.min(3, self.SoundPitch))
+				sound.Loop = false
+				sound.Bgm = false
+			end
+			pcall(function()
+				_ResourceService:PreloadAsync(preloadList, nil)
+			end)
 		end
 	end
 
@@ -293,6 +312,17 @@ script ExplodingEnemy extends AttackComponent
 		return (now - self.LastExplodeAttemptTime) >= self.ExplodeInterval
 	end
 
+	@ExecSpace("Multicast")
+	method void MulticastPlaySound(string ruid, number volume)
+		if ruid == nil or ruid == "" then
+			return
+		end
+
+		pcall(function()
+			_SoundService:PlaySound(ruid, math.max(0, math.min(1, volume)))
+		end)
+	end
+
 	method void PlaySoundDelayed(string ruid, number delay, number token)
 		if ruid == nil or ruid == "" then
 			return
@@ -306,20 +336,20 @@ script ExplodingEnemy extends AttackComponent
 				return
 			end
 
+			self:MulticastPlaySound(ruid, self.SoundVolume)
+
 			local sound = self.Entity.SoundComponent
 			if isvalid(sound) == false then
 				sound = self.Entity:AddComponent("SoundComponent")
 			end
-			if isvalid(sound) == false then
-				return
+			if isvalid(sound) then
+				sound.AudioClipRUID = ruid
+				sound.Volume = math.max(0, math.min(1, self.SoundVolume))
+				sound.Pitch = math.max(0, math.min(3, self.SoundPitch))
+				sound.Loop = false
+				sound.Bgm = false
+				sound:PlaySyncedSound()
 			end
-
-			sound.AudioClipRUID = ruid
-			sound.Volume = math.max(0, math.min(1, self.SoundVolume))
-			sound.Pitch = math.max(0, math.min(3, self.SoundPitch))
-			sound.Loop = false
-			sound.Bgm = false
-			sound:PlaySyncedSound()
 		end
 
 		if delay <= 0 then

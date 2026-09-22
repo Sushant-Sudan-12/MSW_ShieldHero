@@ -11847,6 +11847,25 @@
             {
               "@type": "script.IceRockBoss",
               "Enable": true,
+              "CutsceneMoveDuration": 1.5,
+              "CutsceneHoldDuration": 1.0,
+              "ScreenShakeIntensity": 0.5,
+              "ScreenShakeDuration": 1.0,
+              "CutscenePlayed": false,
+              "AttackPaused": false,
+              "CutsceneToken": 0.0,
+              "PreBossNPCEntity": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "a4b430db-9b79-4325-875c-9866d33c6a9c",
+                "Version2": false
+              },
+              "PostMiniBossNPCEntity": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "0489c4e7-2a0d-47b0-b7ec-ee0f947704e6",
+                "Version2": false
+              },
               "DetectionRangeX": 30.0,
               "DetectionRangeY": 10.0,
               "ProjectileModelName": "Model_IceFire",
@@ -12050,6 +12069,8 @@
               "RequiredProgressId": "IceRockBoss",
               "RequiredDefeatedCount": 1,
               "PersistUnlockAcrossRuns": false,
+              "CurrentDefeatedCount": 0,
+              "CurrentSecondaryDefeatedCount": 0,
               "IsUnlocked": false,
               "FoundRequiredMonster": false,
               "PersistentUnlockLoaded": false,
@@ -12061,11 +12082,11 @@
       },
       {
         "id": "a4b430db-9b79-4325-875c-9866d33c6a9c",
-        "path": "/maps/IcePeaks/npc-11",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.StateComponent,MOD.Core.ChatBalloonComponent,MOD.Core.StateAnimationComponent,MOD.Core.NameTagComponent,MOD.Core.InteractionComponent,script.DialogInteractionTrigger",
+        "path": "/maps/IcePeaks/PreBossNPC",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.StateComponent,MOD.Core.ChatBalloonComponent,MOD.Core.StateAnimationComponent,MOD.Core.NameTagComponent,MOD.Core.InteractionComponent,script.DialogInteractionTrigger,MOD.Core.TagComponent",
         "jsonString": {
-          "name": "npc-11",
-          "path": "/maps/IcePeaks/npc-11",
+          "name": "PreBossNPC",
+          "path": "/maps/IcePeaks/PreBossNPC",
           "nameEditable": true,
           "enable": true,
           "visible": true,
@@ -12171,6 +12192,13 @@
               "@type": "script.DialogInteractionTrigger",
               "Enable": true,
               "DialogId": "Eagle"
+            },
+            {
+              "@type": "MOD.Core.TagComponent",
+              "Tags": [
+                "PreBossNPC"
+              ],
+              "Enable": true
             }
           ],
           "@version": 1
@@ -13841,7 +13869,7 @@
       {
         "id": "e6c2aaa7-19a7-42a7-acda-2b965671fee8",
         "path": "/maps/IcePeaks/monster-212_4",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,script.Monster,MOD.Core.TagComponent,MOD.Core.HitComponent,MOD.Core.HitEffectSpawnerComponent,MOD.Core.DamageSkinSpawnerComponent",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,script.Monster,MOD.Core.TagComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent",
         "jsonString": {
           "name": "monster-212_4",
           "path": "/maps/IcePeaks/monster-212_4",
@@ -13930,10 +13958,6 @@
                 "y": 2.255
               },
               "IsLegacy": false,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.HitEffectSpawnerComponent",
               "Enable": true
             },
             {
@@ -19350,6 +19374,8 @@
               "RequiredProgressId": "IceRockBoss",
               "RequiredDefeatedCount": 1,
               "PersistUnlockAcrossRuns": false,
+              "CurrentDefeatedCount": 0,
+              "CurrentSecondaryDefeatedCount": 0,
               "IsUnlocked": false,
               "FoundRequiredMonster": false,
               "PersistentUnlockLoaded": false,
@@ -19414,6 +19440,130 @@
             },
             {
               "@type": "script.SceneTeleportShortcuts",
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "0489c4e7-2a0d-47b0-b7ec-ee0f947704e6",
+        "path": "/maps/IcePeaks/PostBossNPC",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.StateComponent,MOD.Core.ChatBalloonComponent,MOD.Core.StateAnimationComponent,MOD.Core.NameTagComponent,MOD.Core.InteractionComponent,script.DialogInteractionTrigger,MOD.Core.TagComponent",
+        "jsonString": {
+          "name": "PostBossNPC",
+          "path": "/maps/IcePeaks/PostBossNPC",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 78,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "StaticNPC",
+            "sub_entity_id": null,
+            "root_entity_id": "a4b430db-9b79-4325-875c-9866d33c6a9c",
+            "replaced_model_id": null
+          },
+          "modelId": "staticnpc",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -2.83091664,
+                "y": -13.805,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "EndFrameIndex": 0,
+              "RenderSetting": 1,
+              "SortingLayer": "MapLayer0",
+              "SpriteRUID": "ee45a6966c314a95891abbed4557e156",
+              "StartFrameIndex": 0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.RigidbodyComponent",
+              "MoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "RealMoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.ChatBalloonComponent",
+              "ChatBalloonRUID": {
+                "DataId": "7b6bd117bd0446a5bacec8ea6831c997"
+              },
+              "ChatModeEnabled": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateAnimationComponent",
+              "ActionSheet": {
+                "stand": "ee45a6966c314a95891abbed4557e156"
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.NameTagComponent",
+              "Name": "npc-11",
+              "NameTagRUID": {
+                "DataId": "9bf18287398c44699c20fc5123d1a1ae"
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.InteractionComponent",
+              "ActionName": "Talk",
+              "BoxSize": {
+                "x": 0.64,
+                "y": 0.71
+              },
+              "ColliderOffset": {
+                "x": -0.01000002,
+                "y": 0.355
+              },
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "script.DialogInteractionTrigger",
+              "Enable": true,
+              "DialogId": "Eagle2"
+            },
+            {
+              "@type": "MOD.Core.TagComponent",
+              "Tags": [
+                "PostBossNPC"
+              ],
               "Enable": true
             }
           ],

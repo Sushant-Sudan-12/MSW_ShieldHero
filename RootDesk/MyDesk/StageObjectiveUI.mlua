@@ -1,0 +1,479 @@
+@ExecSpace("Client")
+@Component
+script StageObjectiveUI extends Component
+
+	-- UI Target references (if unassigned, falls back to self.Entity)
+	property Entity PanelRoot = nil
+
+	property Entity TextTarget = nil
+
+	-- Multi-Map Mode (when true, automatically detects and shows the objective for the current map)
+	property boolean EnableMultiMapObjectives = true
+
+	-- Hub Map Visibility
+	property boolean HideInHubMaps = true
+
+	property string HubMapText = ""
+
+	-- Map Visibility Filtering (used if EnableMultiMapObjectives is false)
+	property string TargetMapName = "TrialofMountain"
+
+	property boolean RequireMapNameMatch = false
+
+	-- === Trial of Mountain Settings ===
+	property string PrimaryTag = "TrialOfMountainMonster"
+
+	@MinValue(1)
+	property integer PrimaryRequiredCount = 25
+
+	property string PrimaryLabel = "Enemies defeated"
+
+	property boolean ShowSecondary = true
+
+	property string SecondaryTag = "TreeBoss"
+
+	@MinValue(0)
+	property integer SecondaryRequiredCount = 1
+
+	property string SecondaryLabel = "Boss defeated"
+
+	-- === Sand Map Settings ===
+	property string SandMapText = "Collect 300 souls and reach the portal"
+
+	property boolean ShowSandMapSoulCount = true
+
+	-- === Ice Twins (Climb to Peak) Settings ===
+	property string IceTwinsText = "Reach the peak"
+
+	-- Legacy property kept for compatibility
+	property string IcePeaksText = "Reach the peak"
+
+	-- === Ice Peaks (Ice Rock Boss) Settings ===
+	property string IceRockMiniBossTag = "MiniIceBoss"
+
+	@MinValue(1)
+	property integer IceRockRequiredMiniBossCount = 4
+
+	property string IceRockBossTag = "IceRockBoss"
+
+	property string IceRockPreBossText = "Defeat the 4 mini bosses"
+
+	property string IceRockBossText = "Defeat the boss"
+
+	-- === Boss Maps Settings ===
+	property string SpadeBossText = "Defeat the Spade Boss"
+
+	property string ClockBossText = "Defeat the Clock Boss"
+
+	-- === Objective Background Theme Settings ===
+	-- Option 1: Direct RUIDs on Background Renderer / PanelRoot / self.Entity
+	property string MountainObjectiveBgRUID = ""
+
+	property string SandMapObjectiveBgRUID = ""
+
+	property string IceMapObjectiveBgRUID = ""
+
+	property Entity BackgroundRendererEntity = nil
+
+	-- Option 2: 3 Child Panel GameObjects (children of main panel)
+	property Entity MountainPanelEntity = nil
+
+	property Entity SandMapPanelEntity = nil
+
+	property Entity IceMapPanelEntity = nil
+
+	-- Optional completion settings
+	property boolean HideWhenComplete = false
+
+	property string CompleteSuffix = ""
+
+	property boolean DebugLogs = false
+
+	@HideFromInspector
+	property boolean LastVisibleState = true
+
+	@HideFromInspector
+	property string LastRenderedText = ""
+
+	@HideFromInspector
+	property string LastAppliedTheme = ""
+
+	method void OnBeginPlay()
+		self.LastVisibleState = true
+		self.LastRenderedText = ""
+		self.LastAppliedTheme = ""
+		self:Refresh()
+	end
+
+	method void OnUpdate(number delta)
+		self:Refresh()
+	end
+
+	method integer CountDefeatedByTag(string tag)
+		if tag == nil or tag == "" then
+			return 0
+		end
+
+		local entities = _EntityService:GetEntitiesByTag(tag)
+		if entities == nil then
+			return 0
+		end
+
+		local count = 0
+		for _, entity in ipairs(entities) do
+			if isvalid(entity) and isvalid(entity:GetComponent("PlayerComponent")) == false then
+				---@type Monster
+				local monster = entity:GetComponent("Monster")
+				if isvalid(monster) and (monster.IsDead or monster.Hp <= 0) then
+					count = count + 1
+				else
+					---@type BossAI
+					local boss = entity:GetComponent("BossAI")
+					if isvalid(boss) and (boss.IsBossDead or boss.BossCurrentHp <= 0) then
+						count = count + 1
+					else
+						---@type IceRockBoss
+						local iceRockBoss = entity:GetComponent("IceRockBoss")
+						if isvalid(iceRockBoss) and (iceRockBoss.IsBossDead or iceRockBoss.BossCurrentHp <= 0) then
+							count = count + 1
+						end
+					end
+				end
+			end
+		end
+
+		return count
+	end
+
+	method string GetMapObjectiveText(string mapPath)
+		local lowerPath = string.lower(mapPath)
+
+		-- 1. Trial of Mountain
+		if string.find(lowerPath, "trialofmountain", 1, true) ~= nil then
+			local primaryDefeated = self:CountDefeatedByTag(self.PrimaryTag)
+			local line1 = tostring(self.PrimaryLabel) .. " " .. tostring(primaryDefeated) .. "/" .. tostring(self.PrimaryRequiredCount)
+			local fullText = line1
+
+			local hasSecondary = self.ShowSecondary and (self.SecondaryTag ~= nil and self.SecondaryTag ~= "") and (self.SecondaryRequiredCount ~= nil and self.SecondaryRequiredCount > 0)
+			if hasSecondary then
+				local secondaryDefeated = self:CountDefeatedByTag(self.SecondaryTag)
+				local line2 = tostring(self.SecondaryLabel) .. " " .. tostring(secondaryDefeated) .. "/" .. tostring(self.SecondaryRequiredCount)
+				fullText = fullText .. "\n" .. line2
+			end
+
+			local isPrimaryComplete = primaryDefeated >= self.PrimaryRequiredCount
+			local isSecondaryComplete = hasSecondary == false or self:CountDefeatedByTag(self.SecondaryTag) >= self.SecondaryRequiredCount
+			if isPrimaryComplete and isSecondaryComplete and self.CompleteSuffix ~= nil and self.CompleteSuffix ~= "" then
+				fullText = fullText .. "\n" .. tostring(self.CompleteSuffix)
+			end
+
+			return fullText
+		end
+
+		-- 2. SandMap
+		if string.find(lowerPath, "sandmap", 1, true) ~= nil then
+			local player = _UserService.LocalPlayer
+			local soulSystem = isvalid(player) and player:GetComponent("PlayerSoulSystem") or nil
+			local souls = isvalid(soulSystem) and math.floor(soulSystem.TotalSouls) or 0
+			local baseText = self.SandMapText ~= "" and self.SandMapText or "Collect 300 souls and reach the portal"
+			if self.ShowSandMapSoulCount then
+				return baseText .. "\nSouls: " .. tostring(souls) .. "/300"
+			end
+			return baseText
+		end
+
+		-- 3. IceTwins (Climb to the Peak)
+		if string.find(lowerPath, "icetwins", 1, true) ~= nil then
+			return self.IceTwinsText ~= "" and self.IceTwinsText or "Reach the peak"
+		end
+
+		-- 4. IcePeaks / IceRock (Ice Rock Boss Fight)
+		if string.find(lowerPath, "icepeaks", 1, true) ~= nil or string.find(lowerPath, "icerock", 1, true) ~= nil then
+			local miniBossCount = self:CountDefeatedByTag(self.IceRockMiniBossTag)
+			local bossEntity = _EntityService:GetEntityByTag(self.IceRockBossTag)
+			local iceRockBoss = isvalid(bossEntity) and bossEntity:GetComponent("IceRockBoss") or nil
+			local damageUnlocked = (isvalid(iceRockBoss) and iceRockBoss.DamageUnlocked) or miniBossCount >= self.IceRockRequiredMiniBossCount
+
+			if damageUnlocked then
+				return self.IceRockBossText ~= "" and self.IceRockBossText or "Defeat the boss"
+			else
+				local preText = self.IceRockPreBossText ~= "" and self.IceRockPreBossText or "Defeat the 4 mini bosses"
+				local bossText = self.IceRockBossText ~= "" and self.IceRockBossText or "Defeat the boss"
+				return preText .. " (" .. tostring(miniBossCount) .. "/" .. tostring(self.IceRockRequiredMiniBossCount) .. ")\n" .. bossText
+			end
+		end
+
+		-- 5. SpadeBoss
+		if string.find(lowerPath, "spadeboss", 1, true) ~= nil then
+			return self.SpadeBossText ~= "" and self.SpadeBossText or "Defeat the Spade Boss"
+		end
+
+		-- 6. ClockBoss
+		if string.find(lowerPath, "clockboss", 1, true) ~= nil then
+			return self.ClockBossText ~= "" and self.ClockBossText or "Defeat the Clock Boss"
+		end
+
+		-- 7. Custom Map List lookup
+		if self.CustomMapList ~= nil and self.CustomMapList ~= "" then
+			for entry in string.gmatch(self.CustomMapList, "([^;]+)") do
+				local mapKey, mapGoal = string.match(entry, "^%s*([^:]+)%s*:%s*(.+)%s*$")
+				if mapKey and mapGoal and string.find(lowerPath, string.lower(mapKey), 1, true) ~= nil then
+					return mapGoal
+				end
+			end
+		end
+
+		-- 8. Hub maps (StartingArea, Tower, safezone1)
+		if string.find(lowerPath, "startingarea", 1, true) ~= nil or string.find(lowerPath, "tower", 1, true) ~= nil or string.find(lowerPath, "safezone", 1, true) ~= nil then
+			if self.HideInHubMaps then
+				return ""
+			end
+			return self.HubMapText
+		end
+
+		return ""
+	end
+
+	method void Refresh()
+		local player = _UserService.LocalPlayer
+		if isvalid(player) == false then
+			self:SetPanelVisible(false)
+			return
+		end
+
+		local path = tostring(player.Path)
+		local theme = self:GetCurrentMapTheme(path)
+
+		if self.EnableMultiMapObjectives then
+			local objectiveText = self:GetMapObjectiveText(path)
+			if objectiveText == "" then
+				self:SetPanelVisible(false)
+				return
+			end
+
+			self:SetPanelVisible(true)
+			self:UpdateBackgroundTheme(theme)
+			if objectiveText ~= self.LastRenderedText then
+				self.LastRenderedText = objectiveText
+				self:WriteText(self.TextTarget, objectiveText)
+			end
+			return
+		end
+
+		-- Single TargetMap mode fallback
+		if self.RequireMapNameMatch and string.find(string.lower(path), string.lower(self.TargetMapName), 1, true) == nil then
+			self:SetPanelVisible(false)
+			return
+		end
+
+		local primaryDefeated = self:CountDefeatedByTag(self.PrimaryTag)
+		local isPrimaryComplete = primaryDefeated >= self.PrimaryRequiredCount
+
+		local hasSecondary = self.ShowSecondary and (self.SecondaryTag ~= nil and self.SecondaryTag ~= "") and (self.SecondaryRequiredCount ~= nil and self.SecondaryRequiredCount > 0)
+		local secondaryDefeated = 0
+		local isSecondaryComplete = true
+		if hasSecondary then
+			secondaryDefeated = self:CountDefeatedByTag(self.SecondaryTag)
+			isSecondaryComplete = secondaryDefeated >= self.SecondaryRequiredCount
+		end
+
+		local isAllComplete = isPrimaryComplete and isSecondaryComplete
+		if self.HideWhenComplete and isAllComplete then
+			self:SetPanelVisible(false)
+			return
+		end
+
+		self:SetPanelVisible(true)
+		self:UpdateBackgroundTheme(theme)
+
+		local line1 = tostring(self.PrimaryLabel) .. " " .. tostring(primaryDefeated) .. "/" .. tostring(self.PrimaryRequiredCount)
+		local fullText = line1
+
+		if hasSecondary then
+			local line2 = tostring(self.SecondaryLabel) .. " " .. tostring(secondaryDefeated) .. "/" .. tostring(self.SecondaryRequiredCount)
+			fullText = fullText .. "\n" .. line2
+		end
+
+		if isAllComplete and self.CompleteSuffix ~= nil and self.CompleteSuffix ~= "" then
+			fullText = fullText .. "\n" .. tostring(self.CompleteSuffix)
+		end
+
+		if fullText ~= self.LastRenderedText then
+			self.LastRenderedText = fullText
+			self:WriteText(self.TextTarget, fullText)
+		end
+	end
+
+	method string GetCurrentMapTheme(string mapPath)
+		local lowerPath = string.lower(mapPath)
+
+		-- 1. Mountain Theme (Trial of Mountain)
+		if string.find(lowerPath, "trialofmountain", 1, true) ~= nil or string.find(lowerPath, "mountain", 1, true) ~= nil then
+			return "mountain"
+		end
+
+		-- 2. Sand Theme (SandMap, SpadeBoss)
+		if string.find(lowerPath, "sandmap", 1, true) ~= nil or string.find(lowerPath, "spadeboss", 1, true) ~= nil or string.find(lowerPath, "sand", 1, true) ~= nil then
+			return "sand"
+		end
+
+		-- 3. Ice Theme (IceTwins, IcePeaks, IceRock)
+		if string.find(lowerPath, "icetwins", 1, true) ~= nil or string.find(lowerPath, "icepeaks", 1, true) ~= nil or string.find(lowerPath, "icerock", 1, true) ~= nil or string.find(lowerPath, "ice", 1, true) ~= nil then
+			return "ice"
+		end
+
+		return "mountain"
+	end
+
+	method void UpdateBackgroundTheme(string theme)
+		if self.LastAppliedTheme == theme then
+			return
+		end
+		self.LastAppliedTheme = theme
+
+		-- Option 2: 3 Child Panel GameObjects (children of main panel)
+		local hasChildPanels = isvalid(self.MountainPanelEntity) or isvalid(self.SandMapPanelEntity) or isvalid(self.IceMapPanelEntity)
+		if hasChildPanels then
+			if isvalid(self.MountainPanelEntity) then
+				local show = (theme == "mountain")
+				self.MountainPanelEntity.Enable = show
+				self.MountainPanelEntity:SetVisible(show)
+			end
+			if isvalid(self.SandMapPanelEntity) then
+				local show = (theme == "sand")
+				self.SandMapPanelEntity.Enable = show
+				self.SandMapPanelEntity:SetVisible(show)
+			end
+			if isvalid(self.IceMapPanelEntity) then
+				local show = (theme == "ice")
+				self.IceMapPanelEntity.Enable = show
+				self.IceMapPanelEntity:SetVisible(show)
+			end
+		end
+
+		-- Option 1: Direct RUIDs on Background Renderer / PanelRoot / self.Entity
+		local targetRUID = ""
+		if theme == "mountain" then
+			targetRUID = self.MountainObjectiveBgRUID
+		elseif theme == "sand" then
+			targetRUID = self.SandMapObjectiveBgRUID
+		elseif theme == "ice" then
+			targetRUID = self.IceMapObjectiveBgRUID
+		end
+
+		if targetRUID ~= "" then
+			self:SetBgImageRUID(self.BackgroundRendererEntity, targetRUID)
+		end
+
+		if self.DebugLogs then
+			log("StageObjectiveUI: Applied background theme=" .. tostring(theme) .. " ruid=" .. tostring(targetRUID))
+		end
+	end
+
+	method void SetBgImageRUID(Entity target, string ruid)
+		if ruid == nil or ruid == "" then
+			return
+		end
+
+		local resolved = target
+		if isvalid(resolved) == false then
+			resolved = self.BackgroundRendererEntity
+		end
+		if isvalid(resolved) == false then
+			resolved = self.PanelRoot
+		end
+		if isvalid(resolved) == false then
+			resolved = self.Entity
+		end
+		if isvalid(resolved) == false then
+			return
+		end
+
+		local spriteGui = resolved.SpriteGUIRendererComponent
+		if isvalid(spriteGui) then
+			spriteGui.ImageRUID = ruid
+			return
+		end
+
+		local imageGui = resolved:GetComponent("ImageGUIComponent")
+		if isvalid(imageGui) then
+			imageGui.ImageRUID = ruid
+			return
+		end
+
+		local spriteRenderer = resolved.SpriteRendererComponent
+		if isvalid(spriteRenderer) then
+			spriteRenderer.SpriteRUID = ruid
+			return
+		end
+
+		local childSpriteGui = resolved:GetFirstChildComponentByTypeName("SpriteGUIRendererComponent", true)
+		if isvalid(childSpriteGui) then
+			childSpriteGui.ImageRUID = ruid
+			return
+		end
+	end
+
+	method void SetPanelVisible(boolean visible)
+		if self.LastVisibleState == visible then
+			return
+		end
+		self.LastVisibleState = visible
+
+		local root = self.PanelRoot
+		if isvalid(root) and root ~= self.Entity then
+			root.Enable = visible
+		else
+			self.Entity:SetVisible(visible)
+		end
+
+		if self.DebugLogs then
+			log("StageObjectiveUI: visible=" .. tostring(visible))
+		end
+	end
+
+	method void WriteText(Entity target, string value)
+		local resolvedTarget = target
+		if isvalid(resolvedTarget) == false then
+			resolvedTarget = self.Entity
+		end
+
+		if isvalid(resolvedTarget) == false then
+			return
+		end
+
+		if isvalid(resolvedTarget.TextComponent) then
+			resolvedTarget.TextComponent.Text = value
+			return
+		end
+
+		if isvalid(resolvedTarget.TextGUIRendererComponent) then
+			resolvedTarget.TextGUIRendererComponent.Text = value
+			return
+		end
+
+		if isvalid(resolvedTarget.TextInputComponent) then
+			resolvedTarget.TextInputComponent.Text = value
+			return
+		end
+
+		local textChild = resolvedTarget:GetFirstChildComponentByTypeName("TextComponent", true)
+		if isvalid(textChild) then
+			textChild.Text = value
+			return
+		end
+
+		local textGuiChild = resolvedTarget:GetFirstChildComponentByTypeName("TextGUIRendererComponent", true)
+		if isvalid(textGuiChild) then
+			textGuiChild.Text = value
+			return
+		end
+
+		local textInputChild = resolvedTarget:GetFirstChildComponentByTypeName("TextInputComponent", true)
+		if isvalid(textInputChild) then
+			textInputChild.Text = value
+			return
+		end
+	end
+
+end

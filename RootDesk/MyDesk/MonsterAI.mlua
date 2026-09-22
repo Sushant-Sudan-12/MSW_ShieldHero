@@ -167,11 +167,22 @@ script MonsterAI extends AttackComponent
 			end
 		end
 
-		-- Pre-create SoundComponent so the very first attack sound isn't swallowed
+		-- Preload and pre-configure SoundComponent so the very first attack sound isn't swallowed
 		if self.AttackSoundRUID ~= nil and self.AttackSoundRUID ~= "" then
-			if isvalid(self.Entity.SoundComponent) == false then
-				self.Entity:AddComponent("SoundComponent")
+			local sound = self.Entity.SoundComponent
+			if isvalid(sound) == false then
+				sound = self.Entity:AddComponent("SoundComponent")
 			end
+			if isvalid(sound) then
+				sound.AudioClipRUID = self.AttackSoundRUID
+				sound.Volume = math.max(0, math.min(1, self.AttackSoundVolume))
+				sound.Pitch = math.max(0, math.min(3, self.AttackSoundPitch))
+				sound.Loop = false
+				sound.Bgm = false
+			end
+			pcall(function()
+				_ResourceService:PreloadAsync({self.AttackSoundRUID}, nil)
+			end)
 		end
 
 		-- Disable native StateAnimationComponent so it doesn't overwrite our custom sprite animations
@@ -451,6 +462,17 @@ script MonsterAI extends AttackComponent
 		end, totalDuration)
 	end
 
+	@ExecSpace("Multicast")
+	method void MulticastPlayAttackSound()
+		if self.AttackSoundRUID == nil or self.AttackSoundRUID == "" then
+			return
+		end
+
+		pcall(function()
+			_SoundService:PlaySound(self.AttackSoundRUID, math.max(0, math.min(1, self.AttackSoundVolume)))
+		end)
+	end
+
 	method void PlayAttackSound(number attackToken)
 		if self.AttackSoundRUID == nil or self.AttackSoundRUID == "" then
 			return
@@ -464,20 +486,20 @@ script MonsterAI extends AttackComponent
 				return
 			end
 
+			self:MulticastPlayAttackSound()
+
 			local sound = self.Entity.SoundComponent
 			if isvalid(sound) == false then
 				sound = self.Entity:AddComponent("SoundComponent")
 			end
-			if isvalid(sound) == false then
-				return
+			if isvalid(sound) then
+				sound.AudioClipRUID = self.AttackSoundRUID
+				sound.Volume = math.max(0, math.min(1, self.AttackSoundVolume))
+				sound.Pitch = math.max(0, math.min(3, self.AttackSoundPitch))
+				sound.Loop = false
+				sound.Bgm = false
+				sound:PlaySyncedSound()
 			end
-
-			sound.AudioClipRUID = self.AttackSoundRUID
-			sound.Volume = math.max(0, math.min(1, self.AttackSoundVolume))
-			sound.Pitch = math.max(0, math.min(3, self.AttackSoundPitch))
-			sound.Loop = false
-			sound.Bgm = false
-			sound:PlaySyncedSound()
 		end
 
 		if self.AttackSoundDelay <= 0 then

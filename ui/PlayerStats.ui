@@ -2646,6 +2646,248 @@
         }
       },
       {
+        "id": "3347e76f-49c6-4f06-95c0-76d154062ce4",
+        "path": "/ui/PlayerStats/Objective",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,script.StageObjectiveUI",
+        "jsonString": {
+          "name": "Objective",
+          "path": "/ui/PlayerStats/Objective",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 2,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uisprite",
+            "sub_entity_id": null,
+            "root_entity_id": "3347e76f-49c6-4f06-95c0-76d154062ce4",
+            "replaced_model_id": null
+          },
+          "modelId": "uisprite",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": -427.608215,
+                "y": 450.054077
+              },
+              "OffsetMin": {
+                "x": -980.790833,
+                "y": 91.75993
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 553.1826,
+                "y": 358.294159
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": -704.1995,
+                "y": 270.907
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -704.1995,
+                "y": 270.907,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": -1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "ImageRUID": {
+                "DataId": "3c02512821e04825a1bb2e4e9001afe0"
+              },
+              "OverrideSorting": false,
+              "Color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 0.8769531
+              },
+              "Enable": true
+            },
+            {
+              "@type": "script.StageObjectiveUI",
+              "Enable": true,
+              "PanelRoot": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "3347e76f-49c6-4f06-95c0-76d154062ce4",
+                "Version2": false
+              },
+              "TextTarget": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "dac87124-7e86-42f8-a130-3b95926e6128",
+                "Version2": false
+              },
+              "SandMapText": "Collect atleast 300 souls",
+              "ShowSandMapSoulCount": false,
+              "MountainObjectiveBgRUID": "e75db3b5e0f34d0c96bbc9646b8de2ff",
+              "SandMapObjectiveBgRUID": "023c3274e9a1489fb8dde29455e11350",
+              "IceMapObjectiveBgRUID": "3c02512821e04825a1bb2e4e9001afe0",
+              "BackgroundRendererEntity": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "3347e76f-49c6-4f06-95c0-76d154062ce4",
+                "Version2": false
+              },
+              "LastVisibleState": true,
+              "LastRenderedText": "",
+              "LastAppliedTheme": ""
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "dac87124-7e86-42f8-a130-3b95926e6128",
+        "path": "/ui/PlayerStats/Objective/Objective",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.TextGUIRendererComponent",
+        "jsonString": {
+          "name": "Objective",
+          "path": "/ui/PlayerStats/Objective/Objective",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 0,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uitextguirenderer",
+            "sub_entity_id": null,
+            "root_entity_id": "7b0c2d30-8787-4a5a-9248-8ebf4f77082b",
+            "replaced_model_id": null
+          },
+          "modelId": "uitextguirenderer",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 150.287155,
+                "y": 103.103584
+              },
+              "OffsetMin": {
+                "x": -145.870163,
+                "y": -96.35479
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 296.157318,
+                "y": 199.458374
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 2.2085,
+                "y": 3.3744
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": 2.2085,
+                "y": 3.3744,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": -1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.TextGUIRendererComponent",
+              "Font": "Bazzi",
+              "FontColor": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+              },
+              "FontSize": 40.0,
+              "MaxSize": 50.0,
+              "MinSize": 10.0,
+              "OverrideSorting": false,
+              "SortingLayer": "MapLayer3",
+              "Text": "Increases Attack",
+              "Underlay": false,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
         "id": "a17a2a27-1a96-4d34-beca-8421f74c3d9a",
         "path": "/ui/PlayerStats/UpgradePanel",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,script.UpgradeUIAbility",
@@ -2656,7 +2898,7 @@
           "enable": true,
           "visible": true,
           "localize": true,
-          "displayOrder": 2,
+          "displayOrder": 3,
           "pathConstraints": "///",
           "revision": 0,
           "origin": {
@@ -4982,7 +5224,7 @@
           "enable": true,
           "visible": true,
           "localize": true,
-          "displayOrder": 3,
+          "displayOrder": 4,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -5062,7 +5304,7 @@
           "enable": true,
           "visible": true,
           "localize": true,
-          "displayOrder": 4,
+          "displayOrder": 5,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -5472,7 +5714,7 @@
           "enable": true,
           "visible": true,
           "localize": true,
-          "displayOrder": 5,
+          "displayOrder": 6,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -5600,7 +5842,7 @@
           "enable": true,
           "visible": true,
           "localize": true,
-          "displayOrder": 6,
+          "displayOrder": 7,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -6009,7 +6251,7 @@
           "enable": false,
           "visible": true,
           "localize": true,
-          "displayOrder": 7,
+          "displayOrder": 8,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -6221,7 +6463,7 @@
           "enable": false,
           "visible": true,
           "localize": true,
-          "displayOrder": 8,
+          "displayOrder": 9,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -8935,6 +9177,236 @@
                 "y": -1.0
               },
               "OverrideSorting": false,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "0a784d6d-d5be-444f-8e3a-55f0c0792be5",
+        "path": "/ui/PlayerStats/SoulGain",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,script.UISoulGainPopup",
+        "jsonString": {
+          "name": "SoulGain",
+          "path": "/ui/PlayerStats/SoulGain",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 10,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uisprite",
+            "sub_entity_id": null,
+            "root_entity_id": "3347e76f-49c6-4f06-95c0-76d154062ce4",
+            "replaced_model_id": null
+          },
+          "modelId": "uisprite",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 210.21315,
+                "y": 364.520844
+              },
+              "OffsetMin": {
+                "x": -178.863144,
+                "y": 237.467377
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 389.0763,
+                "y": 127.053452
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 15.675,
+                "y": 300.9941
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": 15.675,
+                "y": 300.9941,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": -1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "OverrideSorting": false,
+              "SortingLayer": "MapLayer3",
+              "Color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 0.361328125
+              },
+              "Enable": true
+            },
+            {
+              "@type": "script.UISoulGainPopup",
+              "Enable": true,
+              "PopupRoot": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "0a784d6d-d5be-444f-8e3a-55f0c0792be5",
+                "Version2": false
+              },
+              "TextTarget": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "74f00782-449d-47ac-b73a-37ab5e3aabae",
+                "Version2": false
+              },
+              "OffsetY": -250.0,
+              "DisplayDuration": 10.0,
+              "HideTimerId": 0.0,
+              "IsShowing": false
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "74f00782-449d-47ac-b73a-37ab5e3aabae",
+        "path": "/ui/PlayerStats/SoulGain/Objective",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.TextGUIRendererComponent",
+        "jsonString": {
+          "name": "Objective",
+          "path": "/ui/PlayerStats/SoulGain/Objective",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 0,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uitextguirenderer",
+            "sub_entity_id": null,
+            "root_entity_id": "7b0c2d30-8787-4a5a-9248-8ebf4f77082b",
+            "replaced_model_id": null
+          },
+          "modelId": "uitextguirenderer",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 185.097977,
+                "y": 103.103485
+              },
+              "OffsetMin": {
+                "x": -188.139572,
+                "y": -96.35489
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 373.237549,
+                "y": 199.458374
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": -1.5208,
+                "y": 3.3743
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -1.5208,
+                "y": 3.3743,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": -1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.TextGUIRendererComponent",
+              "Font": "Bazzi",
+              "FontColor": {
+                "r": 0.0,
+                "g": 0.0,
+                "b": 0.0,
+                "a": 1.0
+              },
+              "FontSize": 40.0,
+              "MaxSize": 50.0,
+              "MinSize": 10.0,
+              "OverrideSorting": false,
+              "SortingLayer": "MapLayer3",
+              "Text": "Soul Gained",
+              "Underlay": false,
               "Enable": true
             }
           ],

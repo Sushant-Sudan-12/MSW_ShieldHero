@@ -1,0 +1,149 @@
+@ExecSpace("Client")
+@Component
+script UISoulGainPopup extends Component
+
+	-- UI References (defaults to self.Entity if unassigned)
+	property Entity PopupRoot = nil
+
+	property Entity TextTarget = nil
+
+	property string Prefix = "+"
+
+	property string Suffix = " Soul Fragments"
+
+	-- Position Offset controls to move the popup down from the top/center
+	property boolean OverrideAnchoredPosition = true
+
+	property number OffsetX = 0.0
+
+	property number OffsetY = -180.0
+
+	@MinValue(0.5)
+	property number DisplayDuration = 3.0
+
+	property boolean DebugLogs = false
+
+	@HideFromInspector
+	property number HideTimerId = 0
+
+	@HideFromInspector
+	property boolean IsShowing = false
+
+	method void OnBeginPlay()
+		self.IsShowing = false
+		self:ApplyPositionOffset()
+		self:SetVisible(false)
+	end
+
+	method void ApplyPositionOffset()
+		if self.OverrideAnchoredPosition == false then
+			return
+		end
+
+		local target = self.PopupRoot
+		if isvalid(target) == false then
+			target = self.TextTarget
+		end
+		if isvalid(target) == false then
+			target = self.Entity
+		end
+
+		if isvalid(target) and isvalid(target.UITransformComponent) then
+			target.UITransformComponent.anchoredPosition = Vector2(self.OffsetX, self.OffsetY)
+		end
+	end
+
+	method void ShowSoulGain(number amount)
+		if amount == nil or amount <= 0 then
+			return
+		end
+
+		self:ApplyPositionOffset()
+
+		local textValue = self.Prefix .. tostring(math.floor(amount)) .. self.Suffix
+		self:WriteText(self.TextTarget, textValue)
+
+		self.IsShowing = true
+		self:SetVisible(true)
+
+		if self.HideTimerId > 0 then
+			_TimerService:ClearTimer(self.HideTimerId)
+			self.HideTimerId = 0
+		end
+
+		local self_ref = self
+		self.HideTimerId = _TimerService:SetTimerOnce(function()
+			if isvalid(self_ref.Entity) then
+				self_ref:HidePopup()
+			end
+		end, math.max(0.5, self.DisplayDuration))
+
+		if self.DebugLogs then
+			log("UISoulGainPopup: displayed " .. textValue .. " at Y=" .. tostring(self.OffsetY))
+		end
+	end
+
+	method void HidePopup()
+		if self.HideTimerId > 0 then
+			_TimerService:ClearTimer(self.HideTimerId)
+			self.HideTimerId = 0
+		end
+
+		self.IsShowing = false
+		self:SetVisible(false)
+	end
+
+	method void SetVisible(boolean visible)
+		local root = self.PopupRoot
+		if isvalid(root) and root ~= self.Entity then
+			root.Enable = visible
+		else
+			self.Entity:SetVisible(visible)
+		end
+	end
+
+	method void WriteText(Entity target, string value)
+		local resolvedTarget = target
+		if isvalid(resolvedTarget) == false then
+			resolvedTarget = self.Entity
+		end
+
+		if isvalid(resolvedTarget) == false then
+			return
+		end
+
+		if isvalid(resolvedTarget.TextComponent) then
+			resolvedTarget.TextComponent.Text = value
+			return
+		end
+
+		if isvalid(resolvedTarget.TextGUIRendererComponent) then
+			resolvedTarget.TextGUIRendererComponent.Text = value
+			return
+		end
+
+		if isvalid(resolvedTarget.TextInputComponent) then
+			resolvedTarget.TextInputComponent.Text = value
+			return
+		end
+
+		local textChild = resolvedTarget:GetFirstChildComponentByTypeName("TextComponent", true)
+		if isvalid(textChild) then
+			textChild.Text = value
+			return
+		end
+
+		local textGuiChild = resolvedTarget:GetFirstChildComponentByTypeName("TextGUIRendererComponent", true)
+		if isvalid(textGuiChild) then
+			textGuiChild.Text = value
+			return
+		end
+
+		local textInputChild = resolvedTarget:GetFirstChildComponentByTypeName("TextInputComponent", true)
+		if isvalid(textInputChild) then
+			textInputChild.Text = value
+			return
+		end
+	end
+
+end

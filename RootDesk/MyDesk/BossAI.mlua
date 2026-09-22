@@ -225,11 +225,33 @@ script BossAI extends AttackComponent
 
 		self.Shape = BoxShape(Vector2.zero, Vector2.one, 0)
 
-		-- Pre-create SoundComponent so the very first attack/hit/death sound isn't swallowed
-		if (self.AttackSoundRUID ~= nil and self.AttackSoundRUID ~= "") or (self.HitSoundRUID ~= nil and self.HitSoundRUID ~= "") or (self.DeathSoundRUID ~= nil and self.DeathSoundRUID ~= "") then
-			if isvalid(self.Entity.SoundComponent) == false then
-				self.Entity:AddComponent("SoundComponent")
+		-- Preload and pre-configure SoundComponent so the very first attack/hit/death sound isn't swallowed
+		local preloadList = {}
+		if self.AttackSoundRUID ~= nil and self.AttackSoundRUID ~= "" then
+			table.insert(preloadList, self.AttackSoundRUID)
+		end
+		if self.HitSoundRUID ~= nil and self.HitSoundRUID ~= "" then
+			table.insert(preloadList, self.HitSoundRUID)
+		end
+		if self.DeathSoundRUID ~= nil and self.DeathSoundRUID ~= "" then
+			table.insert(preloadList, self.DeathSoundRUID)
+		end
+
+		if #preloadList > 0 then
+			local sound = self.Entity.SoundComponent
+			if isvalid(sound) == false then
+				sound = self.Entity:AddComponent("SoundComponent")
 			end
+			if isvalid(sound) then
+				sound.AudioClipRUID = preloadList[1]
+				sound.Volume = math.max(0, math.min(1, self.AttackSoundVolume))
+				sound.Pitch = math.max(0, math.min(3, self.AttackSoundPitch))
+				sound.Loop = false
+				sound.Bgm = false
+			end
+			pcall(function()
+				_ResourceService:PreloadAsync(preloadList, nil)
+			end)
 		end
 
 		if self.DebugLogs then
@@ -610,25 +632,36 @@ script BossAI extends AttackComponent
 		end
 	end
 
+	@ExecSpace("Multicast")
+	method void MulticastPlayBossSound(string ruid, number volume)
+		if ruid == nil or ruid == "" then
+			return
+		end
+
+		pcall(function()
+			_SoundService:PlaySound(ruid, math.max(0, math.min(1, volume)))
+		end)
+	end
+
 	method void PlayBossSound(string ruid, number volume, number pitch)
 		if ruid == nil or ruid == "" then
 			return
 		end
 
+		self:MulticastPlayBossSound(ruid, volume)
+
 		local sound = self.Entity.SoundComponent
 		if isvalid(sound) == false then
 			sound = self.Entity:AddComponent("SoundComponent")
 		end
-		if isvalid(sound) == false then
-			return
+		if isvalid(sound) then
+			sound.AudioClipRUID = ruid
+			sound.Volume = math.max(0, math.min(1, volume))
+			sound.Pitch = math.max(0, math.min(3, pitch))
+			sound.Loop = false
+			sound.Bgm = false
+			sound:PlaySyncedSound()
 		end
-
-		sound.AudioClipRUID = ruid
-		sound.Volume = math.max(0, math.min(1, volume))
-		sound.Pitch = math.max(0, math.min(3, pitch))
-		sound.Loop = false
-		sound.Bgm = false
-		sound:PlaySyncedSound()
 	end
 
 	method void SetFaceDirection(number dirX)

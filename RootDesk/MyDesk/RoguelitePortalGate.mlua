@@ -10,6 +10,14 @@ script RoguelitePortalGate extends Component
 	@MinValue(1)
 	property integer RequiredDefeatedCount = 10
 
+	-- Optional secondary monster requirement (e.g. TreeBoss count 1 for Trial of Mountain)
+	property string SecondaryMonsterTag = ""
+
+	property string SecondaryRequiredProgressId = ""
+
+	@MinValue(0)
+	property integer SecondaryRequiredDefeatedCount = 0
+
 	property boolean UnlockWhenAllTaggedMonstersDefeated = true
 
 	property boolean PersistUnlockAcrossRuns = true
@@ -22,6 +30,15 @@ script RoguelitePortalGate extends Component
 
 	property boolean UnlockOverride = false
 
+	@Sync
+	@HideFromInspector
+	property integer CurrentDefeatedCount = 0
+
+	@Sync
+	@HideFromInspector
+	property integer CurrentSecondaryDefeatedCount = 0
+
+	@Sync
 	@HideFromInspector
 	property boolean IsUnlocked = false
 
@@ -85,6 +102,48 @@ script RoguelitePortalGate extends Component
 	end
 
 	@ExecSpace("ServerOnly")
+	method integer CountDefeatedByTag(string tag)
+		if tag == nil or tag == "" then
+			return 0
+		end
+
+		local monsters = _EntityService:GetEntitiesByTag(tag)
+		if monsters == nil then
+			return 0
+		end
+
+		local count = 0
+		for _, entity in ipairs(monsters) do
+			if isvalid(entity) then
+				-- Skip player entities if any happen to carry this tag
+				if isvalid(entity:GetComponent("PlayerComponent")) == false then
+					self.FoundRequiredMonster = true
+
+					---@type Monster
+					local monster = entity:GetComponent("Monster")
+					if isvalid(monster) and (monster.IsDead or monster.Hp <= 0) then
+						count = count + 1
+					else
+						---@type BossAI
+						local boss = entity:GetComponent("BossAI")
+						if isvalid(boss) and (boss.IsBossDead or boss.BossCurrentHp <= 0) then
+							count = count + 1
+						else
+							---@type IceRockBoss
+							local iceRockBoss = entity:GetComponent("IceRockBoss")
+							if isvalid(iceRockBoss) and (iceRockBoss.IsBossDead or iceRockBoss.BossCurrentHp <= 0) then
+								count = count + 1
+							end
+						end
+					end
+				end
+			end
+		end
+
+		return count
+	end
+
+	@ExecSpace("ServerOnly")
 	method boolean IsUnlockConditionMet()
 
 		if self.UnlockWhenAllTaggedMonstersDefeated == false then
@@ -93,6 +152,8 @@ script RoguelitePortalGate extends Component
 			end
 		end
 
+		-- Check primary persistent progress
+		local primaryProgressMet = false
 		if self.PersistUnlockAcrossRuns and self.RequiredProgressId ~= "" then
 			local users = _UserService.UserEntities
 			if users ~= nil then
@@ -101,43 +162,54 @@ script RoguelitePortalGate extends Component
 						---@type RogueliteRunManager
 						local runManager = player:GetComponent("RogueliteRunManager")
 						if isvalid(runManager) and runManager:GetDefeatProgress(self.RequiredProgressId) >= self.RequiredDefeatedCount then
-							return true
-						end
-					end
-			end
-			end
-		end
-
-		local monsters = _EntityService:GetEntitiesByTag(self.RequiredMonsterTag)
-		if monsters == nil then
-			return false
-		end
-
-		local defeatedCount = 0
-		for _, monsterEntity in ipairs(monsters) do
-			if isvalid(monsterEntity) then
-				self.FoundRequiredMonster = true
-				---@type Monster
-				local monster = monsterEntity:GetComponent("Monster")
-				if isvalid(monster) and monster.IsDead then
-					defeatedCount = defeatedCount + 1
-				else
-					---@type BossAI
-					local boss = monsterEntity:GetComponent("BossAI")
-					if isvalid(boss) and boss.IsBossDead then
-						defeatedCount = defeatedCount + 1
-					else
-						---@type IceRockBoss
-						local iceRockBoss = monsterEntity:GetComponent("IceRockBoss")
-						if isvalid(iceRockBoss) and iceRockBoss.IsBossDead then
-							defeatedCount = defeatedCount + 1
+							primaryProgressMet = true
+							break
 						end
 					end
 				end
 			end
 		end
 
-		return self.FoundRequiredMonster and defeatedCount >= self.RequiredDefeatedCount
+		local primaryDefeated = self:CountDefeatedByTag(self.RequiredMonsterTag)
+		self.CurrentDefeatedCount = primaryDefeated
+
+		local primaryConditionMet = primaryProgressMet or (self.FoundRequiredMonster and primaryDefeated >= self.RequiredDefeatedCount)
+		if primaryConditionMet == false then
+			return false
+		end
+
+		-- Check optional secondary requirement (only enforced if tag is set and count > 0)
+		local hasSecondaryRequirement = (self.SecondaryMonsterTag ~= nil and self.SecondaryMonsterTag ~= "") and (self.SecondaryRequiredDefeatedCount ~= nil and self.SecondaryRequiredDefeatedCount > 0)
+		if hasSecondaryRequirement then
+			local secondaryProgressMet = false
+			if self.PersistUnlockAcrossRuns and self.SecondaryRequiredProgressId ~= nil and self.SecondaryRequiredProgressId ~= "" then
+				local users = _UserService.UserEntities
+				if users ~= nil then
+					for _, player in pairs(users) do
+						if isvalid(player) then
+							---@type RogueliteRunManager
+							local runManager = player:GetComponent("RogueliteRunManager")
+							if isvalid(runManager) and runManager:GetDefeatProgress(self.SecondaryRequiredProgressId) >= self.SecondaryRequiredDefeatedCount then
+								secondaryProgressMet = true
+								break
+							end
+						end
+					end
+				end
+			end
+
+			local secondaryDefeated = self:CountDefeatedByTag(self.SecondaryMonsterTag)
+			self.CurrentSecondaryDefeatedCount = secondaryDefeated
+
+			local secondaryConditionMet = secondaryProgressMet or (secondaryDefeated >= self.SecondaryRequiredDefeatedCount)
+			if secondaryConditionMet == false then
+				return false
+			end
+		else
+			self.CurrentSecondaryDefeatedCount = 0
+		end
+
+		return true
 	end
 
 	@ExecSpace("ServerOnly")

@@ -54,6 +54,12 @@ script ProjectileAttack extends AttackComponent
     end
 
     method integer CalcDamage(Entity attacker, Entity defender, string attackInfo)
+        if isvalid(defender) then
+            local iceRockBoss = defender:GetComponent("IceRockBoss")
+            if isvalid(iceRockBoss) and iceRockBoss.DamageUnlocked == false then
+                return 0
+            end
+        end
         return self.Damage
     end
 

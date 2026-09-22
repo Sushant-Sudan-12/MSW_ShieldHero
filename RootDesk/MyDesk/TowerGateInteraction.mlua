@@ -1,0 +1,285 @@
+@Component
+script TowerGateInteraction extends Component
+
+	property InteractionComponent Interaction = nil
+
+	property PortalComponent Portal = nil
+
+	property Entity PortalGateEntity = nil
+
+	property string PortalGateTag = "PortalGate"
+
+	property string RequiredMonsterTag = "TrialOfMountainMonster"
+
+	@MinValue(1)
+	property integer RequiredDefeatedCount = 25
+
+	property string SecondaryMonsterTag = "TreeBoss"
+
+	@MinValue(0)
+	property integer SecondaryRequiredDefeatedCount = 1
+
+	property string RequiredProgressId = ""
+
+	property string SecondaryRequiredProgressId = ""
+
+	property string PersistentUnlockKey = ""
+
+	property string PersistentUnlockStorageName = "RoguelitePortalUnlocks"
+
+	property boolean PersistUnlockAcrossRuns = true
+
+	property string LockedText = "FINISH THE TRIAL"
+
+	property string UnlockedText = "enter the tower"
+
+	property string LockedToastMessage = "FINISH THE TRIAL"
+
+	property boolean EnablePortalOnlyWhenUnlocked = true
+
+	property boolean AutoFindPortalGate = true
+
+	property boolean DebugLogs = false
+
+	@Sync
+	property boolean IsTrialFinished = false
+
+	@Sync
+	property string CurrentInteractionText = "FINISH THE TRIAL"
+
+	@HideFromInspector
+	property boolean InteractionBound = false
+
+	@HideFromInspector
+	property number LastCheckTime = 0
+
+	@HideFromInspector
+	property boolean PersistentLoaded = false
+
+	method void OnBeginPlay()
+		self:ResolveComponents()
+		self:BindInteraction()
+		self:CheckTrialStatus()
+		self:ApplyInteractionState()
+	end
+
+	method void OnUpdate(number delta)
+		if self.InteractionBound == false then
+			self:BindInteraction()
+		end
+
+		local now = _UtilLogic.ElapsedSeconds
+		if now - self.LastCheckTime >= 0.5 then
+			self.LastCheckTime = now
+			self:CheckTrialStatus()
+			self:ApplyInteractionState()
+		end
+	end
+
+	method void ResolveComponents()
+		if isvalid(self.Interaction) == false then
+			self.Interaction = self.Entity.InteractionComponent
+			if isvalid(self.Interaction) == false then
+				self.Interaction = self.Entity:GetFirstChildComponentByTypeName("InteractionComponent", true)
+			end
+		end
+
+		if isvalid(self.Portal) == false then
+			self.Portal = self.Entity.PortalComponent
+			if isvalid(self.Portal) == false then
+				self.Portal = self.Entity:GetFirstChildComponentByTypeName("PortalComponent", true)
+			end
+		end
+
+		if isvalid(self.PortalGateEntity) == false and self.AutoFindPortalGate then
+			local byTag = _EntityService:GetEntityByTag(self.PortalGateTag)
+			if isvalid(byTag) then
+				self.PortalGateEntity = byTag
+			end
+		end
+	end
+
+	method void BindInteraction()
+		self:ResolveComponents()
+
+		if isvalid(self.Interaction) and self.InteractionBound == false then
+			self.InteractionBound = true
+			self.Interaction.Entity:ConnectEvent(InteractionEvent, function(event)
+				self:HandleInteraction(event)
+			end)
+
+			if self.DebugLogs then
+				log("TowerGateInteraction: interaction listener connected")
+			end
+		end
+	end
+
+	method void CheckTrialStatus()
+		-- 1. Check direct RoguelitePortalGate entity if linked or found
+		if isvalid(self.PortalGateEntity) then
+			local gate = self.PortalGateEntity:GetComponent("RoguelitePortalGate")
+			if isvalid(gate) and gate.IsUnlocked then
+				self.IsTrialFinished = true
+				return
+			end
+		end
+
+		-- 2. Check all RoguelitePortalGate instances in current scene
+		local gates = _EntityService:GetEntitiesByTag(self.PortalGateTag)
+		if gates ~= nil then
+			for _, gateEntity in ipairs(gates) do
+				if isvalid(gateEntity) then
+					local gateComp = gateEntity:GetComponent("RoguelitePortalGate")
+					if isvalid(gateComp) and gateComp.IsUnlocked then
+						self.IsTrialFinished = true
+						return
+					end
+				end
+			end
+		end
+
+		-- 3. Check player run manager progress
+		local users = _UserService.UserEntities
+		if users ~= nil then
+			for _, player in pairs(users) do
+				if isvalid(player) then
+					local runManager = player:GetComponent("RogueliteRunManager")
+					if isvalid(runManager) then
+						local primaryMet = false
+						local progId = self.RequiredProgressId ~= "" and self.RequiredProgressId or self.RequiredMonsterTag
+						if progId ~= "" and runManager:GetDefeatProgress(progId) >= self.RequiredDefeatedCount then
+							primaryMet = true
+						end
+
+						local secondaryMet = true
+						local secProgId = self.SecondaryRequiredProgressId ~= "" and self.SecondaryRequiredProgressId or self.SecondaryMonsterTag
+						if (secProgId ~= "") and (self.SecondaryRequiredDefeatedCount > 0) then
+							secondaryMet = runManager:GetDefeatProgress(secProgId) >= self.SecondaryRequiredDefeatedCount
+						end
+
+						if primaryMet and secondaryMet then
+							self.IsTrialFinished = true
+							return
+						end
+					end
+				end
+			end
+		end
+
+		-- 4. Check live defeated monsters in scene if present
+		local primaryDefeated = self:CountDefeatedByTag(self.RequiredMonsterTag)
+		local secDefeated = (self.SecondaryMonsterTag ~= "" and self.SecondaryRequiredDefeatedCount > 0)
+			and self:CountDefeatedByTag(self.SecondaryMonsterTag) or 0
+
+		local livePrimaryMet = (self.RequiredMonsterTag ~= "") and (primaryDefeated >= self.RequiredDefeatedCount)
+		local liveSecMet = (self.SecondaryMonsterTag == "" or self.SecondaryRequiredDefeatedCount <= 0) or (secDefeated >= self.SecondaryRequiredDefeatedCount)
+
+		if livePrimaryMet and liveSecMet then
+			self.IsTrialFinished = true
+			return
+		end
+
+		self.IsTrialFinished = false
+	end
+
+	method integer CountDefeatedByTag(string tag)
+		if tag == nil or tag == "" then
+			return 0
+		end
+
+		local entities = _EntityService:GetEntitiesByTag(tag)
+		if entities == nil then
+			return 0
+		end
+
+		local count = 0
+		for _, entity in ipairs(entities) do
+			if isvalid(entity) and isvalid(entity:GetComponent("PlayerComponent")) == false then
+				local monster = entity:GetComponent("Monster")
+				if isvalid(monster) and (monster.IsDead or monster.Hp <= 0) then
+					count = count + 1
+				else
+					local boss = entity:GetComponent("BossAI")
+					if isvalid(boss) and (boss.IsBossDead or boss.BossCurrentHp <= 0) then
+						count = count + 1
+					else
+						local iceRock = entity:GetComponent("IceRockBoss")
+						if isvalid(iceRock) and (iceRock.IsBossDead or iceRock.BossCurrentHp <= 0) then
+							count = count + 1
+						end
+					end
+				end
+			end
+		end
+
+		return count
+	end
+
+	method void ApplyInteractionState()
+		local textToDisplay = self.IsTrialFinished and self.UnlockedText or self.LockedText
+		self.CurrentInteractionText = textToDisplay
+
+		if isvalid(self.Interaction) then
+			self.Interaction.ActionName = textToDisplay
+			self.Interaction.ShowActionInfo = true
+		end
+
+		if self.EnablePortalOnlyWhenUnlocked and isvalid(self.Portal) then
+			self.Portal.Enable = self.IsTrialFinished
+		end
+
+		self:WriteTextToChild(textToDisplay)
+
+		if self.DebugLogs then
+			log("TowerGateInteraction: state updated isTrialFinished=" .. tostring(self.IsTrialFinished) .. " text='" .. textToDisplay .. "'")
+		end
+	end
+
+	method void WriteTextToChild(string value)
+		local textComp = self.Entity:GetComponent("TextComponent")
+		if isvalid(textComp) then
+			textComp.Text = value
+			return
+		end
+
+		local textGui = self.Entity:GetComponent("TextGUIRendererComponent")
+		if isvalid(textGui) then
+			textGui.Text = value
+			return
+		end
+
+		local childText = self.Entity:GetFirstChildComponentByTypeName("TextComponent", true)
+		if isvalid(childText) then
+			childText.Text = value
+			return
+		end
+
+		local childTextGui = self.Entity:GetFirstChildComponentByTypeName("TextGUIRendererComponent", true)
+		if isvalid(childTextGui) then
+			childTextGui.Text = value
+			return
+		end
+	end
+
+	method void HandleInteraction(InteractionEvent event)
+		self:CheckTrialStatus()
+		self:ApplyInteractionState()
+
+		if self.IsTrialFinished == false then
+			if self.LockedToastMessage ~= nil and self.LockedToastMessage ~= "" then
+				pcall(function()
+					_UIToast:ShowMessage(self.LockedToastMessage)
+				end)
+			end
+			if self.DebugLogs then
+				log("TowerGateInteraction: interaction blocked (Trial not finished)")
+			end
+			return
+		end
+
+		if self.DebugLogs then
+			log("TowerGateInteraction: interaction allowed (Entering tower)")
+		end
+	end
+
+end

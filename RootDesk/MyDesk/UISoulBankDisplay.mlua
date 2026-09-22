@@ -4,8 +4,15 @@ script UISoulBankDisplay extends Component
 
 	property Entity TextTarget = nil
 
-	property string Prefix = "Echo Shards: "
+	property Entity PanelRoot = nil
 
+	property string Prefix = "Soul Fragments : "
+
+	property boolean ShowOnlyInAllowedMaps = true
+
+	property string AllowedMapNames = "StartingArea,Tower"
+
+	-- Legacy properties kept for inspector compatibility
 	property boolean ShowOnlyInStartMap = false
 
 	property string StartMapPathPart = "StartingArea"
@@ -16,28 +23,60 @@ script UISoulBankDisplay extends Component
 	method void OnBeginPlay()
 		self.LastShownBalance = -1
 		self:WriteText(self.Prefix .. "0")
+		self:Refresh()
 	end
 
 	method void OnUpdate(number delta)
 		self:Refresh()
 	end
 
-	method void Refresh()
+	method boolean IsInAllowedMap()
+		if self.ShowOnlyInAllowedMaps == false and self.ShowOnlyInStartMap == false then
+			return true
+		end
+
 		local player = _UserService.LocalPlayer
 		if isvalid(player) == false then
+			return false
+		end
+
+		local path = string.lower(tostring(player.Path))
+
+		if self.ShowOnlyInStartMap then
+			if string.find(path, string.lower(self.StartMapPathPart), 1, true) ~= nil then
+				return true
+			end
+		end
+
+		if self.ShowOnlyInAllowedMaps then
+			if self.AllowedMapNames ~= nil and self.AllowedMapNames ~= "" then
+				for mapName in string.gmatch(self.AllowedMapNames, "([^,]+)") do
+					local trimmed = string.match(mapName, "^%s*(.-)%s*$")
+					if trimmed ~= "" and string.find(path, string.lower(trimmed), 1, true) ~= nil then
+						return true
+					end
+				end
+			end
+		end
+
+		return false
+	end
+
+	method void Refresh()
+		if self:IsInAllowedMap() == false then
+			if self.LastShownBalance ~= -2 then
+				self.LastShownBalance = -2
+				self:WriteText("")
+				self:SetPanelVisible(false)
+			end
 			return
 		end
 
-		-- Optional: only show on the starting map
-		if self.ShowOnlyInStartMap then
-			local path = tostring(player.Path)
-			if string.find(path, self.StartMapPathPart, 1, true) == nil then
-				if self.LastShownBalance ~= -2 then
-					self.LastShownBalance = -2
-					self:WriteText("")
-				end
-				return
-			end
+		self:SetPanelVisible(true)
+
+		local player = _UserService.LocalPlayer
+		if isvalid(player) == false then
+			return
 		end
 
 		local runManager = player:GetComponent("RogueliteRunManager")
@@ -54,10 +93,23 @@ script UISoulBankDisplay extends Component
 		self:WriteText(self.Prefix .. tostring(balance))
 	end
 
+	method void SetPanelVisible(boolean visible)
+		local root = self.PanelRoot
+		if isvalid(root) and root ~= self.Entity then
+			root.Enable = visible
+		elseif isvalid(root) then
+			self.Entity:SetVisible(visible)
+		end
+	end
+
 	method void WriteText(string value)
 		local target = self.TextTarget
 		if isvalid(target) == false then
 			target = self.Entity
+		end
+
+		if isvalid(target) == false then
+			return
 		end
 
 		if isvalid(target.TextComponent) then
@@ -72,6 +124,24 @@ script UISoulBankDisplay extends Component
 
 		if isvalid(target.TextInputComponent) then
 			target.TextInputComponent.Text = value
+			return
+		end
+
+		local textChild = target:GetFirstChildComponentByTypeName("TextComponent", true)
+		if isvalid(textChild) then
+			textChild.Text = value
+			return
+		end
+
+		local textGuiChild = target:GetFirstChildComponentByTypeName("TextGUIRendererComponent", true)
+		if isvalid(textGuiChild) then
+			textGuiChild.Text = value
+			return
+		end
+
+		local textInputChild = target:GetFirstChildComponentByTypeName("TextInputComponent", true)
+		if isvalid(textInputChild) then
+			textInputChild.Text = value
 			return
 		end
 	end
