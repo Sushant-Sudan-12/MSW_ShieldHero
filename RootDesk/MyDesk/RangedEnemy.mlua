@@ -62,7 +62,7 @@ script RangedEnemy extends Component
 	property number AttackSoundDelay = 0.0
 
 	@MinValue(0.0)
-	property number AttackSoundVolume = 1
+	property number AttackSoundVolume = 0.1
 
 	@MinValue(0.0)
 	property number AttackSoundPitch = 1
@@ -144,7 +144,7 @@ script RangedEnemy extends Component
 			end
 			if isvalid(sound) then
 				sound.AudioClipRUID = self.AttackSoundRUID
-				sound.Volume = math.max(0, math.min(1, self.AttackSoundVolume))
+				sound.Volume = math.max(0, math.min(0.1, self.AttackSoundVolume))
 				sound.Pitch = math.max(0, math.min(3, self.AttackSoundPitch))
 				sound.Loop = false
 				sound.Bgm = false
@@ -363,7 +363,7 @@ script RangedEnemy extends Component
 		end
 
 		pcall(function()
-			_SoundService:PlaySound(self.AttackSoundRUID, math.max(0, math.min(1, self.AttackSoundVolume)))
+			_SoundService:PlaySound(self.AttackSoundRUID, math.max(0, math.min(0.1, self.AttackSoundVolume)))
 		end)
 	end
 
@@ -388,7 +388,7 @@ script RangedEnemy extends Component
 			end
 			if isvalid(sound) then
 				sound.AudioClipRUID = self.AttackSoundRUID
-				sound.Volume = math.max(0, math.min(1, self.AttackSoundVolume))
+				sound.Volume = math.max(0, math.min(0.1, self.AttackSoundVolume))
 				sound.Pitch = math.max(0, math.min(3, self.AttackSoundPitch))
 				sound.Loop = false
 				sound.Bgm = false

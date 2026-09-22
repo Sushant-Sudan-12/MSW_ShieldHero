@@ -84,7 +84,7 @@ script ExplodingEnemy extends AttackComponent
 	property number ExplosionSoundDelay = 0.0
 
 	@MinValue(0.0)
-	property number SoundVolume = 1
+	property number SoundVolume = 0.1
 
 	@MinValue(0.0)
 	property number SoundPitch = 1
@@ -175,7 +175,7 @@ script ExplodingEnemy extends AttackComponent
 			end
 			if isvalid(sound) then
 				sound.AudioClipRUID = preloadList[1]
-				sound.Volume = math.max(0, math.min(1, self.SoundVolume))
+				sound.Volume = math.max(0, math.min(0.1, self.SoundVolume))
 				sound.Pitch = math.max(0, math.min(3, self.SoundPitch))
 				sound.Loop = false
 				sound.Bgm = false
@@ -319,7 +319,7 @@ script ExplodingEnemy extends AttackComponent
 		end
 
 		pcall(function()
-			_SoundService:PlaySound(ruid, math.max(0, math.min(1, volume)))
+			_SoundService:PlaySound(ruid, math.max(0, math.min(0.1, volume)))
 		end)
 	end
 
@@ -344,7 +344,7 @@ script ExplodingEnemy extends AttackComponent
 			end
 			if isvalid(sound) then
 				sound.AudioClipRUID = ruid
-				sound.Volume = math.max(0, math.min(1, self.SoundVolume))
+				sound.Volume = math.max(0, math.min(0.1, self.SoundVolume))
 				sound.Pitch = math.max(0, math.min(3, self.SoundPitch))
 				sound.Loop = false
 				sound.Bgm = false
@@ -587,6 +587,12 @@ script ExplodingEnemy extends AttackComponent
 	end
 
 	method integer CalcDamage(Entity attacker, Entity defender, string attackInfo)
+		if isvalid(defender) then
+			local sampleParry = defender:GetComponent("SampleParryInvincible")
+			if isvalid(sampleParry) and sampleParry.IsParryHeld then
+				return 0
+			end
+		end
 		return math.floor(self.ExplosionDamage)
 	end
 

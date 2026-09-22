@@ -82547,7 +82547,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -82564,6 +82567,7 @@
               "SpikeSpeed": 4.0,
               "SpikeDamage": 12,
               "AttackSoundRUID": "5efbbd6c9ca0481dba0d66a9184d4a6d",
+              "AttackSoundVolume": 0.1,
               "PreventLedgeFall": false,
               "DebugLogs": false,
               "AIState": "PATROL_WALK",
@@ -82692,7 +82696,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -82844,7 +82851,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -82859,6 +82869,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -83000,7 +83011,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -83150,7 +83164,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -83164,6 +83181,7 @@
               "PatrolSpeed": 2.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 6,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -163550,7 +163568,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -163561,6 +163582,7 @@
               "AttackHitDuration": 0.2,
               "AttackDuration": 1.4,
               "AttackSoundRUID": "2c05d4b5fb114703859c9f859c6eafe9",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -163709,7 +163731,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -163731,6 +163756,7 @@
               "AttackHitDuration": 0.3,
               "AttackDuration": 0.9,
               "AttackSoundRUID": "1f1a280b8c2f454bb031eb83d559a3b1",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AttackActionName": "attack2",
               "AIState": "PATROL_WALK",
@@ -166398,7 +166424,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -166420,6 +166449,7 @@
               "AttackHitDuration": 0.3,
               "AttackDuration": 0.9,
               "AttackSoundRUID": "1f1a280b8c2f454bb031eb83d559a3b1",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AttackActionName": "attack2",
               "AIState": "PATROL_WALK",
@@ -166574,7 +166604,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -166596,6 +166629,7 @@
               "AttackHitDuration": 0.3,
               "AttackDuration": 0.9,
               "AttackSoundRUID": "1f1a280b8c2f454bb031eb83d559a3b1",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AttackActionName": "attack2",
               "AIState": "PATROL_WALK",
@@ -166750,7 +166784,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -166772,6 +166809,7 @@
               "AttackHitDuration": 0.3,
               "AttackDuration": 0.9,
               "AttackSoundRUID": "1f1a280b8c2f454bb031eb83d559a3b1",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AttackActionName": "attack2",
               "AIState": "PATROL_WALK",
@@ -166926,7 +166964,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -166948,6 +166989,7 @@
               "AttackHitDuration": 0.3,
               "AttackDuration": 0.9,
               "AttackSoundRUID": "1f1a280b8c2f454bb031eb83d559a3b1",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AttackActionName": "attack2",
               "AIState": "PATROL_WALK",
@@ -167102,7 +167144,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -167124,6 +167169,7 @@
               "AttackHitDuration": 0.3,
               "AttackDuration": 0.9,
               "AttackSoundRUID": "1f1a280b8c2f454bb031eb83d559a3b1",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AttackActionName": "attack2",
               "AIState": "PATROL_WALK",
@@ -167278,7 +167324,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -167300,6 +167349,7 @@
               "AttackHitDuration": 0.3,
               "AttackDuration": 0.9,
               "AttackSoundRUID": "1f1a280b8c2f454bb031eb83d559a3b1",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AttackActionName": "attack2",
               "AIState": "PATROL_WALK",
@@ -167454,7 +167504,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -167476,6 +167529,7 @@
               "AttackHitDuration": 0.3,
               "AttackDuration": 0.9,
               "AttackSoundRUID": "1f1a280b8c2f454bb031eb83d559a3b1",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AttackActionName": "attack2",
               "AIState": "PATROL_WALK",
@@ -167628,7 +167682,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -167639,6 +167696,7 @@
               "AttackHitDuration": 0.2,
               "AttackDuration": 1.4,
               "AttackSoundRUID": "2c05d4b5fb114703859c9f859c6eafe9",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -167785,7 +167843,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -167796,6 +167857,7 @@
               "AttackHitDuration": 0.2,
               "AttackDuration": 1.4,
               "AttackSoundRUID": "2c05d4b5fb114703859c9f859c6eafe9",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -167942,7 +168004,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -167953,6 +168018,7 @@
               "AttackHitDuration": 0.2,
               "AttackDuration": 1.4,
               "AttackSoundRUID": "2c05d4b5fb114703859c9f859c6eafe9",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -168099,7 +168165,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -168110,6 +168179,7 @@
               "AttackHitDuration": 0.2,
               "AttackDuration": 1.4,
               "AttackSoundRUID": "2c05d4b5fb114703859c9f859c6eafe9",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -168256,7 +168326,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -168267,6 +168340,7 @@
               "AttackHitDuration": 0.2,
               "AttackDuration": 1.4,
               "AttackSoundRUID": "2c05d4b5fb114703859c9f859c6eafe9",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -168413,7 +168487,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -168424,6 +168501,7 @@
               "AttackHitDuration": 0.2,
               "AttackDuration": 1.4,
               "AttackSoundRUID": "2c05d4b5fb114703859c9f859c6eafe9",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -168570,7 +168648,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -168581,6 +168662,7 @@
               "AttackHitDuration": 0.2,
               "AttackDuration": 1.4,
               "AttackSoundRUID": "2c05d4b5fb114703859c9f859c6eafe9",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -168727,7 +168809,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -168742,6 +168827,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -168882,7 +168968,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -168897,6 +168986,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -169037,7 +169127,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -169052,6 +169145,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -169192,7 +169286,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -169207,6 +169304,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -169347,7 +169445,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -169362,6 +169463,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -169502,7 +169604,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -169517,6 +169622,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -169657,7 +169763,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -169672,6 +169781,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -169812,7 +169922,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -169827,6 +169940,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -169967,7 +170081,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -169982,6 +170099,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -170122,7 +170240,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -170137,6 +170258,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -170277,7 +170399,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -170292,6 +170417,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -170432,7 +170558,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -170447,6 +170576,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -170587,7 +170717,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -170602,6 +170735,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -170742,7 +170876,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -170757,6 +170894,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -170897,7 +171035,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -170912,6 +171053,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -171054,7 +171196,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -171076,6 +171221,7 @@
               "AttackHitDuration": 0.3,
               "AttackDuration": 0.9,
               "AttackSoundRUID": "1f1a280b8c2f454bb031eb83d559a3b1",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AttackActionName": "attack2",
               "AIState": "PATROL_WALK",
@@ -171228,7 +171374,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -171239,6 +171388,7 @@
               "AttackHitDuration": 0.2,
               "AttackDuration": 1.4,
               "AttackSoundRUID": "2c05d4b5fb114703859c9f859c6eafe9",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -171385,7 +171535,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -171396,6 +171549,7 @@
               "AttackHitDuration": 0.2,
               "AttackDuration": 1.4,
               "AttackSoundRUID": "2c05d4b5fb114703859c9f859c6eafe9",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -171544,7 +171698,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -171566,6 +171723,7 @@
               "AttackHitDuration": 0.3,
               "AttackDuration": 0.9,
               "AttackSoundRUID": "1f1a280b8c2f454bb031eb83d559a3b1",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AttackActionName": "attack2",
               "AIState": "PATROL_WALK",
@@ -171718,7 +171876,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -171729,6 +171890,7 @@
               "AttackHitDuration": 0.2,
               "AttackDuration": 1.4,
               "AttackSoundRUID": "2c05d4b5fb114703859c9f859c6eafe9",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -171875,7 +172037,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -171890,6 +172055,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -172030,7 +172196,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -172045,6 +172214,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -172185,7 +172355,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -172200,6 +172373,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -172340,7 +172514,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -172351,6 +172528,7 @@
               "AttackHitDuration": 0.2,
               "AttackDuration": 1.4,
               "AttackSoundRUID": "2c05d4b5fb114703859c9f859c6eafe9",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -172497,7 +172675,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -172512,6 +172693,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -172652,7 +172834,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -172667,6 +172852,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -172807,7 +172993,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -172822,6 +173011,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -172964,7 +173154,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -172986,6 +173179,7 @@
               "AttackHitDuration": 0.3,
               "AttackDuration": 0.9,
               "AttackSoundRUID": "1f1a280b8c2f454bb031eb83d559a3b1",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AttackActionName": "attack2",
               "AIState": "PATROL_WALK",
@@ -173140,7 +173334,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -173162,6 +173359,7 @@
               "AttackHitDuration": 0.3,
               "AttackDuration": 0.9,
               "AttackSoundRUID": "1f1a280b8c2f454bb031eb83d559a3b1",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AttackActionName": "attack2",
               "AIState": "PATROL_WALK",
@@ -173314,7 +173512,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -173325,6 +173526,7 @@
               "AttackHitDuration": 0.2,
               "AttackDuration": 1.4,
               "AttackSoundRUID": "2c05d4b5fb114703859c9f859c6eafe9",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -173471,7 +173673,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -173482,6 +173687,7 @@
               "AttackHitDuration": 0.2,
               "AttackDuration": 1.4,
               "AttackSoundRUID": "2c05d4b5fb114703859c9f859c6eafe9",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -173628,7 +173834,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -173639,6 +173848,7 @@
               "AttackHitDuration": 0.2,
               "AttackDuration": 1.4,
               "AttackSoundRUID": "2c05d4b5fb114703859c9f859c6eafe9",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -173785,7 +173995,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -173800,6 +174013,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -173940,7 +174154,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -173955,6 +174172,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -174095,7 +174313,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -174106,6 +174327,7 @@
               "AttackHitDuration": 0.2,
               "AttackDuration": 1.4,
               "AttackSoundRUID": "2c05d4b5fb114703859c9f859c6eafe9",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -174252,7 +174474,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -174267,6 +174492,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -174407,7 +174633,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -174422,6 +174651,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -174561,7 +174791,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -174706,7 +174939,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -174858,7 +175094,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -175010,7 +175249,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -175162,7 +175404,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -175314,7 +175559,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -175466,7 +175714,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -175618,7 +175869,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -175770,7 +176024,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -175922,7 +176179,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -176074,7 +176334,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -176226,7 +176489,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -176378,7 +176644,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -176530,7 +176799,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -176682,7 +176954,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -176834,7 +177109,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -176986,7 +177264,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -177138,7 +177419,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -177290,7 +177574,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -177442,7 +177729,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -177595,7 +177885,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -177747,7 +178040,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -177899,7 +178195,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -178051,7 +178350,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -178203,7 +178505,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -178355,7 +178660,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -178507,7 +178815,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -178659,7 +178970,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -178811,7 +179125,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -178963,7 +179280,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -179115,7 +179435,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -179267,7 +179590,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -179419,7 +179745,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -179571,7 +179900,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -179723,7 +180055,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -179875,7 +180210,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -180027,7 +180365,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -180179,7 +180520,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -180331,7 +180675,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -180483,7 +180830,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -180635,7 +180985,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -180787,7 +181140,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -180939,7 +181295,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -181092,7 +181451,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -181114,6 +181476,7 @@
               "AttackHitDuration": 0.3,
               "AttackDuration": 0.9,
               "AttackSoundRUID": "1f1a280b8c2f454bb031eb83d559a3b1",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AttackActionName": "attack2",
               "AIState": "PATROL_WALK",
@@ -181266,7 +181629,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -181281,6 +181647,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -181421,7 +181788,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -181436,6 +181806,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -181576,7 +181947,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -181591,6 +181965,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -181732,7 +182107,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -181884,7 +182262,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -182036,7 +182417,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -182187,7 +182571,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -182202,6 +182589,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -182342,7 +182730,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -182357,6 +182748,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -182497,7 +182889,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -182512,6 +182907,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -182652,7 +183048,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -182667,6 +183066,7 @@
               "AttackHitDelay": 0.9,
               "AttackDuration": 1.5,
               "AttackSoundRUID": "280a1680e92745dc9db18530a9dcecce",
+              "AttackSoundVolume": 0.2,
               "Damage": 10,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -182806,7 +183206,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -182950,7 +183353,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -183094,7 +183500,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -183238,7 +183647,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -183382,7 +183794,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -183526,7 +183941,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -183670,7 +184088,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -183814,7 +184235,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -183958,7 +184382,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -184102,7 +184529,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -184246,7 +184676,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -184390,7 +184823,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -184534,7 +184970,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -184678,7 +185117,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -184822,7 +185264,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -184966,7 +185411,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -185110,7 +185558,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -185254,7 +185705,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -185398,7 +185852,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -185542,7 +185999,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -185686,7 +186146,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -185830,7 +186293,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -185974,7 +186440,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -186118,7 +186587,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -186262,7 +186734,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -186276,6 +186751,7 @@
               "DetectionRangeX": 6.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 8,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -186415,7 +186891,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -186429,6 +186908,7 @@
               "PatrolSpeed": 2.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 6,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -186568,7 +187048,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -186582,6 +187065,7 @@
               "PatrolSpeed": 2.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 6,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -186721,7 +187205,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -186735,6 +187222,7 @@
               "PatrolSpeed": 2.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 6,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -186874,7 +187362,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -186888,6 +187379,7 @@
               "PatrolSpeed": 2.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 6,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -187027,7 +187519,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -187041,6 +187536,7 @@
               "PatrolSpeed": 2.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 6,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -187180,7 +187676,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -187194,6 +187693,7 @@
               "PatrolSpeed": 2.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 6,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -187333,7 +187833,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -187347,6 +187850,7 @@
               "PatrolSpeed": 2.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 6,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -187486,7 +187990,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -187500,6 +188007,7 @@
               "PatrolSpeed": 2.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 6,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -187639,7 +188147,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -187653,6 +188164,7 @@
               "DetectionRangeX": 6.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 8,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -187792,7 +188304,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -187806,6 +188321,7 @@
               "DetectionRangeX": 6.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 8,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -187945,7 +188461,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -187959,6 +188478,7 @@
               "DetectionRangeX": 6.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 8,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -188098,7 +188618,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -188112,6 +188635,7 @@
               "DetectionRangeX": 6.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 8,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -188251,7 +188775,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -188265,6 +188792,7 @@
               "DetectionRangeX": 6.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 8,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -188404,7 +188932,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -188418,6 +188949,7 @@
               "DetectionRangeX": 6.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 8,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -188557,7 +189089,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -188571,6 +189106,7 @@
               "DetectionRangeX": 6.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 8,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -188710,7 +189246,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -188724,6 +189263,7 @@
               "DetectionRangeX": 6.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 8,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -188863,7 +189403,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -188877,6 +189420,7 @@
               "DetectionRangeX": 6.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 8,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -189016,7 +189560,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -189030,6 +189577,7 @@
               "DetectionRangeX": 6.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 8,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -189169,7 +189717,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -189183,6 +189734,7 @@
               "DetectionRangeX": 6.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 8,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -189322,7 +189874,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -189336,6 +189891,7 @@
               "DetectionRangeX": 6.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 8,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -189475,7 +190031,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -189489,6 +190048,7 @@
               "PatrolSpeed": 2.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 6,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -189628,7 +190188,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -189642,6 +190205,7 @@
               "DetectionRangeX": 6.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 8,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -189781,7 +190345,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -189795,6 +190362,7 @@
               "DetectionRangeX": 6.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 8,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -189934,7 +190502,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -189948,6 +190519,7 @@
               "DetectionRangeX": 6.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 8,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -190087,7 +190659,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -190101,6 +190676,7 @@
               "PatrolSpeed": 2.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 6,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -190240,7 +190816,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -190254,6 +190833,7 @@
               "PatrolSpeed": 2.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 6,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -190393,7 +190973,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -190407,6 +190990,7 @@
               "PatrolSpeed": 2.0,
               "DetectionRangeY": 0.5,
               "AttackRange": 1.0,
+              "AttackSoundVolume": 0.2,
               "Damage": 6,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -190547,7 +191131,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -190558,6 +191145,7 @@
               "AttackHitDuration": 0.2,
               "AttackDuration": 1.4,
               "AttackSoundRUID": "2c05d4b5fb114703859c9f859c6eafe9",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -190704,7 +191292,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -190715,6 +191306,7 @@
               "AttackHitDuration": 0.2,
               "AttackDuration": 1.4,
               "AttackSoundRUID": "2c05d4b5fb114703859c9f859c6eafe9",
+              "AttackSoundVolume": 0.15,
               "Damage": 12,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
@@ -190860,7 +191452,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -191004,7 +191599,10 @@
               "IsDead": false,
               "RespawnDelay": 60.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",

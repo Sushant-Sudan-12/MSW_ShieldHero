@@ -68,6 +68,10 @@ script ShieldThrow extends Component
 		end
 	end
 
+	method boolean IsShieldThrown()
+		return isvalid(self.ActiveProjectile)
+	end
+
 	method boolean CanUse()
 		local shieldParry = self.Entity:GetComponent("ShieldParry")
 		if isvalid(shieldParry) and shieldParry.IsParrying then
@@ -75,11 +79,13 @@ script ShieldThrow extends Component
 		end
 
 		local soulSystem = self.Entity:GetComponent("PlayerSoulSystem")
-		if isvalid(soulSystem) and soulSystem:IsInputLocked() then
-			return false
-		end
-		if isvalid(soulSystem) and soulSystem:HasEnoughStamina(soulSystem.ShieldThrowStaminaCost) == false then
-			return false
+		if isvalid(soulSystem) then
+			if soulSystem:IsInputLocked() then
+				return false
+			end
+			if soulSystem:HasEnoughStamina(soulSystem.ShieldThrowStaminaCost) == false then
+				return false
+			end
 		end
 
 		if isvalid(self.ActiveProjectile) then
@@ -95,29 +101,26 @@ script ShieldThrow extends Component
 
 	method void HideShield()
 		local costumeManager = self.Entity:GetComponent("CostumeManagerComponent")
-		if isvalid(costumeManager) == false then
-			return
-		end
-
-		local shieldRUID = costumeManager:GetEquip(MapleAvatarItemCategory.OneHandedWeapon)
-		if shieldRUID ~= nil and shieldRUID ~= "" then
-			self.PreviousShieldEquip = shieldRUID
-			costumeManager:SetEquip(MapleAvatarItemCategory.OneHandedWeapon, "")
+		if isvalid(costumeManager) then
+			local currentEquip = costumeManager.CustomOneHandedWeaponEquip
+			if currentEquip ~= nil and currentEquip ~= "" then
+				self.PreviousShieldEquip = currentEquip
+			elseif self.PreviousShieldEquip == "" then
+				self.PreviousShieldEquip = "7e6209ebbd7c407f93da4bbe225ed8f2"
+			end
+			costumeManager.CustomOneHandedWeaponEquip = ""
 		end
 	end
 
 	method void RestoreShield()
-		if self.PreviousShieldEquip == "" then
-			return
-		end
-
 		local costumeManager = self.Entity:GetComponent("CostumeManagerComponent")
-		if isvalid(costumeManager) == false then
-			return
+		if isvalid(costumeManager) then
+			local equipToRestore = self.PreviousShieldEquip
+			if equipToRestore == nil or equipToRestore == "" then
+				equipToRestore = "7e6209ebbd7c407f93da4bbe225ed8f2"
+			end
+			costumeManager.CustomOneHandedWeaponEquip = equipToRestore
 		end
-
-		costumeManager:SetEquip(MapleAvatarItemCategory.OneHandedWeapon, self.PreviousShieldEquip)
-		self.PreviousShieldEquip = ""
 	end
 
 	method void TryThrow()
@@ -144,8 +147,14 @@ script ShieldThrow extends Component
 			return
 		end
 
-		local spawnDirection = Vector3(self.Entity.PlayerControllerComponent.LookDirectionX, 0, 0)
-		local startPosition = transform.WorldPosition + Vector3(self.Entity.PlayerControllerComponent.LookDirectionX * self.SpawnOffset.x, self.SpawnOffset.y, self.SpawnOffset.z)
+		local lookDir = 1
+		local playerController = self.Entity.PlayerControllerComponent
+		if isvalid(playerController) and playerController.LookDirectionX ~= 0 then
+			lookDir = playerController.LookDirectionX
+		end
+
+		local spawnDirection = Vector3(lookDir, 0, 0)
+		local startPosition = transform.WorldPosition + Vector3(lookDir * self.SpawnOffset.x, self.SpawnOffset.y, self.SpawnOffset.z)
 
 		if self.SpawnTimerId ~= 0 then
 			_TimerService:ClearTimer(self.SpawnTimerId)
@@ -169,6 +178,7 @@ script ShieldThrow extends Component
 
 		local spawned = _SpawnService:SpawnByModelId(modelId, "ShieldProjectile", startPosition, self.Entity.Parent)
 		if isvalid(spawned) == false then
+			self:RestoreShield()
 			return
 		end
 
@@ -185,6 +195,7 @@ script ShieldThrow extends Component
 
 		if self.BoomerangTimerId ~= 0 then
 			_TimerService:ClearTimer(self.BoomerangTimerId)
+			self.BoomerangTimerId = 0
 		end
 
 		local timerId = _TimerService:SetTimerRepeat(function()

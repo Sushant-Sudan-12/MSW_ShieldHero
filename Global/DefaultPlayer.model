@@ -1133,7 +1133,7 @@
           },
           "Value": {
             "$type": "MOD.Core.MODVector3, MOD.Core",
-            "x": -27.0,
+            "x": -13.0,
             "y": -2.0,
             "z": 0.0
           }
@@ -1399,6 +1399,24 @@
             "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
           },
           "Value": true
+        },
+        {
+          "TargetType": "script.SampleParryInvincible",
+          "Name": "ParrySoundRUID",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": "b46d3779051f478ba4bac276cbd87d6a"
+        },
+        {
+          "TargetType": "script.SampleParryInvincible",
+          "Name": "ParrySoundVolume",
+          "ValueType": {
+            "$type": "MODNativeType",
+            "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+          },
+          "Value": 0.2
         }
       ],
       "EventLinks": [],

@@ -179,6 +179,11 @@ script TrapDamageExponential extends AttackComponent
 			return math.floor(self.BaseDamagePerTick)
 		end
 
+		local sampleParry = defender:GetComponent("SampleParryInvincible")
+		if isvalid(sampleParry) and sampleParry.IsParryHeld then
+			return 0
+		end
+
 		local key = self:GetTargetKey(defender)
 		local now = _UtilLogic.ElapsedSeconds
 		local startTime = self.ContactStartTimes[key]

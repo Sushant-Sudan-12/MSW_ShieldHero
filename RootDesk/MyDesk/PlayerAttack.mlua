@@ -61,6 +61,13 @@ script PlayerAttack extends AttackComponent
 		end
 
 		local damage = math.floor(self.BaseDamage * soulSystem:GetAttackMultiplier())
+
+		-- When shield is thrown / out of hand, bare-handed punch deals 1/3 damage
+		local shieldThrow = self.Entity:GetComponent("ShieldThrow")
+		if isvalid(shieldThrow) and shieldThrow:IsShieldThrown() then
+			damage = math.floor(damage / 3)
+		end
+
 		if damage < 1 then
 			damage = 1
 		end

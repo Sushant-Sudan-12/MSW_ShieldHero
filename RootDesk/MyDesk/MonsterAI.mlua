@@ -48,7 +48,7 @@ script MonsterAI extends AttackComponent
 	property number AttackSoundDelay = 0.0
 
 	@MinValue(0.0)
-	property number AttackSoundVolume = 1
+	property number AttackSoundVolume = 0.1
 
 	@MinValue(0.0)
 	property number AttackSoundPitch = 1
@@ -69,6 +69,8 @@ script MonsterAI extends AttackComponent
 	property integer Damage = 20
 
 	-- === Hit Reaction & Stagger Settings ===
+	property boolean CanStaggerOnHit = true
+
 	@MinValue(0.0)
 	property number HitKnockbackForce = 1.5
 
@@ -175,7 +177,7 @@ script MonsterAI extends AttackComponent
 			end
 			if isvalid(sound) then
 				sound.AudioClipRUID = self.AttackSoundRUID
-				sound.Volume = math.max(0, math.min(1, self.AttackSoundVolume))
+				sound.Volume = math.max(0, math.min(0.1, self.AttackSoundVolume))
 				sound.Pitch = math.max(0, math.min(3, self.AttackSoundPitch))
 				sound.Loop = false
 				sound.Bgm = false
@@ -186,13 +188,18 @@ script MonsterAI extends AttackComponent
 		end
 
 		-- Disable native StateAnimationComponent so it doesn't overwrite our custom sprite animations
-		if self.DisableNativeStateAnimation then
+		if self.DisableNativeStateAnimation or self.CanStaggerOnHit == false then
 			local stateAnim = self.Entity:GetComponent("StateAnimationComponent")
 			if isvalid(stateAnim) then
 				stateAnim.Enable = false
-				if self.DebugLogs then
+				if self.CanStaggerOnHit == false and stateAnim.ActionSheet ~= nil then
+					pcall(function() stateAnim.ActionSheet:Remove("hit") end)
+					pcall(function() stateAnim.ActionSheet:Remove("Hit") end)
+					pcall(function() stateAnim.ActionSheet:Remove("damage") end)
+					pcall(function() stateAnim.ActionSheet:Remove("Damage") end)
 				end
 			end
+			self:MulticastDisableNativeHitState()
 		end
 
 		local transform = self.Entity.TransformComponent
@@ -469,7 +476,7 @@ script MonsterAI extends AttackComponent
 		end
 
 		pcall(function()
-			_SoundService:PlaySound(self.AttackSoundRUID, math.max(0, math.min(1, self.AttackSoundVolume)))
+			_SoundService:PlaySound(self.AttackSoundRUID, math.max(0, math.min(0.1, self.AttackSoundVolume)))
 		end)
 	end
 
@@ -494,7 +501,7 @@ script MonsterAI extends AttackComponent
 			end
 			if isvalid(sound) then
 				sound.AudioClipRUID = self.AttackSoundRUID
-				sound.Volume = math.max(0, math.min(1, self.AttackSoundVolume))
+				sound.Volume = math.max(0, math.min(0.1, self.AttackSoundVolume))
 				sound.Pitch = math.max(0, math.min(3, self.AttackSoundPitch))
 				sound.Loop = false
 				sound.Bgm = false
@@ -605,8 +612,26 @@ script MonsterAI extends AttackComponent
 		return string.upper(actionName)
 	end
 
+	@ExecSpace("Multicast")
+	method void MulticastDisableNativeHitState()
+		local stateAnim = self.Entity:GetComponent("StateAnimationComponent")
+		if isvalid(stateAnim) then
+			stateAnim.Enable = false
+			if stateAnim.ActionSheet ~= nil then
+				pcall(function() stateAnim.ActionSheet:Remove("hit") end)
+				pcall(function() stateAnim.ActionSheet:Remove("Hit") end)
+				pcall(function() stateAnim.ActionSheet:Remove("damage") end)
+				pcall(function() stateAnim.ActionSheet:Remove("Damage") end)
+			end
+		end
+	end
+
 	method void PlayAction(string actionName)
 		if actionName == nil or actionName == "" then
+			return
+		end
+
+		if self.CanStaggerOnHit == false and self.AIState ~= "STUN" and string.lower(actionName) == string.lower(self.HitActionName) then
 			return
 		end
 
@@ -663,6 +688,10 @@ script MonsterAI extends AttackComponent
 			return
 		end
 
+		if self.CanStaggerOnHit == false and self.AIState ~= "STUN" and string.lower(actionName) == string.lower(self.HitActionName) then
+			return
+		end
+
 		-- Direct AnimationClipEvent event dispatch to sprite player
 		self.Entity:SendEvent(AnimationClipEvent(actionName))
 
@@ -709,6 +738,12 @@ script MonsterAI extends AttackComponent
 	end
 
 	method integer CalcDamage(Entity attacker, Entity defender, string attackInfo)
+		if isvalid(defender) then
+			local sampleParry = defender:GetComponent("SampleParryInvincible")
+			if isvalid(sampleParry) and sampleParry.IsParryHeld then
+				return 0
+			end
+		end
 		return math.floor(self.Damage)
 	end
 
@@ -719,11 +754,6 @@ script MonsterAI extends AttackComponent
 
 		local immuneLogic = defender:GetComponent("PlayerImmuneLogic")
 		if isvalid(immuneLogic) and immuneLogic:IsImmune() then
-			return false
-		end
-
-		local sampleParry = defender:GetComponent("SampleParryInvincible")
-		if isvalid(sampleParry) and sampleParry.IsParryHeld then
 			return false
 		end
 
@@ -745,6 +775,35 @@ script MonsterAI extends AttackComponent
 	handler HandleHitEvent(HitEvent event)
 		local monster = self.Entity:GetComponent("Monster")
 		if isvalid(monster) and monster.IsDead then
+			return
+		end
+
+		if self.CanStaggerOnHit == false then
+			-- 1. Ensure StateComponent does not remain in HIT state
+			local stateComp = self.Entity.StateComponent
+			if isvalid(stateComp) then
+				local curState = string.upper(tostring(stateComp.CurrentStateName))
+				if curState == "HIT" or curState == "STAGGER" or curState == "DAMAGE" then
+					if self.IsAttacking then
+						stateComp:ChangeState("ATTACK")
+					else
+						stateComp:ChangeState("IDLE")
+					end
+				end
+			end
+
+			-- 2. Forcefully maintain the current action/attack animation without interruption
+			if self.IsAttacking then
+				local attackRuid = self.ActionSheetTable and (self.ActionSheetTable[string.lower(self.AttackActionName)] or self.ActionSheetTable["attack"])
+				if attackRuid ~= nil and attackRuid ~= "" then
+					self:MulticastPlayAction(string.lower(self.AttackActionName), attackRuid)
+				end
+			elseif self.CurrentActionPlaying ~= "" and string.lower(self.CurrentActionPlaying) ~= string.lower(self.HitActionName) then
+				local ruid = self.ActionSheetTable and self.ActionSheetTable[string.lower(self.CurrentActionPlaying)]
+				if ruid ~= nil and ruid ~= "" then
+					self:MulticastPlayAction(string.lower(self.CurrentActionPlaying), ruid)
+				end
+			end
 			return
 		end
 
@@ -798,6 +857,35 @@ script MonsterAI extends AttackComponent
 				self.AIState = "CHASE"
 			end
 		end, self.HitStaggerDuration)
+	end
+
+	@EventSender("Self")
+	handler HandleStateChangeEvent(StateChangeEvent event)
+		if self.CanStaggerOnHit == false then
+			local curState = string.upper(tostring(event.CurrentStateName))
+			if curState == "HIT" or curState == "STAGGER" or curState == "DAMAGE" then
+				local stateComp = self.Entity.StateComponent
+				if isvalid(stateComp) then
+					if self.IsAttacking then
+						stateComp:ChangeState("ATTACK")
+					else
+						stateComp:ChangeState("IDLE")
+					end
+				end
+
+				if self.IsAttacking then
+					local attackRuid = self.ActionSheetTable and (self.ActionSheetTable[string.lower(self.AttackActionName)] or self.ActionSheetTable["attack"])
+					if attackRuid ~= nil and attackRuid ~= "" then
+						self:MulticastPlayAction(string.lower(self.AttackActionName), attackRuid)
+					end
+				elseif self.CurrentActionPlaying ~= "" and string.lower(self.CurrentActionPlaying) ~= string.lower(self.HitActionName) then
+					local ruid = self.ActionSheetTable and self.ActionSheetTable[string.lower(self.CurrentActionPlaying)]
+					if ruid ~= nil and ruid ~= "" then
+						self:MulticastPlayAction(string.lower(self.CurrentActionPlaying), ruid)
+					end
+				end
+			end
+		end
 	end
 
 end

@@ -61,6 +61,12 @@ script MonsterMeleeAttack extends AttackComponent
 	end
 
 	method integer CalcDamage(Entity attacker, Entity defender, string attackInfo)
+		if isvalid(defender) then
+			local sampleParry = defender:GetComponent("SampleParryInvincible")
+			if isvalid(sampleParry) and sampleParry.IsParryHeld then
+				return 0
+			end
+		end
 		return self.Damage
 	end
 

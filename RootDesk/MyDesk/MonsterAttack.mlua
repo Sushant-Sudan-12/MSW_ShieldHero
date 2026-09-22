@@ -269,6 +269,16 @@ script MonsterAttack extends AttackComponent
 		self:AttackFast(self.Shape, nil, CollisionGroups.Player)
 	end
 
+	method integer CalcDamage(Entity attacker, Entity defender, string attackInfo)
+		if isvalid(defender) then
+			local sampleParry = defender:GetComponent("SampleParryInvincible")
+			if isvalid(sampleParry) and sampleParry.IsParryHeld then
+				return 0
+			end
+		end
+		return __base:CalcDamage(attacker, defender, attackInfo)
+	end
+
 	method boolean IsAttackTarget(Entity defender, string attackInfo)
 		if isvalid(defender.PlayerComponent) == false then
 			return false
@@ -276,12 +286,6 @@ script MonsterAttack extends AttackComponent
 
 		local immuneLogic = defender:GetComponent("PlayerImmuneLogic")
 		if isvalid(immuneLogic) and immuneLogic:IsImmune() then
-			return false
-		end
-
-		local sampleParry = defender:GetComponent("SampleParryInvincible")
-		if isvalid(sampleParry) and sampleParry.IsParryHeld then
-			log("MonsterAttack IsAttackTarget: blocked by SampleParryInvincible hold")
 			return false
 		end
 

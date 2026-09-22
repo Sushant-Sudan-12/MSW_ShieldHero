@@ -111,7 +111,9 @@ script NeedleProjectile extends Component
 	end
 
 	method void ApplyDamageToTarget(Entity target)
-		local damage = math.floor(self.NeedleDamage)
+		local sampleParry = target:GetComponent("SampleParryInvincible")
+		local isParrying = isvalid(sampleParry) and sampleParry.IsParryHeld
+		local damage = isParrying and 0 or math.floor(self.NeedleDamage)
 
 		-- Damage popup
 		pcall(function()

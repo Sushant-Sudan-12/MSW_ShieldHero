@@ -769,6 +769,12 @@ script BossAI extends AttackComponent
 	end
 
 	method integer CalcDamage(Entity attacker, Entity defender, string attackInfo)
+		if isvalid(defender) then
+			local sampleParry = defender:GetComponent("SampleParryInvincible")
+			if isvalid(sampleParry) and sampleParry.IsParryHeld then
+				return 0
+			end
+		end
 		if self.PendingDamage > 0 then
 			return math.floor(self.PendingDamage)
 		end
@@ -782,11 +788,6 @@ script BossAI extends AttackComponent
 
 		local immuneLogic = defender:GetComponent("PlayerImmuneLogic")
 		if isvalid(immuneLogic) and immuneLogic:IsImmune() then
-			return false
-		end
-
-		local sampleParry = defender:GetComponent("SampleParryInvincible")
-		if isvalid(sampleParry) and sampleParry.IsParryHeld then
 			return false
 		end
 
