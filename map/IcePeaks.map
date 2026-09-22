@@ -11813,8 +11813,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -4.30968666,
-                "y": 2.32170916,
+                "x": -4.5461607,
+                "y": 2.33770156,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -11859,7 +11859,7 @@
               "BossFightAttackInterval": 3.5,
               "BossFightBgmRUID": "6af77eef36674e0a926797664546aa80",
               "BossFightBgmVolume": 0.5,
-              "ProjectileFireSoundRUID": "806a4108aecd4be191031eef045e4eb3",
+              "ProjectileFireSoundRUID": "",
               "ProjectileFireSoundVolume": 0.6,
               "PhaseLocation1": {
                 "x": -12.5,
@@ -11886,6 +11886,7 @@
                 "y": 2.35,
                 "z": 0.0
               },
+              "KillOnDeathMonsterTag": "Boss2Monster",
               "LastAttackTime": -9999.0,
               "ActiveAttackToken": 0.0,
               "IsAttacking": false,
@@ -11993,7 +11994,7 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -5.5465703,
+                "x": -5.509709,
                 "y": -13.8,
                 "z": 999.999
               },
@@ -12030,7 +12031,7 @@
               "PortalEntityRef": {
                 "tempEntityId": null,
                 "IsRelative": false,
-                "EntityId": "3d295ecd-b1df-4089-9079-a33dfc81ddf9",
+                "EntityId": "ab3fc616-168b-4eca-aa90-b52069ac42cf",
                 "Version2": false
               },
               "Enable": true
@@ -13599,7 +13600,10 @@
               "MaxHp": 1000.0,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.TagComponent",
@@ -13698,7 +13702,10 @@
               "MaxHp": 1000.0,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.TagComponent",
@@ -13797,7 +13804,10 @@
               "MaxHp": 1000.0,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.TagComponent",
@@ -13896,7 +13906,10 @@
               "MaxHp": 1000.0,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.TagComponent",
@@ -14013,7 +14026,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -14053,7 +14069,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -14092,8 +14109,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -3.97810173,
-                "y": -13.1506863,
+                "x": -3.96580315,
+                "y": -13.1304913,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -14294,12 +14311,16 @@
               "MaxHp": 300.0,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -14389,7 +14410,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -14430,7 +14454,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -14520,7 +14545,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -14560,7 +14588,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -14650,7 +14679,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -14690,7 +14722,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -14780,7 +14813,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -14820,7 +14856,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -14910,7 +14947,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -14950,7 +14990,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -15040,7 +15081,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -15080,7 +15124,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -15170,7 +15215,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -15210,7 +15258,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -15300,7 +15349,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -15340,7 +15392,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -15430,7 +15483,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -15470,7 +15526,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -15560,7 +15617,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -15600,7 +15660,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -15690,7 +15751,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -15730,7 +15794,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -15820,7 +15885,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -15860,7 +15928,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -15950,7 +16019,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -15990,7 +16062,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -16080,7 +16153,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -16120,7 +16196,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -16210,7 +16287,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -16250,7 +16330,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -16340,7 +16421,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -16380,7 +16464,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -16470,7 +16555,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -16510,7 +16598,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -16600,7 +16689,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -16640,7 +16732,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -16730,7 +16823,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -16740,6 +16836,7 @@
               "ChaseSpeed": 3.0,
               "DetectionRangeX": 7.0,
               "LoseAggroDistance": 9.0,
+              "Damage": 35,
               "AIState": "PATROL_WALK",
               "SpawnPosition": {
                 "x": 0.0,
@@ -16770,7 +16867,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -16860,7 +16958,10 @@
               "IsDead": false,
               "RespawnDelay": 5.0,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -16900,7 +17001,8 @@
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -17026,12 +17128,16 @@
               "MaxHp": 300.0,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -17157,12 +17263,16 @@
               "MaxHp": 300.0,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -17288,12 +17398,16 @@
               "MaxHp": 300.0,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -17419,12 +17533,16 @@
               "MaxHp": 300.0,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -17550,12 +17668,16 @@
               "MaxHp": 300.0,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -17681,12 +17803,16 @@
               "MaxHp": 300.0,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.TagComponent",
               "Tags": [
-                "Monster"
+                "Monster",
+                "Boss2Monster"
               ],
               "Enable": true
             }
@@ -19168,7 +19294,7 @@
               },
               "Position": {
                 "x": -5.53926134,
-                "y": -13.8482914,
+                "y": -13.822299,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -19205,7 +19331,7 @@
               "PortalEntityRef": {
                 "tempEntityId": null,
                 "IsRelative": false,
-                "EntityId": "3d295ecd-b1df-4089-9079-a33dfc81ddf9",
+                "EntityId": "ab3fc616-168b-4eca-aa90-b52069ac42cf",
                 "Version2": false
               },
               "Enable": true

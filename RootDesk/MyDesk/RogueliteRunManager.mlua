@@ -356,18 +356,13 @@ script RogueliteRunManager extends Component
 		for _, monsterEntity in ipairs(monsters) do
 			if isvalid(monsterEntity) then
 				local monster = monsterEntity:GetComponent("Monster")
-				if isvalid(monster) and monster.IsDead then
-					-- Force respawn regardless of RespawnOn — undo the destroy if it happened
-					monster.RespawnOn = true
-					monster.IsDead = false
-					monster.Hp = monster.MaxHp
-					monsterEntity:SetVisible(true)
-					monsterEntity:SetEnable(true)
-					local stateComponent = monsterEntity.StateComponent
-					if isvalid(stateComponent) then
-						stateComponent:ChangeState("IDLE")
+				if isvalid(monster) then
+					-- Undo any boss-death PreventRespawn so the next run starts from the authored value
+					monster:RestoreRespawnDefault()
+					if monster.IsDead then
+						monster:ReviveForNewRun()
+						resetCount = resetCount + 1
 					end
-					resetCount = resetCount + 1
 				end
 			end
 		end

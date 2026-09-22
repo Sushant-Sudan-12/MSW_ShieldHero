@@ -226,7 +226,7 @@ script IceRockBoss extends AttackComponent
 	method void ResetBossForMapLoad()
 		self.BossCurrentHp = math.max(0, self.BossMaxHp)
 		self.IsBossDead = false
-		self.ActiveAttackToken = 0
+		self.ActiveAttackToken = self.ActiveAttackToken + 1
 		self.IsAttacking = false
 		self.LastAttackTime = -9999
 		self.PendingDamage = 0

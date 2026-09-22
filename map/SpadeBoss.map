@@ -10551,6 +10551,7 @@
               "HitSoundRUID": "b9996b70f08c44299adcec7801dbaffa",
               "HitStaggerDuration": 0.6,
               "RetaliationCooldown": 3.0,
+              "KillOnDeathMonsterTag": "BossMonster",
               "AIState": "IDLE",
               "IsBusy": false,
               "LastMeleeTime": -9999.0,
@@ -10938,6 +10939,12 @@
               "ActionSheet": {},
               "RenderSetting": 1,
               "SortingLayer": "MapLayer0",
+              "Color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+              },
               "Enable": true
             },
             {
@@ -10975,7 +10982,9 @@
               "RespawnDelay": 4.0,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0,
-              "RespawnToken": 0.0
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -11008,6 +11017,10 @@
             },
             {
               "@type": "MOD.Core.TagComponent",
+              "Tags": [
+                "Monster",
+                "BossMonster"
+              ],
               "Enable": true
             },
             {
@@ -11066,6 +11079,12 @@
               "ActionSheet": {},
               "RenderSetting": 1,
               "SortingLayer": "MapLayer0",
+              "Color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+              },
               "Enable": true
             },
             {
@@ -11103,7 +11122,9 @@
               "RespawnDelay": 4.0,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0,
-              "RespawnToken": 0.0
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -11137,6 +11158,10 @@
             },
             {
               "@type": "MOD.Core.TagComponent",
+              "Tags": [
+                "Monster",
+                "BossMonster"
+              ],
               "Enable": true
             },
             {
@@ -11173,6 +11198,11 @@
           "@components": [
             {
               "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
               "Position": {
                 "x": -19.07494,
                 "y": -3.17982173,
@@ -11184,6 +11214,7 @@
                 "z": 0.0,
                 "w": 1.0
               },
+              "ZRotation": 0.0,
               "Enable": true
             },
             {
@@ -11270,6 +11301,12 @@
               "ActionSheet": {},
               "RenderSetting": 1,
               "SortingLayer": "MapLayer0",
+              "Color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+              },
               "Enable": true
             },
             {
@@ -11307,7 +11344,9 @@
               "RespawnDelay": 4.0,
               "ParryStunEndTime": 0.0,
               "ParryStunRecoverTimerId": 0.0,
-              "RespawnToken": 0.0
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -11341,6 +11380,10 @@
             },
             {
               "@type": "MOD.Core.TagComponent",
+              "Tags": [
+                "Monster",
+                "BossMonster"
+              ],
               "Enable": true
             },
             {

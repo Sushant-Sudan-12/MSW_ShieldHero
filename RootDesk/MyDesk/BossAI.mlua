@@ -240,7 +240,7 @@ script BossAI extends AttackComponent
 	method void ResetBossForMapLoad()
 		self.BossCurrentHp = math.max(0, self.BossMaxHp)
 		self.IsBossDead = false
-		self.ActiveAttackToken = 0
+		self.ActiveActionToken = self.ActiveActionToken + 1
 		self.IsBusy = false
 		self.LastMeleeTime = -9999
 		self.LastSkillTime = -9999

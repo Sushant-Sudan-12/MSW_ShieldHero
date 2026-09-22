@@ -21390,8 +21390,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 27.5518513,
-                "y": -59.2645264,
+                "x": 24.0034885,
+                "y": -59.057106,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -69157,7 +69157,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -69175,7 +69178,7 @@
               "AttackBoxWidth": 4.0,
               "AttackBoxHeight": 2.0,
               "AttackBoxOffsetX": 0.0,
-              "Damage": 2,
+              "Damage": 80,
               "HitKnockbackForce": 2.0,
               "AttackActionName": "attack",
               "AIState": "PATROL_WALK",
@@ -69890,310 +69893,6 @@
         }
       },
       {
-        "id": "234db91c-aa36-41f1-9e56-10da392140b0",
-        "path": "/maps/TrialofMountain/monster-235_7",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward,MOD.Core.TagComponent",
-        "jsonString": {
-          "name": "monster-235_7",
-          "path": "/maps/TrialofMountain/monster-235_7",
-          "nameEditable": true,
-          "enable": true,
-          "visible": true,
-          "localize": false,
-          "displayOrder": 20,
-          "pathConstraints": "///",
-          "revision": 1,
-          "origin": {
-            "type": "Model",
-            "entry_id": "MoveMonster",
-            "sub_entity_id": null,
-            "root_entity_id": "99e45067-e309-4065-9ce0-bff615081fe2",
-            "replaced_model_id": null
-          },
-          "modelId": "movemonster",
-          "@components": [
-            {
-              "@type": "MOD.Core.TransformComponent",
-              "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-              },
-              "Position": {
-                "x": 4.403926,
-                "y": -26.945,
-                "z": 999.999
-              },
-              "QuaternionRotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-              },
-              "ZRotation": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.StateAnimationComponent",
-              "ActionSheet": {
-                "move": "b2a9d0e5836c48d2a531d14658585d34",
-                "stand": "68badb24ea0f4211a0149f135d06e64a",
-                "hit": "82718284cd0a4d239e53296b0e83aa9b",
-                "die": "7d16b779f45b469d85b945b59ec3d062"
-              },
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.SpriteRendererComponent",
-              "ActionSheet": {},
-              "EndFrameIndex": 0,
-              "RenderSetting": 1,
-              "SortingLayer": "MapLayer3",
-              "SpriteRUID": "68badb24ea0f4211a0149f135d06e64a",
-              "StartFrameIndex": 0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.RigidbodyComponent",
-              "MoveVelocity": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "RealMoveVelocity": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.MovementComponent",
-              "InputSpeed": 1.0,
-              "JumpForce": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.AIWanderComponent",
-              "IsLegacy": false,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.StateComponent",
-              "IsLegacy": false,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.HitComponent",
-              "BoxSize": {
-                "x": 0.58,
-                "y": 0.87
-              },
-              "ColliderOffset": {
-                "x": 0.01999998,
-                "y": 0.435
-              },
-              "IsLegacy": false,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.DamageSkinSpawnerComponent",
-              "Enable": true
-            },
-            {
-              "@type": "script.Monster",
-              "Enable": true,
-              "MaxHp": 150.0,
-              "RespawnOn": false,
-              "IsDead": false,
-              "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
-            },
-            {
-              "@type": "script.MonsterAttack",
-              "Enable": true,
-              "AttackInterval": 0.2,
-              "ScanInterval": 0.05,
-              "LastAttackTime": 0.0,
-              "SpriteSize": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "PositionOffset": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "OriginalSpriteRUID": ""
-            },
-            {
-              "@type": "script.MonsterSoulReward",
-              "Enable": true,
-              "SoulsToGive": 10.0,
-              "ProgressRecorded": false
-            },
-            {
-              "@type": "MOD.Core.TagComponent",
-              "Tags": [
-                "TrialOfMountainMonster",
-                "Monster"
-              ],
-              "Enable": true
-            }
-          ],
-          "@version": 1
-        }
-      },
-      {
-        "id": "219d523e-c354-4ecd-b140-bb71bfe36bfd",
-        "path": "/maps/TrialofMountain/monster-235_8",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.AIWanderComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAttack,script.MonsterSoulReward,MOD.Core.TagComponent",
-        "jsonString": {
-          "name": "monster-235_8",
-          "path": "/maps/TrialofMountain/monster-235_8",
-          "nameEditable": true,
-          "enable": true,
-          "visible": true,
-          "localize": false,
-          "displayOrder": 21,
-          "pathConstraints": "///",
-          "revision": 1,
-          "origin": {
-            "type": "Model",
-            "entry_id": "MoveMonster",
-            "sub_entity_id": null,
-            "root_entity_id": "99e45067-e309-4065-9ce0-bff615081fe2",
-            "replaced_model_id": null
-          },
-          "modelId": "movemonster",
-          "@components": [
-            {
-              "@type": "MOD.Core.TransformComponent",
-              "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-              },
-              "Position": {
-                "x": 10.6782913,
-                "y": -26.345,
-                "z": 999.999
-              },
-              "QuaternionRotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-              },
-              "ZRotation": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.StateAnimationComponent",
-              "ActionSheet": {
-                "move": "b2a9d0e5836c48d2a531d14658585d34",
-                "stand": "68badb24ea0f4211a0149f135d06e64a",
-                "hit": "82718284cd0a4d239e53296b0e83aa9b",
-                "die": "7d16b779f45b469d85b945b59ec3d062"
-              },
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.SpriteRendererComponent",
-              "ActionSheet": {},
-              "EndFrameIndex": 0,
-              "RenderSetting": 1,
-              "SortingLayer": "MapLayer3",
-              "SpriteRUID": "68badb24ea0f4211a0149f135d06e64a",
-              "StartFrameIndex": 0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.RigidbodyComponent",
-              "MoveVelocity": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "RealMoveVelocity": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.MovementComponent",
-              "InputSpeed": 1.0,
-              "JumpForce": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.AIWanderComponent",
-              "IsLegacy": false,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.StateComponent",
-              "IsLegacy": false,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.HitComponent",
-              "BoxSize": {
-                "x": 0.58,
-                "y": 0.87
-              },
-              "ColliderOffset": {
-                "x": 0.01999998,
-                "y": 0.435
-              },
-              "IsLegacy": false,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.DamageSkinSpawnerComponent",
-              "Enable": true
-            },
-            {
-              "@type": "script.Monster",
-              "Enable": true,
-              "MaxHp": 150.0,
-              "RespawnOn": false,
-              "IsDead": false,
-              "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
-            },
-            {
-              "@type": "script.MonsterAttack",
-              "Enable": true,
-              "AttackInterval": 0.2,
-              "ScanInterval": 0.05,
-              "LastAttackTime": 0.0,
-              "SpriteSize": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "PositionOffset": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "OriginalSpriteRUID": ""
-            },
-            {
-              "@type": "script.MonsterSoulReward",
-              "Enable": true,
-              "SoulsToGive": 10.0,
-              "ProgressRecorded": false
-            },
-            {
-              "@type": "MOD.Core.TagComponent",
-              "Tags": [
-                "TrialOfMountainMonster",
-                "Monster"
-              ],
-              "Enable": true
-            }
-          ],
-          "@version": 1
-        }
-      },
-      {
         "id": "a1201019-120a-478f-857b-58f4c9f78a29",
         "path": "/maps/TrialofMountain/monster-197_24",
         "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterSoulReward,script.MonsterAI,MOD.Core.TagComponent",
@@ -70204,7 +69903,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 22,
+          "displayOrder": 20,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -70299,7 +69998,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -70358,7 +70060,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 23,
+          "displayOrder": 21,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -70422,7 +70124,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 24,
+          "displayOrder": 22,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -70485,7 +70187,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 25,
+          "displayOrder": 23,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -70548,7 +70250,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 26,
+          "displayOrder": 24,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -70611,7 +70313,7 @@
           "enable": false,
           "visible": true,
           "localize": false,
-          "displayOrder": 27,
+          "displayOrder": 25,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -70688,7 +70390,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 28,
+          "displayOrder": 26,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -70752,7 +70454,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 29,
+          "displayOrder": 27,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -70815,7 +70517,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 30,
+          "displayOrder": 28,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -70974,7 +70676,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -71037,7 +70742,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 31,
+          "displayOrder": 29,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -71133,7 +70838,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -71191,7 +70899,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 32,
+          "displayOrder": 30,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -71290,7 +70998,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.HitComponent",
@@ -71338,7 +71049,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 33,
+          "displayOrder": 31,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -71437,7 +71148,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.HitComponent",
@@ -71485,7 +71199,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 34,
+          "displayOrder": 32,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -71584,7 +71298,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.HitComponent",
@@ -71632,7 +71349,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 35,
+          "displayOrder": 33,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -71731,7 +71448,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.HitComponent",
@@ -71779,7 +71499,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 36,
+          "displayOrder": 34,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -71878,7 +71598,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.HitComponent",
@@ -71926,7 +71649,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 37,
+          "displayOrder": 35,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -72025,7 +71748,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.HitComponent",
@@ -72073,7 +71799,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 38,
+          "displayOrder": 36,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -72172,7 +71898,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.HitComponent",
@@ -72220,7 +71949,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 39,
+          "displayOrder": 37,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -72319,7 +72048,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.HitComponent",
@@ -72367,7 +72099,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 40,
+          "displayOrder": 38,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -72466,7 +72198,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "MOD.Core.HitComponent",
@@ -72514,7 +72249,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 41,
+          "displayOrder": 39,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -72578,7 +72313,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 42,
+          "displayOrder": 40,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -72674,7 +72409,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -72732,7 +72470,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 43,
+          "displayOrder": 41,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -72828,7 +72566,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -72886,7 +72627,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 44,
+          "displayOrder": 42,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -72982,7 +72723,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -73040,7 +72784,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 45,
+          "displayOrder": 43,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -73136,7 +72880,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -73194,7 +72941,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 46,
+          "displayOrder": 44,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -73207,7 +72954,7 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 8.65449,
+                "x": 4.414051,
                 "y": -26.945,
                 "z": 999.998047
               },
@@ -73290,7 +73037,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -73348,7 +73098,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 47,
+          "displayOrder": 45,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -73444,7 +73194,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -73502,7 +73255,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 48,
+          "displayOrder": 46,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -73598,7 +73351,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -73656,7 +73412,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 49,
+          "displayOrder": 47,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -73752,7 +73508,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -73810,7 +73569,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 50,
+          "displayOrder": 48,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -73906,7 +73665,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -73964,7 +73726,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 51,
+          "displayOrder": 49,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -74123,7 +73885,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -74186,7 +73951,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 52,
+          "displayOrder": 50,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -74345,7 +74110,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -74408,7 +74176,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 53,
+          "displayOrder": 51,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -74567,7 +74335,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -74630,7 +74401,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 54,
+          "displayOrder": 52,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -74789,7 +74560,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -74852,7 +74626,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 55,
+          "displayOrder": 53,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -75011,7 +74785,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -75074,7 +74851,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 56,
+          "displayOrder": 54,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -75233,7 +75010,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -75296,7 +75076,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 57,
+          "displayOrder": 55,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -75455,7 +75235,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -75518,7 +75301,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 58,
+          "displayOrder": 56,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -75677,7 +75460,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -75740,7 +75526,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 59,
+          "displayOrder": 57,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -75899,7 +75685,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -75962,7 +75751,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 60,
+          "displayOrder": 58,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -76121,7 +75910,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -76184,7 +75976,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 61,
+          "displayOrder": 59,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -76343,7 +76135,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -76406,7 +76201,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 62,
+          "displayOrder": 60,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -76565,7 +76360,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -76628,7 +76426,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 63,
+          "displayOrder": 61,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -76787,7 +76585,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -76850,7 +76651,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 64,
+          "displayOrder": 62,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -77009,7 +76810,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -77072,7 +76876,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 65,
+          "displayOrder": 63,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -77231,7 +77035,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -77294,7 +77101,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 66,
+          "displayOrder": 64,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -77453,7 +77260,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -77516,7 +77326,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 67,
+          "displayOrder": 65,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -77675,7 +77485,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -77738,7 +77551,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 68,
+          "displayOrder": 66,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -77897,7 +77710,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -77960,7 +77776,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 69,
+          "displayOrder": 67,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -78119,7 +77935,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -78182,7 +78001,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 70,
+          "displayOrder": 68,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -78275,7 +78094,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -78339,7 +78161,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 71,
+          "displayOrder": 69,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -78432,7 +78254,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -78496,7 +78321,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 72,
+          "displayOrder": 70,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -78591,7 +78416,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -78650,7 +78478,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 73,
+          "displayOrder": 71,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -78743,7 +78571,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -78807,7 +78638,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 74,
+          "displayOrder": 72,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -78900,7 +78731,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -78964,7 +78798,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 75,
+          "displayOrder": 73,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -79123,7 +78957,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -79186,7 +79023,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 76,
+          "displayOrder": 74,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -79279,7 +79116,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -79343,7 +79183,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 77,
+          "displayOrder": 75,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -79436,7 +79276,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -79500,7 +79343,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 78,
+          "displayOrder": 76,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -79593,7 +79436,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -79657,7 +79503,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 79,
+          "displayOrder": 77,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -79750,7 +79596,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -79814,7 +79663,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 80,
+          "displayOrder": 78,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -79907,7 +79756,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -79971,7 +79823,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 81,
+          "displayOrder": 79,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -80064,7 +79916,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -80128,7 +79983,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 82,
+          "displayOrder": 80,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -80221,7 +80076,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -80285,7 +80143,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 83,
+          "displayOrder": 81,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -80378,7 +80236,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -80442,7 +80303,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 84,
+          "displayOrder": 82,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -80535,7 +80396,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -80599,7 +80463,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 85,
+          "displayOrder": 83,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -80692,7 +80556,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -80756,7 +80623,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 86,
+          "displayOrder": 84,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -80849,7 +80716,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -80913,7 +80783,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 87,
+          "displayOrder": 85,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -81008,7 +80878,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -81067,7 +80940,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 88,
+          "displayOrder": 86,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -81162,7 +81035,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -81221,7 +81097,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 89,
+          "displayOrder": 87,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -81316,7 +81192,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -81375,7 +81254,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 90,
+          "displayOrder": 88,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -81470,7 +81349,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -81529,7 +81411,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 91,
+          "displayOrder": 89,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -81624,7 +81506,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -81683,7 +81568,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 92,
+          "displayOrder": 90,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -81778,7 +81663,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -81837,7 +81725,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 93,
+          "displayOrder": 91,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -81932,7 +81820,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -81991,7 +81882,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 94,
+          "displayOrder": 92,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -82086,7 +81977,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -82145,7 +82039,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 95,
+          "displayOrder": 93,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -82240,7 +82134,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -82299,7 +82196,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 96,
+          "displayOrder": 94,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -82392,7 +82289,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -82456,7 +82356,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 97,
+          "displayOrder": 95,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -82551,7 +82451,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -82610,7 +82513,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 98,
+          "displayOrder": 96,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -82703,7 +82606,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -82767,7 +82673,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 99,
+          "displayOrder": 97,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -82860,7 +82766,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -82924,7 +82833,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 100,
+          "displayOrder": 98,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -83020,7 +82929,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -83078,7 +82990,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 101,
+          "displayOrder": 99,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -83173,7 +83085,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -83232,7 +83147,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 102,
+          "displayOrder": 100,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -83327,7 +83242,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -83386,7 +83304,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 103,
+          "displayOrder": 101,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -83481,7 +83399,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -83540,7 +83461,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 104,
+          "displayOrder": 102,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -83699,7 +83620,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -83762,7 +83686,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 105,
+          "displayOrder": 103,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -83858,7 +83782,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -83916,7 +83843,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 106,
+          "displayOrder": 104,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -83979,7 +83906,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 107,
+          "displayOrder": 105,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -84042,7 +83969,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 108,
+          "displayOrder": 106,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -84106,7 +84033,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 109,
+          "displayOrder": 107,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -84169,7 +84096,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 110,
+          "displayOrder": 108,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -84395,7 +84322,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 111,
+          "displayOrder": 109,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -84458,7 +84385,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 112,
+          "displayOrder": 110,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -84521,7 +84448,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 113,
+          "displayOrder": 111,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -84584,7 +84511,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 114,
+          "displayOrder": 112,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -84743,7 +84670,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -84807,7 +84737,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 115,
+          "displayOrder": 113,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -84966,7 +84896,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -85030,7 +84963,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 116,
+          "displayOrder": 114,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -85189,7 +85122,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -85253,7 +85189,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 117,
+          "displayOrder": 115,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -85348,7 +85284,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -85408,7 +85347,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 118,
+          "displayOrder": 116,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -85501,7 +85440,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -85566,7 +85508,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 119,
+          "displayOrder": 117,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -85659,7 +85601,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -85724,7 +85669,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 120,
+          "displayOrder": 118,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -85819,7 +85764,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -85879,7 +85827,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 121,
+          "displayOrder": 119,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -85975,7 +85923,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -86033,7 +85984,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 122,
+          "displayOrder": 120,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -86192,7 +86143,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -86256,7 +86210,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 123,
+          "displayOrder": 121,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -86319,7 +86273,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 124,
+          "displayOrder": 122,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -86382,7 +86336,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 125,
+          "displayOrder": 123,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -86445,7 +86399,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 126,
+          "displayOrder": 124,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -86541,7 +86495,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -86599,7 +86556,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 127,
+          "displayOrder": 125,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -86758,7 +86715,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -86822,7 +86782,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 128,
+          "displayOrder": 126,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -86981,7 +86941,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -87045,7 +87008,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 129,
+          "displayOrder": 127,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -87204,7 +87167,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -87268,7 +87234,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 130,
+          "displayOrder": 128,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -87364,7 +87330,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -87422,7 +87391,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 131,
+          "displayOrder": 129,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -87515,7 +87484,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -87580,7 +87552,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 132,
+          "displayOrder": 130,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -87673,7 +87645,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -87738,7 +87713,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 133,
+          "displayOrder": 131,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -87833,7 +87808,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -87893,7 +87871,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 134,
+          "displayOrder": 132,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -88119,7 +88097,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 135,
+          "displayOrder": 133,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -88278,7 +88256,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -88341,7 +88322,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 136,
+          "displayOrder": 134,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -88500,7 +88481,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -88563,7 +88547,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 137,
+          "displayOrder": 135,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -88722,7 +88706,10 @@
               "ParryPushbackUnits": 1.8,
               "ParryStunDuration": 0.2,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterAI",
@@ -88775,164 +88762,6 @@
         }
       },
       {
-        "id": "dbd16676-e32e-48fa-bdba-8cd085cdba62",
-        "path": "/maps/TrialofMountain/monster-426_14",
-        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterSoulReward,script.MonsterAI,MOD.Core.TagComponent",
-        "jsonString": {
-          "name": "monster-426_14",
-          "path": "/maps/TrialofMountain/monster-426_14",
-          "nameEditable": true,
-          "enable": true,
-          "visible": true,
-          "localize": false,
-          "displayOrder": 138,
-          "pathConstraints": "///",
-          "revision": 1,
-          "modelId": null,
-          "@components": [
-            {
-              "@type": "MOD.Core.TransformComponent",
-              "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-              },
-              "Position": {
-                "x": 21.21345,
-                "y": -59.245,
-                "z": 999.999
-              },
-              "QuaternionRotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-              },
-              "ZRotation": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.StateAnimationComponent",
-              "ActionSheet": {
-                "move": "02b2b82e138d4e1e9d1a12f6501784ab",
-                "stand": "a488ae7e0333452286a2b802b784946f",
-                "hit": "d8a8165fd5204c1baae47f21a36cfa82",
-                "die": "9bfe87ab00954fb4b7d3670e05fa0ff4"
-              },
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.SpriteRendererComponent",
-              "ActionSheet": {},
-              "EndFrameIndex": 0,
-              "OrderInLayer": 2,
-              "RenderSetting": 1,
-              "SortingLayer": "MapLayer3",
-              "SpriteRUID": "a488ae7e0333452286a2b802b784946f",
-              "StartFrameIndex": 0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.RigidbodyComponent",
-              "MoveVelocity": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "RealMoveVelocity": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.MovementComponent",
-              "InputSpeed": 1.0,
-              "JumpForce": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.StateComponent",
-              "IsLegacy": false,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.HitComponent",
-              "BoxSize": {
-                "x": 0.63,
-                "y": 0.92
-              },
-              "ColliderOffset": {
-                "x": 0.065,
-                "y": 0.46
-              },
-              "IsLegacy": false,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.DamageSkinSpawnerComponent",
-              "Enable": true
-            },
-            {
-              "@type": "script.Monster",
-              "Enable": true,
-              "RespawnOn": false,
-              "IsDead": false,
-              "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
-            },
-            {
-              "@type": "script.MonsterSoulReward",
-              "Enable": true,
-              "SoulsToGive": 10.0,
-              "ProgressRecorded": false
-            },
-            {
-              "@type": "script.MonsterAI",
-              "Enable": true,
-              "PatrolSpeed": 2.0,
-              "PatrolDistance": 4.0,
-              "PatrolIdleDuration": 3.0,
-              "ChaseSpeed": 2.5,
-              "DetectionRangeX": 5.0,
-              "AttackRange": 0.8,
-              "AttackHitDelay": 0.3,
-              "AttackSoundRUID": "083146c1858548888501e0a850f65e68",
-              "AttackSoundDelay": 0.1,
-              "Damage": 200,
-              "AIState": "PATROL_WALK",
-              "SpawnPosition": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "PatrolDirection": 1.0,
-              "PatrolIdleTimer": 0.0,
-              "LastAttackTime": 0.0,
-              "IsAttacking": false,
-              "SpriteSize": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "PositionOffset": {
-                "x": 0.0,
-                "y": 0.0
-              },
-              "CurrentActionPlaying": "",
-              "OriginalSpriteRUID": "",
-              "ActiveAttackToken": 0.0
-            },
-            {
-              "@type": "MOD.Core.TagComponent",
-              "Tags": [
-                "TrialOfMountainMonster",
-                "Monster"
-              ],
-              "Enable": true
-            }
-          ],
-          "@version": 1
-        }
-      },
-      {
         "id": "b9180d32-1563-42ac-b1f3-5b4928e48aae",
         "path": "/maps/TrialofMountain/Model_TeleportShortcut",
         "componentNames": "MOD.Core.TransformComponent,script.SceneTeleportShortcuts",
@@ -88943,7 +88772,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 139,
+          "displayOrder": 136,
           "pathConstraints": "///",
           "revision": 1,
           "origin": {
@@ -88989,7 +88818,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 140,
+          "displayOrder": 137,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -89082,7 +88911,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -89147,7 +88979,7 @@
           "enable": true,
           "visible": true,
           "localize": false,
-          "displayOrder": 141,
+          "displayOrder": 138,
           "pathConstraints": "///",
           "revision": 1,
           "modelId": null,
@@ -89240,7 +89072,10 @@
               "RespawnOn": false,
               "IsDead": false,
               "ParryStunEndTime": 0.0,
-              "ParryStunRecoverTimerId": 0.0
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
             },
             {
               "@type": "script.MonsterSoulReward",
@@ -89281,6 +89116,163 @@
               "CurrentActionPlaying": "",
               "OriginalSpriteRUID": "",
               "ActiveAttackToken": 0.0
+            },
+            {
+              "@type": "MOD.Core.TagComponent",
+              "Tags": [
+                "TrialOfMountainMonster",
+                "Monster"
+              ],
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "ef5b9617-393d-43e4-a04e-68d64dcdbe6f",
+        "path": "/maps/TrialofMountain/monster-236_14",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.StateAnimationComponent,MOD.Core.SpriteRendererComponent,MOD.Core.RigidbodyComponent,MOD.Core.MovementComponent,MOD.Core.StateComponent,MOD.Core.HitComponent,MOD.Core.DamageSkinSpawnerComponent,script.Monster,script.MonsterAI,script.MonsterSoulReward,MOD.Core.TagComponent",
+        "jsonString": {
+          "name": "monster-236_14",
+          "path": "/maps/TrialofMountain/monster-236_14",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 139,
+          "pathConstraints": "///",
+          "revision": 1,
+          "modelId": null,
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": 8.35449,
+                "y": -26.645,
+                "z": 999.998047
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateAnimationComponent",
+              "ActionSheet": {
+                "stand": "3d86d89ff06d4fd4b062e75ba65d28a3",
+                "move": "abd35ba813b142da93f03396e1da5015",
+                "attack": "e8876d1d4da74d8cb108e25eb25211ba",
+                "hit": "28497d02385d4511b34316620197383d",
+                "die": "818013d069d14ad6ae30f4e06e863536"
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "EndFrameIndex": 0,
+              "FlipX": false,
+              "OrderInLayer": 2,
+              "RenderSetting": 1,
+              "SortingLayer": "MapLayer3",
+              "SpriteRUID": "abd35ba813b142da93f03396e1da5015",
+              "StartFrameIndex": 0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.RigidbodyComponent",
+              "MoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "RealMoveVelocity": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.MovementComponent",
+              "InputSpeed": 1.0,
+              "JumpForce": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.StateComponent",
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.HitComponent",
+              "BoxSize": {
+                "x": 1.81,
+                "y": 0.92
+              },
+              "ColliderOffset": {
+                "x": 0.125,
+                "y": 0.46
+              },
+              "IsLegacy": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.DamageSkinSpawnerComponent",
+              "Enable": true
+            },
+            {
+              "@type": "script.Monster",
+              "Enable": true,
+              "MaxHp": 400.0,
+              "RespawnOn": false,
+              "IsDead": false,
+              "ParryStunEndTime": 0.0,
+              "ParryStunRecoverTimerId": 0.0,
+              "RespawnToken": 0.0,
+              "RespawnDefaultCaptured": false,
+              "OriginalRespawnOn": false
+            },
+            {
+              "@type": "script.MonsterAI",
+              "Enable": true,
+              "AttackInterval": 2.0,
+              "AttackSoundRUID": "57b1d0899ff1425b90585fcd14d746f9",
+              "Damage": 8,
+              "AIState": "PATROL_WALK",
+              "SpawnPosition": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "PatrolDirection": 1.0,
+              "PatrolIdleTimer": 0.0,
+              "LastAttackTime": 0.0,
+              "IsAttacking": false,
+              "SpriteSize": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "PositionOffset": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "CurrentActionPlaying": "",
+              "OriginalSpriteRUID": "",
+              "ActiveAttackToken": 0.0
+            },
+            {
+              "@type": "script.MonsterSoulReward",
+              "Enable": true,
+              "SoulsToGive": 30.0,
+              "ProgressRecorded": false
             },
             {
               "@type": "MOD.Core.TagComponent",

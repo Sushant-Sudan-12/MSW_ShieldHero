@@ -35,8 +35,20 @@ script Monster extends Component
 	@HideFromInspector
 	property number RespawnToken = 0
 
+	@HideFromInspector
+	property boolean RespawnDefaultCaptured = false
+
+	@HideFromInspector
+	property boolean OriginalRespawnOn = false
+
 	method void OnBeginPlay()
 		self.Hp = self.MaxHp
+
+		-- Authored RespawnOn is the value every new run must return to
+		if self.RespawnDefaultCaptured == false then
+			self.OriginalRespawnOn = self.RespawnOn
+			self.RespawnDefaultCaptured = true
+		end
 	end
 
 	@ExecSpace("ServerOnly")
@@ -120,6 +132,29 @@ script Monster extends Component
 	method void PreventRespawn()
 		self.RespawnOn = false
 		self.RespawnToken = self.RespawnToken + 1
+	end
+
+	@ExecSpace("ServerOnly")
+	method void RestoreRespawnDefault()
+		if self.RespawnDefaultCaptured then
+			self.RespawnOn = self.OriginalRespawnOn
+		end
+		self.RespawnToken = self.RespawnToken + 1
+	end
+
+	@ExecSpace("ServerOnly")
+	method void ReviveForNewRun()
+		self.RespawnToken = self.RespawnToken + 1
+		self.IsDead = false
+		self.Hp = self.MaxHp
+		self.ParryStunEndTime = 0
+		self.Entity:SetVisible(true)
+		self.Entity:SetEnable(true)
+
+		local stateComponent = self.Entity.StateComponent
+		if isvalid(stateComponent) then
+			stateComponent:ChangeState("IDLE")
+		end
 	end
 
 	@ExecSpace("ServerOnly")
