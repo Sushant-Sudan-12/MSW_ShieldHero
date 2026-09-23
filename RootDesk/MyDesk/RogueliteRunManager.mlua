@@ -477,13 +477,17 @@ script RogueliteRunManager extends Component
 					if monster.IsDead then
 						monster:ReviveForNewRun()
 						resetCount = resetCount + 1
+					else
+						-- Ensure any damaged monsters also start from full HP
+						monster.Hp = monster.MaxHp
+						resetCount = resetCount + 1
 					end
 				end
 			end
 		end
 
 		if self.DebugLogs then
-			log("RogueliteRunManager: respawned " .. tostring(resetCount) .. " monsters (skipped " .. tostring(skippedCount) .. ")")
+			log("RogueliteRunManager: respawned/restored " .. tostring(resetCount) .. " monsters (skipped " .. tostring(skippedCount) .. ")")
 		end
 	end
 
@@ -503,11 +507,15 @@ script RogueliteRunManager extends Component
 					seen[entity] = true
 					local bossAI = entity:GetComponent("BossAI")
 					local iceRockBoss = entity:GetComponent("IceRockBoss")
+					local monster = entity:GetComponent("Monster")
 					if isvalid(bossAI) then
 						bossAI:ResetBossForRun()
 						resetCount = resetCount + 1
 					elseif isvalid(iceRockBoss) then
 						iceRockBoss:ResetBossForRun()
+						resetCount = resetCount + 1
+					elseif isvalid(monster) then
+						monster:ReviveForNewRun()
 						resetCount = resetCount + 1
 					end
 				end
@@ -516,6 +524,9 @@ script RogueliteRunManager extends Component
 
 		resetEntities("Boss")
 		resetEntities("IceRockBoss")
+		resetEntities("TreeBoss")
+		resetEntities("SpadeBoss")
+		resetEntities("ClockBoss")
 
 		if self.DebugLogs then
 			log("RogueliteRunManager: reset " .. tostring(resetCount) .. " bosses to full health")

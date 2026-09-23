@@ -37,6 +37,11 @@ script StageObjectiveUI extends Component
 
 	property string SecondaryLabel = "Boss defeated"
 
+	property string MountainExitText = "Reach the top of the mountain to exit"
+
+	@MinValue(0.0)
+	property number MountainExitTextDelay = 7.0
+
 	-- === Sand Map Settings ===
 	property string SandMapText = "Collect 300 souls and reach the portal"
 
@@ -108,12 +113,26 @@ script StageObjectiveUI extends Component
 	@HideFromInspector
 	property boolean LastCompletedState = false
 
+	@HideFromInspector
+	property number MountainBothCompletedTime = 0
+
 	method void OnBeginPlay()
 		self.LastVisibleState = true
 		self.LastRenderedText = ""
 		self.LastAppliedTheme = ""
 		self.LastCompletedState = false
+		self.MountainBothCompletedTime = 0
 		self:Refresh()
+	end
+
+	method string ColorToHex(Color c)
+		if c == nil then
+			return "#FFFFFF"
+		end
+		local r = math.floor(math.max(0, math.min(1, c.r)) * 255 + 0.5)
+		local g = math.floor(math.max(0, math.min(1, c.g)) * 255 + 0.5)
+		local b = math.floor(math.max(0, math.min(1, c.b)) * 255 + 0.5)
+		return string.format("#%02X%02X%02X", r, g, b)
 	end
 
 	method void OnUpdate(number delta)
@@ -222,23 +241,44 @@ script StageObjectiveUI extends Component
 		-- 1. Trial of Mountain
 		if string.find(lowerPath, "trialofmountain", 1, true) ~= nil then
 			local primaryDefeated = self:CountDefeatedByTag(self.PrimaryTag)
-			local line1 = tostring(self.PrimaryLabel) .. " " .. tostring(primaryDefeated) .. "/" .. tostring(self.PrimaryRequiredCount)
-			local fullText = line1
-
 			local hasSecondary = self.ShowSecondary and (self.SecondaryTag ~= nil and self.SecondaryTag ~= "") and (self.SecondaryRequiredCount ~= nil and self.SecondaryRequiredCount > 0)
 			local secondaryDefeated = 0
 			if hasSecondary then
 				secondaryDefeated = self:CountDefeatedByTag(self.SecondaryTag)
-				local line2 = tostring(self.SecondaryLabel) .. " " .. tostring(secondaryDefeated) .. "/" .. tostring(self.SecondaryRequiredCount)
-				fullText = fullText .. "\n" .. line2
 			end
 
 			local isPrimaryComplete = primaryDefeated >= self.PrimaryRequiredCount
 			local isSecondaryComplete = (hasSecondary == false) or (secondaryDefeated >= self.SecondaryRequiredCount)
 			local isAllComplete = isPrimaryComplete and isSecondaryComplete
 
-			if isAllComplete and self.CompleteSuffix ~= nil and self.CompleteSuffix ~= "" then
-				fullText = fullText .. "\n" .. tostring(self.CompleteSuffix)
+			local greenHex = self:ColorToHex(self.CompletedColor)
+			local whiteHex = self:ColorToHex(self.IncompleteColor)
+
+			local line1Color = isPrimaryComplete and greenHex or whiteHex
+			local line1 = "<color=" .. line1Color .. ">" .. tostring(self.PrimaryLabel) .. " " .. tostring(primaryDefeated) .. "/" .. tostring(self.PrimaryRequiredCount) .. "</color>"
+			local fullText = line1
+
+			if hasSecondary then
+				local line2Color = isSecondaryComplete and greenHex or whiteHex
+				local line2 = "<color=" .. line2Color .. ">" .. tostring(self.SecondaryLabel) .. " " .. tostring(secondaryDefeated) .. "/" .. tostring(self.SecondaryRequiredCount) .. "</color>"
+				fullText = fullText .. "\n" .. line2
+			end
+
+			if isAllComplete then
+				local now = _UtilLogic.ElapsedSeconds
+				if self.MountainBothCompletedTime == 0 then
+					self.MountainBothCompletedTime = now
+				end
+
+				local elapsed = now - self.MountainBothCompletedTime
+				if elapsed >= self.MountainExitTextDelay then
+					local exitMsg = self.MountainExitText ~= "" and self.MountainExitText or "Reach the top of the mountain to exit"
+					fullText = "<color=" .. greenHex .. ">" .. exitMsg .. "</color>"
+				elseif self.CompleteSuffix ~= nil and self.CompleteSuffix ~= "" then
+					fullText = fullText .. "\n<color=" .. greenHex .. ">" .. tostring(self.CompleteSuffix) .. "</color>"
+				end
+			else
+				self.MountainBothCompletedTime = 0
 			end
 
 			return fullText, isAllComplete, false
@@ -380,16 +420,34 @@ script StageObjectiveUI extends Component
 		self:SetPanelVisible(true)
 		self:UpdateBackgroundTheme(theme)
 
-		local line1 = tostring(self.PrimaryLabel) .. " " .. tostring(primaryDefeated) .. "/" .. tostring(self.PrimaryRequiredCount)
+		local greenHex = self:ColorToHex(self.CompletedColor)
+		local whiteHex = self:ColorToHex(self.IncompleteColor)
+
+		local line1Color = isPrimaryComplete and greenHex or whiteHex
+		local line1 = "<color=" .. line1Color .. ">" .. tostring(self.PrimaryLabel) .. " " .. tostring(primaryDefeated) .. "/" .. tostring(self.PrimaryRequiredCount) .. "</color>"
 		local fullText = line1
 
 		if hasSecondary then
-			local line2 = tostring(self.SecondaryLabel) .. " " .. tostring(secondaryDefeated) .. "/" .. tostring(self.SecondaryRequiredCount)
+			local line2Color = isSecondaryComplete and greenHex or whiteHex
+			local line2 = "<color=" .. line2Color .. ">" .. tostring(self.SecondaryLabel) .. " " .. tostring(secondaryDefeated) .. "/" .. tostring(self.SecondaryRequiredCount) .. "</color>"
 			fullText = fullText .. "\n" .. line2
 		end
 
-		if isAllComplete and self.CompleteSuffix ~= nil and self.CompleteSuffix ~= "" then
-			fullText = fullText .. "\n" .. tostring(self.CompleteSuffix)
+		if isAllComplete then
+			local now = _UtilLogic.ElapsedSeconds
+			if self.MountainBothCompletedTime == 0 then
+				self.MountainBothCompletedTime = now
+			end
+
+			local elapsed = now - self.MountainBothCompletedTime
+			if elapsed >= self.MountainExitTextDelay then
+				local exitMsg = self.MountainExitText ~= "" and self.MountainExitText or "Reach the top of the mountain to exit"
+				fullText = "<color=" .. greenHex .. ">" .. exitMsg .. "</color>"
+			elseif self.CompleteSuffix ~= nil and self.CompleteSuffix ~= "" then
+				fullText = fullText .. "\n<color=" .. greenHex .. ">" .. tostring(self.CompleteSuffix) .. "</color>"
+			end
+		else
+			self.MountainBothCompletedTime = 0
 		end
 
 		local targetColor = isAllComplete and self.CompletedColor or self.IncompleteColor
@@ -538,7 +596,11 @@ script StageObjectiveUI extends Component
 			return
 		end
 
+		local hasRichTags = string.find(value, "<color=", 1, true) ~= nil
 		local colorToApply = fontColor or self.IncompleteColor
+		if hasRichTags then
+			colorToApply = Color(1, 1, 1, 1)
+		end
 
 		if isvalid(resolvedTarget.TextComponent) then
 			resolvedTarget.TextComponent.Text = value

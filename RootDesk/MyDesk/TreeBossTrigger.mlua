@@ -1,0 +1,112 @@
+@Component
+script TreeBossTrigger extends Component
+
+	property string TreeBossHealthUIPath = "/ui/PlayerStats/TreeBoss"
+	property string TreeBossHealthUITag = "TreeBossHealthBar"
+
+	property boolean DebugLogs = true
+
+	@HideFromInspector
+	property any TreeBossHealthUI = nil
+
+	@ExecSpace("ClientOnly")
+	method void OnBeginPlay()
+		if self.DebugLogs then
+			log("TreeBossTrigger ready on " .. tostring(self.Entity.Path))
+		end
+	end
+
+	@ExecSpace("ClientOnly")
+	method any GetHealthUI()
+		if isvalid(self.TreeBossHealthUI) then
+			return self.TreeBossHealthUI
+		end
+
+		if self.TreeBossHealthUIPath ~= nil and self.TreeBossHealthUIPath ~= "" then
+			local entity = _EntityService:GetEntityByPath(self.TreeBossHealthUIPath)
+			if isvalid(entity) then
+				local ui = entity:GetComponent("TreeBossHealthBarUI")
+				if isvalid(ui) then
+					self.TreeBossHealthUI = ui
+					return ui
+				end
+			end
+		end
+
+		local fallbackPaths = {
+			"/ui/PlayerStats/TreeBoss",
+			"/ui/PlayerStats/TreeBossHealthBar",
+			"/ui/PlayerStats/TreeBoss/HealthBar"
+		}
+		for _, path in ipairs(fallbackPaths) do
+			local entity = _EntityService:GetEntityByPath(path)
+			if isvalid(entity) then
+				local ui = entity:GetComponent("TreeBossHealthBarUI")
+				if isvalid(ui) then
+					self.TreeBossHealthUI = ui
+					return ui
+				end
+			end
+		end
+
+		if self.TreeBossHealthUITag ~= nil and self.TreeBossHealthUITag ~= "" then
+			local entity = _EntityService:GetEntityByTag(self.TreeBossHealthUITag)
+			if isvalid(entity) then
+				local ui = entity:GetComponent("TreeBossHealthBarUI")
+				if isvalid(ui) then
+					self.TreeBossHealthUI = ui
+					return ui
+				end
+			end
+		end
+
+		return nil
+	end
+
+	method boolean IsLocalPlayer(Entity target)
+		if isvalid(target) == false then
+			return false
+		end
+		local localPlayer = _UserService.LocalPlayer
+		return isvalid(localPlayer) and localPlayer == target
+	end
+
+	@ExecSpace("ClientOnly")
+	method void OnEnterTriggerBody(TriggerEnterEvent enterEvent)
+		if enterEvent ~= nil and self:IsLocalPlayer(enterEvent.TriggerBodyEntity) then
+			local healthUI = self:GetHealthUI()
+			if isvalid(healthUI) then
+				healthUI.PlayerInTrigger = true
+			end
+			if self.DebugLogs then
+				log("TreeBossTrigger: player entered boss arena trigger -> UI triggered")
+			end
+		end
+	end
+
+	@ExecSpace("ClientOnly")
+	method void OnLeaveTriggerBody(TriggerLeaveEvent leaveEvent)
+		if leaveEvent ~= nil and self:IsLocalPlayer(leaveEvent.TriggerBodyEntity) then
+			local healthUI = self:GetHealthUI()
+			if isvalid(healthUI) then
+				healthUI.PlayerInTrigger = false
+			end
+			if self.DebugLogs then
+				log("TreeBossTrigger: player left boss arena trigger -> UI untriggered")
+			end
+		end
+	end
+
+	@ExecSpace("ClientOnly")
+	@EventSender("Self")
+	handler HandleTriggerEnterEvent(TriggerEnterEvent event)
+		self:OnEnterTriggerBody(event)
+	end
+
+	@ExecSpace("ClientOnly")
+	@EventSender("Self")
+	handler HandleTriggerLeaveEvent(TriggerLeaveEvent event)
+		self:OnLeaveTriggerBody(event)
+	end
+
+end

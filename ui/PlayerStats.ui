@@ -606,11 +606,11 @@
               "MobileOnly": false,
               "OffsetMax": {
                 "x": 37.71,
-                "y": 52.29
+                "y": 51.09
               },
               "OffsetMin": {
                 "x": -62.29,
-                "y": -47.71
+                "y": -48.91
               },
               "Pivot": {
                 "x": 0.5,
@@ -629,7 +629,7 @@
               "UIVersion": 2,
               "anchoredPosition": {
                 "x": -12.29,
-                "y": 2.29
+                "y": 1.09
               },
               "Rotation": {
                 "x": 0.0,
@@ -638,7 +638,7 @@
               },
               "Position": {
                 "x": -12.29,
-                "y": 2.29,
+                "y": 1.09,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -657,6 +657,10 @@
             },
             {
               "@type": "MOD.Core.TextGUIRendererComponent",
+              "Font": "Bazzi",
+              "FontSize": 26.0,
+              "MaxSize": 40.0,
+              "MinSize": 10.0,
               "OverrideSorting": false,
               "Text": "100 / 100",
               "Enable": true
@@ -895,11 +899,11 @@
               "MobileOnly": false,
               "OffsetMax": {
                 "x": 45.66,
-                "y": 49.76
+                "y": 48.71
               },
               "OffsetMin": {
                 "x": -54.34,
-                "y": -50.24
+                "y": -51.29
               },
               "Pivot": {
                 "x": 0.5,
@@ -918,7 +922,7 @@
               "UIVersion": 2,
               "anchoredPosition": {
                 "x": -4.34,
-                "y": -0.24
+                "y": -1.29
               },
               "Rotation": {
                 "x": 0.0,
@@ -927,7 +931,7 @@
               },
               "Position": {
                 "x": -4.34,
-                "y": -0.24,
+                "y": -1.29,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -946,7 +950,8 @@
             },
             {
               "@type": "MOD.Core.TextGUIRendererComponent",
-              "FontSize": 15.0,
+              "Font": "Bazzi",
+              "FontSize": 19.0,
               "MaxSize": 40.0,
               "MinSize": 10.0,
               "OverrideSorting": false,
@@ -1049,7 +1054,7 @@
               "AnimClipPlayType": 0,
               "EndFrameIndex": 2147483647,
               "ImageRUID": {
-                "DataId": "fae83eb2764e40b589af620f3828ddd3"
+                "DataId": "49e1d41d23e147d6a4db8f3312b378d6"
               },
               "LocalPosition": {
                 "x": 0.0,
@@ -1298,107 +1303,6 @@
         }
       },
       {
-        "id": "04e25bc8-c2a0-4d4b-8d2f-28cf461d50cf",
-        "path": "/ui/PlayerStats/UIMyInfo/Soul_panel",
-        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
-        "jsonString": {
-          "name": "Soul_panel",
-          "path": "/ui/PlayerStats/UIMyInfo/Soul_panel",
-          "nameEditable": true,
-          "enable": true,
-          "visible": true,
-          "localize": true,
-          "displayOrder": 5,
-          "pathConstraints": "////",
-          "revision": 1,
-          "origin": {
-            "type": "Model",
-            "entry_id": "uisprite",
-            "sub_entity_id": null,
-            "root_entity_id": "04e25bc8-c2a0-4d4b-8d2f-28cf461d50cf",
-            "replaced_model_id": null
-          },
-          "modelId": "uisprite",
-          "@components": [
-            {
-              "@type": "MOD.Core.UITransformComponent",
-              "AlignmentOption": 0,
-              "AnchorsMax": {
-                "x": 0.5,
-                "y": 0.5
-              },
-              "AnchorsMin": {
-                "x": 0.5,
-                "y": 0.5
-              },
-              "MobileOnly": false,
-              "OffsetMax": {
-                "x": 53.6506081,
-                "y": 111.99099
-              },
-              "OffsetMin": {
-                "x": -180.61821,
-                "y": 46.8014145
-              },
-              "Pivot": {
-                "x": 0.5,
-                "y": 0.5
-              },
-              "RectSize": {
-                "x": 234.268814,
-                "y": 65.1895752
-              },
-              "UIMode": 1,
-              "UIScale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-              },
-              "UIVersion": 2,
-              "anchoredPosition": {
-                "x": -63.4838,
-                "y": 79.3962
-              },
-              "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-              },
-              "Position": {
-                "x": -63.4838,
-                "y": 79.3962,
-                "z": 0.0
-              },
-              "QuaternionRotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-              },
-              "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-              },
-              "ZRotation": 0.0,
-              "Enable": true
-            },
-            {
-              "@type": "MOD.Core.SpriteGUIRendererComponent",
-              "OverrideSorting": false,
-              "Color": {
-                "r": 1.0,
-                "g": 1.0,
-                "b": 1.0,
-                "a": 0.5
-              },
-              "Enable": true
-            }
-          ],
-          "@version": 1
-        }
-      },
-      {
         "id": "f252a9da-bf6a-4e6e-a854-7ea07eebb13d",
         "path": "/ui/PlayerStats/UIMyInfo/Soul_Counter",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.TextGUIRendererComponent,script.UISoulCounter",
@@ -1409,7 +1313,7 @@
           "enable": true,
           "visible": true,
           "localize": true,
-          "displayOrder": 6,
+          "displayOrder": 5,
           "pathConstraints": "////",
           "revision": 1,
           "origin": {
@@ -1434,19 +1338,19 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": 96.51082,
-                "y": 116.405
+                "x": 6.004402,
+                "y": 88.975
               },
               "OffsetMin": {
-                "x": -151.946411,
-                "y": 50.595
+                "x": -154.584412,
+                "y": 23.165
               },
               "Pivot": {
                 "x": 0.5,
                 "y": 0.5
               },
               "RectSize": {
-                "x": 248.45723,
+                "x": 160.5888,
                 "y": 65.81
               },
               "UIMode": 1,
@@ -1457,8 +1361,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": -27.7178,
-                "y": 83.5
+                "x": -74.29,
+                "y": 56.07
               },
               "Rotation": {
                 "x": 0.0,
@@ -1466,8 +1370,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -27.7178,
-                "y": 83.5,
+                "x": -74.29,
+                "y": 56.07,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -1488,18 +1392,19 @@
               "@type": "MOD.Core.TextGUIRendererComponent",
               "BestFit": false,
               "EnableProfanityFilter": true,
+              "Font": "Bazzi",
               "FontColor": {
-                "r": 0.0,
-                "g": 0.0,
-                "b": 0.0,
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
                 "a": 1.0
               },
-              "FontSize": 40.0,
+              "FontSize": 35.0,
               "HorizontalAlignment": 1,
               "MaxSize": 50.0,
               "MinSize": 10.0,
               "OverrideSorting": false,
-              "Text": "x 1000000",
+              "Text": "x 10000",
               "Enable": true
             },
             {
@@ -1511,6 +1416,94 @@
                 "EntityId": "f252a9da-bf6a-4e6e-a854-7ea07eebb13d",
                 "Version2": false
               }
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "373058fd-0196-482d-bbce-5c70064b99b4",
+        "path": "/ui/PlayerStats/UIMyInfo/Soul_Counter/UISprite",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
+        "jsonString": {
+          "name": "UISprite",
+          "path": "/ui/PlayerStats/UIMyInfo/Soul_Counter/UISprite",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 0,
+          "pathConstraints": "/////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uisprite",
+            "sub_entity_id": null,
+            "root_entity_id": "373058fd-0196-482d-bbce-5c70064b99b4",
+            "replaced_model_id": null
+          },
+          "modelId": "uisprite",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": -61.3099976,
+                "y": 31.82
+              },
+              "OffsetMin": {
+                "x": -130.31,
+                "y": -37.18
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 69.0,
+                "y": 69.0
+              },
+              "UIMode": 1,
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": -95.81,
+                "y": -2.68
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -95.81,
+                "y": -2.68,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "ImageRUID": {
+                "DataId": "c603ed525e4f419bb0183791166e00d3"
+              },
+              "OverrideSorting": false,
+              "Enable": true
             }
           ],
           "@version": 1
@@ -1662,6 +1655,271 @@
         }
       },
       {
+        "id": "abb9a7b6-1c6c-4345-aac6-cdd5f953799e",
+        "path": "/ui/PlayerStats/SkillQuickSlot/UISprite",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
+        "jsonString": {
+          "name": "UISprite",
+          "path": "/ui/PlayerStats/SkillQuickSlot/UISprite",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 0,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uisprite",
+            "sub_entity_id": null,
+            "root_entity_id": "abb9a7b6-1c6c-4345-aac6-cdd5f953799e",
+            "replaced_model_id": null
+          },
+          "modelId": "uisprite",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 219.08,
+                "y": -44.3522453
+              },
+              "OffsetMin": {
+                "x": 119.08,
+                "y": -118.827744
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 100.0,
+                "y": 74.4755
+              },
+              "UIMode": 1,
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 169.08,
+                "y": -81.59
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": 169.08,
+                "y": -81.59,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "ImageRUID": {
+                "DataId": "4d93f9f02d8e4d6a963994f907835094"
+              },
+              "OverrideSorting": false,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "17da290b-5718-40ac-9fc4-c061b8340b84",
+        "path": "/ui/PlayerStats/SkillQuickSlot/UISprite_1",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
+        "jsonString": {
+          "name": "UISprite_1",
+          "path": "/ui/PlayerStats/SkillQuickSlot/UISprite_1",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 1,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uisprite",
+            "sub_entity_id": null,
+            "root_entity_id": "abb9a7b6-1c6c-4345-aac6-cdd5f953799e",
+            "replaced_model_id": null
+          },
+          "modelId": "uisprite",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 56.85,
+                "y": -44.40225
+              },
+              "OffsetMin": {
+                "x": -43.15,
+                "y": -118.877747
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 100.0,
+                "y": 74.4755
+              },
+              "UIMode": 1,
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 6.85,
+                "y": -81.64
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": 6.85,
+                "y": -81.64,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "ImageRUID": {
+                "DataId": "4d93f9f02d8e4d6a963994f907835094"
+              },
+              "OverrideSorting": false,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "5accad35-629f-4113-887b-7cf300e5528e",
+        "path": "/ui/PlayerStats/SkillQuickSlot/UISprite_2",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
+        "jsonString": {
+          "name": "UISprite_2",
+          "path": "/ui/PlayerStats/SkillQuickSlot/UISprite_2",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 2,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uisprite",
+            "sub_entity_id": null,
+            "root_entity_id": "abb9a7b6-1c6c-4345-aac6-cdd5f953799e",
+            "replaced_model_id": null
+          },
+          "modelId": "uisprite",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 140.209991,
+                "y": 63.74775
+              },
+              "OffsetMin": {
+                "x": 40.21,
+                "y": -10.7277508
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 100.0,
+                "y": 74.4755
+              },
+              "UIMode": 1,
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 90.21,
+                "y": 26.51
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": 90.21,
+                "y": 26.51,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "ImageRUID": {
+                "DataId": "4d93f9f02d8e4d6a963994f907835094"
+              },
+              "OverrideSorting": false,
+              "SortingLayer": "MapLayer0",
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
         "id": "9c06dfde-fa1c-4c34-9f8d-dc84be4946d4",
         "path": "/ui/PlayerStats/SkillQuickSlot/slot_2",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.ButtonComponent,MOD.Core.TextComponent",
@@ -1672,7 +1930,7 @@
           "enable": true,
           "visible": true,
           "localize": true,
-          "displayOrder": 0,
+          "displayOrder": 3,
           "pathConstraints": "////",
           "revision": 0,
           "origin": {
@@ -1697,20 +1955,20 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": 21.1125031,
-                "y": 11.3900986
+                "x": 32.8610268,
+                "y": -1.607521
               },
               "OffsetMin": {
-                "x": -178.8875,
-                "y": -188.6099
+                "x": -121.438034,
+                "y": -168.344086
               },
               "Pivot": {
                 "x": 0.5,
                 "y": 0.5
               },
               "RectSize": {
-                "x": 200.0,
-                "y": 200.0
+                "x": 154.299057,
+                "y": 166.736557
               },
               "UIMode": 1,
               "UIScale": {
@@ -1720,8 +1978,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": -78.8875,
-                "y": -88.6099
+                "x": -44.2885,
+                "y": -84.9758
               },
               "Rotation": {
                 "x": 0.0,
@@ -1729,8 +1987,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -78.8875,
-                "y": -88.6099,
+                "x": -44.2885,
+                "y": -84.9758,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -1752,7 +2010,7 @@
               "AnimClipPlayType": 0,
               "EndFrameIndex": 2147483647,
               "ImageRUID": {
-                "DataId": "0b584a21d9c24ee09b399aa701c46e3c"
+                "DataId": "86c3c6c21d224f24ac3e04220e806c78"
               },
               "LocalPosition": {
                 "x": 0.0,
@@ -1925,12 +2183,12 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": -65.4738,
-                "y": 70.2748
+                "x": 113.1,
+                "y": 52.79
               },
               "OffsetMin": {
-                "x": -165.4738,
-                "y": -29.7251987
+                "x": 13.0999985,
+                "y": -47.21
               },
               "Pivot": {
                 "x": 0.5,
@@ -1948,8 +2206,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": -115.4738,
-                "y": 20.2748013
+                "x": 63.1,
+                "y": 2.79
               },
               "Rotation": {
                 "x": 0.0,
@@ -1957,8 +2215,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -115.4738,
-                "y": 20.2748013,
+                "x": 63.1,
+                "y": 2.79,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -1978,7 +2236,13 @@
             {
               "@type": "MOD.Core.TextGUIRendererComponent",
               "Font": "Bazzi",
-              "FontSize": 69.0,
+              "FontColor": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+              },
+              "FontSize": 50.0,
               "MaxSize": 69.0,
               "MinSize": 10.0,
               "OverrideSorting": false,
@@ -2001,7 +2265,7 @@
           "enable": true,
           "visible": true,
           "localize": true,
-          "displayOrder": 1,
+          "displayOrder": 4,
           "pathConstraints": "////",
           "revision": 0,
           "origin": {
@@ -2027,19 +2291,19 @@
               "MobileOnly": false,
               "OffsetMax": {
                 "x": 117.2307,
-                "y": 140.3405
+                "y": 115.945328
               },
               "OffsetMin": {
-                "x": -82.7693,
-                "y": -59.6595
+                "x": -47.4582977,
+                "y": -59.65953
               },
               "Pivot": {
                 "x": 0.5,
                 "y": 0.5
               },
               "RectSize": {
-                "x": 200.0,
-                "y": 200.0
+                "x": 164.689,
+                "y": 175.604858
               },
               "UIMode": 1,
               "UIScale": {
@@ -2049,8 +2313,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": 17.2307,
-                "y": 40.3405
+                "x": 34.8862,
+                "y": 28.1429
               },
               "Rotation": {
                 "x": 0.0,
@@ -2058,8 +2322,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 17.2307,
-                "y": 40.3405,
+                "x": 34.8862,
+                "y": 28.1429,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -2081,7 +2345,7 @@
               "AnimClipPlayType": 0,
               "EndFrameIndex": 2147483647,
               "ImageRUID": {
-                "DataId": "f6c46606a1994c4d94a3e5cc84a5d77e"
+                "DataId": "dab0f2cd82f04174922f276ab0f7b74b"
               },
               "LocalPosition": {
                 "x": 0.0,
@@ -2254,12 +2518,12 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": -41.5871964,
-                "y": 54.7244
+                "x": 115.1425,
+                "y": 47.77
               },
               "OffsetMin": {
-                "x": -141.587189,
-                "y": -45.2756
+                "x": 15.1425018,
+                "y": -52.23
               },
               "Pivot": {
                 "x": 0.5,
@@ -2277,8 +2541,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": -91.5872,
-                "y": 4.7244
+                "x": 65.1425,
+                "y": -2.23
               },
               "Rotation": {
                 "x": 0.0,
@@ -2286,8 +2550,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -91.5872,
-                "y": 4.7244,
+                "x": 65.1425,
+                "y": -2.23,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -2307,7 +2571,13 @@
             {
               "@type": "MOD.Core.TextGUIRendererComponent",
               "Font": "Bazzi",
-              "FontSize": 69.0,
+              "FontColor": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+              },
+              "FontSize": 50.0,
               "MaxSize": 69.0,
               "MinSize": 10.0,
               "OverrideSorting": false,
@@ -2330,7 +2600,7 @@
           "enable": true,
           "visible": true,
           "localize": true,
-          "displayOrder": 2,
+          "displayOrder": 5,
           "pathConstraints": "////",
           "revision": 0,
           "origin": {
@@ -2355,20 +2625,20 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": 221.1124,
-                "y": 11.3901978
+                "x": 186.942474,
+                "y": -1.60741425
               },
               "OffsetMin": {
-                "x": 21.1123962,
-                "y": -188.6098
+                "x": 32.8611374,
+                "y": -166.797
               },
               "Pivot": {
                 "x": 0.5,
                 "y": 0.5
               },
               "RectSize": {
-                "x": 200.0,
-                "y": 200.0
+                "x": 154.081329,
+                "y": 165.189575
               },
               "UIMode": 1,
               "UIScale": {
@@ -2378,8 +2648,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": 121.1124,
-                "y": -88.6098
+                "x": 109.9018,
+                "y": -84.2022
               },
               "Rotation": {
                 "x": 0.0,
@@ -2387,8 +2657,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 121.1124,
-                "y": -88.6098,
+                "x": 109.9018,
+                "y": -84.2022,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -2410,7 +2680,7 @@
               "AnimClipPlayType": 0,
               "EndFrameIndex": 2147483647,
               "ImageRUID": {
-                "DataId": "57082d6d895346ed817d6f52ff6eb291"
+                "DataId": "357bee9080074d9db38fd33a7b35b851"
               },
               "LocalPosition": {
                 "x": 0.0,
@@ -2583,12 +2853,12 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": -55.67,
-                "y": 59.3148
+                "x": 121.99,
+                "y": 52.9
               },
               "OffsetMin": {
-                "x": -155.67,
-                "y": -40.6852
+                "x": 21.9899979,
+                "y": -47.1
               },
               "Pivot": {
                 "x": 0.5,
@@ -2606,8 +2876,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": -105.67,
-                "y": 9.3148
+                "x": 71.99,
+                "y": 2.9
               },
               "Rotation": {
                 "x": 0.0,
@@ -2615,8 +2885,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -105.67,
-                "y": 9.3148,
+                "x": 71.99,
+                "y": 2.9,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -2636,7 +2906,13 @@
             {
               "@type": "MOD.Core.TextGUIRendererComponent",
               "Font": "Bazzi",
-              "FontSize": 69.0,
+              "FontColor": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+              },
+              "FontSize": 50.0,
               "MaxSize": 69.0,
               "MinSize": 10.0,
               "OverrideSorting": false,
@@ -2684,20 +2960,20 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": -427.608215,
-                "y": 450.054077
+                "x": -442.526672,
+                "y": 494.144653
               },
               "OffsetMin": {
-                "x": -980.790833,
-                "y": 91.75993
+                "x": -948.614563,
+                "y": 166.353561
               },
               "Pivot": {
                 "x": 0.5,
                 "y": 0.5
               },
               "RectSize": {
-                "x": 553.1826,
-                "y": 358.294159
+                "x": 506.087921,
+                "y": 327.7911
               },
               "UIMode": 1,
               "UIScale": {
@@ -2707,8 +2983,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": -704.1995,
-                "y": 270.907
+                "x": -695.5706,
+                "y": 330.2491
               },
               "Rotation": {
                 "x": 0.0,
@@ -2716,8 +2992,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -704.1995,
-                "y": 270.907,
+                "x": -695.5706,
+                "y": 330.2491,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -2737,7 +3013,7 @@
             {
               "@type": "MOD.Core.SpriteGUIRendererComponent",
               "ImageRUID": {
-                "DataId": "3c02512821e04825a1bb2e4e9001afe0"
+                "DataId": "53a756930e474418b2d9baac50b59785"
               },
               "OverrideSorting": false,
               "Color": {
@@ -2751,13 +3027,14 @@
             {
               "@type": "script.StageObjectiveUI",
               "Enable": true,
-              "MountainObjectiveBgRUID": "e75db3b5e0f34d0c96bbc9646b8de2ff",
-              "SandMapObjectiveBgRUID": "023c3274e9a1489fb8dde29455e11350",
-              "IceMapObjectiveBgRUID": "3c02512821e04825a1bb2e4e9001afe0",
+              "MountainObjectiveBgRUID": "c902defd7b4b4c6981463abbcff1866f",
+              "SandMapObjectiveBgRUID": "05507574af4644588e1603e5f7a309ca",
+              "IceMapObjectiveBgRUID": "53a756930e474418b2d9baac50b59785",
               "LastVisibleState": true,
               "LastRenderedText": "",
               "LastAppliedTheme": "",
-              "LastCompletedState": false
+              "LastCompletedState": false,
+              "MountainBothCompletedTime": 0.0
             }
           ],
           "@version": 1
@@ -3119,11 +3396,11 @@
               "MobileOnly": false,
               "OffsetMax": {
                 "x": 178.388428,
-                "y": 308.657227
+                "y": 162.033813
               },
               "OffsetMin": {
                 "x": -166.056427,
-                "y": -255.850418
+                "y": -402.473816
               },
               "Pivot": {
                 "x": 0.5,
@@ -3142,7 +3419,7 @@
               "UIVersion": 2,
               "anchoredPosition": {
                 "x": 6.166,
-                "y": 26.4034
+                "y": -120.22
               },
               "Rotation": {
                 "x": 0.0,
@@ -3151,7 +3428,7 @@
               },
               "Position": {
                 "x": 6.166,
-                "y": 26.4034,
+                "y": -120.22,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -5851,12 +6128,12 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": 19.9999981,
-                "y": 80.0
+                "x": 25.3975,
+                "y": -0.9051018
               },
               "OffsetMin": {
-                "x": -80.0,
-                "y": -19.9999981
+                "x": -74.6025,
+                "y": -100.905106
               },
               "Pivot": {
                 "x": 0.5,
@@ -5869,8 +6146,8 @@
               "UIMode": 1,
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": -30.0000019,
-                "y": 30.0000019
+                "x": -24.6025,
+                "y": -50.9051
               },
               "Rotation": {
                 "x": 0.0,
@@ -5878,8 +6155,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -30.0000019,
-                "y": 30.0000019,
+                "x": -24.6025,
+                "y": -50.9051,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -5957,12 +6234,12 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": 791.454,
-                "y": 543.668945
+                "x": 784.139465,
+                "y": 608.316833
               },
               "OffsetMin": {
-                "x": -759.7551,
-                "y": 325.569275
+                "x": -767.069641,
+                "y": 390.217163
               },
               "Pivot": {
                 "x": 0.5,
@@ -5980,8 +6257,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": 15.8494005,
-                "y": 434.6191
+                "x": 8.5349,
+                "y": 499.267
               },
               "Rotation": {
                 "x": 0.0,
@@ -5989,8 +6266,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 15.8494005,
-                "y": 434.6191,
+                "x": 8.5349,
+                "y": 499.267,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -6056,12 +6333,12 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": 592.1697,
-                "y": 431.646454
+                "x": 598.4363,
+                "y": 500.959351
               },
               "OffsetMin": {
-                "x": -621.9354,
-                "y": 378.973541
+                "x": -615.6688,
+                "y": 448.286438
               },
               "Pivot": {
                 "x": 0.5,
@@ -6079,8 +6356,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": -14.8829,
-                "y": 405.31
+                "x": -8.6163,
+                "y": 474.6229
               },
               "Rotation": {
                 "x": 0.0,
@@ -6088,8 +6365,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -14.8829,
-                "y": 405.31,
+                "x": -8.6163,
+                "y": 474.6229,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -6161,12 +6438,12 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": 767.096436,
-                "y": 543.668945
+                "x": 784.1393,
+                "y": 608.316833
               },
               "OffsetMin": {
-                "x": -784.1127,
-                "y": 325.569275
+                "x": -767.0698,
+                "y": 390.217163
               },
               "Pivot": {
                 "x": 0.5,
@@ -6184,8 +6461,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": -8.5081,
-                "y": 434.6191
+                "x": 8.5347,
+                "y": 499.267
               },
               "Rotation": {
                 "x": 0.0,
@@ -6193,15 +6470,15 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -8.5081,
-                "y": 434.6191,
+                "x": 8.5347,
+                "y": 499.267,
                 "z": 0.0
               },
               "QuaternionRotation": {
                 "x": 0.0,
                 "y": 0.0,
                 "z": 0.0,
-                "w": -1.0
+                "w": 1.0
               },
               "Scale": {
                 "x": 1.0,
@@ -6260,12 +6537,12 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": 268.430176,
-                "y": -298.361145
+                "x": 252.445663,
+                "y": 455.121277
               },
               "OffsetMin": {
-                "x": -179.368561,
-                "y": -437.143677
+                "x": -195.353073,
+                "y": 316.338745
               },
               "Pivot": {
                 "x": 0.5,
@@ -6283,8 +6560,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": 44.5308,
-                "y": -367.7524
+                "x": 28.5463,
+                "y": 385.73
               },
               "Rotation": {
                 "x": 0.0,
@@ -6292,8 +6569,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": 44.5308,
-                "y": -367.7524,
+                "x": 28.5463,
+                "y": 385.73,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -6313,14 +6590,14 @@
             {
               "@type": "MOD.Core.SpriteGUIRendererComponent",
               "ImageRUID": {
-                "DataId": "c05856615cae4310a6abb7f0c7c6da2d"
+                "DataId": "928a27cf804b45848e9c5e2d4d773bef"
               },
               "OverrideSorting": false,
               "SortingLayer": "MapLayer1",
               "Color": {
                 "r": 1.0,
-                "g": 0.427734375,
-                "b": 0.427734375,
+                "g": 1.0,
+                "b": 1.0,
                 "a": 1.0
               },
               "Enable": true
@@ -6365,19 +6642,19 @@
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": 114.872971,
-                "y": 52.6438
+                "x": 125.455,
+                "y": 30.3
               },
               "OffsetMin": {
-                "x": -166.638565,
-                "y": -47.3562
+                "x": -143.115,
+                "y": -69.7
               },
               "Pivot": {
                 "x": 0.5,
                 "y": 0.5
               },
               "RectSize": {
-                "x": 281.511536,
+                "x": 268.57,
                 "y": 100.0
               },
               "UIMode": 1,
@@ -6388,8 +6665,8 @@
               },
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": -25.8828,
-                "y": 2.6438
+                "x": -8.83,
+                "y": -19.7
               },
               "Rotation": {
                 "x": 0.0,
@@ -6397,8 +6674,8 @@
                 "z": 0.0
               },
               "Position": {
-                "x": -25.8828,
-                "y": 2.6438,
+                "x": -8.83,
+                "y": -19.7,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -9392,6 +9669,427 @@
               "Text": "Soul Gained",
               "Underlay": false,
               "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "153a89c4-4446-4cc1-a8d7-78c3dc88212c",
+        "path": "/ui/PlayerStats/TreeBoss",
+        "componentNames": "MOD.Core.UITransformComponent,script.TreeBossHealthBarUI",
+        "jsonString": {
+          "name": "TreeBoss",
+          "path": "/ui/PlayerStats/TreeBoss",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 11,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uiempty",
+            "sub_entity_id": null,
+            "root_entity_id": "3328f2af-3c37-492a-af3d-e9b65809774a",
+            "replaced_model_id": null
+          },
+          "modelId": "uiempty",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 25.3976,
+                "y": 11.8809013
+              },
+              "OffsetMin": {
+                "x": -74.6024,
+                "y": -88.1190948
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 100.0,
+                "y": 100.0
+              },
+              "UIMode": 1,
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": -24.6024,
+                "y": -38.1191
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -24.6024,
+                "y": -38.1191,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "script.TreeBossHealthBarUI",
+              "Enable": true,
+              "BossMapName": "TrialofMountain",
+              "RequireMapNameMatch": true,
+              "BossEntityPath": "/maps/TrialofMountain/monster-248",
+              "BossTag": "TreeBoss",
+              "BossDisplayName": "Tree Boss",
+              "BarRoot": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "153a89c4-4446-4cc1-a8d7-78c3dc88212c",
+                "Version2": false
+              },
+              "SliderTarget": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "5f647945-ca83-4c3e-ac3f-5b42e3f14ba4",
+                "Version2": false
+              },
+              "FillTarget": {
+                "tempEntityId": null,
+                "IsRelative": false,
+                "EntityId": "5f647945-ca83-4c3e-ac3f-5b42e3f14ba4",
+                "Version2": false
+              },
+              "UseYThresholdTrigger": true,
+              "TriggerAboveY": -34.5,
+              "StayTriggeredUntilBossDead": true,
+              "DebugLogs": true,
+              "HasTriggered": false,
+              "LastSearchTime": -9999.0,
+              "LastTriggerSearchTime": -9999.0,
+              "LastVisibleState": false,
+              "BossFightBgmPlayed": false,
+              "PlayerInTrigger": false,
+              "TriggerEventsConnected": false
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "11b2aad5-9c25-42c4-8470-9c603246d153",
+        "path": "/ui/PlayerStats/TreeBoss/BossHealth_1",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
+        "jsonString": {
+          "name": "BossHealth_1",
+          "path": "/ui/PlayerStats/TreeBoss/BossHealth_1",
+          "nameEditable": true,
+          "enable": false,
+          "visible": false,
+          "localize": true,
+          "displayOrder": 0,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uisprite",
+            "sub_entity_id": null,
+            "root_entity_id": "1600276f-fcd7-4c2c-9743-28090ff08f59",
+            "replaced_model_id": null
+          },
+          "modelId": "uisprite",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 784.139465,
+                "y": 608.316833
+              },
+              "OffsetMin": {
+                "x": -767.069641,
+                "y": 390.217163
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 1551.20911,
+                "y": 218.0997
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 8.5349,
+                "y": 499.267
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": 8.5349,
+                "y": 499.267,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": -1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "ImageRUID": {
+                "DataId": "140f11458dd244349a760cabdb98062b"
+              },
+              "OverrideSorting": false,
+              "SortingLayer": "MapLayer0",
+              "Enable": false
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "5f647945-ca83-4c3e-ac3f-5b42e3f14ba4",
+        "path": "/ui/PlayerStats/TreeBoss/HealthBar",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SliderComponent",
+        "jsonString": {
+          "name": "HealthBar",
+          "path": "/ui/PlayerStats/TreeBoss/HealthBar",
+          "nameEditable": true,
+          "enable": false,
+          "visible": false,
+          "localize": true,
+          "displayOrder": 1,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uiempty",
+            "sub_entity_id": null,
+            "root_entity_id": "8c81d716-8b7b-4296-b822-1f4fee0fa0bc",
+            "replaced_model_id": null
+          },
+          "modelId": "uiempty",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 598.4363,
+                "y": 500.959351
+              },
+              "OffsetMin": {
+                "x": -615.6688,
+                "y": 448.286438
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 1214.1051,
+                "y": 52.672905
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": -8.6163,
+                "y": 474.6229
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": -8.6163,
+                "y": 474.6229,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": -1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SliderComponent",
+              "FillRectColor": {
+                "r": 0.1780281,
+                "g": 0.8066406,
+                "b": 0.445679545,
+                "a": 1.0
+              },
+              "FillRectImageRUID": {
+                "DataId": ""
+              },
+              "OverrideSorting": false,
+              "Value": 1.0,
+              "Enable": false
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "7fef0c0c-046d-4cc5-a37e-7082e6f896c1",
+        "path": "/ui/PlayerStats/TreeBoss/BossHealth",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
+        "jsonString": {
+          "name": "BossHealth",
+          "path": "/ui/PlayerStats/TreeBoss/BossHealth",
+          "nameEditable": true,
+          "enable": false,
+          "visible": false,
+          "localize": true,
+          "displayOrder": 2,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uisprite",
+            "sub_entity_id": null,
+            "root_entity_id": "1600276f-fcd7-4c2c-9743-28090ff08f59",
+            "replaced_model_id": null
+          },
+          "modelId": "uisprite",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 784.1393,
+                "y": 608.316833
+              },
+              "OffsetMin": {
+                "x": -767.0698,
+                "y": 390.217163
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 1551.20911,
+                "y": 218.0997
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 8.5347,
+                "y": 499.267
+              },
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": 8.5347,
+                "y": 499.267,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "ImageRUID": {
+                "DataId": "dfd320e9d5084f88884c5e8aa3101df1"
+              },
+              "OverrideSorting": false,
+              "SortingLayer": "MapLayer0",
+              "Enable": false
             }
           ],
           "@version": 1

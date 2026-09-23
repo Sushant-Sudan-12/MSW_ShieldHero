@@ -1,0 +1,632 @@
+@ExecSpace("Client")
+@Component
+script TreeBossHealthBarUI extends Component
+
+	property string BossMapName = "TrialofMountain"
+	property boolean RequireMapNameMatch = true
+	property string BossEntityPath = ""
+	property string BossTag = "TreeBoss"
+	property string BossDisplayName = "Tree Boss"
+
+	property Entity BarRoot = nil
+	property Entity SliderTarget = nil
+	property Entity FillTarget = nil
+	property Entity NameTextTarget = nil
+	property Entity HpTextTarget = nil
+
+	property boolean HideWhenBossDead = true
+
+	-- === Y Threshold Trigger Settings (Triggers once player Y >= TriggerAboveY and stays active until boss dies) ===
+	property boolean UseYThresholdTrigger = true
+	property number TriggerAboveY = -42.0
+	property boolean StayTriggeredUntilBossDead = true
+
+	-- === Trigger & Arena Box Area Settings (Optional fallback/additional triggers) ===
+	property boolean UseTriggerEntityCheck = false
+	property Entity TriggerEntity = nil
+	property string TriggerEntityPath = ""
+	property string TriggerTag = "TreeBossTrigger"
+	property string TriggerEntityName = "treebosohealthtrigger"
+
+	property boolean UseBoxAreaFallback = false
+	property Vector2 BoxAreaCenter = Vector2(4.998, -36.545)
+	property Vector2 BoxAreaSize = Vector2(26.0, 16.0)
+	property number TriggerDistance = 18.0
+
+	-- === BGM Settings ===
+	property string BossFightBgmRUID = ""
+
+	@MinValue(0.0)
+	property number BossFightBgmVolume = 1.0
+
+	@MinValue(0.1)
+	property number BossSearchInterval = 0.5
+
+	property boolean DebugLogs = true
+
+	@HideFromInspector
+	property boolean HasTriggered = false
+
+	@HideFromInspector
+	property any CachedBoss = nil
+
+	@HideFromInspector
+	property any CachedTriggerEntity = nil
+
+	@HideFromInspector
+	property number LastSearchTime = -9999
+
+	@HideFromInspector
+	property number LastTriggerSearchTime = -9999
+
+	@HideFromInspector
+	property boolean LastVisibleState = false
+
+	@HideFromInspector
+	property boolean BossFightBgmPlayed = false
+
+	@HideFromInspector
+	property boolean PlayerInTrigger = false
+
+	@HideFromInspector
+	property boolean TriggerEventsConnected = false
+
+	method void OnBeginPlay()
+		-- Guarantee it starts completely disabled / hidden on spawn or reload
+		self.HasTriggered = false
+		self.LastVisibleState = true
+		self.BossFightBgmPlayed = false
+		self.PlayerInTrigger = false
+		self.CachedBoss = nil
+		self.CachedTriggerEntity = nil
+		self.TriggerEventsConnected = false
+		self.LastSearchTime = -9999
+		self.LastTriggerSearchTime = -9999
+
+		self:ResolveUITargets()
+		self:SetBarVisible(false, true)
+		self:ClearBarValues()
+
+		if self.UseTriggerEntityCheck then
+			self:FindAndHookTriggerEntity()
+		end
+
+		if self.DebugLogs then
+			log("TreeBossHealthBarUI initialized: started DISABLED, will trigger when player Y >= " .. tostring(self.TriggerAboveY))
+		end
+	end
+
+	method void OnUpdate(number delta)
+		self:Refresh()
+	end
+
+	method void ResolveUITargets()
+		if isvalid(self.SliderTarget) == false then
+			local healthBarChild = self.Entity:GetChildByName("HealthBar")
+			if isvalid(healthBarChild) then
+				self.SliderTarget = healthBarChild
+			end
+		end
+
+		if isvalid(self.FillTarget) == false then
+			if isvalid(self.SliderTarget) then
+				self.FillTarget = self.SliderTarget
+			else
+				local healthBarChild = self.Entity:GetChildByName("HealthBar")
+				if isvalid(healthBarChild) then
+					self.FillTarget = healthBarChild
+				end
+			end
+		end
+
+		if isvalid(self.BarRoot) == false then
+			self.BarRoot = self.Entity
+		end
+	end
+
+	method void Refresh()
+		self:ResolveUITargets()
+
+		-- 1. Map name check: hide and reset if not in boss map
+		if self.RequireMapNameMatch and self:IsInBossMap() == false then
+			self.HasTriggered = false
+			self.PlayerInTrigger = false
+			self.BossFightBgmPlayed = false
+			self:SetBarVisible(false)
+			return
+		end
+
+		-- 2. Check trigger conditions if not already triggered
+		if self.HasTriggered == false then
+			-- A. Y Threshold check (primary trigger)
+			if self.UseYThresholdTrigger then
+				local player = _UserService.LocalPlayer
+				if isvalid(player) and isvalid(player.TransformComponent) then
+					local playerY = player.TransformComponent.WorldPosition.y
+					if playerY >= self.TriggerAboveY then
+						self.HasTriggered = true
+						if self.DebugLogs then
+							log("TreeBossHealthBarUI: Triggered by player Y threshold (" .. tostring(playerY) .. " >= " .. tostring(self.TriggerAboveY) .. ")")
+						end
+					end
+				end
+			end
+
+			-- B. Optional Trigger entity / area check
+			if self.HasTriggered == false and self:IsPlayerInBossArea() then
+				self.HasTriggered = true
+				if self.DebugLogs then
+					log("TreeBossHealthBarUI: Triggered by boss area / trigger entity")
+				end
+			end
+		end
+
+		-- If not yet triggered, keep strictly disabled / hidden
+		if self.HasTriggered == false then
+			self:SetBarVisible(false)
+			return
+		end
+
+		-- 3. Boss check
+		local boss = self:GetBoss()
+		if boss == nil then
+			self:SetBarVisible(false)
+			return
+		end
+
+		local maxHp = math.max(1, boss.maxHp)
+		local currentHp = math.max(0, boss.currentHp)
+		local isDead = boss.isDead or (currentHp <= 0)
+
+		-- 4. When boss dies, hide bar
+		if self.HideWhenBossDead and isDead then
+			self:SetBarVisible(false)
+			return
+		end
+
+		-- 5. Triggered and boss alive -> Show and update health bar!
+		self:SetBarVisible(true)
+		self:PlayBossFightBgmOnce()
+
+		local ratio = math.max(0, math.min(1, currentHp / maxHp))
+		self:WriteRatio(ratio)
+
+		local displayName = boss.displayName or self.BossDisplayName
+		if displayName == nil or displayName == "" then
+			displayName = self.BossDisplayName
+		end
+
+		self:WriteText(self.NameTextTarget, tostring(displayName))
+		self:WriteText(self.HpTextTarget, tostring(math.floor(currentHp)) .. "/" .. tostring(math.floor(maxHp)))
+	end
+
+	method boolean IsInBossMap()
+		if self.BossMapName == nil or self.BossMapName == "" then
+			return true
+		end
+
+		local player = _UserService.LocalPlayer
+		if isvalid(player) == false then
+			return false
+		end
+
+		local path = tostring(player.Path)
+		return string.find(path, self.BossMapName, 1, true) ~= nil
+	end
+
+	method boolean IsPlayerInBossArea()
+		-- 1. Direct Trigger Event flag
+		if self.PlayerInTrigger then
+			return true
+		end
+
+		local player = _UserService.LocalPlayer
+		if isvalid(player) == false or isvalid(player.TransformComponent) == false then
+			return false
+		end
+
+		local playerPos = player.TransformComponent.WorldPosition
+
+		-- 2. Trigger entity collider check
+		if self.UseTriggerEntityCheck then
+			local triggerEntity = self:GetTriggerEntity()
+			if isvalid(triggerEntity) and isvalid(triggerEntity.TransformComponent) then
+				local trigPos = triggerEntity.TransformComponent.WorldPosition
+				local trigComp = triggerEntity.TriggerComponent
+
+				if isvalid(trigComp) then
+					local size = trigComp.BoxSize
+					local offset = trigComp.ColliderOffset
+					if offset == nil or (offset.x == 0 and offset.y == 0) then
+						offset = trigComp.BoxOffset or Vector2.zero
+					end
+
+					local cx = trigPos.x + (offset.x or 0)
+					local cy = trigPos.y + (offset.y or 0)
+					local halfW = (size.x or 10.0) * 0.5
+					local halfH = (size.y or 8.0) * 0.5
+
+					if halfW > 0.05 and halfH > 0.05 then
+						local insideTrig = (playerPos.x >= cx - halfW) and (playerPos.x <= cx + halfW)
+							and (playerPos.y >= cy - halfH) and (playerPos.y <= cy + halfH)
+						if insideTrig then
+							return true
+						end
+					else
+						local dx = playerPos.x - cx
+						local dy = playerPos.y - cy
+						if (dx * dx + dy * dy) <= (self.TriggerDistance * self.TriggerDistance) then
+							return true
+						end
+					end
+				end
+			end
+		end
+
+		-- 3. Box area fallback
+		if self.UseBoxAreaFallback then
+			local center = self.BoxAreaCenter
+			if isvalid(self.CachedBoss) and isvalid(self.CachedBoss.TransformComponent) then
+				local bPos = self.CachedBoss.TransformComponent.WorldPosition
+				center = Vector2(bPos.x, bPos.y)
+			end
+
+			local halfW = self.BoxAreaSize.x * 0.5
+			local halfH = self.BoxAreaSize.y * 0.5
+
+			local inBoxX = (playerPos.x >= center.x - halfW) and (playerPos.x <= center.x + halfW)
+			local inBoxY = (playerPos.y >= center.y - halfH) and (playerPos.y <= center.y + halfH)
+
+			if inBoxX and inBoxY then
+				return true
+			end
+
+			local dx = playerPos.x - center.x
+			local dy = playerPos.y - center.y
+			if (dx * dx + dy * dy) <= (self.TriggerDistance * self.TriggerDistance) then
+				return true
+			end
+		end
+
+		return false
+	end
+
+	method Entity GetTriggerEntity()
+		if isvalid(self.CachedTriggerEntity) then
+			return self.CachedTriggerEntity
+		end
+
+		local now = _UtilLogic.ElapsedSeconds
+		if now - self.LastTriggerSearchTime < 1.0 then
+			return nil
+		end
+		self.LastTriggerSearchTime = now
+
+		local trig = self:FindAndHookTriggerEntity()
+		return trig
+	end
+
+	method Entity FindAndHookTriggerEntity()
+		local entity = nil
+
+		if isvalid(self.TriggerEntity) then
+			entity = self.TriggerEntity
+		end
+
+		if entity == nil and self.TriggerEntityPath ~= nil and self.TriggerEntityPath ~= "" then
+			entity = _EntityService:GetEntityByPath(self.TriggerEntityPath)
+		end
+
+		if entity == nil and self.TriggerTag ~= nil and self.TriggerTag ~= "" then
+			entity = _EntityService:GetEntityByTag(self.TriggerTag)
+				or _EntityService:GetEntityByTag("TreeBossHealthTrigger")
+		end
+
+		if entity == nil and self.TriggerEntityName ~= nil and self.TriggerEntityName ~= "" then
+			entity = _EntityService:GetEntityByPath("/maps/TrialofMountain/" .. self.TriggerEntityName)
+		end
+
+		if entity == nil then
+			local currentMap = _UserService.LocalPlayer and _UserService.LocalPlayer.CurrentMap
+			if isvalid(currentMap) then
+				local children = currentMap.Children
+				if children ~= nil then
+					for _, child in ipairs(children) do
+						if isvalid(child) then
+							local lowerName = string.lower(tostring(child.Name))
+							if string.find(lowerName, "treeboso", 1, true) ~= nil
+								or string.find(lowerName, "treeboss", 1, true) ~= nil
+								or string.find(lowerName, "healthtrigger", 1, true) ~= nil then
+								entity = child
+								break
+							end
+						end
+					end
+				end
+			end
+		end
+
+		if isvalid(entity) then
+			self.CachedTriggerEntity = entity
+
+			if self.TriggerEventsConnected == false then
+				self.TriggerEventsConnected = true
+				pcall(function()
+					entity:ConnectEvent(TriggerEnterEvent, function(e) self:OnEnterTriggerBody(e) end)
+					entity:ConnectEvent(TriggerLeaveEvent, function(e) self:OnLeaveTriggerBody(e) end)
+				end)
+			end
+
+			if self.DebugLogs then
+				log("TreeBossHealthBarUI: Hooked trigger entity " .. tostring(entity.Path))
+			end
+			return entity
+		end
+
+		return nil
+	end
+
+	method any GetBoss()
+		if isvalid(self.CachedBoss) then
+			local bossInfo = self:ExtractBossInfo(self.CachedBoss)
+			if bossInfo ~= nil then
+				return bossInfo
+			end
+			self.CachedBoss = nil
+		end
+
+		local now = _UtilLogic.ElapsedSeconds
+		if now - self.LastSearchTime < self.BossSearchInterval then
+			return nil
+		end
+		self.LastSearchTime = now
+
+		local bossEntity = self:FindBossEntity()
+		if isvalid(bossEntity) == false then
+			return nil
+		end
+
+		local bossInfo = self:ExtractBossInfo(bossEntity)
+		if bossInfo == nil then
+			return nil
+		end
+
+		self.CachedBoss = bossEntity
+		return bossInfo
+	end
+
+	method any ExtractBossInfo(Entity bossEntity)
+		if isvalid(bossEntity) == false then
+			return nil
+		end
+
+		-- 1. Monster component
+		local monster = bossEntity:GetComponent("Monster")
+		if isvalid(monster) then
+			local maxHp = tonumber(monster.MaxHp) or 1000
+			local curHp = tonumber(monster.Hp) or maxHp
+			local isDead = monster.IsDead or (curHp <= 0)
+			return {
+				entity = bossEntity,
+				currentHp = curHp,
+				maxHp = maxHp,
+				isDead = isDead,
+				displayName = self.BossDisplayName
+			}
+		end
+
+		-- 2. BossAI component
+		local bossAI = bossEntity:GetComponent("BossAI")
+		if isvalid(bossAI) then
+			local maxHp = tonumber(bossAI.BossMaxHp) or 1000
+			local curHp = tonumber(bossAI.BossCurrentHp) or maxHp
+			local isDead = bossAI.IsBossDead or (curHp <= 0)
+			local name = bossAI.BossDisplayName or self.BossDisplayName
+			return {
+				entity = bossEntity,
+				currentHp = curHp,
+				maxHp = maxHp,
+				isDead = isDead,
+				displayName = name
+			}
+		end
+
+		-- 3. IceRockBoss component
+		local iceRock = bossEntity:GetComponent("IceRockBoss")
+		if isvalid(iceRock) then
+			local maxHp = tonumber(iceRock.BossMaxHp) or 1000
+			local curHp = tonumber(iceRock.BossCurrentHp) or maxHp
+			local isDead = iceRock.IsBossDead or (curHp <= 0)
+			local name = iceRock.BossDisplayName or self.BossDisplayName
+			return {
+				entity = bossEntity,
+				currentHp = curHp,
+				maxHp = maxHp,
+				isDead = isDead,
+				displayName = name
+			}
+		end
+
+		return nil
+	end
+
+	method any FindBossEntity()
+		if self.BossEntityPath ~= nil and self.BossEntityPath ~= "" then
+			local byPath = _EntityService:GetEntityByPath(self.BossEntityPath)
+			if isvalid(byPath) then
+				return byPath
+			end
+		end
+
+		if self.BossTag ~= nil and self.BossTag ~= "" then
+			local byTag = _EntityService:GetEntityByTag(self.BossTag)
+			if isvalid(byTag) then
+				return byTag
+			end
+		end
+
+		local defaultPath = _EntityService:GetEntityByPath("/maps/TrialofMountain/monster-248")
+		if isvalid(defaultPath) then
+			return defaultPath
+		end
+
+		return nil
+	end
+
+	method void SetBarVisible(boolean visible, boolean force)
+		if force ~= true and self.LastVisibleState == visible then
+			return
+		end
+		self.LastVisibleState = visible
+
+		-- 1. Control BarRoot if separate entity
+		local root = self.BarRoot
+		if isvalid(root) and root ~= self.Entity then
+			root.Enable = visible
+			root:SetVisible(visible)
+		end
+
+		-- 2. Control our own entity visibility (keep Enable = true so OnUpdate continues running)
+		self.Entity:SetVisible(visible)
+
+		-- 3. Explicitly enable/disable and show/hide all child entities (HealthBar, sprites, texts)
+		local children = self.Entity.Children
+		if children ~= nil then
+			for _, child in ipairs(children) do
+				if isvalid(child) then
+					child.Enable = visible
+					child:SetVisible(visible)
+
+					if isvalid(child.SpriteGUIRendererComponent) then
+						child.SpriteGUIRendererComponent.Enable = visible
+					end
+					if isvalid(child.SliderComponent) then
+						child.SliderComponent.Enable = visible
+					end
+					if isvalid(child.TextGUIRendererComponent) then
+						child.TextGUIRendererComponent.Enable = visible
+					end
+				end
+			end
+		end
+
+		-- 4. Target entities explicitly
+		if isvalid(self.SliderTarget) and self.SliderTarget ~= self.Entity then
+			self.SliderTarget.Enable = visible
+			self.SliderTarget:SetVisible(visible)
+		end
+		if isvalid(self.FillTarget) and self.FillTarget ~= self.Entity then
+			self.FillTarget.Enable = visible
+			self.FillTarget:SetVisible(visible)
+		end
+		if isvalid(self.NameTextTarget) and self.NameTextTarget ~= self.Entity then
+			self.NameTextTarget.Enable = visible
+			self.NameTextTarget:SetVisible(visible)
+		end
+		if isvalid(self.HpTextTarget) and self.HpTextTarget ~= self.Entity then
+			self.HpTextTarget.Enable = visible
+			self.HpTextTarget:SetVisible(visible)
+		end
+
+		if self.DebugLogs then
+			log("TreeBossHealthBarUI: set visible = " .. tostring(visible))
+		end
+	end
+
+	method void PlayBossFightBgmOnce()
+		if self.BossFightBgmPlayed then
+			return
+		end
+
+		if self.BossFightBgmRUID == nil or self.BossFightBgmRUID == "" then
+			return
+		end
+
+		self.BossFightBgmPlayed = true
+		_SoundService:PlayBGM(self.BossFightBgmRUID, math.max(0, math.min(1, self.BossFightBgmVolume)))
+	end
+
+	method void ClearBarValues()
+		self:WriteRatio(0)
+		self:WriteText(self.NameTextTarget, "")
+		self:WriteText(self.HpTextTarget, "")
+	end
+
+	method void WriteRatio(number ratio)
+		local slider = self.SliderTarget
+		if isvalid(slider) == false then
+			slider = self.Entity:GetChildByName("HealthBar")
+		end
+		if isvalid(slider) and isvalid(slider.SliderComponent) then
+			slider.SliderComponent.Value = ratio
+		end
+
+		local fill = self.FillTarget
+		if isvalid(fill) == false then
+			fill = self.SliderTarget
+		end
+		if isvalid(fill) and isvalid(fill.SpriteGUIRendererComponent) then
+			fill.SpriteGUIRendererComponent.FillAmount = ratio
+		end
+	end
+
+	method void WriteText(Entity target, string value)
+		if isvalid(target) == false then
+			return
+		end
+		if isvalid(target.TextComponent) then
+			target.TextComponent.Text = value
+			return
+		end
+		if isvalid(target.TextGUIRendererComponent) then
+			target.TextGUIRendererComponent.Text = value
+			return
+		end
+		if isvalid(target.TextInputComponent) then
+			target.TextInputComponent.Text = value
+		end
+	end
+
+	method boolean IsLocalPlayer(Entity target)
+		if isvalid(target) == false then
+			return false
+		end
+		local localPlayer = _UserService.LocalPlayer
+		return isvalid(localPlayer) and localPlayer == target
+	end
+
+	-- === Trigger event callbacks ===
+	@ExecSpace("ClientOnly")
+	method void OnEnterTriggerBody(TriggerEnterEvent enterEvent)
+		if enterEvent ~= nil and self:IsLocalPlayer(enterEvent.TriggerBodyEntity) then
+			self.HasTriggered = true
+			self.PlayerInTrigger = true
+			if self.DebugLogs then
+				log("TreeBossHealthBarUI: Local player entered boss trigger area -> triggered")
+			end
+		end
+	end
+
+	@ExecSpace("ClientOnly")
+	method void OnLeaveTriggerBody(TriggerLeaveEvent leaveEvent)
+		if leaveEvent ~= nil and self:IsLocalPlayer(leaveEvent.TriggerBodyEntity) then
+			self.PlayerInTrigger = false
+			if self.StayTriggeredUntilBossDead == false then
+				self.HasTriggered = false
+			end
+		end
+	end
+
+	@ExecSpace("ClientOnly")
+	@EventSender("Self")
+	handler HandleTriggerEnterEvent(TriggerEnterEvent event)
+		self:OnEnterTriggerBody(event)
+	end
+
+	@ExecSpace("ClientOnly")
+	@EventSender("Self")
+	handler HandleTriggerLeaveEvent(TriggerLeaveEvent event)
+		self:OnLeaveTriggerBody(event)
+	end
+
+end

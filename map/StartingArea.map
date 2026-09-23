@@ -14880,7 +14880,7 @@
               },
               "Position": {
                 "x": -27.6143379,
-                "y": 0.712991834,
+                "y": 0.6374216,
                 "z": 999.999
               },
               "QuaternionRotation": {
@@ -14891,7 +14891,7 @@
               },
               "Scale": {
                 "x": 0.375646561,
-                "y": 0.313816935,
+                "y": 0.343232781,
                 "z": 1.0
               },
               "ZRotation": 0.0,
@@ -14903,7 +14903,7 @@
               "EndFrameIndex": 2147483647,
               "RenderSetting": 0,
               "SortingLayer": "MapLayer0",
-              "SpriteRUID": "73a1a9a457444abba115d6fc3de3460f",
+              "SpriteRUID": "1d1f9d0b0d4f475abcbae3293eb3bc46",
               "StartFrameIndex": 0,
               "Enable": true
             }
@@ -14966,7 +14966,7 @@
               "EndFrameIndex": 2147483647,
               "RenderSetting": 0,
               "SortingLayer": "MapLayer0",
-              "SpriteRUID": "af8df1af2bf24907ab9da07ad941204e",
+              "SpriteRUID": "49ed88dffd204f88919593612a691d4c",
               "StartFrameIndex": 0,
               "Enable": true
             }
@@ -15029,7 +15029,7 @@
               "EndFrameIndex": 2147483647,
               "RenderSetting": 0,
               "SortingLayer": "MapLayer0",
-              "SpriteRUID": "ebbb04ea08384037a777011ccc8b52be",
+              "SpriteRUID": "f14c34141e8e4219965db923242a33cb",
               "StartFrameIndex": 0,
               "Enable": true
             }
